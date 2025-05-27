@@ -1,4 +1,5 @@
 import { createSignal, onMount } from 'solid-js';
+import { TradeWidget } from '../widgets/TradeWidget';
 
 export default function Home() {
   const [status, setStatus] = createSignal('offline');
@@ -18,7 +19,8 @@ export default function Home() {
   return (
     <div class="p-6 text-xl">
       <div>
-        Service Status: <b>{status()}</b>
+        Service Status:: <b>{status()}</b>
+        <TradeWidget />
       </div>
     </div>
   );
