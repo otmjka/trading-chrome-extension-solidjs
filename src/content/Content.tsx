@@ -1,8 +1,8 @@
-import { TradeWidget } from '../widgets/TradeWidget';
+import { TradeWidget } from '../widgets1/TradeWidget';
 
 const Content = () => {
   return (
-    <div class="absolute top-0" style={{ top: '0px' }}>
+    <div class="ext-absolute ext-top-0" style={{ top: '0px' }}>
       <TradeWidget />
     </div>
   );

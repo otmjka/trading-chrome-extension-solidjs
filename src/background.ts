@@ -113,8 +113,18 @@ const initializeCabalService = () => {
   }
 };
 
-const start = async () => {
-  initializeCabalService();
-};
+// const start = async () => {
+//   initializeCabalService();
+// };
 
-start();
+// start();
+console.log('start background service');
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === 'INIT_CABAL') {
+    console.log('!!! INIT_CABAL !!!');
+    initializeCabalService();
+    sendResponse({ status: 'CabalService initialized' });
+  }
+  return true;
+});

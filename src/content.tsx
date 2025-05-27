@@ -1,6 +1,6 @@
 import { render } from 'solid-js/web';
 import App from './content/Content';
-
+import './styles.css';
 // function injectMemeBox() {
 // const url = new URL(window.location.href);
 // const parts = url.pathname.split('/');
