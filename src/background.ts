@@ -30,28 +30,35 @@ const cabalInstance = () => cabal;
 const setCabalInstance = (value: CabalService | null) => (cabal = value);
 
 let activeTab: number | undefined;
+const listeners: Array<number> = [];
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === 'INIT_CABAL') {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       const tabId = tabs[0]?.id;
       console.log('### INIT_CABAL ###', tabId);
+      if (!tabId) {
+        return;
+      }
       activeTab = tabId;
-      // if (tabId) {
-      //   setInterval(() => {
-      //     chrome.tabs.sendMessage(tabId, {
-      //       type: 'CABAL_EVENT',
-      //       eventName: 'error',
-      //       data: { connected: true },
-      //     });
-      //   }, 1000);
-      // }
+      listeners.push(tabId);
     });
-    // }
 
     sendResponse({ status: 'online' });
     return true;
   }
+});
+
+chrome.tabs.onActivated.addListener(function (activeInfo) {
+  console.log('Активная вкладка сменилась. ID вкладки:', activeInfo.tabId);
+
+  if (listeners.includes(activeInfo.tabId)) {
+    activeTab = activeInfo.tabId;
+  }
+
+  chrome.tabs.get(activeInfo.tabId, function (tab) {
+    console.log('URL новой активной вкладки:', tab.url);
+  });
 });
 
 // Функция для получения ID активной вкладки
