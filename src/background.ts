@@ -28,36 +28,79 @@ let reconnectTimeout: number | undefined = undefined;
 const cabalInstance = () => cabal;
 const setCabalInstance = (value: CabalService | null) => (cabal = value);
 
+let activeTab: number | undefined;
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === 'INIT_CABAL') {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      const tabId = tabs[0]?.id;
+      console.log('### INIT_CABAL ###', tabId);
+      activeTab = tabId;
+      // if (tabId) {
+      //   setInterval(() => {
+      //     chrome.tabs.sendMessage(tabId, {
+      //       type: 'CABAL_EVENT',
+      //       eventName: 'error',
+      //       data: { connected: true },
+      //     });
+      //   }, 1000);
+      // }
+    });
+    // }
+
+    sendResponse({ status: 'online' });
+    return true;
+  }
+});
+
 // Функция для получения ID активной вкладки
-function getActiveTabId(callback: (tabId: number | undefined) => void) {
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    if (tabs[0]) {
-      callback(tabs[0].id);
-    }
-  });
-}
+// function getActiveTabId(callback: (tabId: number | undefined) => void) {
+//   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+//     if (tabs[0]) {
+//       callback(tabs[0].id);
+//     }
+//   });
+// }
 
 // Функция для отправки сообщения активной вкладке
 function sendMessageToActiveTab(message: CabalMessage) {
-  getActiveTabId((tabId) => {
-    if (!tabId) {
-      console.log('active tab is undefined');
-      return;
+  // getActiveTabId((tabId) => {
+  //   if (!tabId) {
+  //     console.log('active tab is undefined');
+  //     return;
+  //   }
+  //   chrome.tabs.sendMessage(tabId, message, (response) => {
+  //     if (chrome.runtime.lastError) {
+  //       console.error(
+  //         'Error sending message:',
+  //         chrome.runtime.lastError.message,
+  //       );
+  //     } else {
+  //       console.log('Message sent to active tab:', message);
+  //     }
+  //   });
+  // });
+
+  // chrome.tabs.sendMessage(activeTab, {
+  //         type: 'CABAL_EVENT',
+  //         eventName: 'error',
+  //         data: { connected: true },
+  //       });
+  if (!activeTab) {
+    console.error('no active tab');
+    return;
+  }
+  chrome.tabs.sendMessage(activeTab, message, (response) => {
+    if (chrome.runtime.lastError) {
+      console.error('Error sending message:', chrome.runtime.lastError.message);
+    } else {
+      console.log('Message sent to active tab:', message);
     }
-    chrome.tabs.sendMessage(tabId, message, (response) => {
-      if (chrome.runtime.lastError) {
-        console.error(
-          'Error sending message:',
-          chrome.runtime.lastError.message,
-        );
-      } else {
-        console.log('Message sent to active tab:', message);
-      }
-    });
   });
 }
 
 const handleUserActivityConnected = () => {
+  console.info('UA CONNECTED');
   isUserActivityConnected = true;
   checkConnectionStatus();
 
@@ -71,7 +114,7 @@ const handleUserActivityPong = (eventValue: UserResponse) => {
   sendMessageToActiveTab({
     type: CabalMessageType.CabalEvent,
     eventName: CabalUserActivityStreamMessages.userActivityPong,
-    data: (eventValue as unknown as { count: bigint }).count,
+    data: (eventValue as unknown as { count: bigint }).count.toString(),
   });
 };
 
@@ -101,7 +144,7 @@ const handleTradeStreamPong = (eventValue: UserResponse) => {
   sendMessageToActiveTab({
     type: CabalMessageType.CabalEvent,
     eventName: CabalTradeStreamMessages.tradePong,
-    data: (eventValue as unknown as { count: bigint }).count,
+    data: (eventValue as unknown as { count: bigint }).count.toString(),
   });
 };
 

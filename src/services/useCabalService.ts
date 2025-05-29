@@ -29,7 +29,7 @@ const handleTradeError = () => {
   setCabalTradeStream('connected', false);
 };
 
-const messageListener = (message, sender, sendResponse) => {
+export const messageListener = (message, sender, sendResponse) => {
   console.log(`received message: ${message?.type} name: ${message?.eventName}`);
   const messageType = message?.type;
   if (messageType !== 'CABAL_EVENT') {
