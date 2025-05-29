@@ -23,6 +23,7 @@ let cabal: CabalService | null = null;
 
 let isUserActivityConnected = false;
 let isTradeConnected = false;
+let isReady = false;
 let reconnectTimeout: number | undefined = undefined;
 
 const cabalInstance = () => cabal;
@@ -111,16 +112,20 @@ const handleUserActivityConnected = () => {
 };
 
 const handleUserActivityPong = (eventValue: UserResponse) => {
+  console.log('###$$$', eventValue);
+  console.log('###$$$1', eventValue.count);
+  console.log('###$$$2', eventValue.count.count);
   sendMessageToActiveTab({
     type: CabalMessageType.CabalEvent,
     eventName: CabalUserActivityStreamMessages.userActivityPong,
-    data: (eventValue as unknown as { count: bigint }).count.toString(),
+    data: { count: eventValue.count.count.toString(), isReady },
   });
 };
 
 const handleUAError = () => {
   isUserActivityConnected = false;
   isTradeConnected = false;
+  isReady = false;
   console.error('User Activity Stream Error');
   scheduleReconnect();
   sendMessageToActiveTab({
@@ -144,13 +149,14 @@ const handleTradeStreamPong = (eventValue: UserResponse) => {
   sendMessageToActiveTab({
     type: CabalMessageType.CabalEvent,
     eventName: CabalTradeStreamMessages.tradePong,
-    data: (eventValue as unknown as { count: bigint }).count.toString(),
+    data: { count: eventValue.count.count.toString(), isReady },
   });
 };
 
 const handleTradeError = () => {
   isUserActivityConnected = false;
   isTradeConnected = false;
+  isReady = false;
   console.error('Trade Stream Error');
   scheduleReconnect();
   sendMessageToActiveTab({
@@ -185,6 +191,7 @@ const unsubscribe = (cabal: CabalService) => {
 
 function checkConnectionStatus() {
   if (isUserActivityConnected && isTradeConnected) {
+    isReady = true;
     console.log('Both streams connected successfully');
     // Additional logic for successful connection if needed
   }

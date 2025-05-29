@@ -7,28 +7,33 @@ import {
 } from './cabal-clinet-sdk';
 
 const handleUserActivityConnected = () =>
-  setCabalUserActivity('connected', true);
+  setCabalUserActivity('status', { isReady: true, count: '' });
 
-const handleUserActivityPong = (eventValue: UserResponse) => {
-  console.log('!!! UA PONG', eventValue);
-  setCabalUserActivity('pong', eventValue.count as { count: bigint });
+const handleUserActivityPong = (eventValue: {
+  count: string;
+  isReady: boolean;
+}) => {
+  setCabalUserActivity('status', eventValue);
 };
 
 const handleUserActivityError = () => {
-  setCabalUserActivity('connected', false);
+  setCabalUserActivity('status', undefined);
 };
 
 // Trades
 
-const handleTradeStreamConnected = () => setCabalTradeStream('connected', true);
+const handleTradeStreamConnected = () =>
+  setCabalTradeStream('status', { isReady: true, count: '' });
 
-const handleTradeStreamPong = (eventValue: UserResponse) => {
-  console.log('!!! Trades PONG', eventValue);
-  setCabalTradeStream('pong', eventValue.count as { count: bigint });
+const handleTradeStreamPong = (eventValue: {
+  count: string;
+  isReady: boolean;
+}) => {
+  setCabalTradeStream('status', eventValue);
 };
 
 const handleTradeError = () => {
-  setCabalTradeStream('connected', false);
+  setCabalTradeStream('status', undefined);
 };
 
 export const messageListener = (message, sender, sendResponse) => {

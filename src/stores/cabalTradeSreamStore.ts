@@ -1,13 +1,16 @@
 import { createStore } from 'solid-js/store';
 
+type Status = {
+  isReady: boolean;
+  count: string;
+};
+
 type CabalTradeStreamStore = {
-  connected: boolean;
-  pong: { count: bigint } | undefined;
+  status: Status | undefined;
 };
 
 const initValue = {
-  connected: false,
-  pong: undefined,
+  status: undefined,
 };
 
 const [cabalTradeStream, setCabalTradeStream] =

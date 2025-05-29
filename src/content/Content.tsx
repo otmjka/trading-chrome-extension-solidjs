@@ -9,8 +9,6 @@ const Content = () => {
   const [status, setStatus] = createSignal<boolean>(false);
   const { start, clean } = useStartCabalService();
 
-  // onCleanup(() => clean());
-
   const handleStart = () => {
     chrome.runtime.onMessage.addListener(messageListener);
 
@@ -18,6 +16,12 @@ const Content = () => {
       setStatus(res.status);
     });
   };
+
+  onMount(() => {
+    setTimeout(() => handleStart(), 500);
+  });
+
+  onCleanup(() => clean());
 
   return (
     <div class="ext-absolute ext-top-0 ext-bg-yellow-600 ext-p-2">
