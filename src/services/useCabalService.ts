@@ -10,6 +10,7 @@ const handleUserActivityConnected = () =>
   setCabalUserActivity('connected', true);
 
 const handleUserActivityPong = (eventValue: UserResponse) => {
+  console.log('!!! UA PONG', eventValue);
   setCabalUserActivity('pong', eventValue.count as { count: bigint });
 };
 
@@ -22,6 +23,7 @@ const handleUserActivityError = () => {
 const handleTradeStreamConnected = () => setCabalTradeStream('connected', true);
 
 const handleTradeStreamPong = (eventValue: UserResponse) => {
+  console.log('!!! Trades PONG', eventValue);
   setCabalTradeStream('pong', eventValue.count as { count: bigint });
 };
 
