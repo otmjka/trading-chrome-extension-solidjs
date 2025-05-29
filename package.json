@@ -28,6 +28,7 @@
     "@connectrpc/connect-web": "^2.0.2",
     "@kobalte/core": "^0.13.9",
     "@tanstack/solid-table": "^8.21.3",
+    "@thisbeyond/solid-dnd": "^0.7.5",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "events": "^3.3.0",

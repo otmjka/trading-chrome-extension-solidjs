@@ -88,7 +88,6 @@ class CabalService extends EventEmitter {
       this.createTradeStream();
       await this.tradesStream?.start();
     } catch (error) {
-      debugger;
       this.ready = false;
       console.log('Cabal Service Error');
       this.stop();
@@ -158,11 +157,9 @@ class CabalService extends EventEmitter {
     }
     switch (messageType) {
       case CabalStreamEvents.connected:
-        debugger;
         this.emit(CabalUserActivityStreamMessages.userActivityConnected);
         break;
       case CabalStreamEvents.error:
-        debugger;
         console.error('[[CabalService]]: UA stream error');
         this.stop();
         this.emit(CabalUserActivityStreamMessages.userActivityError);

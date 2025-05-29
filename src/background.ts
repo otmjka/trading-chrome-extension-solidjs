@@ -1,81 +1,54 @@
-import { config } from './backgroundConfig';
 import {
   CabalService,
-  CabalUserActivityStreamMessages,
   CabalTradeStreamMessages,
-  UserResponse,
-  TokenTradeStats,
-  TradeEvent,
-  TokenStatus,
+  CabalUserActivityStreamMessages,
 } from './services/cabal-clinet-sdk';
+import { config } from './background/backgroundConfig';
+
+console.log('start background service 5');
+
+const TIMEOUT = 500;
 
 let cabal: CabalService | null = null;
+
+let isUserActivityConnected = false;
+let isTradeConnected = false;
+let reconnectTimeout: number | undefined = undefined;
+
 const cabalInstance = () => cabal;
-const setCabalInstance = (newCabal: CabalService | null) => (cabal = newCabal);
+const setCabalInstance = (value: CabalService | null) => (cabal = value);
 
 const handleUserActivityConnected = () => {
-  // setCabalUserActivity('connected', true);
-  console.log(`handleUserActivityConnected 'connected', true`);
+  isUserActivityConnected = true;
+  checkConnectionStatus();
 };
 
-const handleUserActivityPong = (eventValue: UserResponse) => {
-  console.log(
-    `setCabalUserActivity('pong', eventValue.count as { count: bigint });`,
-  );
+const handleTradeStreamConnected = () => {
+  isTradeConnected = true;
+  checkConnectionStatus();
 };
 
-const handleTradeStreamConnected = () =>
-  console.log(`setCabalTradeStream('connected', true);`);
-
-const handleTradeStreamPong = (eventValue: UserResponse) => {
-  console.log(
-    `setCabalTradeStream('pong', eventValue.count as { count: bigint });`,
-  );
+const handleUAError = () => {
+  isUserActivityConnected = false;
+  isTradeConnected = false;
+  console.error('User Activity Stream Error');
+  scheduleReconnect();
 };
 
-const handleUserActivityDisconnected = () => {
-  console.log(`setCabalUserActivity('connected', false);`);
+const handleTradeError = () => {
+  isUserActivityConnected = false;
+  isTradeConnected = false;
+  console.error('Trade Stream Error');
+  scheduleReconnect();
 };
-
-const handleUserActivityTradeStats = (event: TokenTradeStats) => {
-  console.log(`const tokenTradeStats = event.value as TokenTradeStats;
-  addTokenTradeStats(tokenTradeStats);`);
-};
-
-const handleTradeEvent = (eventValue: TradeEvent) => {
-  console.log(`addTrade({
-    tradeEvent: {
-      value: eventValue.value.value,
-      type: eventValue.value.case,
-    },
-  });`);
-};
-
-const handleTradeTokenStatus = (eventValue: TokenStatus) => {
-  console.log(`const tokenStatus = eventValue.value.value as TokenStatus;
-  setTradeEventsStore('trades', []);
-  setTokenStatusStore('tokenStatus', tokenStatus);`);
-};
-
-const handleTradeError = () => {};
 
 const eventDict = {
   [CabalUserActivityStreamMessages.userActivityConnected]:
     handleUserActivityConnected,
-
-  [CabalUserActivityStreamMessages.userActivityPong]: handleUserActivityPong,
-
-  [CabalUserActivityStreamMessages.userActivityError]:
-    handleUserActivityDisconnected,
-
-  [CabalUserActivityStreamMessages.tradeStats]: handleUserActivityTradeStats,
+  [CabalUserActivityStreamMessages.userActivityError]: handleUAError,
 
   // trade streams
   [CabalTradeStreamMessages.tradeConnected]: handleTradeStreamConnected,
-  [CabalTradeStreamMessages.tradePong]: handleTradeStreamPong,
-  [CabalTradeStreamMessages.tradeEvent]: handleTradeEvent,
-  [CabalTradeStreamMessages.tokenStatus]: handleTradeTokenStatus,
-
   [CabalTradeStreamMessages.tradeError]: handleTradeError,
 };
 
@@ -91,7 +64,15 @@ const unsubscribe = (cabal: CabalService) => {
   }
 };
 
+function checkConnectionStatus() {
+  if (isUserActivityConnected && isTradeConnected) {
+    console.log('Both streams connected successfully');
+    // Additional logic for successful connection if needed
+  }
+}
+
 const initializeCabalService = () => {
+  console.log('initializeCabalService');
   const currentInstance = cabalInstance();
 
   if (currentInstance) {
@@ -108,23 +89,77 @@ const initializeCabalService = () => {
 
     subscribe(newCabal);
     newCabal.start();
-    cabal = newCabal;
     setCabalInstance(newCabal);
   }
 };
 
-// const start = async () => {
-//   initializeCabalService();
-// };
-
-// start();
-console.log('start background service');
-
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.type === 'INIT_CABAL') {
-    console.log('!!! INIT_CABAL !!!');
-    initializeCabalService();
-    sendResponse({ status: 'CabalService initialized' });
+function scheduleReconnect() {
+  // Clear any existing reconnect timeout
+  if (reconnectTimeout) {
+    clearTimeout(reconnectTimeout);
   }
-  return true;
+
+  // Reset connection flags
+  isUserActivityConnected = false;
+  isTradeConnected = false;
+
+  // Schedule reconnect
+  reconnectTimeout = setTimeout(() => {
+    console.log('Attempting to reconnect...');
+    initializeCabalService();
+  }, TIMEOUT);
+}
+
+const autoConnector = () => {
+  if (reconnectTimeout) {
+    clearTimeout(reconnectTimeout);
+  }
+
+  // Initialize connection
+  initializeCabalService();
+
+  return () => {
+    if (reconnectTimeout) {
+      clearTimeout(reconnectTimeout);
+    }
+    const currentInstance = cabalInstance();
+    if (currentInstance) {
+      unsubscribe(currentInstance);
+      currentInstance.stop();
+      setCabalInstance(null);
+    }
+  };
+};
+
+// Start the auto connector
+const cleanup = autoConnector();
+
+// Optional: Handle extension suspension/unload
+chrome.runtime.onSuspend.addListener(() => {
+  cleanup();
 });
+
+// new ConnectToCabalService()
+
+// chrome.runtime.onMessage.addListener()
+// <<<- принимаем
+/*
+// type: subscribe token
+
+
+когда
+при появлении 
+при изменении урла
+при явной смене токена
+
+
+// show
+возобновляем посылку событий
+
+// hide
+останавливаем посылку событий
+// close
+
+
+
+*/

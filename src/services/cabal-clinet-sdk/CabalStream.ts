@@ -172,7 +172,6 @@ class CabalStream<StreamResponse> {
   }
 
   onErrorAndDestoy(errorMessage: string, error: unknown | Error) {
-    debugger;
     console.error(errorMessage);
     this.onMessage(CabalStreamEvents.error, (error as Error).message);
     this.destroy();
