@@ -2,9 +2,19 @@ import {
   CabalService,
   CabalTradeStreamMessages,
   CabalUserActivityStreamMessages,
+  UserResponse,
 } from './services/cabal-clinet-sdk';
 import { config } from './background/backgroundConfig';
 
+type CabalMessage = {
+  type: string;
+  eventName: string;
+  data?: unknown;
+};
+
+enum CabalMessageType {
+  CabalEvent = 'CABAL_EVENT',
+}
 console.log('start background service 5');
 
 const TIMEOUT = 500;
@@ -18,14 +28,51 @@ let reconnectTimeout: number | undefined = undefined;
 const cabalInstance = () => cabal;
 const setCabalInstance = (value: CabalService | null) => (cabal = value);
 
+// Функция для получения ID активной вкладки
+function getActiveTabId(callback: (tabId: number | undefined) => void) {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (tabs[0]) {
+      callback(tabs[0].id);
+    }
+  });
+}
+
+// Функция для отправки сообщения активной вкладке
+function sendMessageToActiveTab(message: CabalMessage) {
+  getActiveTabId((tabId) => {
+    if (!tabId) {
+      console.log('active tab is undefined');
+      return;
+    }
+    chrome.tabs.sendMessage(tabId, message, (response) => {
+      if (chrome.runtime.lastError) {
+        console.error(
+          'Error sending message:',
+          chrome.runtime.lastError.message,
+        );
+      } else {
+        console.log('Message sent to active tab:', message);
+      }
+    });
+  });
+}
+
 const handleUserActivityConnected = () => {
   isUserActivityConnected = true;
   checkConnectionStatus();
+
+  sendMessageToActiveTab({
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalUserActivityStreamMessages.userActivityConnected,
+  });
 };
 
-const handleTradeStreamConnected = () => {
-  isTradeConnected = true;
-  checkConnectionStatus();
+const handleUserActivityPong = (eventValue: UserResponse) => {
+  sendMessageToActiveTab({
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalUserActivityStreamMessages.userActivityPong,
+    data: (eventValue as unknown as { count: bigint }).count,
+  });
 };
 
 const handleUAError = () => {
@@ -33,6 +80,29 @@ const handleUAError = () => {
   isTradeConnected = false;
   console.error('User Activity Stream Error');
   scheduleReconnect();
+  sendMessageToActiveTab({
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalUserActivityStreamMessages.userActivityError,
+  });
+};
+
+// Trades
+
+const handleTradeStreamConnected = () => {
+  isTradeConnected = true;
+  checkConnectionStatus();
+  sendMessageToActiveTab({
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalTradeStreamMessages.tradeConnected,
+  });
+};
+
+const handleTradeStreamPong = (eventValue: UserResponse) => {
+  sendMessageToActiveTab({
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalTradeStreamMessages.tradePong,
+    data: (eventValue as unknown as { count: bigint }).count,
+  });
 };
 
 const handleTradeError = () => {
@@ -40,15 +110,21 @@ const handleTradeError = () => {
   isTradeConnected = false;
   console.error('Trade Stream Error');
   scheduleReconnect();
+  sendMessageToActiveTab({
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalTradeStreamMessages.tradeError,
+  });
 };
 
 const eventDict = {
   [CabalUserActivityStreamMessages.userActivityConnected]:
     handleUserActivityConnected,
+  [CabalUserActivityStreamMessages.userActivityPong]: handleUserActivityPong,
   [CabalUserActivityStreamMessages.userActivityError]: handleUAError,
 
   // trade streams
   [CabalTradeStreamMessages.tradeConnected]: handleTradeStreamConnected,
+  [CabalTradeStreamMessages.tradePong]: handleTradeStreamPong,
   [CabalTradeStreamMessages.tradeError]: handleTradeError,
 };
 
