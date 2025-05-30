@@ -4,11 +4,12 @@ import {
   useStartCabalService,
 } from '../services/useCabalService';
 import { OnlineStatusWidged } from '../widgets/OnlineStatusWidged/OnlineStatusWidged';
+import { onUrlChange } from './onUrlChange';
 
 const Content = () => {
   const [status, setStatus] = createSignal<boolean>(false);
   const { start, clean } = useStartCabalService();
-
+  const [urlValue, setUrlValue] = createSignal<string>('');
   const handleStart = () => {
     chrome.runtime.onMessage.addListener(messageListener);
 
@@ -17,8 +18,13 @@ const Content = () => {
     });
   };
 
+  const handleOnUrlChange = (url) => {
+    setUrlValue(url);
+  };
+
   onMount(() => {
     setTimeout(() => handleStart(), 500);
+    onUrlChange(handleOnUrlChange);
   });
 
   onCleanup(() => clean());
@@ -30,6 +36,7 @@ const Content = () => {
         <button onClick={() => handleStart()}>start</button>
         <OnlineStatusWidged />
       </div>
+      <div class="ext-flex">url: {urlValue()}</div>
     </div>
   );
 };
