@@ -61,39 +61,7 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
   });
 });
 
-// Функция для получения ID активной вкладки
-// function getActiveTabId(callback: (tabId: number | undefined) => void) {
-//   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-//     if (tabs[0]) {
-//       callback(tabs[0].id);
-//     }
-//   });
-// }
-
-// Функция для отправки сообщения активной вкладке
 function sendMessageToActiveTab(message: CabalMessage) {
-  // getActiveTabId((tabId) => {
-  //   if (!tabId) {
-  //     console.log('active tab is undefined');
-  //     return;
-  //   }
-  //   chrome.tabs.sendMessage(tabId, message, (response) => {
-  //     if (chrome.runtime.lastError) {
-  //       console.error(
-  //         'Error sending message:',
-  //         chrome.runtime.lastError.message,
-  //       );
-  //     } else {
-  //       console.log('Message sent to active tab:', message);
-  //     }
-  //   });
-  // });
-
-  // chrome.tabs.sendMessage(activeTab, {
-  //         type: 'CABAL_EVENT',
-  //         eventName: 'error',
-  //         data: { connected: true },
-  //       });
   if (!activeTab) {
     console.error('no active tab');
     return;
@@ -119,9 +87,6 @@ const handleUserActivityConnected = () => {
 };
 
 const handleUserActivityPong = (eventValue: UserResponse) => {
-  console.log('###$$$', eventValue);
-  console.log('###$$$1', eventValue.count);
-  console.log('###$$$2', eventValue.count.count);
   sendMessageToActiveTab({
     type: CabalMessageType.CabalEvent,
     eventName: CabalUserActivityStreamMessages.userActivityPong,
@@ -271,28 +236,3 @@ const cleanup = autoConnector();
 chrome.runtime.onSuspend.addListener(() => {
   cleanup();
 });
-
-// new ConnectToCabalService()
-
-// chrome.runtime.onMessage.addListener()
-// <<<- принимаем
-/*
-// type: subscribe token
-
-
-когда
-при появлении 
-при изменении урла
-при явной смене токена
-
-
-// show
-возобновляем посылку событий
-
-// hide
-останавливаем посылку событий
-// close
-
-
-
-*/
