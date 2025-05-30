@@ -8,4 +8,5 @@ export enum BackgroundAppConfig {
 
 export enum BackgroundMessages {
   INIT_CABAL = 'INIT_CABAL',
+  SUBSCRIBE_TOKEN = 'SUBSCRIBE_TOKEN',
 }
