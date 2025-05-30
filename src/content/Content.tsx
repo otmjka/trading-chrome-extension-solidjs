@@ -5,6 +5,8 @@ import {
 } from '../services/useCabalService';
 import { OnlineStatusWidged } from '../widgets/OnlineStatusWidged/OnlineStatusWidged';
 import { onUrlChange } from './onUrlChange';
+import { setCabalUserActivity } from '../stores/cabalUserActivity';
+import { setCabalTradeStream } from '../stores/cabalTradeSreamStore';
 
 const Content = () => {
   const [status, setStatus] = createSignal<boolean>(false);
@@ -13,9 +15,27 @@ const Content = () => {
   const handleStart = () => {
     chrome.runtime.onMessage.addListener(messageListener);
 
-    chrome.runtime.sendMessage({ type: 'INIT_CABAL' }, (res) => {
-      setStatus(res.status);
-    });
+    chrome.runtime.sendMessage(
+      {
+        type: 'INIT_CABAL',
+        data: {
+          url: location.href,
+        },
+      },
+      (res) => {
+        setUrlValue(res.url);
+        if (res.isReady) {
+          setCabalUserActivity('status', {
+            isReady: true,
+            count: String(Date.now()),
+          });
+          setCabalTradeStream('status', {
+            isReady: true,
+            count: String(Date.now()),
+          });
+        }
+      },
+    );
   };
 
   const handleOnUrlChange = (url) => {
