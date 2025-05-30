@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Axiom Trade Extension",
+  "name": "Cabal bot",
   "version": "1.0.0",
   "permissions": ["activeTab", "scripting"],
   "host_permissions": ["<all_urls>"],

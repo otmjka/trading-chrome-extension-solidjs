@@ -2,10 +2,17 @@ import {
   CabalService,
   CabalTradeStreamMessages,
   CabalUserActivityStreamMessages,
+  TokenStatus,
+  TokenTradeStats,
+  TradeEvent,
   UserResponse,
 } from './services/cabal-clinet-sdk';
 import { config } from './background/backgroundConfig';
 import { BackgroundMessages } from './background/enums';
+import { getTokenGMGNAI } from './background/getTokenGMGNAI';
+import { queryActiveTab } from './background/helpers/queryActiveTab';
+import { ContentListeners } from './background/types';
+import { initCabalOnTab } from './background/helpers/initCabalOnTab';
 
 type CabalMessage = {
   type: string;
@@ -31,7 +38,11 @@ const cabalInstance = () => cabal;
 const setCabalInstance = (value: CabalService | null) => (cabal = value);
 
 let activeTab: number | undefined;
-const listeners: Array<{ tabId: number; url: string }> = [];
+const listeners: ContentListeners = [];
+
+const setActiveTab = (newActiveTab: number) => {
+  activeTab = newActiveTab;
+};
 
 const handleMessagesToBackground = (
   message: any,
@@ -40,39 +51,42 @@ const handleMessagesToBackground = (
 ) => {
   switch (message.type) {
     case BackgroundMessages.INIT_CABAL:
-      initCabalOnTab({ sendResponse, message });
-      break;
+      initCabalOnTab({
+        sendResponse,
+        message,
+        state: { isReady, listeners, setActiveTab },
+      });
+      return true;
+    case BackgroundMessages.SUBSCRIBE_TOKEN:
+      handleSubscribeTokenMessage({ sendResponse, message });
+      return true;
     default:
       console.log(`no handler for event ${message.type}`);
       break;
   }
 };
 
-const initCabalOnTab = ({
+const handleSubscribeTokenMessage = async ({
   sendResponse,
   message,
 }: {
   sendResponse: (response?: any) => void;
   message: any;
 }) => {
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    const tabId = tabs[0]?.id;
-    console.log('### INIT_CABAL ###', tabId, message.url);
-    if (!tabId) {
-      return;
-    }
-    activeTab = tabId;
-    listeners.push({
-      tabId,
-      url: message.url,
-    });
-  });
+  const tabs = await queryActiveTab();
+  const tabId = tabs[0]?.id;
+  const listener = getListener(tabId);
 
-  sendResponse({ isReady, url: message?.data?.url });
-  return true;
+  console.log('### SUBSCRIBE_TOKEN ###', tabId, listener?.mint);
+  const cabalValue = cabalInstance();
+  if (cabalValue && listener && listener.mint) {
+    cabalValue.subscribeToken(listener?.mint);
+  }
+  sendResponse({ isReady });
 };
-const getListener = (tabId: number) =>
-  listeners.find((item) => item.tabId === tabId);
+
+const getListener = (tabId?: number) =>
+  tabId ? listeners.find((item) => item.tabId === tabId) : undefined;
 
 const changeTab = (activeInfo: chrome.tabs.TabActiveInfo) => {
   console.log('Активная вкладка сменилась. ID вкладки:', activeInfo.tabId);
@@ -86,6 +100,7 @@ const changeTab = (activeInfo: chrome.tabs.TabActiveInfo) => {
   chrome.tabs.get(activeInfo.tabId, function (tab) {
     console.log('URL новой активной вкладки:', tab.url);
     console.log('URL listener', listener.url);
+    console.log('mint', listener.mint);
   });
 };
 
@@ -94,7 +109,6 @@ chrome.tabs.onActivated.addListener(changeTab);
 
 function sendMessageToActiveTab(message: CabalMessage) {
   if (!activeTab) {
-    console.error('no active tab');
     return;
   }
   chrome.tabs.sendMessage(activeTab, message, (response) => {
@@ -122,6 +136,29 @@ const handleUserActivityPong = (eventValue: UserResponse) => {
     type: CabalMessageType.CabalEvent,
     eventName: CabalUserActivityStreamMessages.userActivityPong,
     data: { count: eventValue.count.count.toString(), isReady },
+  });
+};
+
+const handleUserActivityTradeStats = (event: TokenTradeStats) => {
+  const tokenTradeStats = event.value as TokenTradeStats;
+  console.log('handleUserActivityTradeStats', tokenTradeStats);
+  sendMessageToActiveTab({
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalUserActivityStreamMessages.tradeStats,
+    data: {
+      mint: tokenTradeStats.mint,
+      tokenBalance: tokenTradeStats.tokenBalance.toString(),
+      buyQoute: tokenTradeStats.buyQoute.toString(),
+      sellQoute: tokenTradeStats.sellQoute.toString(),
+      buyBase: tokenTradeStats.buyBase.toString(),
+      sellBase: tokenTradeStats.sellBase.toString(),
+      buys: tokenTradeStats.buys,
+      sells: tokenTradeStats.sells,
+      solBalance: tokenTradeStats.solBalance.toString(),
+      lastTradedSlot: tokenTradeStats.lastTradedSlot.toString(),
+      tokenDecimals: tokenTradeStats.tokenDecimals,
+      qouteKind: tokenTradeStats.qouteKind,
+    },
   });
 };
 
@@ -156,6 +193,54 @@ const handleTradeStreamPong = (eventValue: UserResponse) => {
   });
 };
 
+const handleTradeTokenStatus = (eventValue: TokenStatus) => {
+  const tokenStatus = eventValue.value.value as TokenStatus;
+  console.log('handleTradeTokenStatus', tokenStatus);
+  sendMessageToActiveTab({
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalTradeStreamMessages.tokenStatus,
+    data: {
+      mint: tokenStatus.mint,
+      poolId: tokenStatus.poolId,
+      poolKind: tokenStatus.poolKind,
+      migrationStatus: tokenStatus.migrationStatus,
+      supply: tokenStatus.supply.toString(),
+      baseLiq: tokenStatus.baseLiq.toString(),
+      quoteLiq: tokenStatus.quoteLiq.toString(),
+      qouteKind: tokenStatus.qouteKind,
+      taxBps: tokenStatus.taxBps,
+      ticker: tokenStatus.ticker,
+    },
+  });
+};
+
+const handleTradeEvent = (eventValue: TradeEvent) => {
+  const timestamp = Date.now();
+  const data = eventValue.value.value;
+  const {
+    amountSol, // : bigint;
+    baseLiq, // : bigint;
+    quoteLiq, // : bigint;
+    poolKind, // : PoolKind;
+  } = data;
+  const eventDataValue = {
+    type: eventValue.value.case,
+    value: {
+      timestamp,
+      amountSol: amountSol.toString(), // : bigint;
+      baseLiq: baseLiq.toString(), // : bigint;
+      quoteLiq: quoteLiq.toString(), // : bigint;
+      poolKind: poolKind, // : PoolKind;
+    },
+  };
+  console.log('handleTradeEvent', eventDataValue);
+  sendMessageToActiveTab({
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalTradeStreamMessages.tokenStatus,
+    data: eventDataValue,
+  });
+};
+
 const handleTradeError = () => {
   isUserActivityConnected = false;
   isTradeConnected = false;
@@ -172,11 +257,16 @@ const eventDict = {
   [CabalUserActivityStreamMessages.userActivityConnected]:
     handleUserActivityConnected,
   [CabalUserActivityStreamMessages.userActivityPong]: handleUserActivityPong,
+  [CabalUserActivityStreamMessages.tradeStats]: handleUserActivityTradeStats,
   [CabalUserActivityStreamMessages.userActivityError]: handleUAError,
 
   // trade streams
   [CabalTradeStreamMessages.tradeConnected]: handleTradeStreamConnected,
   [CabalTradeStreamMessages.tradePong]: handleTradeStreamPong,
+
+  [CabalTradeStreamMessages.tokenStatus]: handleTradeTokenStatus,
+
+  [CabalTradeStreamMessages.tradeEvent]: handleTradeEvent,
   [CabalTradeStreamMessages.tradeError]: handleTradeError,
 };
 
@@ -265,5 +355,6 @@ const cleanup = autoConnector();
 
 // Optional: Handle extension suspension/unload
 chrome.runtime.onSuspend.addListener(() => {
+  console.log('### Sleep ###');
   cleanup();
 });

@@ -1,8 +1,11 @@
+import { setLogStore } from '../content/logStore';
 import { setCabalTradeStream } from '../stores/cabalTradeSreamStore';
 import { setCabalUserActivity } from '../stores/cabalUserActivity';
 import {
   CabalTradeStreamMessages,
   CabalUserActivityStreamMessages,
+  PoolKind,
+  TokenTradeStats,
   UserResponse,
 } from './cabal-clinet-sdk';
 
@@ -14,6 +17,11 @@ const handleUserActivityPong = (eventValue: {
   isReady: boolean;
 }) => {
   setCabalUserActivity('status', eventValue);
+};
+
+const handleUserActivityTradeStats = (event) => {
+  console.log('!!!!!!!handleUserActivityTradeStats', event);
+  setLogStore('logs', (prev) => [...prev, { type: 'tokenTradeStats', event }]);
 };
 
 const handleUserActivityError = () => {
@@ -32,6 +40,24 @@ const handleTradeStreamPong = (eventValue: {
   setCabalTradeStream('status', eventValue);
 };
 
+const handleTradeEvent = (event: {
+  type: string;
+  value: {
+    timestamp: number;
+    amountSol: string;
+    baseLiq: string;
+    quoteLiq: string;
+    poolKind: PoolKind;
+  };
+}) => {
+  const tokenTradeStats = event.value;
+  setLogStore('logs', (prev) => [...prev, { type: 'tradeEvent', event }]);
+};
+
+const handleTradeTokenStatus = (event: TokenStatus) => {
+  setLogStore('logs', (prev) => [...prev, { type: 'tokenStatus', event }]);
+};
+
 const handleTradeError = () => {
   setCabalTradeStream('status', undefined);
 };
@@ -40,6 +66,7 @@ export const messageListener = (message, sender, sendResponse) => {
   console.log(`received message: ${message?.type} name: ${message?.eventName}`);
   const messageType = message?.type;
   if (messageType !== 'CABAL_EVENT') {
+    sendResponse({ ok: true });
     return;
   }
   const messageEventName = message?.eventName;
@@ -51,6 +78,9 @@ export const messageListener = (message, sender, sendResponse) => {
     case CabalUserActivityStreamMessages.userActivityPong:
       handleUserActivityPong(message.data);
       break;
+    case CabalUserActivityStreamMessages.tradeStats:
+      handleUserActivityTradeStats(message.data);
+      break;
     case CabalUserActivityStreamMessages.userActivityError:
       handleUserActivityError();
       break;
@@ -61,6 +91,12 @@ export const messageListener = (message, sender, sendResponse) => {
     case CabalTradeStreamMessages.tradePong:
       handleTradeStreamPong(message.data);
       break;
+    case CabalTradeStreamMessages.tradeEvent:
+      handleTradeEvent(message.data);
+      break;
+    case CabalTradeStreamMessages.tokenStatus:
+      handleTradeTokenStatus(message.data);
+      break;
     case CabalTradeStreamMessages.tradeError:
       handleTradeError();
       break;
@@ -68,6 +104,7 @@ export const messageListener = (message, sender, sendResponse) => {
     default:
       console.log(`unknown message: ${messageType}`);
   }
+  sendResponse({ ok: true });
 };
 
 export function useStartCabalService() {
