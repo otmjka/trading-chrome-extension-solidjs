@@ -109,7 +109,8 @@ class CabalStream<StreamResponse> {
         this.onMessage(CabalStreamEvents.message, response);
       }
     } catch (error) {
-      this.onErrorAndDestoy(`[${this.nameStream}]: listen error `, error);
+      console.error(error);
+      // this.onErrorAndDestoy(`[${this.nameStream}]: listen error `, error);
     }
   }
 
