@@ -1,4 +1,5 @@
-import { getTokenGMGNAI } from '../getTokenGMGNAI';
+import { BgInitMessageResponse } from '../../shared/types';
+import { getTokenGMGNAI } from '../../utils/getTokenGMGNAI';
 import { ContentListeners } from '../types';
 import { queryActiveTab } from './queryActiveTab';
 
@@ -7,7 +8,7 @@ export const initCabalOnTab = async ({
   message,
   state,
 }: {
-  sendResponse: (response?: any) => void;
+  sendResponse: (response?: BgInitMessageResponse) => void;
   message: any;
   state: {
     isReady: boolean;

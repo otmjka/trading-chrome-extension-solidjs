@@ -1,13 +1,20 @@
 import { setLogStore } from '../content/logStore';
+import {
+  CabalMessageType,
+  FromBackgroundMessage,
+  Mint,
+  SendResponse,
+} from '../shared/types';
 import { setCabalTradeStream } from '../stores/cabalTradeSreamStore';
 import { setCabalUserActivity } from '../stores/cabalUserActivity';
 import {
   CabalTradeStreamMessages,
   CabalUserActivityStreamMessages,
   PoolKind,
-  TokenTradeStats,
-  UserResponse,
 } from './cabal-clinet-sdk';
+import { startListnenBackgroundMessages } from './chrome-extension/backgroundMessageHandler';
+import { registerTab } from './registerTab';
+import { subscribeToken } from './subscribeToken';
 
 const handleUserActivityConnected = () =>
   setCabalUserActivity('status', { isReady: true, count: '' });
@@ -62,10 +69,15 @@ const handleTradeError = () => {
   setCabalTradeStream('status', undefined);
 };
 
-export const messageListener = (message, sender, sendResponse) => {
+export const messageListener = (
+  message: FromBackgroundMessage,
+  sender: any,
+  sendResponse: SendResponse,
+) => {
   console.log(`received message: ${message?.type} name: ${message?.eventName}`);
+
   const messageType = message?.type;
-  if (messageType !== 'CABAL_EVENT') {
+  if (messageType !== CabalMessageType.CabalEvent) {
     sendResponse({ ok: true });
     return;
   }
@@ -109,7 +121,9 @@ export const messageListener = (message, sender, sendResponse) => {
 
 export function useStartCabalService() {
   return {
-    start: () => chrome.runtime.onMessage.addListener(messageListener),
+    registerTab,
+    subscribeToken,
+    startListen: () => startListnenBackgroundMessages(messageListener),
     clean: () => chrome.runtime.onMessage.removeListener(messageListener),
   };
 }

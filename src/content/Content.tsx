@@ -1,47 +1,26 @@
-import { createSignal, For, onCleanup, onMount } from 'solid-js';
-import {
-  messageListener,
-  useStartCabalService,
-} from '../services/useCabalService';
+import { createEffect, createSignal, For, onCleanup, onMount } from 'solid-js';
+import { useStartCabalService } from '../services/useCabalService';
 import { OnlineStatusWidged } from '../widgets/OnlineStatusWidged/OnlineStatusWidged';
 import { onUrlChange } from './onUrlChange';
-import { setCabalUserActivity } from '../stores/cabalUserActivity';
-import { setCabalTradeStream } from '../stores/cabalTradeSreamStore';
 import { logStore } from './logStore';
-import { BackgroundMessages } from '../background/enums';
+import { contentAppStore } from './contentAppStore';
 
 const Content = () => {
   const [status, setStatus] = createSignal<boolean>(false);
-  const { start, clean } = useStartCabalService();
+  const { startListen, registerTab, subscribeToken, clean } =
+    useStartCabalService();
   const [urlValue, setUrlValue] = createSignal<string>('');
-  const [mint, setMint] = createSignal<string>('');
+  const [isReady, seIstReady] = createSignal<boolean>(false);
+
+  createEffect(() => {
+    if (!contentAppStore.isReady || !contentAppStore.mint) {
+      return;
+    }
+  });
+
   const handleStart = () => {
-    chrome.runtime.onMessage.addListener(messageListener);
-
-    chrome.runtime.sendMessage(
-      {
-        type: BackgroundMessages.INIT_CABAL,
-        data: {
-          url: location.href,
-        },
-      },
-      (res) => {
-        console.log('###', res);
-        setUrlValue(res.url);
-        setMint(res.mint);
-
-        if (res.isReady) {
-          setCabalUserActivity('status', {
-            isReady: true,
-            count: String(Date.now()),
-          });
-          setCabalTradeStream('status', {
-            isReady: true,
-            count: String(Date.now()),
-          });
-        }
-      },
-    );
+    startListen();
+    registerTab({ locationHref: location.href });
   };
 
   const handleOnUrlChange = (url) => {
@@ -49,21 +28,24 @@ const Content = () => {
   };
 
   onMount(() => {
-    setTimeout(() => handleStart(), 500);
+    setTimeout(() => handleStart(), 100);
     onUrlChange(handleOnUrlChange);
   });
 
   onCleanup(() => clean());
+
   const handleSubscribe = () => {
-    chrome.runtime.sendMessage(
-      {
-        type: BackgroundMessages.SUBSCRIBE_TOKEN,
+    if (!contentAppStore.mint) {
+      return;
+    }
+    subscribeToken({
+      mint: contentAppStore.mint,
+      cb: (res) => {
+        console.log('$$$', res);
       },
-      (res) => {
-        console.log('$$$', BackgroundMessages.SUBSCRIBE_TOKEN, res);
-      },
-    );
+    });
   };
+
   return (
     <div class="ext-absolute ext-top-0 ext-bg-yellow-600 ext-p-2">
       <div class="ext-flex ext-gap-2">
@@ -72,7 +54,7 @@ const Content = () => {
         <OnlineStatusWidged />
       </div>
       <div class="ext-flex">url: {urlValue()}</div>
-      <div class="ext-flex">mint: {mint()}</div>
+      <div class="ext-flex">mint: {contentAppStore.mint}</div>
       <div class="ext-flex">
         <For each={logStore.logs}>{(logItem) => <div>{logItem.type}</div>}</For>
       </div>
