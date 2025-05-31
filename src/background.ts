@@ -8,24 +8,25 @@ import {
   UserResponse,
 } from './services/cabal-clinet-sdk';
 import { config } from './background/backgroundConfig';
-import { BackgroundMessages } from './background/enums';
-import { getTokenGMGNAI } from './background/getTokenGMGNAI';
+import { BackgroundAppConfig } from './background/enums';
 import { queryActiveTab } from './background/helpers/queryActiveTab';
 import { ContentListeners } from './background/types';
 import { initCabalOnTab } from './background/helpers/initCabalOnTab';
+import {
+  BackgroundMessages,
+  CabalMessageType,
+  FromBackgroundMessage,
+  MessageToBgPayload,
+  SubscribeTokenPayloadMessage,
+} from './shared/types';
+
+console.log('start background service 5');
 
 type CabalMessage = {
   type: string;
   eventName: string;
   data?: unknown;
 };
-
-enum CabalMessageType {
-  CabalEvent = 'CABAL_EVENT',
-}
-console.log('start background service 5');
-
-const TIMEOUT = 500;
 
 let cabal: CabalService | null = null;
 
@@ -45,10 +46,11 @@ const setActiveTab = (newActiveTab: number) => {
 };
 
 const handleMessagesToBackground = (
-  message: any,
+  message: MessageToBgPayload,
   sender: chrome.runtime.MessageSender,
   sendResponse: (response?: any) => void,
 ) => {
+  console.log('%%% %%% receive', message, sender);
   switch (message.type) {
     case BackgroundMessages.INIT_CABAL:
       initCabalOnTab({
@@ -58,10 +60,13 @@ const handleMessagesToBackground = (
       });
       return true;
     case BackgroundMessages.SUBSCRIBE_TOKEN:
-      handleSubscribeTokenMessage({ sendResponse, message });
+      handleSubscribeTokenMessage({
+        sendResponse,
+        message: message as SubscribeTokenPayloadMessage,
+      });
       return true;
     default:
-      console.log(`no handler for event ${message.type}`);
+      console.log(`no handler for event`, message);
       break;
   }
 };
@@ -107,7 +112,7 @@ const changeTab = (activeInfo: chrome.tabs.TabActiveInfo) => {
 chrome.runtime.onMessage.addListener(handleMessagesToBackground);
 chrome.tabs.onActivated.addListener(changeTab);
 
-function sendMessageToActiveTab(message: CabalMessage) {
+function sendMessageToActiveTab(message: FromBackgroundMessage) {
   if (!activeTab) {
     return;
   }
@@ -326,7 +331,7 @@ function scheduleReconnect() {
   reconnectTimeout = setTimeout(() => {
     console.log('Attempting to reconnect...');
     initializeCabalService();
-  }, TIMEOUT);
+  }, BackgroundAppConfig.reconnectTimeout);
 }
 
 const autoConnector = () => {
