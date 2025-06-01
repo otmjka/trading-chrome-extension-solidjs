@@ -7,10 +7,12 @@ import {
 } from '../shared/types';
 import { setCabalTradeStream } from '../stores/cabalTradeSreamStore';
 import { setCabalUserActivity } from '../stores/cabalUserActivity';
+import { setTradeWidgetState } from '../widgets/TradeWidget/tradeWidgetStateStore';
 import {
   CabalTradeStreamMessages,
   CabalUserActivityStreamMessages,
   PoolKind,
+  TokenStatus,
 } from './cabal-clinet-sdk';
 import { startListnenBackgroundMessages } from './chrome-extension/backgroundMessageHandler';
 import { registerTab } from './registerTab';
@@ -63,6 +65,7 @@ const handleTradeEvent = (event: {
 
 const handleTradeTokenStatus = (event: TokenStatus) => {
   setLogStore('logs', (prev) => [...prev, { type: 'tokenStatus', event }]);
+  setTradeWidgetState('tokenStatus', event);
 };
 
 const handleTradeError = () => {
@@ -119,10 +122,28 @@ export const messageListener = (
   sendResponse({ ok: true });
 };
 
+export const marketBuy = async ({
+  amount,
+  mint,
+}: {
+  amount: number;
+  mint: Mint;
+}) => {};
+
+export const marketSell = async ({
+  percents,
+  mint,
+}: {
+  percents: number;
+  mint: Mint;
+}) => {};
+
 export function useStartCabalService() {
   return {
     registerTab,
     subscribeToken,
+    marketBuy,
+    marketSell,
     startListen: () => startListnenBackgroundMessages(messageListener),
     clean: () => chrome.runtime.onMessage.removeListener(messageListener),
   };
