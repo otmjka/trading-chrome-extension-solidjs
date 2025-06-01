@@ -18,7 +18,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["*.html", "*.js", "*.css"],
+      "resources": ["assets2/*", "assets-content/*", "*.html", "*.js", "*.css"],
       "matches": ["<all_urls>"]
     }
   ]

@@ -4,15 +4,17 @@ import { OnlineStatusWidged } from '../widgets/OnlineStatusWidged/OnlineStatusWi
 import { onUrlChange } from './onUrlChange';
 import { logStore } from './logStore';
 import { contentAppStore } from './contentAppStore';
+import { TradeWidget } from '../widgets/TradeWidget';
 
 const Content = () => {
   const [status, setStatus] = createSignal<boolean>(false);
   const { startListen, registerTab, subscribeToken, clean } =
     useStartCabalService();
   const [urlValue, setUrlValue] = createSignal<string>('');
-  const [isReady, seIstReady] = createSignal<boolean>(false);
+  const [isReady, seIsReady] = createSignal<boolean>(false);
 
   createEffect(() => {
+    seIsReady(contentAppStore.isReady);
     if (!contentAppStore.isReady || !contentAppStore.mint) {
       return;
     }
@@ -58,6 +60,7 @@ const Content = () => {
       <div class="ext-flex">
         <For each={logStore.logs}>{(logItem) => <div>{logItem.type}</div>}</For>
       </div>
+      <TradeWidget />
     </div>
   );
 };
