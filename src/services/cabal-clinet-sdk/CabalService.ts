@@ -12,7 +12,10 @@ import {
   streamNames,
   CabalTradeStreamMessages,
 } from './CabalServiceTypes';
-import { CabalUserActivityStreamMessages } from '.';
+
+import { CabalUserActivityStreamMessages, Direction, Side, Trigger } from '.';
+import { defaultState } from './cabalEnums';
+import { toLamports } from '../../widgets/TradeWidget/helpers/toLamports';
 
 class CabalService extends EventEmitter {
   client: ReturnType<typeof createGRPCCabalClient>;
@@ -112,10 +115,106 @@ class CabalService extends EventEmitter {
       console.error('subscribeToken', error);
     }
   }
-  // CabalRpc -> MarketSell
-  // CabalRpc -> MarketBuy
-  // CabalRpc -> GetTokenLimitOrders
   // CabalRpc -> PlaceLimitOrders
+  async placeLimitOrders({ mint }: { mint: string }) {
+    try {
+      debugger;
+      const result = await this.client.placeLimitOrders({
+        mint, // 7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr
+        orders: [
+          {
+            // id?
+            slippageBps: defaultState.sell_slippage, // 20
+            tip: toLamports(defaultState.sell_tip), // 0.001 * 1_000_000_000
+            target: {
+              targetType: {
+                case: 'price',
+                value: {
+                  price: 0.0027, // цена в SOL
+                  direction: Direction.ABOVE,
+                },
+              },
+            },
+            side: Side.SELL,
+            amount: {
+              amountType: {
+                case: 'percBps',
+                value: 500, // 10%
+                // case: 'fixed'
+                // value: 1_000_000_000n, // 1 POPCAT, 9 decimals
+              },
+            },
+            trigger: Trigger.IMMEDIATE,
+          },
+        ],
+      });
+
+      console.log('sell result::::', result);
+      return result;
+    } catch (error) {
+      console.error('error token sell', error);
+    }
+  }
+
+  // CabalRpc -> MarketSell
+  async marketSell({ mint, percents }: { mint: string; percents: number }) {
+    try {
+      debugger;
+      if (percents > 100 || percents <= 0) {
+        throw new Error('should be in range of [0;100]');
+      }
+      const sellParams = {
+        amountBps: percents * 100,
+        mint,
+        slippageBps: defaultState.sell_slippage,
+        tip: toLamports(defaultState.sell_tip),
+      };
+      console.log('### sell params', sellParams);
+      const result = await this.client.marketSell(sellParams);
+
+      console.log('sell result::::', result);
+      return result;
+    } catch (error) {
+      console.error('error token sell', error);
+    }
+  }
+  // CabalRpc -> MarketBuy
+  async marketBuy({
+    amount,
+    mint,
+  }: {
+    amount: number; // [0.5, 1, 2, 5 ]
+    mint: string;
+  }) {
+    try {
+      debugger;
+      const buyParams = {
+        amount: toLamports(amount),
+        mint,
+        slippageBps: defaultState.buy_slippage,
+        tip: toLamports(defaultState.buy_tip),
+      };
+      console.log('### buy params', buyParams);
+      const result = await this.client.marketBuy(buyParams);
+      // {
+      //   amount,
+      //   mint,
+      //   slippageBps: defaultState.buy_slippage,
+      //   tip: toLamports(defaultState.buy_tip),
+      //   // priorityFee,
+      //   // nonce,
+      //   // slotLatency,
+      //   // expireAt,
+      //   // qouteKind,
+      // });
+      console.log('buy', result);
+      return result;
+    } catch (error) {
+      console.error('token buy', error);
+    }
+  }
+  // CabalRpc -> GetTokenLimitOrders
+
   // CabalRpc -> DeleteLimitOrders
 
   /* 

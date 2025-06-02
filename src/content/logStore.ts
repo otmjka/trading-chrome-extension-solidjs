@@ -1,6 +1,6 @@
 import { createStore } from 'solid-js/store';
 
-type LogRecord = { type: string; event: unknown };
+export type LogRecord = { type: string; event: unknown };
 
 type LogStore = {
   logs: LogRecord[];

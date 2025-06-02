@@ -18,3 +18,4 @@ import {
 
 export { CabalService };
 export { CabalUserActivityStreamMessages, CabalTradeStreamMessages };
+export { Direction, Side, Trigger } from './cabal/CabalRpc/orders_pb';

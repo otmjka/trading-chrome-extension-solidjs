@@ -5,6 +5,11 @@ import { createEffect } from 'solid-js';
 import { TokenStatus } from '../../services/cabal-clinet-sdk';
 import { stringToFloat } from './helpers/stringToFloat';
 import { marketBuy, marketSell } from '../../services/useCabalService';
+import {
+  TokenStatusParsed,
+  TradeEventParsed,
+  TradeStatsParsed,
+} from '../../shared/types';
 
 type TradeWidgetState = {
   dir: TradeDir;
@@ -28,8 +33,9 @@ type TradeWidgetState = {
 
   // external
 
-  tokenStatus: null | TokenStatus;
-
+  tokenStatus: null | TokenStatusParsed;
+  tradeStats: null | TradeStatsParsed;
+  lastTradeEvent: null | TradeEventParsed;
   //
   loading: boolean;
 };
@@ -55,7 +61,8 @@ const initValue = {
 
   // external
   tokenStatus: null,
-
+  tradeStats: null,
+  lastTradeEvent: null,
   //
   loading: true,
 };
