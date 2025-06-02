@@ -73,7 +73,7 @@ export type SellMarketResponse = {
   isReady: boolean;
 };
 
-type BgMessageResponse =
+export type BgMessageResponse =
   | BgInitMessageResponse
   | SubscribeTokenResponse
   | BuyMarketResponse

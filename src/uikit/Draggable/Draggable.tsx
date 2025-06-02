@@ -17,9 +17,9 @@ export const Draggable: Component<{ id: number; children: JSX.Element }> = (
   return (
     <div
       use:draggable
-      class="ext-draggable ext-absolute ext-bg-red-800 ext-p-4 ext-w-[400px]"
+      class="ext-absolute ext-bg-blue-800"
       classList={{ 'ext-opacity-25': draggable.isActiveDraggable }}
-      style={{ top: 0, left: (props.id === 1 ? 0 : 125) + 'px' }}
+      style={{ top: `200px`, right: '350px' }}
     >
       {props.children}
     </div>

@@ -1,5 +1,5 @@
 import { render } from 'solid-js/web';
-import App from './content/Content';
+import { Content } from './ContentApp';
 import './styles.css';
 import { getTokenGMGNAI } from './utils/getTokenGMGNAI';
 
@@ -8,7 +8,7 @@ if (getTokenGMGNAI(location.href)) {
   root.id = 'cabal-extension-root';
   document.body.appendChild(root);
 
-  render(() => <App />, root);
+  render(() => <Content />, root);
 } else {
   console.log('not supported');
 }

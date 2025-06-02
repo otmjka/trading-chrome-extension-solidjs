@@ -1,6 +1,6 @@
 import { Component, createSignal, Show } from 'solid-js';
 
-import { LogRecord } from '../content/logStore';
+import { LogRecord } from '../ContentApp/logStore';
 
 const ShowLogItem: Component<{ logItem: LogRecord }> = ({ logItem }) => {
   const showStrinify =
