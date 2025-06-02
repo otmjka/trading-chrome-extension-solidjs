@@ -1,6 +1,7 @@
-import { setContentAppStore } from '../content/contentAppStore';
+import { setContentAppStore } from '../ContentApp/contentAppStore';
 import {
   BackgroundMessages,
+  BgInitMessageResponse,
   BgMessageCb,
   InitCabalOnTabMessage,
 } from '../shared/types';
@@ -13,7 +14,8 @@ export const registerTab = ({ locationHref }: { locationHref: string }) => {
     type: BackgroundMessages.INIT_CABAL,
     data: { url: locationHref },
   };
-  const cb: BgMessageCb = (response) => {
+
+  const cb = (response: BgInitMessageResponse) => {
     console.log('###', response);
     setContentAppStore('url', response.url);
     setContentAppStore('mint', response.mint);

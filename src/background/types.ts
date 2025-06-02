@@ -1,3 +1,6 @@
+import { CabalService } from '../services/cabal-clinet-sdk';
+import { Mint } from '../shared/types';
+
 export type CabalMessage = {
   type: string;
   eventName: string;
@@ -7,3 +10,14 @@ export type CabalMessage = {
 export type ContentListener = { tabId: number; url: string; mint: string };
 
 export type ContentListeners = Array<ContentListener>;
+
+export type BackgroundState = {
+  cabal: CabalService | null;
+  isUserActivityConnected: boolean;
+  isTradeConnected: boolean;
+  isReady: boolean;
+  reconnectTimeout: number | undefined;
+  mint: Mint | null;
+  activeTab: number | undefined;
+  tabListeners: ContentListeners;
+};

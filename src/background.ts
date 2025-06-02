@@ -25,62 +25,40 @@ import {
 import { handleMessagesToBackground } from './background/helpers/handleMessagesToBackground';
 import { changeTab } from './background/helpers/changeTab';
 import { sendMessageToActiveTab } from './background/helpers/sendMessageToActiveTab';
+import { BackgroundState } from './background/types';
 
 console.log('start background service 5');
 
-let cabal: CabalService | null = null;
-let isUserActivityConnected = false;
-let isTradeConnected = false;
-let isReady = false;
-let reconnectTimeout: number | undefined = undefined;
-
-const getIsReady = () => isReady;
-const cabalInstance = () => cabal;
-const setCabalInstance = (value: CabalService | null) => (cabal = value);
-
-let activeTab: number | undefined;
-const listeners: ContentListeners = [];
-
-const getListeners = () => listeners;
-const setActiveTab = (newActiveTab: number) => {
-  activeTab = newActiveTab;
-};
-
-const state: { mint: Mint | null } = {
+const state: BackgroundState = {
+  cabal: null,
+  isUserActivityConnected: false,
+  isTradeConnected: false,
+  isReady: false,
+  reconnectTimeout: undefined,
   mint: null,
+  activeTab: undefined,
+  tabListeners: [],
 };
 
+const getIsReady = () => state.isReady;
+const cabalInstance = () => state.cabal;
+const setCabalInstance = (value: CabalService | null) => (state.cabal = value);
+const getListeners = () => state.tabListeners;
+const setActiveTab = (newActiveTab: number) => {
+  state.activeTab = newActiveTab;
+};
 const setMint = (mint: string) => (state.mint = mint);
 const getCurrentMint = () => state.mint;
-
-const getActiveTab = () => activeTab;
-
-// handleSellMarketMessage
-
+const getActiveTab = () => state.activeTab;
 const getListener = (tabId?: number) =>
-  tabId ? listeners.find((item) => item.tabId === tabId) : undefined;
-
-const messagesToBackgroundHandler = handleMessagesToBackground({
-  getIsReady,
-  getListener,
-  getCabalInstance: cabalInstance,
-  setActiveTab,
-  getListeners,
-});
-
-const tabsOnActivatedHandler = changeTab({
-  getListener,
-  setActiveTab,
-});
-
-chrome.runtime.onMessage.addListener(messagesToBackgroundHandler);
-chrome.tabs.onActivated.addListener(tabsOnActivatedHandler);
+  tabId ? state.tabListeners.find((item) => item.tabId === tabId) : undefined;
+const setIsReady = (value: boolean) => (state.isReady = value);
 
 const handleUserActivityConnected = () => {
   if (config.showUAConnected) {
     console.log('UA CONNECTED');
   }
-  isUserActivityConnected = true;
+  state.isUserActivityConnected = true;
   checkConnectionStatus();
 };
 
@@ -91,7 +69,10 @@ const handleUserActivityPong = (eventValue: UserResponse) => {
       message: {
         type: CabalMessageType.CabalEvent,
         eventName: CabalUserActivityStreamMessages.userActivityPong,
-        data: { count: eventValue.count.count.toString(), isReady },
+        data: {
+          count: eventValue.count.count.toString(),
+          isReady: getIsReady(),
+        },
       },
     });
   } catch (error) {
@@ -116,9 +97,6 @@ const handleUserActivityTradeStats = (event: { value: TokenTradeStats }) => {
 };
 
 const handleUAError = () => {
-  isUserActivityConnected = false;
-  isTradeConnected = false;
-  isReady = false;
   console.error('User Activity Stream Error');
   scheduleReconnect();
   sendMessageToActiveTab({
@@ -133,7 +111,7 @@ const handleUAError = () => {
 // Trades
 
 const handleTradeStreamConnected = () => {
-  isTradeConnected = true;
+  state.isTradeConnected = true;
   checkConnectionStatus();
   sendMessageToActiveTab({
     getActiveTab,
@@ -150,7 +128,7 @@ const handleTradeStreamPong = (eventValue: UserResponse) => {
     message: {
       type: CabalMessageType.CabalEvent,
       eventName: CabalTradeStreamMessages.tradePong,
-      data: { count: eventValue.count.count.toString(), isReady },
+      data: { count: eventValue.count.count.toString(), isReady: getIsReady() },
     },
   });
 };
@@ -201,9 +179,6 @@ const handleTradeEvent = (eventValue: TradeEvent) => {
 };
 
 const handleTradeError = () => {
-  isUserActivityConnected = false;
-  isTradeConnected = false;
-  isReady = false;
   console.error('Trade Stream Error');
   scheduleReconnect();
   const message: FromBackgroundMessageTradeError = {
@@ -243,9 +218,11 @@ const unsubscribe = (cabal: CabalService) => {
 };
 
 function checkConnectionStatus() {
-  if (isUserActivityConnected && isTradeConnected) {
-    isReady = true;
-    console.log('Both streams connected successfully');
+  if (state.isUserActivityConnected && state.isTradeConnected) {
+    setIsReady(true);
+    if (!config.showStreamConnected) {
+      console.log('Both streams connected successfully');
+    }
     // Additional logic for successful connection if needed
   }
 }
@@ -273,33 +250,34 @@ const initializeCabalService = () => {
 };
 
 function scheduleReconnect() {
+  state.isReady = false;
   // Clear any existing reconnect timeout
-  if (reconnectTimeout) {
-    clearTimeout(reconnectTimeout);
+  if (state.reconnectTimeout) {
+    clearTimeout(state.reconnectTimeout);
   }
 
   // Reset connection flags
-  isUserActivityConnected = false;
-  isTradeConnected = false;
+  state.isUserActivityConnected = false;
+  state.isTradeConnected = false;
 
   // Schedule reconnect
-  reconnectTimeout = setTimeout(() => {
+  state.reconnectTimeout = setTimeout(() => {
     console.log('Attempting to reconnect...');
     initializeCabalService();
   }, BackgroundAppConfig.reconnectTimeout);
 }
 
 const autoConnector = () => {
-  if (reconnectTimeout) {
-    clearTimeout(reconnectTimeout);
+  if (state.reconnectTimeout) {
+    clearTimeout(state.reconnectTimeout);
   }
 
   // Initialize connection
   initializeCabalService();
 
   return () => {
-    if (reconnectTimeout) {
-      clearTimeout(reconnectTimeout);
+    if (state.reconnectTimeout) {
+      clearTimeout(state.reconnectTimeout);
     }
     const currentInstance = cabalInstance();
     if (currentInstance) {
@@ -311,10 +289,29 @@ const autoConnector = () => {
 };
 
 // Start the auto connector
-const cleanup = autoConnector();
 
+const startApp = () => {
+  const messagesToBackgroundHandler = handleMessagesToBackground({
+    getIsReady,
+    getListener,
+    getCabalInstance: cabalInstance,
+    setActiveTab,
+    getListeners,
+  });
+
+  const tabsOnActivatedHandler = changeTab({
+    getListener,
+    setActiveTab,
+  });
+
+  chrome.runtime.onMessage.addListener(messagesToBackgroundHandler);
+  chrome.tabs.onActivated.addListener(tabsOnActivatedHandler);
+  chrome.runtime.onSuspend.addListener(() => {
+    console.log('### Sleep ###');
+    cleanup();
+  });
+
+  const cleanup = autoConnector();
+};
+startApp();
 // Optional: Handle extension suspension/unload
-chrome.runtime.onSuspend.addListener(() => {
-  console.log('### Sleep ###');
-  cleanup();
-});

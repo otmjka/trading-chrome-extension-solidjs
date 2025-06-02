@@ -1,4 +1,4 @@
-import { setLogStore } from '../content/logStore';
+import { setLogStore } from '../ContentApp/logStore';
 import {
   CabalMessageType,
   FromBackgroundMessage,
