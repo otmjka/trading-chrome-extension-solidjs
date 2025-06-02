@@ -1,5 +1,5 @@
 (function () {
-  'use strict';var __vite_style__ = document.createElement('style');__vite_style__.textContent = "*, ::before, ::after {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}\n\n::backdrop {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}/*\n! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #343538; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n5. Use the user's configured `sans` font-feature-settings by default.\n6. Use the user's configured `sans` font-variation-settings by default.\n7. Disable tap highlights on iOS\n*/\n\nhtml,\n:host {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n  font-feature-settings: normal; /* 5 */\n  font-variation-settings: normal; /* 6 */\n  -webkit-tap-highlight-color: transparent; /* 7 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font-family by default.\n2. Use the user's configured `mono` font-feature-settings by default.\n3. Use the user's configured `mono` font-variation-settings by default.\n4. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-feature-settings: normal; /* 2 */\n  font-variation-settings: normal; /* 3 */\n  font-size: 1em; /* 4 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-feature-settings: inherit; /* 1 */\n  font-variation-settings: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  font-weight: inherit; /* 1 */\n  line-height: inherit; /* 1 */\n  letter-spacing: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\ninput:where([type='button']),\ninput:where([type='reset']),\ninput:where([type='submit']) {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nReset default styling for dialogs.\n*/\ndialog {\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/* Make elements with the HTML hidden attribute stay hidden by default */\n[hidden]:where(:not([hidden=\"until-found\"])) {\n  display: none;\n}\n.ext-absolute {\n  position: absolute;\n}\n.ext-relative {\n  position: relative;\n}\n.ext-bottom-\\[-2px\\] {\n  bottom: -2px;\n}\n.ext-top-0 {\n  top: 0px;\n}\n.ext-my-4 {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.ext-mb-\\[15px\\] {\n  margin-bottom: 15px;\n}\n.ext-mb-\\[4px\\] {\n  margin-bottom: 4px;\n}\n.ext-mb-\\[6px\\] {\n  margin-bottom: 6px;\n}\n.ext-ml-2 {\n  margin-left: 0.5rem;\n}\n.ext-mt-\\[10px\\] {\n  margin-top: 10px;\n}\n.ext-mt-\\[14px\\] {\n  margin-top: 14px;\n}\n.ext-mt-\\[6px\\] {\n  margin-top: 6px;\n}\n.ext-flex {\n  display: flex;\n}\n.ext-h-4 {\n  height: 1rem;\n}\n.ext-h-\\[12px\\] {\n  height: 12px;\n}\n.ext-h-\\[1px\\] {\n  height: 1px;\n}\n.ext-w-4 {\n  width: 1rem;\n}\n.ext-w-\\[10px\\] {\n  width: 10px;\n}\n.ext-w-\\[12px\\] {\n  width: 12px;\n}\n.ext-w-\\[56px\\] {\n  width: 56px;\n}\n.ext-w-\\[5px\\] {\n  width: 5px;\n}\n.ext-w-full {\n  width: 100%;\n}\n.ext-max-w-\\[312px\\] {\n  max-width: 312px;\n}\n.ext-flex-1 {\n  flex: 1 1 0%;\n}\n@keyframes ext-pulseOnce {\n\n  0%, 100% {\n    opacity: 1;\n  }\n\n  50% {\n    opacity: 0.1;\n  }\n}\n.ext-animate-pulse-once {\n  animation: ext-pulseOnce 1s ease-in-out;\n}\n.ext-flex-col {\n  flex-direction: column;\n}\n.ext-items-start {\n  align-items: flex-start;\n}\n.ext-items-end {\n  align-items: flex-end;\n}\n.ext-items-center {\n  align-items: center;\n}\n.ext-items-baseline {\n  align-items: baseline;\n}\n.ext-justify-end {\n  justify-content: flex-end;\n}\n.ext-justify-center {\n  justify-content: center;\n}\n.ext-justify-between {\n  justify-content: space-between;\n}\n.ext-gap-1 {\n  gap: 0.25rem;\n}\n.ext-gap-2 {\n  gap: 0.5rem;\n}\n.ext-gap-4 {\n  gap: 1rem;\n}\n.ext-gap-\\[10px\\] {\n  gap: 10px;\n}\n.ext-gap-\\[7px\\] {\n  gap: 7px;\n}\n.ext-whitespace-nowrap {\n  white-space: nowrap;\n}\n.ext-rounded-\\[5px\\] {\n  border-radius: 5px;\n}\n.ext-rounded-full {\n  border-radius: 9999px;\n}\n.ext-rounded-lg {\n  border-radius: 0.5rem;\n}\n.ext-border {\n  border-width: 1px;\n}\n.ext-border-r {\n  border-right-width: 1px;\n}\n.ext-border-gray-200 {\n  --tw-border-opacity: 1;\n  border-color: rgb(52 53 56 / var(--tw-border-opacity, 1));\n}\n.ext-border-gray-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(117 117 117 / var(--tw-border-opacity, 1));\n}\n.ext-border-green-500 {\n  --tw-border-opacity: 1;\n  border-color: rgb(99 215 189 / var(--tw-border-opacity, 1));\n}\n.ext-border-red-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(255 92 92 / var(--tw-border-opacity, 1));\n}\n.ext-bg-blue-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(16 17 21 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-300 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(35 36 40 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(11 19 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(52 53 56 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(13 51 47 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(87 191 168 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(46 15 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 92 92 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-white {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-yellow-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(202 138 4 / var(--tw-bg-opacity, 1));\n}\n.ext-p-2 {\n  padding: 0.5rem;\n}\n.ext-px-3 {\n  padding-left: 0.75rem;\n  padding-right: 0.75rem;\n}\n.ext-px-4 {\n  padding-left: 1rem;\n  padding-right: 1rem;\n}\n.ext-px-\\[11px\\] {\n  padding-left: 11px;\n  padding-right: 11px;\n}\n.ext-px-\\[15px\\] {\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.ext-px-\\[20px\\] {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.ext-py-1 {\n  padding-top: 0.25rem;\n  padding-bottom: 0.25rem;\n}\n.ext-py-\\[10px\\] {\n  padding-top: 10px;\n  padding-bottom: 10px;\n}\n.ext-py-\\[6px\\] {\n  padding-top: 6px;\n  padding-bottom: 6px;\n}\n.ext-py-\\[9px\\] {\n  padding-top: 9px;\n  padding-bottom: 9px;\n}\n.ext-pr-1 {\n  padding-right: 0.25rem;\n}\n.ext-pt-1 {\n  padding-top: 0.25rem;\n}\n.ext-text-center {\n  text-align: center;\n}\n.ext-text-\\[10px\\] {\n  font-size: 10px;\n}\n.ext-text-\\[9px\\] {\n  font-size: 9px;\n}\n.ext-text-base {\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n.ext-text-xs {\n  font-size: 0.75rem;\n  line-height: 1rem;\n}\n.ext-font-bold {\n  font-weight: 700;\n}\n.ext-font-medium {\n  font-weight: 500;\n}\n.ext-text-gray-300 {\n  --tw-text-opacity: 1;\n  color: rgb(72 72 72 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-400 {\n  --tw-text-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-700 {\n  --tw-text-opacity: 1;\n  color: rgb(55 65 81 / var(--tw-text-opacity, 1));\n}\n.ext-text-green-500 {\n  --tw-text-opacity: 1;\n  color: rgb(99 215 189 / var(--tw-text-opacity, 1));\n}\n.ext-text-purple-500 {\n  --tw-text-opacity: 1;\n  color: rgb(135 80 231 / var(--tw-text-opacity, 1));\n}\n.ext-text-red-600 {\n  --tw-text-opacity: 1;\n  color: rgb(220 38 38 / var(--tw-text-opacity, 1));\n}\n.ext-text-white {\n  --tw-text-opacity: 1;\n  color: rgb(255 255 255 / var(--tw-text-opacity, 1));\n}\n.ext-shadow-lg {\n  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-transition {\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-transition-all {\n  transition-property: all;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-duration-200 {\n  transition-duration: 200ms;\n}\n.ext-ease-in {\n  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);\n}\n.hover\\:ext-bg-green-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.hover\\:ext-bg-red-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.focus\\:ext-outline-none:focus {\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.disabled\\:ext-bg-black:disabled {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n@media (prefers-color-scheme: dark) {\n\n  .dark\\:ext-text-gray-50 {\n    --tw-text-opacity: 1;\n    color: rgb(249 250 251 / var(--tw-text-opacity, 1));\n  }\n}\n/*$vite$:1*/";document.head.appendChild(__vite_style__);
+  'use strict';var __vite_style__ = document.createElement('style');__vite_style__.textContent = "*, ::before, ::after {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}\n\n::backdrop {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}/*\n! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #343538; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n5. Use the user's configured `sans` font-feature-settings by default.\n6. Use the user's configured `sans` font-variation-settings by default.\n7. Disable tap highlights on iOS\n*/\n\nhtml,\n:host {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n  font-feature-settings: normal; /* 5 */\n  font-variation-settings: normal; /* 6 */\n  -webkit-tap-highlight-color: transparent; /* 7 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font-family by default.\n2. Use the user's configured `mono` font-feature-settings by default.\n3. Use the user's configured `mono` font-variation-settings by default.\n4. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-feature-settings: normal; /* 2 */\n  font-variation-settings: normal; /* 3 */\n  font-size: 1em; /* 4 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-feature-settings: inherit; /* 1 */\n  font-variation-settings: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  font-weight: inherit; /* 1 */\n  line-height: inherit; /* 1 */\n  letter-spacing: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\ninput:where([type='button']),\ninput:where([type='reset']),\ninput:where([type='submit']) {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nReset default styling for dialogs.\n*/\ndialog {\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/* Make elements with the HTML hidden attribute stay hidden by default */\n[hidden]:where(:not([hidden=\"until-found\"])) {\n  display: none;\n}\n.ext-absolute {\n  position: absolute;\n}\n.ext-relative {\n  position: relative;\n}\n.ext-bottom-\\[-2px\\] {\n  bottom: -2px;\n}\n.ext-top-0 {\n  top: 0px;\n}\n.ext-my-4 {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.ext-mb-\\[15px\\] {\n  margin-bottom: 15px;\n}\n.ext-mb-\\[4px\\] {\n  margin-bottom: 4px;\n}\n.ext-mb-\\[6px\\] {\n  margin-bottom: 6px;\n}\n.ext-ml-2 {\n  margin-left: 0.5rem;\n}\n.ext-mt-\\[10px\\] {\n  margin-top: 10px;\n}\n.ext-mt-\\[14px\\] {\n  margin-top: 14px;\n}\n.ext-mt-\\[6px\\] {\n  margin-top: 6px;\n}\n.ext-flex {\n  display: flex;\n}\n.ext-h-4 {\n  height: 1rem;\n}\n.ext-h-\\[12px\\] {\n  height: 12px;\n}\n.ext-h-\\[1px\\] {\n  height: 1px;\n}\n.ext-h-\\[400px\\] {\n  height: 400px;\n}\n.ext-w-4 {\n  width: 1rem;\n}\n.ext-w-\\[10px\\] {\n  width: 10px;\n}\n.ext-w-\\[12px\\] {\n  width: 12px;\n}\n.ext-w-\\[400px\\] {\n  width: 400px;\n}\n.ext-w-\\[56px\\] {\n  width: 56px;\n}\n.ext-w-\\[5px\\] {\n  width: 5px;\n}\n.ext-w-full {\n  width: 100%;\n}\n.ext-max-w-\\[312px\\] {\n  max-width: 312px;\n}\n.ext-flex-1 {\n  flex: 1 1 0%;\n}\n@keyframes ext-pulseOnce {\n\n  0%, 100% {\n    opacity: 1;\n  }\n\n  50% {\n    opacity: 0.1;\n  }\n}\n.ext-animate-pulse-once {\n  animation: ext-pulseOnce 1s ease-in-out;\n}\n.ext-flex-col {\n  flex-direction: column;\n}\n.ext-items-start {\n  align-items: flex-start;\n}\n.ext-items-end {\n  align-items: flex-end;\n}\n.ext-items-center {\n  align-items: center;\n}\n.ext-items-baseline {\n  align-items: baseline;\n}\n.ext-justify-end {\n  justify-content: flex-end;\n}\n.ext-justify-center {\n  justify-content: center;\n}\n.ext-justify-between {\n  justify-content: space-between;\n}\n.ext-gap-1 {\n  gap: 0.25rem;\n}\n.ext-gap-2 {\n  gap: 0.5rem;\n}\n.ext-gap-4 {\n  gap: 1rem;\n}\n.ext-gap-\\[10px\\] {\n  gap: 10px;\n}\n.ext-gap-\\[7px\\] {\n  gap: 7px;\n}\n.ext-whitespace-nowrap {\n  white-space: nowrap;\n}\n.ext-rounded-\\[5px\\] {\n  border-radius: 5px;\n}\n.ext-rounded-full {\n  border-radius: 9999px;\n}\n.ext-rounded-lg {\n  border-radius: 0.5rem;\n}\n.ext-border {\n  border-width: 1px;\n}\n.ext-border-r {\n  border-right-width: 1px;\n}\n.ext-border-gray-200 {\n  --tw-border-opacity: 1;\n  border-color: rgb(52 53 56 / var(--tw-border-opacity, 1));\n}\n.ext-border-gray-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(117 117 117 / var(--tw-border-opacity, 1));\n}\n.ext-border-green-500 {\n  --tw-border-opacity: 1;\n  border-color: rgb(99 215 189 / var(--tw-border-opacity, 1));\n}\n.ext-border-red-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(255 92 92 / var(--tw-border-opacity, 1));\n}\n.ext-bg-blue-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(16 17 21 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-300 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(35 36 40 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(11 19 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(52 53 56 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(13 51 47 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(87 191 168 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(46 15 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 92 92 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-800 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(153 27 27 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-white {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-yellow-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(202 138 4 / var(--tw-bg-opacity, 1));\n}\n.ext-p-2 {\n  padding: 0.5rem;\n}\n.ext-p-4 {\n  padding: 1rem;\n}\n.ext-px-3 {\n  padding-left: 0.75rem;\n  padding-right: 0.75rem;\n}\n.ext-px-4 {\n  padding-left: 1rem;\n  padding-right: 1rem;\n}\n.ext-px-\\[11px\\] {\n  padding-left: 11px;\n  padding-right: 11px;\n}\n.ext-px-\\[15px\\] {\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.ext-px-\\[20px\\] {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.ext-py-1 {\n  padding-top: 0.25rem;\n  padding-bottom: 0.25rem;\n}\n.ext-py-\\[10px\\] {\n  padding-top: 10px;\n  padding-bottom: 10px;\n}\n.ext-py-\\[6px\\] {\n  padding-top: 6px;\n  padding-bottom: 6px;\n}\n.ext-py-\\[9px\\] {\n  padding-top: 9px;\n  padding-bottom: 9px;\n}\n.ext-pr-1 {\n  padding-right: 0.25rem;\n}\n.ext-pt-1 {\n  padding-top: 0.25rem;\n}\n.ext-text-center {\n  text-align: center;\n}\n.ext-text-\\[10px\\] {\n  font-size: 10px;\n}\n.ext-text-\\[9px\\] {\n  font-size: 9px;\n}\n.ext-text-base {\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n.ext-text-xs {\n  font-size: 0.75rem;\n  line-height: 1rem;\n}\n.ext-font-bold {\n  font-weight: 700;\n}\n.ext-font-medium {\n  font-weight: 500;\n}\n.ext-text-gray-300 {\n  --tw-text-opacity: 1;\n  color: rgb(72 72 72 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-400 {\n  --tw-text-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-700 {\n  --tw-text-opacity: 1;\n  color: rgb(55 65 81 / var(--tw-text-opacity, 1));\n}\n.ext-text-green-500 {\n  --tw-text-opacity: 1;\n  color: rgb(99 215 189 / var(--tw-text-opacity, 1));\n}\n.ext-text-purple-500 {\n  --tw-text-opacity: 1;\n  color: rgb(135 80 231 / var(--tw-text-opacity, 1));\n}\n.ext-text-red-600 {\n  --tw-text-opacity: 1;\n  color: rgb(220 38 38 / var(--tw-text-opacity, 1));\n}\n.ext-text-white {\n  --tw-text-opacity: 1;\n  color: rgb(255 255 255 / var(--tw-text-opacity, 1));\n}\n.ext-opacity-25 {\n  opacity: 0.25;\n}\n.ext-shadow-lg {\n  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-transition {\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-transition-all {\n  transition-property: all;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-duration-200 {\n  transition-duration: 200ms;\n}\n.ext-ease-in {\n  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);\n}\n.hover\\:ext-bg-green-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.hover\\:ext-bg-red-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.focus\\:ext-outline-none:focus {\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.disabled\\:ext-bg-black:disabled {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n@media (prefers-color-scheme: dark) {\n\n  .dark\\:ext-text-gray-50 {\n    --tw-text-opacity: 1;\n    color: rgb(249 250 251 / var(--tw-text-opacity, 1));\n  }\n}\n/*$vite$:1*/";document.head.appendChild(__vite_style__);
 
   const sharedConfig = {
     context: undefined,
@@ -94,7 +94,7 @@
   function createEffect(fn, value, options) {
     runEffects = runUserEffects;
     const c = createComputation(fn, value, false, STALE);
-    c.user = true;
+    if (!options || !options.render) c.user = true;
     Effects ? Effects.push(c) : updateComputation(c);
   }
   function createMemo(fn, value, options) {
@@ -148,6 +148,23 @@
   }
   function getListener() {
     return Listener;
+  }
+  function getOwner() {
+    return Owner;
+  }
+  function runWithOwner(o, fn) {
+    const prev = Owner;
+    const prevListener = Listener;
+    Owner = o;
+    Listener = null;
+    try {
+      return runUpdates(fn, true);
+    } catch (err) {
+      handleError(err);
+    } finally {
+      Owner = prev;
+      Listener = prevListener;
+    }
   }
   function createContext(defaultValue, options) {
     const id = Symbol("context");
@@ -1208,6 +1225,45 @@
   const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
   function createElement(tagName, isSVG = false) {
     return isSVG ? document.createElementNS(SVG_NAMESPACE, tagName) : document.createElement(tagName);
+  }
+  function Portal(props) {
+    const {
+        useShadow
+      } = props,
+      marker = document.createTextNode(""),
+      mount = () => props.mount || document.body,
+      owner = getOwner();
+    let content;
+    let hydrating = !!sharedConfig.context;
+    createEffect(() => {
+      if (hydrating) getOwner().user = hydrating = false;
+      content || (content = runWithOwner(owner, () => createMemo(() => props.children)));
+      const el = mount();
+      if (el instanceof HTMLHeadElement) {
+        const [clean, setClean] = createSignal(false);
+        const cleanup = () => setClean(true);
+        createRoot(dispose => insert(el, () => !clean() ? content() : dispose(), null));
+        onCleanup(cleanup);
+      } else {
+        const container = createElement(props.isSVG ? "g" : "div", props.isSVG),
+          renderRoot = useShadow && container.attachShadow ? container.attachShadow({
+            mode: "open"
+          }) : container;
+        Object.defineProperty(container, "_$host", {
+          get() {
+            return marker.parentNode;
+          },
+          configurable: true
+        });
+        insert(renderRoot, content);
+        el.appendChild(container);
+        props.ref && props.ref(container);
+        onCleanup(() => el.removeChild(container));
+      }
+    }, undefined, {
+      render: !hydrating
+    });
+    return marker;
   }
   function createDynamic(component, props) {
     const cached = createMemo(component);
@@ -2467,7 +2523,7 @@
   var classnamesExports = requireClassnames();
   const cn = /*@__PURE__*/getDefaultExportFromCjs(classnamesExports);
 
-  var _tmpl$$c = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-4"><div class="ext-flex ext-items-center"><span></span><p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50"></p></div><div class="ext-flex ext-items-center"><span></span><p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50">`);
+  var _tmpl$$e = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-4"><div class="ext-flex ext-items-center"><span></span><p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50"></p></div><div class="ext-flex ext-items-center"><span></span><p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50">`);
   const OnlineStatusWidged = () => {
     const [isPulsingUA, setIsPulsingUA] = createSignal(false);
     const [isPulsingTrade, setIsPulsingTrade] = createSignal(false);
@@ -2494,7 +2550,7 @@
       }
     });
     return (() => {
-      var _el$ = _tmpl$$c(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$2.nextSibling, _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling;
+      var _el$ = _tmpl$$e(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$2.nextSibling, _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling;
       insert(_el$4, createComponent(Show, {
         get when() {
           return user();
@@ -5031,9 +5087,9 @@
     Trigger: TabsTrigger
   });
 
-  var _tmpl$$b = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-1 ext-pr-1 ext-border-r ext-items-center"><div><img alt=props.icon></div><div>`);
+  var _tmpl$$d = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-1 ext-pr-1 ext-border-r ext-items-center"><div><img alt=props.icon></div><div>`);
   const StatsCell = (props) => (() => {
-    var _el$ = _tmpl$$b(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$2.nextSibling;
+    var _el$ = _tmpl$$d(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$2.nextSibling;
     insert(_el$4, () => props.value);
     createRenderEffect((_p$) => {
       var _v$ = statIcons[props.icon], _v$2 = cn("ext-text-xs", {
@@ -5050,18 +5106,18 @@
     return _el$;
   })();
 
-  var _tmpl$$a = /* @__PURE__ */ template(`<div class="ext-flex ext-justify-center ext-w-full ext-gap-1 ext-my-4">`);
+  var _tmpl$$c = /* @__PURE__ */ template(`<div class="ext-flex ext-justify-center ext-w-full ext-gap-1 ext-my-4">`);
   const StatsContainer = (props) => (() => {
-    var _el$ = _tmpl$$a();
+    var _el$ = _tmpl$$c();
     insert(_el$, () => props.children);
     return _el$;
   })();
 
-  var _tmpl$$9 = /* @__PURE__ */ template(`<div><div class="ext-flex ext-flex-col"><div class="ext-text-[9px] ext-text-gray-400"></div><div class="ext-flex ext-items-baseline ext-gap-1 ext-justify-center"><div class=ext-w-[10px]><img width=10px alt=sol_icon></div><div>`);
+  var _tmpl$$b = /* @__PURE__ */ template(`<div><div class="ext-flex ext-flex-col"><div class="ext-text-[9px] ext-text-gray-400"></div><div class="ext-flex ext-items-baseline ext-gap-1 ext-justify-center"><div class=ext-w-[10px]><img width=10px alt=sol_icon></div><div>`);
   const BottomStatsCell = (props) => {
     const sol = chrome.runtime.getURL("assets2/sol.svg");
     return (() => {
-      var _el$ = _tmpl$$9(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$5.nextSibling;
+      var _el$ = _tmpl$$b(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$5.nextSibling;
       insert(_el$3, () => props.title);
       setAttribute(_el$6, "src", sol);
       insert(_el$7, () => props.value);
@@ -5565,21 +5621,21 @@
 
   const wallet = "data:image/svg+xml,%3csvg%20width='10'%20height='9'%20viewBox='0%200%2010%209'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M7.04609%206.82435C6.58627%206.82433%206.21217%206.45025%206.21217%205.99043V4.60552C6.21217%204.14569%206.58627%203.77161%207.04609%203.77161H9.21901C9.23218%203.77161%209.24526%203.77201%209.25828%203.7726V2.393C9.25828%202.03788%208.97039%201.75%208.61527%201.75H0.643023C0.287881%201.74998%200%202.03786%200%202.39298V8.20294C0%208.55806%200.287881%208.84597%200.643023%208.84597H8.61527C8.97039%208.84597%209.25828%208.55808%209.25828%208.20294V6.82335C9.24526%206.82396%209.23218%206.82435%209.21901%206.82435H7.04609Z'%20fill='%234F4F4F'/%3e%3cpath%20d='M9.21955%204.22646H7.04663C6.83844%204.22646%206.66966%204.39524%206.66966%204.60343V5.98834C6.66966%206.19653%206.83844%206.36531%207.04663%206.36531H9.21955C9.42774%206.36531%209.59652%206.19655%209.59652%205.98834V4.60343C9.59652%204.39522%209.42774%204.22646%209.21955%204.22646ZM7.79538%205.83996C7.49488%205.83996%207.25128%205.59636%207.25128%205.29586C7.25128%204.99536%207.49488%204.75176%207.79538%204.75176C8.09588%204.75176%208.33948%204.99536%208.33948%205.29586C8.33948%205.59636%208.09588%205.83996%207.79538%205.83996ZM7.49618%200.570061C7.35232%200.13464%206.88273%20-0.101717%206.44733%200.0421397L3.18066%201.12136H7.67831L7.49618%200.570061Z'%20fill='%234F4F4F'/%3e%3c/svg%3e";
 
-  var _tmpl$$8 = /* @__PURE__ */ template(`<div>`), _tmpl$2$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-1 ext-justify-end ext-mb-[6px]"><div class="ext-bg-gray-150 ext-border ext-border-gray-200 ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center ext-items-end"><div class="ext-bg-white ext-h-[1px] ext-w-[5px] ext-mb-[4px]"></div></div><div class="ext-bg-gray-150 ext-border ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center"><img class=ext-w-[5px] alt=pin>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2"><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=wallet></div><div class="ext-text-xs ext-text-white ext-font-medium">1</div></div><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=sol></div><div class="ext-text-xs ext-text-white ext-font-medium">0`), _tmpl$4 = /* @__PURE__ */ template(`<div class=ext-flex-1>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-px-[11px] ext-items-baseline">`), _tmpl$6 = /* @__PURE__ */ template(`<div class="ext-bg-gray-200 ext-h-[1px] ext-mt-[6px] ext-mb-[15px]">`);
+  var _tmpl$$a = /* @__PURE__ */ template(`<div>`), _tmpl$2$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-1 ext-justify-end ext-mb-[6px]"><div class="ext-bg-gray-150 ext-border ext-border-gray-200 ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center ext-items-end"><div class="ext-bg-white ext-h-[1px] ext-w-[5px] ext-mb-[4px]"></div></div><div class="ext-bg-gray-150 ext-border ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center"><img class=ext-w-[5px] alt=pin>`), _tmpl$3$1 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2"><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=wallet></div><div class="ext-text-xs ext-text-white ext-font-medium">1</div></div><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=sol></div><div class="ext-text-xs ext-text-white ext-font-medium">0`), _tmpl$4 = /* @__PURE__ */ template(`<div class=ext-flex-1>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-px-[11px] ext-items-baseline">`), _tmpl$6 = /* @__PURE__ */ template(`<div class="ext-bg-gray-200 ext-h-[1px] ext-mt-[6px] ext-mb-[15px]">`);
   const Card = (props) => (() => {
-    var _el$ = _tmpl$$8();
+    var _el$ = _tmpl$$a();
     insert(_el$, () => props.children);
     createRenderEffect(() => className(_el$, cn("ext-px-[15px] ext-py-[9px] ext-shadow-lg ext-rounded-lg ext-border", props.cn)));
     return _el$;
   })();
   const Body = (props) => (() => {
-    var _el$2 = _tmpl$$8();
+    var _el$2 = _tmpl$$a();
     insert(_el$2, () => props.children);
     createRenderEffect(() => className(_el$2, cn("", props.cn)));
     return _el$2;
   })();
   const CardToolbar = (props) => (() => {
-    var _el$3 = _tmpl$$8();
+    var _el$3 = _tmpl$$a();
     insert(_el$3, () => props.children);
     createRenderEffect(() => className(_el$3, cn(props.cn)));
     return _el$3;
@@ -5600,7 +5656,7 @@
   const Settings = () => {
     const sol = chrome.runtime.getURL("assets2/sol.svg");
     return (() => {
-      var _el$8 = _tmpl$3(), _el$9 = _el$8.firstChild, _el$0 = _el$9.firstChild, _el$1 = _el$0.firstChild, _el$10 = _el$9.nextSibling, _el$11 = _el$10.firstChild, _el$12 = _el$11.firstChild;
+      var _el$8 = _tmpl$3$1(), _el$9 = _el$8.firstChild, _el$0 = _el$9.firstChild, _el$1 = _el$0.firstChild, _el$10 = _el$9.nextSibling, _el$11 = _el$10.firstChild, _el$12 = _el$11.firstChild;
       setAttribute(_el$1, "src", wallet);
       setAttribute(_el$12, "src", sol);
       return _el$8;
@@ -5643,13 +5699,13 @@
   })();
   const Hr = () => _tmpl$6();
 
-  var _tmpl$$7 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2">`), _tmpl$2$4 = /* @__PURE__ */ template(`<div class=ext-mt-[14px]>`);
+  var _tmpl$$9 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2">`), _tmpl$2$4 = /* @__PURE__ */ template(`<div class=ext-mt-[14px]>`);
   const BuyAmoutInput = (props) => {
     return createComponent(Card, {
       cn: "ext-border-green-500",
       get children() {
         return [(() => {
-          var _el$ = _tmpl$$7();
+          var _el$ = _tmpl$$9();
           insert(_el$, createComponent(For, {
             get each() {
               return props.getQuicks();
@@ -5702,13 +5758,13 @@
   const isBuy = (value) => value === TradeDir.Buy;
   const isSell = (value) => value === TradeDir.Sell;
 
-  var _tmpl$$6 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-[7px] ext-mb-[15px]">`);
+  var _tmpl$$8 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-[7px] ext-mb-[15px]">`);
   const TradeDirSelector = ({
     getDir,
     onSelect
   }) => {
     return (() => {
-      var _el$ = _tmpl$$6();
+      var _el$ = _tmpl$$8();
       insert(_el$, createComponent(TradeTabButton, {
         get mode() {
           return TradeDir.Buy;
@@ -5750,13 +5806,13 @@
     }, props));
   };
 
-  var _tmpl$$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2">`), _tmpl$2$3 = /* @__PURE__ */ template(`<div class=ext-mt-[14px]>`);
+  var _tmpl$$7 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2">`), _tmpl$2$3 = /* @__PURE__ */ template(`<div class=ext-mt-[14px]>`);
   const SellAmoutInput = (props) => {
     return createComponent(Card, {
       cn: "ext-bg-blue-300 ext-border-red-400",
       get children() {
         return [(() => {
-          var _el$ = _tmpl$$5();
+          var _el$ = _tmpl$$7();
           insert(_el$, createComponent(For, {
             get each() {
               return props.getQuicks();
@@ -5788,17 +5844,17 @@
     });
   };
 
-  var _tmpl$$4 = /* @__PURE__ */ template(`<div class=ext-flex><div>PnL</div><div><img alt=arrows>`);
+  var _tmpl$$6 = /* @__PURE__ */ template(`<div class=ext-flex><div>PnL</div><div><img alt=arrows>`);
   const PnL = (props) => {
     const arrows = chrome.runtime.getURL("assets2/arrows.svg");
     return (() => {
-      var _el$ = _tmpl$$4(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.firstChild;
+      var _el$ = _tmpl$$6(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.firstChild;
       setAttribute(_el$4, "src", arrows);
       return _el$;
     })();
   };
 
-  var _tmpl$$3 = /* @__PURE__ */ template(`<div>`), _tmpl$2$2 = /* @__PURE__ */ template(`<div class="ext-flex ext-w-full ext-justify-between ext-mt-[10px]">`);
+  var _tmpl$$5 = /* @__PURE__ */ template(`<div>`), _tmpl$2$2 = /* @__PURE__ */ template(`<div class="ext-flex ext-w-full ext-justify-between ext-mt-[10px]">`);
   const statsBottom = [{
     title: "Bought",
     color: BCellColor.green,
@@ -5898,7 +5954,7 @@
                         return isShowBuyButton();
                       },
                       get children() {
-                        var _el$ = _tmpl$$3();
+                        var _el$ = _tmpl$$5();
                         insert(_el$, createComponent(TradeTabButton, {
                           get mode() {
                             return TradeDir.Buy;
@@ -5916,7 +5972,7 @@
                         return isShowSellButton();
                       },
                       get children() {
-                        var _el$2 = _tmpl$$3();
+                        var _el$2 = _tmpl$$5();
                         insert(_el$2, createComponent(TradeTabButton, {
                           get mode() {
                             return TradeDir.Sell;
@@ -5979,7 +6035,7 @@
     });
   };
 
-  var _tmpl$$2 = /* @__PURE__ */ template(`<div class="ext-bg-blue-600 ext-text-[9px]">`), _tmpl$2$1 = /* @__PURE__ */ template(`<div class="ext-flex ext-flex-col"><div class=ext-flex><div></div><div><button class=ext-bg-blue-500>`);
+  var _tmpl$$4 = /* @__PURE__ */ template(`<div class="ext-bg-blue-600 ext-text-[9px]">`), _tmpl$2$1 = /* @__PURE__ */ template(`<div class="ext-flex ext-flex-col"><div class=ext-flex><div></div><div><button class=ext-bg-blue-500>`);
   const ShowLogItem = ({
     logItem
   }) => {
@@ -5995,7 +6051,7 @@
           return showStrinify && show();
         },
         get children() {
-          var _el$6 = _tmpl$$2();
+          var _el$6 = _tmpl$$4();
           insert(_el$6, () => JSON.stringify(logItem.event, null, 2));
           return _el$6;
         }
@@ -6005,10 +6061,10 @@
   };
   delegateEvents(["click"]);
 
-  var _tmpl$$1 = /* @__PURE__ */ template(`<div class="ext-flex ext-flex-col">`);
+  var _tmpl$$3 = /* @__PURE__ */ template(`<div class="ext-flex ext-flex-col">`);
   const LogWidget = () => {
     return (() => {
-      var _el$ = _tmpl$$1();
+      var _el$ = _tmpl$$3();
       insert(_el$, createComponent(For, {
         get each() {
           return logStore.logs;
@@ -6021,7 +6077,951 @@
     })();
   };
 
-  var _tmpl$ = /* @__PURE__ */ template(`<div><div class=ext-flex>url: </div><div class=ext-flex>mint: `), _tmpl$2 = /* @__PURE__ */ template(`<div class="ext-absolute ext-top-0 ext-bg-yellow-600 ext-p-2"><div class="ext-flex ext-gap-2"><div></div><button class=ext-bg-blue-500>start</button><button class=ext-bg-blue-500>log`);
+  var _tmpl$$2 = /* @__PURE__ */ template(`<div>`);
+  var Layout = class {
+    x;
+    y;
+    width;
+    height;
+    constructor(rect) {
+      this.x = Math.floor(rect.x);
+      this.y = Math.floor(rect.y);
+      this.width = Math.floor(rect.width);
+      this.height = Math.floor(rect.height);
+    }
+    get rect() {
+      return {
+        x: this.x,
+        y: this.y,
+        width: this.width,
+        height: this.height
+      };
+    }
+    get left() {
+      return this.x;
+    }
+    get top() {
+      return this.y;
+    }
+    get right() {
+      return this.x + this.width;
+    }
+    get bottom() {
+      return this.y + this.height;
+    }
+    get center() {
+      return {
+        x: this.x + this.width * 0.5,
+        y: this.y + this.height * 0.5
+      };
+    }
+    get corners() {
+      return {
+        topLeft: {
+          x: this.left,
+          y: this.top
+        },
+        topRight: {
+          x: this.right,
+          y: this.top
+        },
+        bottomRight: {
+          x: this.left,
+          y: this.bottom
+        },
+        bottomLeft: {
+          x: this.right,
+          y: this.bottom
+        }
+      };
+    }
+  };
+  var elementLayout = (element) => {
+    let layout = new Layout(element.getBoundingClientRect());
+    const {
+      transform
+    } = getComputedStyle(element);
+    if (transform) {
+      layout = stripTransformFromLayout(layout, transform);
+    }
+    return layout;
+  };
+  var stripTransformFromLayout = (layout, transform) => {
+    let translateX, translateY;
+    if (transform.startsWith("matrix3d(")) {
+      const matrix = transform.slice(9, -1).split(/, /);
+      translateX = +matrix[12];
+      translateY = +matrix[13];
+    } else if (transform.startsWith("matrix(")) {
+      const matrix = transform.slice(7, -1).split(/, /);
+      translateX = +matrix[4];
+      translateY = +matrix[5];
+    } else {
+      translateX = 0;
+      translateY = 0;
+    }
+    return new Layout({
+      ...layout,
+      x: layout.x - translateX,
+      y: layout.y - translateY
+    });
+  };
+  var noopTransform = () => ({
+    x: 0,
+    y: 0
+  });
+  var transformsAreEqual = (firstTransform, secondTransform) => {
+    return firstTransform.x === secondTransform.x && firstTransform.y === secondTransform.y;
+  };
+  var transformLayout = (layout, transform) => {
+    return new Layout({
+      ...layout,
+      x: layout.x + transform.x,
+      y: layout.y + transform.y
+    });
+  };
+  var intersectionRatioOfLayouts = (firstLayout, secondLayout) => {
+    const top = Math.max(firstLayout.top, secondLayout.top);
+    const left = Math.max(firstLayout.left, secondLayout.left);
+    const right = Math.min(firstLayout.right, secondLayout.right);
+    const bottom = Math.min(firstLayout.bottom, secondLayout.bottom);
+    const width = right - left;
+    const height = bottom - top;
+    if (left < right && top < bottom) {
+      const layout1Area = firstLayout.width * firstLayout.height;
+      const layout2Area = secondLayout.width * secondLayout.height;
+      const intersectionArea = width * height;
+      return intersectionArea / (layout1Area + layout2Area - intersectionArea);
+    }
+    return 0;
+  };
+  var layoutsAreEqual = (firstLayout, secondLayout) => {
+    return firstLayout.x === secondLayout.x && firstLayout.y === secondLayout.y && firstLayout.width === secondLayout.width && firstLayout.height === secondLayout.height;
+  };
+  var mostIntersecting = (draggable, droppables, context) => {
+    const draggableLayout = draggable.transformed;
+    const collision = {
+      ratio: 0,
+      droppable: null
+    };
+    for (const droppable of droppables) {
+      const ratio = intersectionRatioOfLayouts(draggableLayout, droppable.layout);
+      if (ratio > collision.ratio) {
+        collision.ratio = ratio;
+        collision.droppable = droppable;
+      } else if (ratio > 0 && ratio === collision.ratio && droppable.id === context.activeDroppableId) {
+        collision.droppable = droppable;
+      }
+    }
+    return collision.droppable;
+  };
+  var Context = createContext();
+  var DragDropProvider = (passedProps) => {
+    const props = mergeProps({
+      collisionDetector: mostIntersecting
+    }, passedProps);
+    const [state, setState] = createStore({
+      draggables: {},
+      droppables: {},
+      sensors: {},
+      active: {
+        draggableId: null,
+        get draggable() {
+          return state.active.draggableId !== null ? state.draggables[state.active.draggableId] : null;
+        },
+        droppableId: null,
+        get droppable() {
+          return state.active.droppableId !== null ? state.droppables[state.active.droppableId] : null;
+        },
+        sensorId: null,
+        get sensor() {
+          return state.active.sensorId !== null ? state.sensors[state.active.sensorId] : null;
+        },
+        overlay: null
+      }
+    });
+    const addTransformer = (type, id, transformer) => {
+      type.substring(0, type.length - 1);
+      if (!untrack(() => state[type][id])) {
+        return;
+      }
+      setState(type, id, "transformers", transformer.id, transformer);
+    };
+    const removeTransformer = (type, id, transformerId) => {
+      type.substring(0, type.length - 1);
+      if (!untrack(() => state[type][id])) {
+        return;
+      }
+      if (!untrack(() => state[type][id]["transformers"][transformerId])) {
+        return;
+      }
+      setState(type, id, "transformers", transformerId, void 0);
+    };
+    const addDraggable = ({
+      id,
+      node,
+      layout,
+      data
+    }) => {
+      const existingDraggable = state.draggables[id];
+      const draggable = {
+        id,
+        node,
+        layout,
+        data,
+        _pendingCleanup: false
+      };
+      let transformer;
+      if (!existingDraggable) {
+        Object.defineProperties(draggable, {
+          transformers: {
+            enumerable: true,
+            configurable: true,
+            writable: true,
+            value: {}
+          },
+          transform: {
+            enumerable: true,
+            configurable: true,
+            get: () => {
+              if (state.active.overlay) {
+                return noopTransform();
+              }
+              const transformers = Object.values(state.draggables[id].transformers);
+              transformers.sort((a, b) => a.order - b.order);
+              return transformers.reduce((transform, transformer2) => {
+                return transformer2.callback(transform);
+              }, noopTransform());
+            }
+          },
+          transformed: {
+            enumerable: true,
+            configurable: true,
+            get: () => {
+              return transformLayout(state.draggables[id].layout, state.draggables[id].transform);
+            }
+          }
+        });
+      } else if (state.active.draggableId === id && !state.active.overlay) {
+        const layoutDelta = {
+          x: existingDraggable.layout.x - layout.x,
+          y: existingDraggable.layout.y - layout.y
+        };
+        const transformerId = "addDraggable-existing-offset";
+        const existingTransformer = existingDraggable.transformers[transformerId];
+        const transformOffset = existingTransformer ? existingTransformer.callback(layoutDelta) : layoutDelta;
+        transformer = {
+          id: transformerId,
+          order: 100,
+          callback: (transform) => {
+            return {
+              x: transform.x + transformOffset.x,
+              y: transform.y + transformOffset.y
+            };
+          }
+        };
+        onDragEnd(() => removeTransformer("draggables", id, transformerId));
+      }
+      batch(() => {
+        setState("draggables", id, draggable);
+        if (transformer) {
+          addTransformer("draggables", id, transformer);
+        }
+      });
+      if (state.active.draggable) {
+        recomputeLayouts();
+      }
+    };
+    const removeDraggable = (id) => {
+      if (!untrack(() => state.draggables[id])) {
+        return;
+      }
+      setState("draggables", id, "_pendingCleanup", true);
+      queueMicrotask(() => cleanupDraggable(id));
+    };
+    const cleanupDraggable = (id) => {
+      if (state.draggables[id]?._pendingCleanup) {
+        const cleanupActive = state.active.draggableId === id;
+        batch(() => {
+          if (cleanupActive) {
+            setState("active", "draggableId", null);
+          }
+          setState("draggables", id, void 0);
+        });
+      }
+    };
+    const addDroppable = ({
+      id,
+      node,
+      layout,
+      data
+    }) => {
+      const existingDroppable = state.droppables[id];
+      const droppable = {
+        id,
+        node,
+        layout,
+        data,
+        _pendingCleanup: false
+      };
+      if (!existingDroppable) {
+        Object.defineProperties(droppable, {
+          transformers: {
+            enumerable: true,
+            configurable: true,
+            writable: true,
+            value: {}
+          },
+          transform: {
+            enumerable: true,
+            configurable: true,
+            get: () => {
+              const transformers = Object.values(state.droppables[id].transformers);
+              transformers.sort((a, b) => a.order - b.order);
+              return transformers.reduce((transform, transformer) => {
+                return transformer.callback(transform);
+              }, noopTransform());
+            }
+          },
+          transformed: {
+            enumerable: true,
+            configurable: true,
+            get: () => {
+              return transformLayout(state.droppables[id].layout, state.droppables[id].transform);
+            }
+          }
+        });
+      }
+      setState("droppables", id, droppable);
+      if (state.active.draggable) {
+        recomputeLayouts();
+      }
+    };
+    const removeDroppable = (id) => {
+      if (!untrack(() => state.droppables[id])) {
+        return;
+      }
+      setState("droppables", id, "_pendingCleanup", true);
+      queueMicrotask(() => cleanupDroppable(id));
+    };
+    const cleanupDroppable = (id) => {
+      if (state.droppables[id]?._pendingCleanup) {
+        const cleanupActive = state.active.droppableId === id;
+        batch(() => {
+          if (cleanupActive) {
+            setState("active", "droppableId", null);
+          }
+          setState("droppables", id, void 0);
+        });
+      }
+    };
+    const addSensor = ({
+      id,
+      activators
+    }) => {
+      setState("sensors", id, {
+        id,
+        activators,
+        coordinates: {
+          origin: {
+            x: 0,
+            y: 0
+          },
+          current: {
+            x: 0,
+            y: 0
+          },
+          get delta() {
+            return {
+              x: state.sensors[id].coordinates.current.x - state.sensors[id].coordinates.origin.x,
+              y: state.sensors[id].coordinates.current.y - state.sensors[id].coordinates.origin.y
+            };
+          }
+        }
+      });
+    };
+    const removeSensor = (id) => {
+      if (!untrack(() => state.sensors[id])) {
+        return;
+      }
+      const cleanupActive = state.active.sensorId === id;
+      batch(() => {
+        if (cleanupActive) {
+          setState("active", "sensorId", null);
+        }
+        setState("sensors", id, void 0);
+      });
+    };
+    const setOverlay = ({
+      node,
+      layout
+    }) => {
+      const existing = state.active.overlay;
+      const overlay = {
+        node,
+        layout
+      };
+      if (!existing) {
+        Object.defineProperties(overlay, {
+          id: {
+            enumerable: true,
+            configurable: true,
+            get: () => state.active.draggable?.id
+          },
+          data: {
+            enumerable: true,
+            configurable: true,
+            get: () => state.active.draggable?.data
+          },
+          transformers: {
+            enumerable: true,
+            configurable: true,
+            get: () => Object.fromEntries(Object.entries(state.active.draggable ? state.active.draggable.transformers : {}).filter(([id]) => id !== "addDraggable-existing-offset"))
+          },
+          transform: {
+            enumerable: true,
+            configurable: true,
+            get: () => {
+              const transformers = Object.values(state.active.overlay ? state.active.overlay.transformers : []);
+              transformers.sort((a, b) => a.order - b.order);
+              return transformers.reduce((transform, transformer) => {
+                return transformer.callback(transform);
+              }, noopTransform());
+            }
+          },
+          transformed: {
+            enumerable: true,
+            configurable: true,
+            get: () => {
+              return state.active.overlay ? transformLayout(state.active.overlay.layout, state.active.overlay.transform) : new Layout({
+                x: 0,
+                y: 0,
+                width: 0,
+                height: 0
+              });
+            }
+          }
+        });
+      }
+      setState("active", "overlay", overlay);
+    };
+    const clearOverlay = () => setState("active", "overlay", null);
+    const sensorStart = (id, coordinates) => {
+      batch(() => {
+        setState("sensors", id, "coordinates", {
+          origin: {
+            ...coordinates
+          },
+          current: {
+            ...coordinates
+          }
+        });
+        setState("active", "sensorId", id);
+      });
+    };
+    const sensorMove = (coordinates) => {
+      const sensorId = state.active.sensorId;
+      if (!sensorId) {
+        return;
+      }
+      setState("sensors", sensorId, "coordinates", "current", {
+        ...coordinates
+      });
+    };
+    const sensorEnd = () => setState("active", "sensorId", null);
+    const draggableActivators = (draggableId, asHandlers) => {
+      const eventMap = {};
+      for (const sensor of Object.values(state.sensors)) {
+        if (sensor) {
+          for (const [type, activator] of Object.entries(sensor.activators)) {
+            eventMap[type] ??= [];
+            eventMap[type].push({
+              sensor,
+              activator
+            });
+          }
+        }
+      }
+      const listeners = {};
+      for (const key in eventMap) {
+        let handlerKey = key;
+        if (asHandlers) {
+          handlerKey = `on${key}`;
+        }
+        listeners[handlerKey] = (event) => {
+          for (const {
+            activator
+          } of eventMap[key]) {
+            if (state.active.sensor) {
+              break;
+            }
+            activator(event, draggableId);
+          }
+        };
+      }
+      return listeners;
+    };
+    const recomputeLayouts = () => {
+      let anyLayoutChanged = false;
+      const draggables = Object.values(state.draggables);
+      const droppables = Object.values(state.droppables);
+      const overlay = state.active.overlay;
+      batch(() => {
+        const cache = /* @__PURE__ */ new WeakMap();
+        for (const draggable of draggables) {
+          if (draggable) {
+            const currentLayout = draggable.layout;
+            if (!cache.has(draggable.node)) cache.set(draggable.node, elementLayout(draggable.node));
+            const layout = cache.get(draggable.node);
+            if (!layoutsAreEqual(currentLayout, layout)) {
+              setState("draggables", draggable.id, "layout", layout);
+              anyLayoutChanged = true;
+            }
+          }
+        }
+        for (const droppable of droppables) {
+          if (droppable) {
+            const currentLayout = droppable.layout;
+            if (!cache.has(droppable.node)) cache.set(droppable.node, elementLayout(droppable.node));
+            const layout = cache.get(droppable.node);
+            if (!layoutsAreEqual(currentLayout, layout)) {
+              setState("droppables", droppable.id, "layout", layout);
+              anyLayoutChanged = true;
+            }
+          }
+        }
+        if (overlay) {
+          const currentLayout = overlay.layout;
+          const layout = elementLayout(overlay.node);
+          if (!layoutsAreEqual(currentLayout, layout)) {
+            setState("active", "overlay", "layout", layout);
+            anyLayoutChanged = true;
+          }
+        }
+      });
+      return anyLayoutChanged;
+    };
+    const detectCollisions = () => {
+      const draggable = state.active.overlay ?? state.active.draggable;
+      if (draggable) {
+        const droppable = props.collisionDetector(draggable, Object.values(state.droppables), {
+          activeDroppableId: state.active.droppableId
+        });
+        const droppableId = droppable ? droppable.id : null;
+        if (state.active.droppableId !== droppableId) {
+          setState("active", "droppableId", droppableId);
+        }
+      }
+    };
+    const dragStart = (draggableId) => {
+      const transformer = {
+        id: "sensorMove",
+        order: 0,
+        callback: (transform) => {
+          if (state.active.sensor) {
+            return {
+              x: transform.x + state.active.sensor.coordinates.delta.x,
+              y: transform.y + state.active.sensor.coordinates.delta.y
+            };
+          }
+          return transform;
+        }
+      };
+      recomputeLayouts();
+      batch(() => {
+        setState("active", "draggableId", draggableId);
+        addTransformer("draggables", draggableId, transformer);
+      });
+      detectCollisions();
+    };
+    const dragEnd = () => {
+      const draggableId = untrack(() => state.active.draggableId);
+      batch(() => {
+        if (draggableId !== null) {
+          removeTransformer("draggables", draggableId, "sensorMove");
+        }
+        setState("active", ["draggableId", "droppableId"], null);
+      });
+      recomputeLayouts();
+    };
+    const onDragStart = (handler) => {
+      createEffect(() => {
+        const draggable = state.active.draggable;
+        if (draggable) {
+          untrack(() => handler({
+            draggable
+          }));
+        }
+      });
+    };
+    const onDragMove = (handler) => {
+      createEffect(() => {
+        const draggable = state.active.draggable;
+        if (draggable) {
+          const overlay = untrack(() => state.active.overlay);
+          Object.values(overlay ? overlay.transform : draggable.transform);
+          untrack(() => handler({
+            draggable,
+            overlay
+          }));
+        }
+      });
+    };
+    const onDragOver = (handler) => {
+      createEffect(() => {
+        const draggable = state.active.draggable;
+        const droppable = state.active.droppable;
+        if (draggable) {
+          untrack(() => handler({
+            draggable,
+            droppable,
+            overlay: state.active.overlay
+          }));
+        }
+      });
+    };
+    const onDragEnd = (handler) => {
+      createEffect(({
+        previousDraggable,
+        previousDroppable,
+        previousOverlay
+      }) => {
+        const draggable = state.active.draggable;
+        const droppable = draggable ? state.active.droppable : null;
+        const overlay = draggable ? state.active.overlay : null;
+        if (!draggable && previousDraggable) {
+          untrack(() => handler({
+            draggable: previousDraggable,
+            droppable: previousDroppable,
+            overlay: previousOverlay
+          }));
+        }
+        return {
+          previousDraggable: draggable,
+          previousDroppable: droppable,
+          previousOverlay: overlay
+        };
+      }, {
+        previousDraggable: null,
+        previousDroppable: null,
+        previousOverlay: null
+      });
+    };
+    onDragMove(() => detectCollisions());
+    props.onDragStart && onDragStart(props.onDragStart);
+    props.onDragMove && onDragMove(props.onDragMove);
+    props.onDragOver && onDragOver(props.onDragOver);
+    props.onDragEnd && onDragEnd(props.onDragEnd);
+    const actions = {
+      addTransformer,
+      removeTransformer,
+      addDraggable,
+      removeDraggable,
+      addDroppable,
+      removeDroppable,
+      addSensor,
+      removeSensor,
+      setOverlay,
+      clearOverlay,
+      recomputeLayouts,
+      detectCollisions,
+      draggableActivators,
+      sensorStart,
+      sensorMove,
+      sensorEnd,
+      dragStart,
+      dragEnd,
+      onDragStart,
+      onDragMove,
+      onDragOver,
+      onDragEnd
+    };
+    const context = [state, actions];
+    return createComponent(Context.Provider, {
+      value: context,
+      get children() {
+        return props.children;
+      }
+    });
+  };
+  var useDragDropContext = () => {
+    return useContext(Context) || null;
+  };
+  var createPointerSensor = (id = "pointer-sensor") => {
+    const [state, {
+      addSensor,
+      removeSensor,
+      sensorStart,
+      sensorMove,
+      sensorEnd,
+      dragStart,
+      dragEnd
+    }] = useDragDropContext();
+    const activationDelay = 250;
+    const activationDistance = 10;
+    onMount(() => {
+      addSensor({
+        id,
+        activators: {
+          pointerdown: attach
+        }
+      });
+    });
+    onCleanup(() => {
+      removeSensor(id);
+    });
+    const isActiveSensor = () => state.active.sensorId === id;
+    const initialCoordinates = {
+      x: 0,
+      y: 0
+    };
+    let activationDelayTimeoutId = null;
+    let activationDraggableId = null;
+    const attach = (event, draggableId) => {
+      if (event.button !== 0) return;
+      document.addEventListener("pointermove", onPointerMove);
+      document.addEventListener("pointerup", onPointerUp);
+      activationDraggableId = draggableId;
+      initialCoordinates.x = event.clientX;
+      initialCoordinates.y = event.clientY;
+      activationDelayTimeoutId = window.setTimeout(onActivate, activationDelay);
+    };
+    const detach = () => {
+      if (activationDelayTimeoutId) {
+        clearTimeout(activationDelayTimeoutId);
+        activationDelayTimeoutId = null;
+      }
+      document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerup", onPointerUp);
+      document.removeEventListener("selectionchange", clearSelection);
+    };
+    const onActivate = () => {
+      if (!state.active.sensor) {
+        sensorStart(id, initialCoordinates);
+        dragStart(activationDraggableId);
+        clearSelection();
+        document.addEventListener("selectionchange", clearSelection);
+      } else if (!isActiveSensor()) {
+        detach();
+      }
+    };
+    const onPointerMove = (event) => {
+      const coordinates = {
+        x: event.clientX,
+        y: event.clientY
+      };
+      if (!state.active.sensor) {
+        const transform = {
+          x: coordinates.x - initialCoordinates.x,
+          y: coordinates.y - initialCoordinates.y
+        };
+        if (Math.sqrt(transform.x ** 2 + transform.y ** 2) > activationDistance) {
+          onActivate();
+        }
+      }
+      if (isActiveSensor()) {
+        event.preventDefault();
+        sensorMove(coordinates);
+      }
+    };
+    const onPointerUp = (event) => {
+      detach();
+      if (isActiveSensor()) {
+        event.preventDefault();
+        dragEnd();
+        sensorEnd();
+      }
+    };
+    const clearSelection = () => {
+      window.getSelection()?.removeAllRanges();
+    };
+  };
+  var DragDropSensors = (props) => {
+    createPointerSensor();
+    return memo(() => props.children);
+  };
+  var transformStyle = (transform) => {
+    return {
+      transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`
+    };
+  };
+  var createDraggable = (id, data = {}) => {
+    const [state, {
+      addDraggable,
+      removeDraggable,
+      draggableActivators
+    }] = useDragDropContext();
+    const [node, setNode] = createSignal(null);
+    onMount(() => {
+      const resolvedNode = node();
+      if (resolvedNode) {
+        addDraggable({
+          id,
+          node: resolvedNode,
+          layout: elementLayout(resolvedNode),
+          data
+        });
+      }
+    });
+    onCleanup(() => removeDraggable(id));
+    const isActiveDraggable = () => state.active.draggableId === id;
+    const transform = () => {
+      return state.draggables[id]?.transform || noopTransform();
+    };
+    const draggable = Object.defineProperties((element, accessor) => {
+      const config = accessor ? accessor() : {};
+      createEffect(() => {
+        const resolvedNode = node();
+        const activators = draggableActivators(id);
+        if (resolvedNode) {
+          for (const key in activators) {
+            resolvedNode.addEventListener(key, activators[key]);
+          }
+        }
+        onCleanup(() => {
+          if (resolvedNode) {
+            for (const key in activators) {
+              resolvedNode.removeEventListener(key, activators[key]);
+            }
+          }
+        });
+      });
+      setNode(element);
+      if (!config.skipTransform) {
+        createEffect(() => {
+          const resolvedTransform = transform();
+          if (!transformsAreEqual(resolvedTransform, noopTransform())) {
+            const style = transformStyle(transform());
+            element.style.setProperty("transform", style.transform ?? null);
+          } else {
+            element.style.removeProperty("transform");
+          }
+        });
+      }
+    }, {
+      ref: {
+        enumerable: true,
+        value: setNode
+      },
+      isActiveDraggable: {
+        enumerable: true,
+        get: isActiveDraggable
+      },
+      dragActivators: {
+        enumerable: true,
+        get: () => {
+          return draggableActivators(id, true);
+        }
+      },
+      transform: {
+        enumerable: true,
+        get: transform
+      }
+    });
+    return draggable;
+  };
+  var DragOverlay = (props) => {
+    const [state, {
+      onDragStart,
+      onDragEnd,
+      setOverlay,
+      clearOverlay
+    }] = useDragDropContext();
+    let node;
+    onDragStart(({
+      draggable
+    }) => {
+      setOverlay({
+        node: draggable.node,
+        layout: draggable.layout
+      });
+      queueMicrotask(() => {
+        if (node) {
+          const layout = elementLayout(node);
+          const delta = {
+            x: (draggable.layout.width - layout.width) / 2,
+            y: (draggable.layout.height - layout.height) / 2
+          };
+          layout.x += delta.x;
+          layout.y += delta.y;
+          setOverlay({
+            node,
+            layout
+          });
+        }
+      });
+    });
+    onDragEnd(() => queueMicrotask(clearOverlay));
+    const style$1 = () => {
+      const overlay = state.active.overlay;
+      const draggable = state.active.draggable;
+      if (!overlay || !draggable) return {};
+      return {
+        position: "fixed",
+        transition: "transform 0s",
+        top: `${overlay.layout.top}px`,
+        left: `${overlay.layout.left}px`,
+        "min-width": `${draggable.layout.width}px`,
+        "min-height": `${draggable.layout.height}px`,
+        ...transformStyle(overlay.transform),
+        ...props.style
+      };
+    };
+    return createComponent(Portal, {
+      get mount() {
+        return document.body;
+      },
+      get children() {
+        return createComponent(Show, {
+          get when() {
+            return state.active.draggable;
+          },
+          get children() {
+            var _el$ = _tmpl$$2();
+            var _ref$ = node;
+            typeof _ref$ === "function" ? use(_ref$, _el$) : node = _el$;
+            insert(_el$, (() => {
+              var _c$ = memo(() => typeof props.children === "function");
+              return () => _c$() ? props.children(state.active.draggable) : props.children;
+            })());
+            createRenderEffect((_p$) => {
+              var _v$ = props.class, _v$2 = style$1();
+              _v$ !== _p$.e && className(_el$, _p$.e = _v$);
+              _p$.t = style(_el$, _v$2, _p$.t);
+              return _p$;
+            }, {
+              e: void 0,
+              t: void 0
+            });
+            return _el$;
+          }
+        });
+      }
+    });
+  };
+
+  var _tmpl$$1 = /* @__PURE__ */ template(`<div class="ext-draggable ext-absolute ext-bg-red-800 ext-p-4 ext-w-[400px]">`);
+  const Draggable = (props) => {
+    const draggable = createDraggable(props.id);
+    return (() => {
+      var _el$ = _tmpl$$1();
+      use(draggable, _el$, () => true);
+      _el$.style.setProperty("top", "0");
+      insert(_el$, () => props.children);
+      createRenderEffect((_p$) => {
+        var _v$ = !!draggable.isActiveDraggable, _v$2 = (props.id === 1 ? 0 : 125) + "px";
+        _v$ !== _p$.e && _el$.classList.toggle("ext-opacity-25", _p$.e = _v$);
+        _v$2 !== _p$.t && ((_p$.t = _v$2) != null ? _el$.style.setProperty("left", _v$2) : _el$.style.removeProperty("left"));
+        return _p$;
+      }, {
+        e: void 0,
+        t: void 0
+      });
+      return _el$;
+    })();
+  };
+
+  var _tmpl$ = /* @__PURE__ */ template(`<div><div class=ext-flex>url: </div><div class=ext-flex>mint: `), _tmpl$2 = /* @__PURE__ */ template(`<div class="ext-absolute ext-top-0 ext-bg-yellow-600 ext-p-2"><div class="ext-flex ext-gap-2"><div></div><button class=ext-bg-blue-500>start</button><button class=ext-bg-blue-500>log`), _tmpl$3 = /* @__PURE__ */ template(`<div class="ext-draggable ext-bg-red-800 ext-w-[400px] ext-h-[400px]">Draggable `);
   const Content = () => {
     const [status, setStatus] = createSignal(false);
     const {
@@ -6072,34 +7072,69 @@
         }
       });
     };
-    return (() => {
-      var _el$ = _tmpl$2(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.nextSibling;
-      insert(_el$2, createComponent(OnlineStatusWidged, {}), _el$3);
-      insert(_el$3, status);
-      _el$4.$$click = () => handleSubscribe();
-      _el$5.$$click = () => setShowDebug((prev) => !prev);
-      insert(_el$, createComponent(Show, {
-        get when() {
-          return showDebug();
-        },
-        get children() {
-          var _el$6 = _tmpl$(), _el$7 = _el$6.firstChild; _el$7.firstChild; var _el$9 = _el$7.nextSibling; _el$9.firstChild;
-          insert(_el$7, urlValue, null);
-          insert(_el$9, () => contentAppStore.mint, null);
-          insert(_el$6, createComponent(LogWidget, {}), null);
-          return _el$6;
-        }
-      }), null);
-      insert(_el$, createComponent(Show, {
-        get when() {
-          return allSourcesReady();
-        },
-        get children() {
-          return createComponent(TradeWidget, {});
-        }
-      }), null);
-      return _el$;
-    })();
+    let transform = {
+      x: 0,
+      y: 0
+    };
+    const onDragMove = ({
+      overlay
+    }) => {
+      if (overlay) {
+        transform = {
+          ...overlay.transform
+        };
+      }
+    };
+    const onDragEnd = ({
+      draggable
+    }) => {
+      const node = draggable.node;
+      node.style.setProperty("top", node.offsetTop + transform.y + "px");
+      node.style.setProperty("left", node.offsetLeft + transform.x + "px");
+    };
+    return createComponent(DragDropProvider, {
+      onDragMove,
+      onDragEnd,
+      get children() {
+        return [createComponent(DragDropSensors, {}), createComponent(Draggable, {
+          id: 2,
+          get children() {
+            var _el$ = _tmpl$2(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.nextSibling;
+            insert(_el$2, createComponent(OnlineStatusWidged, {}), _el$3);
+            insert(_el$3, status);
+            _el$4.$$click = () => handleSubscribe();
+            _el$5.$$click = () => setShowDebug((prev) => !prev);
+            insert(_el$, createComponent(Show, {
+              get when() {
+                return showDebug();
+              },
+              get children() {
+                var _el$6 = _tmpl$(), _el$7 = _el$6.firstChild; _el$7.firstChild; var _el$9 = _el$7.nextSibling; _el$9.firstChild;
+                insert(_el$7, urlValue, null);
+                insert(_el$9, () => contentAppStore.mint, null);
+                insert(_el$6, createComponent(LogWidget, {}), null);
+                return _el$6;
+              }
+            }), null);
+            insert(_el$, createComponent(Show, {
+              get when() {
+                return allSourcesReady();
+              },
+              get children() {
+                return createComponent(TradeWidget, {});
+              }
+            }), null);
+            return _el$;
+          }
+        }), createComponent(DragOverlay, {
+          children: (draggable) => (() => {
+            var _el$1 = _tmpl$3(); _el$1.firstChild;
+            insert(_el$1, () => draggable && draggable.id, null);
+            return _el$1;
+          })()
+        })];
+      }
+    });
   };
   delegateEvents(["click"]);
 

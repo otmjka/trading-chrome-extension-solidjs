@@ -7,6 +7,14 @@ import { TradeWidget } from '../widgets/TradeWidget';
 import { LogWidget } from '../log/LogWidget';
 import { tradeWidgetState } from '../widgets/TradeWidget/tradeWidgetStateStore';
 
+import {
+  DragDropProvider,
+  DragDropSensors,
+  DragEventHandler,
+  DragOverlay,
+} from '@thisbeyond/solid-dnd';
+import { Draggable } from '../uikit/Draggable';
+
 const Content = () => {
   const [status, setStatus] = createSignal<boolean>(false);
   const { startListen, registerTab, subscribeToken, clean } =
@@ -69,33 +77,57 @@ const Content = () => {
       },
     });
   };
+  let transform = { x: 0, y: 0 };
 
+  const onDragMove: DragEventHandler = ({ overlay }) => {
+    if (overlay) {
+      transform = { ...overlay.transform };
+    }
+  };
+
+  const onDragEnd: DragEventHandler = ({ draggable }) => {
+    const node = draggable.node;
+    node.style.setProperty('top', node.offsetTop + transform.y + 'px');
+    node.style.setProperty('left', node.offsetLeft + transform.x + 'px');
+  };
   return (
-    <div class="ext-absolute ext-top-0 ext-bg-yellow-600 ext-p-2">
-      <div class="ext-flex ext-gap-2">
-        <OnlineStatusWidged />
-        <div>{status()}</div>
-        <button class="ext-bg-blue-500" onClick={() => handleSubscribe()}>
-          start
-        </button>
-        <button
-          class="ext-bg-blue-500"
-          onClick={() => setShowDebug((prev) => !prev)}
-        >
-          log
-        </button>
-      </div>
-      <Show when={showDebug()}>
-        <div>
-          <div class="ext-flex">url: {urlValue()}</div>
-          <div class="ext-flex">mint: {contentAppStore.mint}</div>
-          <LogWidget />
+    <DragDropProvider onDragMove={onDragMove} onDragEnd={onDragEnd}>
+      <DragDropSensors />
+      <Draggable id={2}>
+        <div class="ext-absolute ext-top-0 ext-bg-yellow-600 ext-p-2">
+          <div class="ext-flex ext-gap-2">
+            <OnlineStatusWidged />
+            <div>{status()}</div>
+            <button class="ext-bg-blue-500" onClick={() => handleSubscribe()}>
+              start
+            </button>
+            <button
+              class="ext-bg-blue-500"
+              onClick={() => setShowDebug((prev) => !prev)}
+            >
+              log
+            </button>
+          </div>
+          <Show when={showDebug()}>
+            <div>
+              <div class="ext-flex">url: {urlValue()}</div>
+              <div class="ext-flex">mint: {contentAppStore.mint}</div>
+              <LogWidget />
+            </div>
+          </Show>
+          <Show when={allSourcesReady()}>
+            <TradeWidget />
+          </Show>
         </div>
-      </Show>
-      <Show when={allSourcesReady()}>
-        <TradeWidget />
-      </Show>
-    </div>
+      </Draggable>
+      <DragOverlay>
+        {(draggable) => (
+          <div class="ext-draggable ext-bg-red-800 ext-w-[400px] ext-h-[400px]">
+            Draggable {draggable && draggable.id}
+          </div>
+        )}
+      </DragOverlay>
+    </DragDropProvider>
   );
 };
 export default Content;
