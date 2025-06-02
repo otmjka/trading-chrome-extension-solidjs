@@ -2,12 +2,18 @@ import { setLogStore } from '../content/logStore';
 import {
   CabalMessageType,
   FromBackgroundMessage,
+  FromBackgroundMessageTradeEvent,
+  FromBackgroundMessageTradeTokenStatus,
+  FromBackgroundMessageUATradeStats,
   Mint,
   SendResponse,
+  TokenStatusParsed,
+  TradeEventParsed,
 } from '../shared/types';
 import { setCabalTradeStream } from '../stores/cabalTradeSreamStore';
 import { setCabalUserActivity } from '../stores/cabalUserActivity';
 import { setTradeWidgetState } from '../widgets/TradeWidget/tradeWidgetStateStore';
+import { buyMarket } from './buyMarket';
 import {
   CabalTradeStreamMessages,
   CabalUserActivityStreamMessages,
@@ -16,6 +22,7 @@ import {
 } from './cabal-clinet-sdk';
 import { startListnenBackgroundMessages } from './chrome-extension/backgroundMessageHandler';
 import { registerTab } from './registerTab';
+import { sellMarket } from './sellMarket';
 import { subscribeToken } from './subscribeToken';
 
 const handleUserActivityConnected = () =>
@@ -28,9 +35,12 @@ const handleUserActivityPong = (eventValue: {
   setCabalUserActivity('status', eventValue);
 };
 
-const handleUserActivityTradeStats = (event) => {
+const handleUserActivityTradeStats = (
+  event: FromBackgroundMessageUATradeStats,
+) => {
   console.log('!!!!!!!handleUserActivityTradeStats', event);
   setLogStore('logs', (prev) => [...prev, { type: 'tokenTradeStats', event }]);
+  setTradeWidgetState('tradeStats', event.data);
 };
 
 const handleUserActivityError = () => {
@@ -49,23 +59,16 @@ const handleTradeStreamPong = (eventValue: {
   setCabalTradeStream('status', eventValue);
 };
 
-const handleTradeEvent = (event: {
-  type: string;
-  value: {
-    timestamp: number;
-    amountSol: string;
-    baseLiq: string;
-    quoteLiq: string;
-    poolKind: PoolKind;
-  };
-}) => {
-  const tokenTradeStats = event.value;
+const handleTradeEvent = (event: FromBackgroundMessageTradeEvent) => {
   setLogStore('logs', (prev) => [...prev, { type: 'tradeEvent', event }]);
+  setTradeWidgetState('lastTradeEvent', event.data);
 };
 
-const handleTradeTokenStatus = (event: TokenStatus) => {
+const handleTradeTokenStatus = (
+  event: FromBackgroundMessageTradeTokenStatus,
+) => {
   setLogStore('logs', (prev) => [...prev, { type: 'tokenStatus', event }]);
-  setTradeWidgetState('tokenStatus', event);
+  setTradeWidgetState('tokenStatus', event.data);
 };
 
 const handleTradeError = () => {
@@ -94,7 +97,7 @@ export const messageListener = (
       handleUserActivityPong(message.data);
       break;
     case CabalUserActivityStreamMessages.tradeStats:
-      handleUserActivityTradeStats(message.data);
+      handleUserActivityTradeStats(message);
       break;
     case CabalUserActivityStreamMessages.userActivityError:
       handleUserActivityError();
@@ -107,10 +110,10 @@ export const messageListener = (
       handleTradeStreamPong(message.data);
       break;
     case CabalTradeStreamMessages.tradeEvent:
-      handleTradeEvent(message.data);
+      handleTradeEvent(message);
       break;
     case CabalTradeStreamMessages.tokenStatus:
-      handleTradeTokenStatus(message.data);
+      handleTradeTokenStatus(message);
       break;
     case CabalTradeStreamMessages.tradeError:
       handleTradeError();
@@ -128,7 +131,15 @@ export const marketBuy = async ({
 }: {
   amount: number;
   mint: Mint;
-}) => {};
+}) => {
+  buyMarket({
+    mint,
+    amountSol: amount,
+    cb: (response) => {
+      console.log('marketBuy', response);
+    },
+  });
+};
 
 export const marketSell = async ({
   percents,
@@ -136,7 +147,15 @@ export const marketSell = async ({
 }: {
   percents: number;
   mint: Mint;
-}) => {};
+}) => {
+  sellMarket({
+    mint,
+    amountBps: percents,
+    cb: (response) => {
+      console.log('marketBuy', response);
+    },
+  });
+};
 
 export function useStartCabalService() {
   return {

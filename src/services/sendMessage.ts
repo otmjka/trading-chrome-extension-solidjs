@@ -1,10 +1,10 @@
-import { BgMessageCb, BgMessagePayload } from '../shared/types';
+import { BgMessageCb, MessageToBgPayload } from '../shared/types';
 
 export const sendMessage = ({
   payload,
   cb,
 }: {
-  payload: BgMessagePayload;
+  payload: MessageToBgPayload;
   cb: BgMessageCb;
 }) => {
   chrome.runtime.sendMessage(payload, cb);

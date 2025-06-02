@@ -1,4 +1,9 @@
-import { BackgroundMessages, Mint } from '../shared/types';
+import {
+  BackgroundMessages,
+  Mint,
+  SubscribeTokenPayloadMessage,
+  SubscribeTokenResponse,
+} from '../shared/types';
 import { sendMessage } from './sendMessage';
 
 export const subscribeToken = ({
@@ -6,9 +11,9 @@ export const subscribeToken = ({
   cb,
 }: {
   mint: Mint;
-  cb: (response: any) => void;
+  cb: (response: SubscribeTokenResponse) => void;
 }) => {
-  const payload = {
+  const payload: SubscribeTokenPayloadMessage = {
     type: BackgroundMessages.SUBSCRIBE_TOKEN,
     data: { mint },
   };
