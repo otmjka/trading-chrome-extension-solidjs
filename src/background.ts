@@ -9,41 +9,24 @@ import {
 } from './services/cabal-clinet-sdk';
 import { config } from './background/backgroundConfig';
 import { BackgroundAppConfig } from './background/enums';
-import { queryActiveTab } from './background/helpers/queryActiveTab';
 import { ContentListeners } from './background/types';
-import { initCabalOnTab } from './background/helpers/initCabalOnTab';
 import {
-  BackgroundMessages,
-  BuyMarketPayloadMessage,
   CabalMessageType,
-  FromBackgroundMessage,
   FromBackgroundMessageTradeError,
   FromBackgroundMessageTradeEvent,
   FromBackgroundMessageTradeTokenStatus,
-  FromBackgroundMessageUATradeStats,
-  MessageToBgPayload,
   Mint,
-  SellMarketPayloadMessage,
-  SubscribeTokenPayloadMessage,
 } from './shared/types';
 import {
   parseTokenStatus,
   parseTradeEvent,
   parseTradeStats,
 } from './background/helpers/cabalEventsToContentPayload';
-import { handleBuyMarketMessage } from './background/helpers/handleBuyMarketMessage';
-import { handleSellMarketMessage } from './background/helpers/handleSellMarketMessage';
 import { handleMessagesToBackground } from './background/helpers/handleMessagesToBackground';
 import { changeTab } from './background/helpers/changeTab';
 import { sendMessageToActiveTab } from './background/helpers/sendMessageToActiveTab';
 
 console.log('start background service 5');
-
-type CabalMessage = {
-  type: string;
-  eventName: string;
-  data?: unknown;
-};
 
 let cabal: CabalService | null = null;
 let isUserActivityConnected = false;
