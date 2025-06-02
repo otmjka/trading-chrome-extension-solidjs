@@ -1,0 +1,1 @@
+import{c as i,t as n,i as l,r as o,a as c}from"./assets/styles-Be7FUqJK.js";var m=n('<div class="p-6 text-xl"><div>Service Status:: <b>');function d(){const[e,u]=i("offline");return(()=>{var t=m(),r=t.firstChild,a=r.firstChild,s=a.nextSibling;return l(s,e),t})()}o(()=>c(d,{}),document.getElementById("root"));

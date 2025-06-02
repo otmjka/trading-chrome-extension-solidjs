@@ -1,6 +1,4 @@
 *.log.md
 node_modules
 backgroundConfig.ts
-dist
 tmpBackground.ts
-dist1
