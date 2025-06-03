@@ -19,6 +19,7 @@ export interface CabalServiceOpts<StreamResponse> {
   streamPinger: (params: { count: bigint }) => Promise<Pong>;
 
   debug?: boolean;
+  debugShowPing?: boolean;
 }
 
 export type CabalStreamEventsHandler = (

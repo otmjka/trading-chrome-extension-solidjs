@@ -61,7 +61,7 @@ export const ContentContainer: Component<{ children: JSX.Element }> = ({
   };
 
   return (
-    <div class="ext-absolute ext-z-100 ext-top-0 ext-bg-yellow-600 ext-p-2">
+    <div class="ext-absolute ext-z-[100] ext-top-0 ext-bg-green-100 ext-rounded-md ext-p-1 ext-min-w-[312px] ext-min-h-[343px]">
       <div class="ext-flex ext-gap-2">
         <OnlineStatusWidged />
         <Btn onClick={() => handleSubscribe()}>start</Btn>

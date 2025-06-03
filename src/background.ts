@@ -115,6 +115,9 @@ const handleUAError = () => {
 // Trades
 
 const handleTradeStreamConnected = () => {
+  if (config.showTradesConnected) {
+    console.log('Trades CONNECTED');
+  }
   state.isTradeConnected = true;
   checkConnectionStatus();
   sendMessageToActiveTab({
@@ -224,7 +227,7 @@ const unsubscribe = (cabal: CabalService) => {
 function checkConnectionStatus() {
   if (state.isUserActivityConnected && state.isTradeConnected) {
     setIsReady(true);
-    if (!config.showStreamConnected) {
+    if (config.showStreamConnected) {
       console.log('Both streams connected successfully');
     }
     sendMessageToActiveTab({
@@ -327,6 +330,10 @@ const startApp = async () => {
       state.apiKey = newApiKey;
       if (state.apiKey) {
         scheduleReconnect();
+      }
+
+      if (!state.apiKey) {
+        cleanCabalService();
       }
       // initializeCabalService();
       // Дополнительная логика, например, обновление настроек API

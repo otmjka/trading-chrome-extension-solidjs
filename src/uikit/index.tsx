@@ -10,9 +10,9 @@ export const Button = (props: ButtonProps) => (
   <KobalteButton
     type={props.type ?? 'button'}
     class={cn(
-      'ext-py-2 ext-px-4 ext-bg-green-400 ext-text-black ext-transition ext-ease-in ext-duration-200 ext-text-center ext-text-base ext-shadow-md ext-rounded-lg ',
+      'ext-py-2 ext-px-4 ext-bg-purple-600 ext-text-white ext-transition ext-ease-in ext-duration-200 ext-text-center ext-text-base ext-shadow-md ext-rounded-lg ',
       'focus:ext-ring-indigo-500 focus:ext-ring-offset-indigo-200 focus:ext-outline-none focus:ext-ring-2 focus:ext-ring-offset-2',
-      'hover:ext-bg-green-500',
+      'hover:ext-bg-purple-700',
       'disabled:ext-bg-gray-300 disabled:ext-text-gray-500 disabled:ext-cursor-not-allowed',
       props.className,
     )}

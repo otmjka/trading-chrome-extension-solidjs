@@ -35,6 +35,7 @@ class CabalStream<StreamResponse> {
   clientIsPong: (response: StreamResponse) => boolean;
   streamPinger: (params: { count: bigint }) => Promise<Pong>;
 
+  debugShowPing: boolean = false;
   constructor({
     nameStream,
 
@@ -44,6 +45,7 @@ class CabalStream<StreamResponse> {
 
     onMessage,
     debug = false,
+    debugShowPing = false,
   }: CabalServiceOpts<StreamResponse>) {
     this.nameStream = nameStream;
     this.log = debug ? console : fakeConsole;
@@ -55,6 +57,7 @@ class CabalStream<StreamResponse> {
     this.onMessage = onMessage;
 
     this.isPinging = false;
+    this.debugShowPing = debugShowPing;
   }
 
   async start() {
@@ -102,7 +105,10 @@ class CabalStream<StreamResponse> {
 
     try {
       for await (const response of this.streamInstance) {
-        this.log.log(`[${this.nameStream}]: received message`, response);
+        if (!this.clientIsPong(response) || this.debugShowPing) {
+          this.log.log(`[${this.nameStream}]: received message`, response);
+        }
+
         if (this.clientIsPong(response) && this._resolveOnePong) {
           this._resolveOnePong();
         }
@@ -117,7 +123,9 @@ class CabalStream<StreamResponse> {
 
   async ping() {
     try {
-      this.log.log(`[${this.nameStream}]: start ping`);
+      if (this.debugShowPing) {
+        this.log.log(`[${this.nameStream}]: start ping`);
+      }
 
       const error = this.checkForError({ errorCase: ErrorCase.ping });
       if (error) {
@@ -126,11 +134,15 @@ class CabalStream<StreamResponse> {
       }
 
       const pingResult = await this.streamPinger({ count: BigInt(Date.now()) });
-      this.log.log(`[${this.nameStream}]: ping result `, pingResult);
+      if (this.debugShowPing) {
+        this.log.log(`[${this.nameStream}]: ping result `, pingResult);
+      }
     } catch (error) {
       this.onErrorAndDestoy(`[${this.nameStream}]: ping error `, error);
     } finally {
-      this.log.log(`[${this.nameStream}]: ping finally`);
+      if (this.debugShowPing) {
+        this.log.log(`[${this.nameStream}]: ping finally`);
+      }
       const error = this.checkForError({ errorCase: ErrorCase.pingFinally });
 
       if (error) {

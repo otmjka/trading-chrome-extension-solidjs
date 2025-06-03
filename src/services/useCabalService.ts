@@ -80,10 +80,9 @@ const handleTradeError = () => {
 const handleReadyStatus = (message: FromBackgroundReadyStatusMessage) => {
   addLogRecord(message);
   const isReady = message.data.isReady;
+  const shouldSetApiKey = message.data.shouldSetApiKey;
   setContentAppStore('isReady', isReady);
-  if (isReady) {
-    setContentAppStore('shouldSetApiKey', false);
-  }
+  setContentAppStore('shouldSetApiKey', shouldSetApiKey);
   const status = message.data.isReady
     ? { isReady, count: String(Date.now()) }
     : undefined;

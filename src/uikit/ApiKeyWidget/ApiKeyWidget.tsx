@@ -6,6 +6,8 @@ import { Input, Button } from '../../uikit';
 const schema = z.object({
   apiKey: z.string().min(1, 'required'),
 });
+const cabalImg = chrome.runtime.getURL('assets2/cabal.svg');
+const cabalTextImg = chrome.runtime.getURL('assets2/cabal_text.svg');
 
 export type ApiKeyWidgetFormValues = { apiKey: string };
 
@@ -33,11 +35,19 @@ const ApiKeyWidget: Component<{ onApiKey: (apiKey: string) => void }> = ({
 
   const handleOnInput = (e: Event & { currentTarget: HTMLInputElement }) =>
     setApiKey(e.currentTarget.value);
-  console.log();
+
   return (
     <form onSubmit={handleSubmit}>
+      <div class="ext-flex">
+        <div>
+          <img src={cabalImg} alt="cabal" />
+        </div>
+        <div>
+          <img src={cabalTextImg} alt="cabal" />
+        </div>
+      </div>
       <div class="ext-flex ext-justify-center">
-        <div class="ext-text-2xl">To start enter an API key: </div>
+        <div class="ext-text-xl">To start enter an API key: </div>
       </div>
       <div class="ext-flex ext-justify-center ext-mt-4 ext-w-full">
         <Input
@@ -51,7 +61,7 @@ const ApiKeyWidget: Component<{ onApiKey: (apiKey: string) => void }> = ({
       </div>
       <div class="ext-flex ext-justify-center ext-mt-4 ext-w-full">
         <Button type="submit" disabled={!apiKey()}>
-          Start Hustle!
+          Connect to Cabal
         </Button>
       </div>
     </form>

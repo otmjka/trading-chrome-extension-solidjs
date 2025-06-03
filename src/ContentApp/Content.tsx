@@ -47,6 +47,11 @@ const Content = () => {
         <Show when={allSourcesReady()}>
           <TradeWidget />
         </Show>
+        <Show when={!shouldPromptApiKey() && !allSourcesReady()}>
+          <div class="ext-flex ext-justify-center ext-items-center">
+            <div class="ext-text-green-300">loading...</div>
+          </div>
+        </Show>
       </ContentContainer>
     </DragContainer>
   );
