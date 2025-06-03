@@ -74,7 +74,6 @@ const TradeWidget: Component = () => {
     },
   ]);
 
-  console.log('^&*^*&^*&^', statsBottom);
   return (
     <TW.Container>
       <TW.Header />
