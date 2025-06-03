@@ -15,21 +15,17 @@ export enum BackgroundMessages {
   SUBSCRIBE_TOKEN = 'SUBSCRIBE_TOKEN',
   BUY_MARKET = 'BUY_MARKET',
   SELL_MARKET = 'SELL_MARKET',
+  SET_APIKEY = 'SET_APIKEY',
 }
 
 export type BgInitMessageResponse = {
   url: string;
   mint: string;
   isReady: boolean;
+  apiKey: string | null;
 };
 
 // Messages to Background
-
-export type MessageToBgPayload =
-  | InitCabalOnTabMessage
-  | SubscribeTokenPayloadMessage
-  | BuyMarketPayloadMessage
-  | SellMarketPayloadMessage;
 
 export type InitCabalOnTabMessage = {
   type: BackgroundMessages.INIT_CABAL;
@@ -45,10 +41,6 @@ export type SubscribeTokenPayloadMessage = {
   };
 };
 
-export type SubscribeTokenResponse = {
-  isReady: boolean;
-};
-
 export type BuyMarketPayloadMessage = {
   type: BackgroundMessages.BUY_MARKET;
   data: {
@@ -57,16 +49,34 @@ export type BuyMarketPayloadMessage = {
   };
 };
 
-export type BuyMarketResponse = {
-  isReady: boolean;
-};
-
 export type SellMarketPayloadMessage = {
   type: BackgroundMessages.SELL_MARKET;
   data: {
     mint: Mint;
     amountBps: Bps;
   };
+};
+
+export type SendApiKeyPayloadMessage = {
+  type: BackgroundMessages.SET_APIKEY;
+  data: {
+    apiKey: string | null;
+  };
+};
+
+export type MessageToBgPayload =
+  | InitCabalOnTabMessage
+  | SubscribeTokenPayloadMessage
+  | BuyMarketPayloadMessage
+  | SellMarketPayloadMessage
+  | SendApiKeyPayloadMessage;
+
+export type SubscribeTokenResponse = {
+  isReady: boolean;
+};
+
+export type BuyMarketResponse = {
+  isReady: boolean;
 };
 
 export type SellMarketResponse = {
@@ -184,7 +194,21 @@ export type FromBackgroundMessageTradeError = {
   eventName: CabalTradeStreamMessages.tradeError;
 };
 
+export enum CabalCommonMessages {
+  readyStatus = 'readyStatus',
+}
+
+export type FromBackgroundReadyStatusMessage = {
+  type: CabalMessageType;
+  eventName: CabalCommonMessages.readyStatus;
+  data: {
+    isReady: boolean;
+    shouldSetApiKey: boolean;
+  };
+};
+
 export type FromBackgroundMessage =
+  | FromBackgroundReadyStatusMessage
   | FromBackgroundMessageUAError
   | FromBackgroundMessageUAConnected
   | FromBackgroundMessageUAPong

@@ -1,9 +1,11 @@
 import { Component, createSignal, Show } from 'solid-js';
 
-import { LogRecord } from '../ContentApp/logStore';
+import { LogRecord } from '../stores/logStore';
+import { CabalCommonMessages } from '../shared/types';
 
 const ShowLogItem: Component<{ logItem: LogRecord }> = ({ logItem }) => {
   const showStrinify =
+    logItem.type === CabalCommonMessages.readyStatus ||
     logItem.type === 'tradeEvent' ||
     logItem.type === 'tokenStatus' ||
     logItem.type === 'tokenTradeStats';

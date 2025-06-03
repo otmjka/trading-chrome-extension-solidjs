@@ -9,8 +9,8 @@ import {
 } from './services/cabal-clinet-sdk';
 import { config } from './background/backgroundConfig';
 import { BackgroundAppConfig } from './background/enums';
-import { ContentListeners } from './background/types';
 import {
+  CabalCommonMessages,
   CabalMessageType,
   FromBackgroundMessageTradeError,
   FromBackgroundMessageTradeEvent,
@@ -26,6 +26,8 @@ import { handleMessagesToBackground } from './background/helpers/handleMessagesT
 import { changeTab } from './background/helpers/changeTab';
 import { sendMessageToActiveTab } from './background/helpers/sendMessageToActiveTab';
 import { BackgroundState } from './background/types';
+import CabalStorage from './background/CabalStorage';
+import * as messagesToContent from './background/helpers/messagesToContent';
 
 console.log('start background service 5');
 
@@ -38,6 +40,8 @@ const state: BackgroundState = {
   mint: null,
   activeTab: undefined,
   tabListeners: [],
+  cabalStorage: new CabalStorage(),
+  apiKey: null,
 };
 
 const getIsReady = () => state.isReady;
@@ -223,23 +227,50 @@ function checkConnectionStatus() {
     if (!config.showStreamConnected) {
       console.log('Both streams connected successfully');
     }
+    sendMessageToActiveTab({
+      getActiveTab,
+      message: messagesToContent.readyStatus({ state }),
+    });
     // Additional logic for successful connection if needed
   }
 }
 
-const initializeCabalService = () => {
-  console.log('initializeCabalService');
-  const currentInstance = cabalInstance();
+const cleanCabalService = () => {
+  try {
+    state.isReady = false;
+    // Clear any existing reconnect timeout
+    if (state.reconnectTimeout) {
+      clearTimeout(state.reconnectTimeout);
+    }
 
-  if (currentInstance) {
-    unsubscribe(currentInstance);
-    currentInstance.stop();
-    setCabalInstance(null);
+    // Reset connection flags
+    state.isUserActivityConnected = false;
+    state.isTradeConnected = false;
+    const currentInstance = cabalInstance();
+
+    if (currentInstance) {
+      unsubscribe(currentInstance);
+      currentInstance.stop();
+      setCabalInstance(null);
+    }
+    // TODO: replace
+    sendMessageToActiveTab({
+      getActiveTab,
+      message: messagesToContent.readyStatus({ state }),
+    });
+  } catch (error) {
+    console.error(`cleanCabalService`, error);
   }
+};
 
-  if (config.apiKey) {
+const initializeCabalService = () => {
+  console.log('initializeCabalService', state.apiKey);
+
+  cleanCabalService();
+
+  if (state.apiKey) {
     const newCabal = new CabalService({
-      apiKey: config.apiKey,
+      apiKey: state.apiKey,
       apiUrl: config.apiUrl,
     });
 
@@ -250,15 +281,7 @@ const initializeCabalService = () => {
 };
 
 function scheduleReconnect() {
-  state.isReady = false;
-  // Clear any existing reconnect timeout
-  if (state.reconnectTimeout) {
-    clearTimeout(state.reconnectTimeout);
-  }
-
-  // Reset connection flags
-  state.isUserActivityConnected = false;
-  state.isTradeConnected = false;
+  cleanCabalService();
 
   // Schedule reconnect
   state.reconnectTimeout = setTimeout(() => {
@@ -267,36 +290,18 @@ function scheduleReconnect() {
   }, BackgroundAppConfig.reconnectTimeout);
 }
 
-const autoConnector = () => {
-  if (state.reconnectTimeout) {
-    clearTimeout(state.reconnectTimeout);
-  }
-
-  // Initialize connection
-  initializeCabalService();
-
-  return () => {
-    if (state.reconnectTimeout) {
-      clearTimeout(state.reconnectTimeout);
-    }
-    const currentInstance = cabalInstance();
-    if (currentInstance) {
-      unsubscribe(currentInstance);
-      currentInstance.stop();
-      setCabalInstance(null);
-    }
-  };
-};
-
 // Start the auto connector
 
-const startApp = () => {
+const startApp = async () => {
+  const apiKey = await state.cabalStorage.getApiKey();
+  state.apiKey = apiKey.apiKey;
+  console.log('###', apiKey.apiKey);
   const messagesToBackgroundHandler = handleMessagesToBackground({
     getIsReady,
     getListener,
     getCabalInstance: cabalInstance,
     setActiveTab,
-    getListeners,
+    state: state,
   });
 
   const tabsOnActivatedHandler = changeTab({
@@ -305,13 +310,29 @@ const startApp = () => {
   });
 
   chrome.runtime.onMessage.addListener(messagesToBackgroundHandler);
+
   chrome.tabs.onActivated.addListener(tabsOnActivatedHandler);
-  chrome.runtime.onSuspend.addListener(() => {
-    console.log('### Sleep ###');
-    cleanup();
+
+  chrome.runtime.onInstalled.addListener(async (details) => {
+    if (details.reason === 'install') {
+      state.cabalStorage?.init();
+    }
   });
 
-  const cleanup = autoConnector();
+  chrome.storage.onChanged.addListener((changes, namespace) => {
+    console.log('storage changes!');
+    if (namespace === 'local' && changes.apiKey) {
+      const newApiKey = changes.apiKey.newValue;
+      console.log('API-ключ изменен:', newApiKey);
+      state.apiKey = newApiKey;
+      if (state.apiKey) {
+        scheduleReconnect();
+      }
+      // initializeCabalService();
+      // Дополнительная логика, например, обновление настроек API
+    }
+  });
+  initializeCabalService();
 };
 startApp();
 // Optional: Handle extension suspension/unload

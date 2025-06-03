@@ -12,13 +12,14 @@ import { useStartCabalService } from '../services/useCabalService';
 
 import { OnlineStatusWidged } from '../widgets/OnlineStatusWidged/OnlineStatusWidged';
 import { onUrlChange } from './onUrlChange';
-import { contentAppStore } from './contentAppStore';
+import { contentAppStore } from '../stores/contentAppStore';
 import { LogWidget } from '../log/LogWidget';
+import { Btn } from '../uikit';
 
 export const ContentContainer: Component<{ children: JSX.Element }> = ({
   children,
 }) => {
-  const { startListen, registerTab, subscribeToken, clean } =
+  const { startListen, registerTab, subscribeToken, clean, sendApiKey } =
     useStartCabalService();
   const [urlValue, setUrlValue] = createSignal<string>('');
   const [showDebug, setShowDebug] = createSignal<boolean>(false);
@@ -54,19 +55,18 @@ export const ContentContainer: Component<{ children: JSX.Element }> = ({
   });
 
   onCleanup(() => clean());
+
+  const logout = () => {
+    sendApiKey(null);
+  };
+
   return (
     <div class="ext-absolute ext-z-100 ext-top-0 ext-bg-yellow-600 ext-p-2">
       <div class="ext-flex ext-gap-2">
         <OnlineStatusWidged />
-        <button class="ext-bg-blue-500" onClick={() => handleSubscribe()}>
-          start
-        </button>
-        <button
-          class="ext-bg-blue-500"
-          onClick={() => setShowDebug((prev) => !prev)}
-        >
-          log
-        </button>
+        <Btn onClick={() => handleSubscribe()}>start</Btn>
+        <Btn onClick={() => setShowDebug((prev) => !prev)}>log</Btn>
+        <Btn onClick={() => logout()}>logout</Btn>
       </div>
       <Show when={showDebug()}>
         <div>

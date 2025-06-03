@@ -6,11 +6,12 @@ import {
   SellMarketPayloadMessage,
   SubscribeTokenPayloadMessage,
 } from '../../shared/types';
-import { ContentListener } from '../types';
+import { BackgroundState, ContentListener } from '../types';
 import { handleBuyMarketMessage } from './handleBuyMarketMessage';
 import { handleSellMarketMessage } from './handleSellMarketMessage';
 import { handleSubscribeTokenMessage } from './handleSubscribeTokenMessage';
 import { initCabalOnTab } from './initCabalOnTab';
+import { setApiKey } from './setApiKey';
 
 export const handleMessagesToBackground =
   ({
@@ -18,13 +19,13 @@ export const handleMessagesToBackground =
     getListener,
     getCabalInstance,
     setActiveTab,
-    getListeners,
+    state,
   }: {
     getListener: (tabId?: number) => ContentListener | undefined;
     getCabalInstance: () => CabalService | null;
     getIsReady: () => boolean;
     setActiveTab: (newActiveTab: number) => void;
-    getListeners: () => ContentListeners;
+    state: BackgroundState;
   }) =>
   (
     message: MessageToBgPayload,
@@ -33,15 +34,17 @@ export const handleMessagesToBackground =
   ) => {
     console.log('%%% %%% receive', message, sender);
     switch (message.type) {
+      case BackgroundMessages.SET_APIKEY:
+        console.log('!!!', message);
+        setApiKey({ sendResponse, message, state });
+
+        return true;
       case BackgroundMessages.INIT_CABAL:
         initCabalOnTab({
           sendResponse,
           message,
-          state: {
-            isReady: getIsReady(),
-            listeners: getListeners(),
-            setActiveTab,
-          },
+          state,
+          setActiveTab,
         });
         return true;
       case BackgroundMessages.SUBSCRIBE_TOKEN:
