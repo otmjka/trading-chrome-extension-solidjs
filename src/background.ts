@@ -100,6 +100,14 @@ const handleUserActivityTradeStats = (event: { value: TokenTradeStats }) => {
   }
 };
 
+const handleUAtxnCB = (event) => {
+  try {
+    console.log('#### #### #### handleUAtxnCB', event);
+  } catch (error) {
+    console.error(`error in handleUserActivityTradeStats`, error);
+  }
+};
+
 const handleUAError = () => {
   console.error('User Activity Stream Error');
   scheduleReconnect();
@@ -200,6 +208,7 @@ const eventDict = {
     handleUserActivityConnected,
   [CabalUserActivityStreamMessages.userActivityPong]: handleUserActivityPong,
   [CabalUserActivityStreamMessages.tradeStats]: handleUserActivityTradeStats,
+  [CabalUserActivityStreamMessages.txnCb]: handleUAtxnCB,
   [CabalUserActivityStreamMessages.userActivityError]: handleUAError,
 
   // trade streams

@@ -159,7 +159,6 @@ class CabalService extends EventEmitter {
   // CabalRpc -> MarketSell
   async marketSell({ mint, percents }: { mint: string; percents: number }) {
     try {
-      debugger;
       if (percents > 100 || percents <= 0) {
         throw new Error('should be in range of [0;100]');
       }
@@ -187,7 +186,6 @@ class CabalService extends EventEmitter {
     mint: string;
   }) {
     try {
-      debugger;
       const buyParams = {
         amount: toLamports(amount),
         mint,
@@ -196,17 +194,7 @@ class CabalService extends EventEmitter {
       };
       console.log('### buy params', buyParams);
       const result = await this.client.marketBuy(buyParams);
-      // {
-      //   amount,
-      //   mint,
-      //   slippageBps: defaultState.buy_slippage,
-      //   tip: toLamports(defaultState.buy_tip),
-      //   // priorityFee,
-      //   // nonce,
-      //   // slotLatency,
-      //   // expireAt,
-      //   // qouteKind,
-      // });
+
       console.log('buy', result);
       return result;
     } catch (error) {
@@ -285,6 +273,10 @@ class CabalService extends EventEmitter {
         );
         break;
       case 'txnCb':
+        this.emit(
+          CabalUserActivityStreamMessages.txnCb,
+          message.userResponseKind,
+        );
         break;
       case 'ping':
         break;

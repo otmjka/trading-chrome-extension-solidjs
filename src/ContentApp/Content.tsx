@@ -1,7 +1,7 @@
 import { createEffect, createSignal, Show } from 'solid-js';
 
 import { TradeWidget } from '../widgets/TradeWidget';
-import { tradeWidgetState } from '../widgets/TradeWidget/tradeWidgetStateStore';
+import { tradeWidgetState } from '../widgets/TradeWidget/TradeWidgetStore/tradeWidgetStateStore';
 
 import { DragContainer } from './DragContainer';
 import { ContentContainer } from './ContentContainer';

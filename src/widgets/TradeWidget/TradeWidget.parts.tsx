@@ -5,6 +5,7 @@ import { Tabs } from '@kobalte/core/tabs';
 
 import pin from './icons/pin.svg';
 import wallet from './icons/wallet.svg';
+import { tradeWidgetState } from './TradeWidgetStore/tradeWidgetStateStore';
 
 export const Card: Component<{
   children: JSX.Element;
@@ -65,7 +66,9 @@ export const Settings: Component = () => {
         <div>
           <img src={sol} alt="sol" />
         </div>
-        <div class="ext-text-xs ext-text-white ext-font-medium">0</div>
+        <div class="ext-text-xs ext-text-white ext-font-medium">
+          {tradeWidgetState.solBalanceLabel}
+        </div>
       </div>
     </div>
   );
