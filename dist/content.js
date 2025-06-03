@@ -1,5 +1,5 @@
 (function () {
-  'use strict';var __vite_style__ = document.createElement('style');__vite_style__.textContent = "*, ::before, ::after {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}\n\n::backdrop {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}/*\n! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #343538; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n5. Use the user's configured `sans` font-feature-settings by default.\n6. Use the user's configured `sans` font-variation-settings by default.\n7. Disable tap highlights on iOS\n*/\n\nhtml,\n:host {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n  font-feature-settings: normal; /* 5 */\n  font-variation-settings: normal; /* 6 */\n  -webkit-tap-highlight-color: transparent; /* 7 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font-family by default.\n2. Use the user's configured `mono` font-feature-settings by default.\n3. Use the user's configured `mono` font-variation-settings by default.\n4. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-feature-settings: normal; /* 2 */\n  font-variation-settings: normal; /* 3 */\n  font-size: 1em; /* 4 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-feature-settings: inherit; /* 1 */\n  font-variation-settings: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  font-weight: inherit; /* 1 */\n  line-height: inherit; /* 1 */\n  letter-spacing: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\ninput:where([type='button']),\ninput:where([type='reset']),\ninput:where([type='submit']) {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nReset default styling for dialogs.\n*/\ndialog {\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/* Make elements with the HTML hidden attribute stay hidden by default */\n[hidden]:where(:not([hidden=\"until-found\"])) {\n  display: none;\n}\n.ext-absolute {\n  position: absolute;\n}\n.ext-relative {\n  position: relative;\n}\n.ext-bottom-\\[-2px\\] {\n  bottom: -2px;\n}\n.ext-top-0 {\n  top: 0px;\n}\n.ext-z-\\[100\\] {\n  z-index: 100;\n}\n.ext-my-4 {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.ext-mb-\\[15px\\] {\n  margin-bottom: 15px;\n}\n.ext-mb-\\[4px\\] {\n  margin-bottom: 4px;\n}\n.ext-mb-\\[6px\\] {\n  margin-bottom: 6px;\n}\n.ext-ml-2 {\n  margin-left: 0.5rem;\n}\n.ext-mt-4 {\n  margin-top: 1rem;\n}\n.ext-mt-\\[10px\\] {\n  margin-top: 10px;\n}\n.ext-mt-\\[14px\\] {\n  margin-top: 14px;\n}\n.ext-mt-\\[6px\\] {\n  margin-top: 6px;\n}\n.ext-flex {\n  display: flex;\n}\n.ext-h-4 {\n  height: 1rem;\n}\n.ext-h-\\[12px\\] {\n  height: 12px;\n}\n.ext-h-\\[1px\\] {\n  height: 1px;\n}\n.ext-h-\\[351px\\] {\n  height: 351px;\n}\n.ext-min-h-\\[343px\\] {\n  min-height: 343px;\n}\n.ext-w-4 {\n  width: 1rem;\n}\n.ext-w-\\[10px\\] {\n  width: 10px;\n}\n.ext-w-\\[12px\\] {\n  width: 12px;\n}\n.ext-w-\\[328px\\] {\n  width: 328px;\n}\n.ext-w-\\[56px\\] {\n  width: 56px;\n}\n.ext-w-\\[5px\\] {\n  width: 5px;\n}\n.ext-w-full {\n  width: 100%;\n}\n.ext-min-w-\\[312px\\] {\n  min-width: 312px;\n}\n.ext-max-w-\\[312px\\] {\n  max-width: 312px;\n}\n.ext-flex-1 {\n  flex: 1 1 0%;\n}\n@keyframes ext-pulseOnce {\n\n  0%, 100% {\n    opacity: 1;\n  }\n\n  50% {\n    opacity: 0.1;\n  }\n}\n.ext-animate-pulse-once {\n  animation: ext-pulseOnce 1s ease-in-out;\n}\n.ext-appearance-none {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n}\n.ext-flex-col {\n  flex-direction: column;\n}\n.ext-items-start {\n  align-items: flex-start;\n}\n.ext-items-end {\n  align-items: flex-end;\n}\n.ext-items-center {\n  align-items: center;\n}\n.ext-items-baseline {\n  align-items: baseline;\n}\n.ext-justify-end {\n  justify-content: flex-end;\n}\n.ext-justify-center {\n  justify-content: center;\n}\n.ext-justify-between {\n  justify-content: space-between;\n}\n.ext-gap-1 {\n  gap: 0.25rem;\n}\n.ext-gap-2 {\n  gap: 0.5rem;\n}\n.ext-gap-4 {\n  gap: 1rem;\n}\n.ext-gap-\\[10px\\] {\n  gap: 10px;\n}\n.ext-gap-\\[7px\\] {\n  gap: 7px;\n}\n.ext-whitespace-nowrap {\n  white-space: nowrap;\n}\n.ext-rounded-\\[5px\\] {\n  border-radius: 5px;\n}\n.ext-rounded-full {\n  border-radius: 9999px;\n}\n.ext-rounded-lg {\n  border-radius: 0.5rem;\n}\n.ext-rounded-md {\n  border-radius: 0.375rem;\n}\n.ext-border {\n  border-width: 1px;\n}\n.ext-border-4 {\n  border-width: 4px;\n}\n.ext-border-r {\n  border-right-width: 1px;\n}\n.ext-border-dotted {\n  border-style: dotted;\n}\n.ext-border-gray-200 {\n  --tw-border-opacity: 1;\n  border-color: rgb(52 53 56 / var(--tw-border-opacity, 1));\n}\n.ext-border-gray-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(117 117 117 / var(--tw-border-opacity, 1));\n}\n.ext-border-gray-600 {\n  --tw-border-opacity: 1;\n  border-color: rgb(136 136 138 / var(--tw-border-opacity, 1));\n}\n.ext-border-green-500 {\n  --tw-border-opacity: 1;\n  border-color: rgb(99 215 189 / var(--tw-border-opacity, 1));\n}\n.ext-border-green-800 {\n  --tw-border-opacity: 1;\n  border-color: rgb(22 101 52 / var(--tw-border-opacity, 1));\n}\n.ext-border-red-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(255 92 92 / var(--tw-border-opacity, 1));\n}\n.ext-bg-blue-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(16 17 21 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-300 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(35 36 40 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-800 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(30 64 175 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(11 19 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(52 53 56 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(13 51 47 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(87 191 168 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-purple-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(147 51 234 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(46 15 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 92 92 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-white {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));\n}\n.ext-p-1 {\n  padding: 0.25rem;\n}\n.ext-p-2 {\n  padding: 0.5rem;\n}\n.ext-px-3 {\n  padding-left: 0.75rem;\n  padding-right: 0.75rem;\n}\n.ext-px-4 {\n  padding-left: 1rem;\n  padding-right: 1rem;\n}\n.ext-px-\\[11px\\] {\n  padding-left: 11px;\n  padding-right: 11px;\n}\n.ext-px-\\[15px\\] {\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.ext-px-\\[20px\\] {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.ext-py-1 {\n  padding-top: 0.25rem;\n  padding-bottom: 0.25rem;\n}\n.ext-py-2 {\n  padding-top: 0.5rem;\n  padding-bottom: 0.5rem;\n}\n.ext-py-\\[10px\\] {\n  padding-top: 10px;\n  padding-bottom: 10px;\n}\n.ext-py-\\[6px\\] {\n  padding-top: 6px;\n  padding-bottom: 6px;\n}\n.ext-py-\\[9px\\] {\n  padding-top: 9px;\n  padding-bottom: 9px;\n}\n.ext-pr-1 {\n  padding-right: 0.25rem;\n}\n.ext-pt-1 {\n  padding-top: 0.25rem;\n}\n.ext-text-center {\n  text-align: center;\n}\n.ext-text-\\[10px\\] {\n  font-size: 10px;\n}\n.ext-text-\\[9px\\] {\n  font-size: 9px;\n}\n.ext-text-base {\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n.ext-text-xl {\n  font-size: 1.25rem;\n  line-height: 1.75rem;\n}\n.ext-text-xs {\n  font-size: 0.75rem;\n  line-height: 1rem;\n}\n.ext-font-bold {\n  font-weight: 700;\n}\n.ext-font-medium {\n  font-weight: 500;\n}\n.ext-text-gray-300 {\n  --tw-text-opacity: 1;\n  color: rgb(72 72 72 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-400 {\n  --tw-text-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-700 {\n  --tw-text-opacity: 1;\n  color: rgb(55 65 81 / var(--tw-text-opacity, 1));\n}\n.ext-text-green-300 {\n  --tw-text-opacity: 1;\n  color: rgb(136 136 138 / var(--tw-text-opacity, 1));\n}\n.ext-text-green-500 {\n  --tw-text-opacity: 1;\n  color: rgb(99 215 189 / var(--tw-text-opacity, 1));\n}\n.ext-text-purple-500 {\n  --tw-text-opacity: 1;\n  color: rgb(135 80 231 / var(--tw-text-opacity, 1));\n}\n.ext-text-red-600 {\n  --tw-text-opacity: 1;\n  color: rgb(220 38 38 / var(--tw-text-opacity, 1));\n}\n.ext-text-white {\n  --tw-text-opacity: 1;\n  color: rgb(255 255 255 / var(--tw-text-opacity, 1));\n}\n.ext-placeholder-gray-400::-moz-placeholder {\n  --tw-placeholder-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-placeholder-opacity, 1));\n}\n.ext-placeholder-gray-400::placeholder {\n  --tw-placeholder-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-placeholder-opacity, 1));\n}\n.ext-opacity-25 {\n  opacity: 0.25;\n}\n.ext-shadow-lg {\n  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-shadow-md {\n  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-shadow-sm {\n  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);\n  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-transition {\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-transition-all {\n  transition-property: all;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-duration-200 {\n  transition-duration: 200ms;\n}\n.ext-ease-in {\n  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);\n}\n.hover\\:ext-bg-green-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.hover\\:ext-bg-purple-700:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(126 34 206 / var(--tw-bg-opacity, 1));\n}\n.hover\\:ext-bg-red-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.focus\\:ext-border-transparent:focus {\n  border-color: transparent;\n}\n.focus\\:ext-bg-black:focus {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n.focus\\:ext-text-green-400:focus {\n  --tw-text-opacity: 1;\n  color: rgb(87 191 168 / var(--tw-text-opacity, 1));\n}\n.focus\\:ext-outline-none:focus {\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.focus\\:ext-ring-2:focus {\n  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);\n  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);\n  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);\n}\n.focus\\:ext-ring-indigo-500:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity, 1));\n}\n.focus\\:ext-ring-purple-600:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity, 1));\n}\n.focus\\:ext-ring-offset-2:focus {\n  --tw-ring-offset-width: 2px;\n}\n.focus\\:ext-ring-offset-indigo-200:focus {\n  --tw-ring-offset-color: #c7d2fe;\n}\n.disabled\\:ext-cursor-not-allowed:disabled {\n  cursor: not-allowed;\n}\n.disabled\\:ext-bg-black:disabled {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n.disabled\\:ext-bg-gray-300:disabled {\n  --tw-bg-opacity: 1;\n  background-color: rgb(72 72 72 / var(--tw-bg-opacity, 1));\n}\n.disabled\\:ext-text-gray-500:disabled {\n  --tw-text-opacity: 1;\n  color: rgb(107 114 128 / var(--tw-text-opacity, 1));\n}\n@media (prefers-color-scheme: dark) {\n\n  .dark\\:ext-text-gray-50 {\n    --tw-text-opacity: 1;\n    color: rgb(249 250 251 / var(--tw-text-opacity, 1));\n  }\n}\n/*$vite$:1*/";document.head.appendChild(__vite_style__);
+  'use strict';var __vite_style__ = document.createElement('style');__vite_style__.textContent = "*, ::before, ::after {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}\n\n::backdrop {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}/*\n! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #343538; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n5. Use the user's configured `sans` font-feature-settings by default.\n6. Use the user's configured `sans` font-variation-settings by default.\n7. Disable tap highlights on iOS\n*/\n\nhtml,\n:host {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n  font-feature-settings: normal; /* 5 */\n  font-variation-settings: normal; /* 6 */\n  -webkit-tap-highlight-color: transparent; /* 7 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font-family by default.\n2. Use the user's configured `mono` font-feature-settings by default.\n3. Use the user's configured `mono` font-variation-settings by default.\n4. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-feature-settings: normal; /* 2 */\n  font-variation-settings: normal; /* 3 */\n  font-size: 1em; /* 4 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-feature-settings: inherit; /* 1 */\n  font-variation-settings: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  font-weight: inherit; /* 1 */\n  line-height: inherit; /* 1 */\n  letter-spacing: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\ninput:where([type='button']),\ninput:where([type='reset']),\ninput:where([type='submit']) {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nReset default styling for dialogs.\n*/\ndialog {\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/* Make elements with the HTML hidden attribute stay hidden by default */\n[hidden]:where(:not([hidden=\"until-found\"])) {\n  display: none;\n}\n.ext-fixed {\n  position: fixed;\n}\n.ext-absolute {\n  position: absolute;\n}\n.ext-relative {\n  position: relative;\n}\n.ext-bottom-0 {\n  bottom: 0px;\n}\n.ext-bottom-\\[-2px\\] {\n  bottom: -2px;\n}\n.ext-right-0 {\n  right: 0px;\n}\n.ext-top-0 {\n  top: 0px;\n}\n.ext-z-\\[100\\] {\n  z-index: 100;\n}\n.ext-z-\\[9999\\] {\n  z-index: 9999;\n}\n.ext-m-0 {\n  margin: 0px;\n}\n.ext-my-4 {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.ext-mb-\\[15px\\] {\n  margin-bottom: 15px;\n}\n.ext-mb-\\[4px\\] {\n  margin-bottom: 4px;\n}\n.ext-mb-\\[6px\\] {\n  margin-bottom: 6px;\n}\n.ext-ml-2 {\n  margin-left: 0.5rem;\n}\n.ext-mt-4 {\n  margin-top: 1rem;\n}\n.ext-mt-\\[10px\\] {\n  margin-top: 10px;\n}\n.ext-mt-\\[14px\\] {\n  margin-top: 14px;\n}\n.ext-mt-\\[6px\\] {\n  margin-top: 6px;\n}\n.ext-flex {\n  display: flex;\n}\n.ext-h-4 {\n  height: 1rem;\n}\n.ext-h-\\[12px\\] {\n  height: 12px;\n}\n.ext-h-\\[1px\\] {\n  height: 1px;\n}\n.ext-h-\\[351px\\] {\n  height: 351px;\n}\n.ext-min-h-\\[343px\\] {\n  min-height: 343px;\n}\n.ext-w-4 {\n  width: 1rem;\n}\n.ext-w-\\[10px\\] {\n  width: 10px;\n}\n.ext-w-\\[12px\\] {\n  width: 12px;\n}\n.ext-w-\\[328px\\] {\n  width: 328px;\n}\n.ext-w-\\[400px\\] {\n  width: 400px;\n}\n.ext-w-\\[56px\\] {\n  width: 56px;\n}\n.ext-w-\\[5px\\] {\n  width: 5px;\n}\n.ext-w-full {\n  width: 100%;\n}\n.ext-min-w-\\[312px\\] {\n  min-width: 312px;\n}\n.ext-max-w-\\[312px\\] {\n  max-width: 312px;\n}\n.ext-max-w-full {\n  max-width: 100%;\n}\n.ext-flex-1 {\n  flex: 1 1 0%;\n}\n@keyframes ext-pulseOnce {\n\n  0%, 100% {\n    opacity: 1;\n  }\n\n  50% {\n    opacity: 0.1;\n  }\n}\n.ext-animate-pulse-once {\n  animation: ext-pulseOnce 1s ease-in-out;\n}\n.ext-list-none {\n  list-style-type: none;\n}\n.ext-appearance-none {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n}\n.ext-flex-col {\n  flex-direction: column;\n}\n.ext-items-start {\n  align-items: flex-start;\n}\n.ext-items-end {\n  align-items: flex-end;\n}\n.ext-items-center {\n  align-items: center;\n}\n.ext-items-baseline {\n  align-items: baseline;\n}\n.ext-justify-end {\n  justify-content: flex-end;\n}\n.ext-justify-center {\n  justify-content: center;\n}\n.ext-justify-between {\n  justify-content: space-between;\n}\n.ext-gap-1 {\n  gap: 0.25rem;\n}\n.ext-gap-2 {\n  gap: 0.5rem;\n}\n.ext-gap-4 {\n  gap: 1rem;\n}\n.ext-gap-\\[10px\\] {\n  gap: 10px;\n}\n.ext-gap-\\[7px\\] {\n  gap: 7px;\n}\n.ext-whitespace-nowrap {\n  white-space: nowrap;\n}\n.ext-rounded-\\[5px\\] {\n  border-radius: 5px;\n}\n.ext-rounded-full {\n  border-radius: 9999px;\n}\n.ext-rounded-lg {\n  border-radius: 0.5rem;\n}\n.ext-rounded-md {\n  border-radius: 0.375rem;\n}\n.ext-border {\n  border-width: 1px;\n}\n.ext-border-4 {\n  border-width: 4px;\n}\n.ext-border-r {\n  border-right-width: 1px;\n}\n.ext-border-dotted {\n  border-style: dotted;\n}\n.ext-border-gray-200 {\n  --tw-border-opacity: 1;\n  border-color: rgb(52 53 56 / var(--tw-border-opacity, 1));\n}\n.ext-border-gray-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(117 117 117 / var(--tw-border-opacity, 1));\n}\n.ext-border-gray-600 {\n  --tw-border-opacity: 1;\n  border-color: rgb(136 136 138 / var(--tw-border-opacity, 1));\n}\n.ext-border-green-500 {\n  --tw-border-opacity: 1;\n  border-color: rgb(99 215 189 / var(--tw-border-opacity, 1));\n}\n.ext-border-green-800 {\n  --tw-border-opacity: 1;\n  border-color: rgb(22 101 52 / var(--tw-border-opacity, 1));\n}\n.ext-border-red-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(255 92 92 / var(--tw-border-opacity, 1));\n}\n.ext-bg-blue-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(16 17 21 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-300 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(35 36 40 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-800 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(30 64 175 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(11 19 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(52 53 56 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(13 51 47 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(87 191 168 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-purple-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(147 51 234 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(46 15 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 92 92 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-white {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));\n}\n.ext-p-1 {\n  padding: 0.25rem;\n}\n.ext-p-2 {\n  padding: 0.5rem;\n}\n.ext-p-3 {\n  padding: 0.75rem;\n}\n.ext-p-4 {\n  padding: 1rem;\n}\n.ext-px-3 {\n  padding-left: 0.75rem;\n  padding-right: 0.75rem;\n}\n.ext-px-4 {\n  padding-left: 1rem;\n  padding-right: 1rem;\n}\n.ext-px-\\[11px\\] {\n  padding-left: 11px;\n  padding-right: 11px;\n}\n.ext-px-\\[15px\\] {\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.ext-px-\\[20px\\] {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.ext-py-1 {\n  padding-top: 0.25rem;\n  padding-bottom: 0.25rem;\n}\n.ext-py-2 {\n  padding-top: 0.5rem;\n  padding-bottom: 0.5rem;\n}\n.ext-py-\\[10px\\] {\n  padding-top: 10px;\n  padding-bottom: 10px;\n}\n.ext-py-\\[6px\\] {\n  padding-top: 6px;\n  padding-bottom: 6px;\n}\n.ext-py-\\[9px\\] {\n  padding-top: 9px;\n  padding-bottom: 9px;\n}\n.ext-pr-1 {\n  padding-right: 0.25rem;\n}\n.ext-pt-1 {\n  padding-top: 0.25rem;\n}\n.ext-text-center {\n  text-align: center;\n}\n.ext-text-\\[10px\\] {\n  font-size: 10px;\n}\n.ext-text-\\[9px\\] {\n  font-size: 9px;\n}\n.ext-text-base {\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n.ext-text-xl {\n  font-size: 1.25rem;\n  line-height: 1.75rem;\n}\n.ext-text-xs {\n  font-size: 0.75rem;\n  line-height: 1rem;\n}\n.ext-font-bold {\n  font-weight: 700;\n}\n.ext-font-medium {\n  font-weight: 500;\n}\n.ext-text-gray-300 {\n  --tw-text-opacity: 1;\n  color: rgb(72 72 72 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-400 {\n  --tw-text-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-700 {\n  --tw-text-opacity: 1;\n  color: rgb(55 65 81 / var(--tw-text-opacity, 1));\n}\n.ext-text-green-300 {\n  --tw-text-opacity: 1;\n  color: rgb(136 136 138 / var(--tw-text-opacity, 1));\n}\n.ext-text-green-500 {\n  --tw-text-opacity: 1;\n  color: rgb(99 215 189 / var(--tw-text-opacity, 1));\n}\n.ext-text-purple-500 {\n  --tw-text-opacity: 1;\n  color: rgb(135 80 231 / var(--tw-text-opacity, 1));\n}\n.ext-text-red-600 {\n  --tw-text-opacity: 1;\n  color: rgb(220 38 38 / var(--tw-text-opacity, 1));\n}\n.ext-text-white {\n  --tw-text-opacity: 1;\n  color: rgb(255 255 255 / var(--tw-text-opacity, 1));\n}\n.ext-placeholder-gray-400::-moz-placeholder {\n  --tw-placeholder-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-placeholder-opacity, 1));\n}\n.ext-placeholder-gray-400::placeholder {\n  --tw-placeholder-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-placeholder-opacity, 1));\n}\n.ext-opacity-25 {\n  opacity: 0.25;\n}\n.ext-shadow-lg {\n  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-shadow-md {\n  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-shadow-sm {\n  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);\n  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-outline-none {\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.ext-transition {\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-transition-all {\n  transition-property: all;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-duration-200 {\n  transition-duration: 200ms;\n}\n.ext-ease-in {\n  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);\n}\n.hover\\:ext-bg-green-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.hover\\:ext-bg-purple-700:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(126 34 206 / var(--tw-bg-opacity, 1));\n}\n.hover\\:ext-bg-red-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.focus\\:ext-border-transparent:focus {\n  border-color: transparent;\n}\n.focus\\:ext-bg-black:focus {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n.focus\\:ext-text-green-400:focus {\n  --tw-text-opacity: 1;\n  color: rgb(87 191 168 / var(--tw-text-opacity, 1));\n}\n.focus\\:ext-outline-none:focus {\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.focus\\:ext-ring-2:focus {\n  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);\n  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);\n  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);\n}\n.focus\\:ext-ring-indigo-500:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity, 1));\n}\n.focus\\:ext-ring-purple-600:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity, 1));\n}\n.focus\\:ext-ring-offset-2:focus {\n  --tw-ring-offset-width: 2px;\n}\n.focus\\:ext-ring-offset-indigo-200:focus {\n  --tw-ring-offset-color: #c7d2fe;\n}\n.disabled\\:ext-cursor-not-allowed:disabled {\n  cursor: not-allowed;\n}\n.disabled\\:ext-bg-black:disabled {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n.disabled\\:ext-bg-gray-300:disabled {\n  --tw-bg-opacity: 1;\n  background-color: rgb(72 72 72 / var(--tw-bg-opacity, 1));\n}\n.disabled\\:ext-text-gray-500:disabled {\n  --tw-text-opacity: 1;\n  color: rgb(107 114 128 / var(--tw-text-opacity, 1));\n}\n@media (prefers-color-scheme: dark) {\n\n  .dark\\:ext-text-gray-50 {\n    --tw-text-opacity: 1;\n    color: rgb(249 250 251 / var(--tw-text-opacity, 1));\n  }\n}\n/*$vite$:1*/";document.head.appendChild(__vite_style__);
 
   const sharedConfig = {
     context: undefined,
@@ -1596,6 +1596,17 @@
   // src/create-generate-id.ts
   function createGenerateId(baseId) {
     return (suffix) => `${baseId()}-${suffix}`;
+  }
+
+  // src/dom.ts
+  function contains(parent, child) {
+    if (!parent) {
+      return false;
+    }
+    return parent === child || parent.contains(child);
+  }
+  function getWindow(node) {
+    return getDocument(node).defaultView || window;
   }
   function getDocument(node) {
     return node ? node.ownerDocument || node : document;
@@ -4657,7 +4668,7 @@
     return [wrappedStore, setStore];
   }
 
-  const initValue$4 = {
+  const initValue$5 = {
     dir: TradeDir.Buy,
     // buy
     buyQuicks: defaultBuyQuicks,
@@ -4704,10 +4715,10 @@
     return isNaN(num) ? null : num;
   };
 
-  const initValue$3 = {
+  const initValue$4 = {
     logs: []
   };
-  const [logStore, setLogStore] = createStore(initValue$3);
+  const [logStore, setLogStore] = createStore(initValue$4);
   const addLogRecord = (message) => setLogStore("logs", (prev) => [
     { type: message.eventName, event: message },
     ...prev
@@ -4730,15 +4741,15 @@
     return CabalCommonMessages2;
   })(CabalCommonMessages || {});
 
+  const initValue$3 = {
+    status: void 0
+  };
+  const [cabalTradeStream, setCabalTradeStream] = createStore(initValue$3);
+
   const initValue$2 = {
     status: void 0
   };
-  const [cabalTradeStream, setCabalTradeStream] = createStore(initValue$2);
-
-  const initValue$1 = {
-    status: void 0
-  };
-  const [cabalUserActivity, setCabalUserActivity] = createStore(initValue$1);
+  const [cabalUserActivity, setCabalUserActivity] = createStore(initValue$2);
 
   const sendMessage = ({
     payload,
@@ -5269,13 +5280,13 @@
 
   const startListnenBackgroundMessages = (messageListener) => chrome.runtime.onMessage.addListener(messageListener);
 
-  const initValue = {
+  const initValue$1 = {
     mint: void 0,
     isReady: false,
     url: "",
     shouldSetApiKey: false
   };
-  const [contentAppStore, setContentAppStore] = createStore(initValue);
+  const [contentAppStore, setContentAppStore] = createStore(initValue$1);
 
   const registerTab = ({ locationHref }) => {
     const payload = {
@@ -5325,6 +5336,15 @@
     sendMessage({ payload, cb });
   };
 
+  const initValue = {
+    items: []
+  };
+  const [toastStore$1, setToastStore] = createStore(initValue);
+  const addToast = (message) => setToastStore("items", (prev) => [
+    { type: message.eventName, event: message },
+    ...prev
+  ]);
+
   const handleUserActivityConnected = () => setCabalUserActivity("status", { isReady: true, count: "" });
   const handleUserActivityPong = (eventValue) => {
     setCabalUserActivity("status", eventValue);
@@ -5362,6 +5382,10 @@
     setCabalUserActivity("status", status);
     setCabalTradeStream("status", status);
   };
+  const handleUAtxCB = (message) => {
+    addLogRecord(message);
+    addToast(message);
+  };
   const messageListener = (message, sender, sendResponse) => {
     console.log(`received message: ${message?.type} name: ${message?.eventName}`);
     const messageType = message?.type;
@@ -5374,6 +5398,10 @@
       case CabalCommonMessages.readyStatus:
         console.log(`%%%% %%% ${CabalCommonMessages.readyStatus}`, message);
         handleReadyStatus(message);
+        break;
+      case CabalUserActivityStreamMessages.txnCb:
+        console.log(`$$$ ${CabalCommonMessages.readyStatus}`, message);
+        handleUAtxCB(message);
         break;
       case CabalUserActivityStreamMessages.userActivityConnected:
         handleUserActivityConnected();
@@ -5538,7 +5566,7 @@
     tokenDecimals
   }) => Number(Number(solBalance) / Math.pow(10, tokenDecimals)).toFixed(2);
 
-  const [tradeWidgetState, setTradeWidgetState] = createStore(initValue$4);
+  const [tradeWidgetState, setTradeWidgetState] = createStore(initValue$5);
   createEffect(() => {
     if (!tradeWidgetState.tokenStatus) {
       return;
@@ -5602,7 +5630,7 @@
     onSellInputChange
   };
 
-  var _tmpl$$f = /* @__PURE__ */ template(`<div>`), _tmpl$2$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-1 ext-justify-end ext-mb-[6px]"><div class="ext-bg-gray-150 ext-border ext-border-gray-200 ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center ext-items-end"><div class="ext-bg-white ext-h-[1px] ext-w-[5px] ext-mb-[4px]"></div></div><div class="ext-bg-gray-150 ext-border ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center"><img class=ext-w-[5px] alt=pin>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2"><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=wallet></div><div class="ext-text-xs ext-text-white ext-font-medium">1</div></div><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=sol></div><div class="ext-text-xs ext-text-white ext-font-medium">`), _tmpl$4 = /* @__PURE__ */ template(`<div class=ext-flex-1>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-px-[11px] ext-items-baseline">`), _tmpl$6 = /* @__PURE__ */ template(`<div class="ext-bg-gray-200 ext-h-[1px] ext-mt-[6px] ext-mb-[15px]">`);
+  var _tmpl$$f = /* @__PURE__ */ template(`<div>`), _tmpl$2$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-1 ext-justify-end ext-mb-[6px]"><div class="ext-bg-gray-150 ext-border ext-border-gray-200 ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center ext-items-end"><div class="ext-bg-white ext-h-[1px] ext-w-[5px] ext-mb-[4px]"></div></div><div class="ext-bg-gray-150 ext-border ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center"><img class=ext-w-[5px] alt=pin>`), _tmpl$3$1 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2"><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=wallet></div><div class="ext-text-xs ext-text-white ext-font-medium">1</div></div><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=sol></div><div class="ext-text-xs ext-text-white ext-font-medium">`), _tmpl$4 = /* @__PURE__ */ template(`<div class=ext-flex-1>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-px-[11px] ext-items-baseline">`), _tmpl$6 = /* @__PURE__ */ template(`<div class="ext-bg-gray-200 ext-h-[1px] ext-mt-[6px] ext-mb-[15px]">`);
   const Card = (props) => (() => {
     var _el$ = _tmpl$$f();
     insert(_el$, () => props.children);
@@ -5637,7 +5665,7 @@
   const Settings = () => {
     const sol = chrome.runtime.getURL("assets2/sol.svg");
     return (() => {
-      var _el$8 = _tmpl$3(), _el$9 = _el$8.firstChild, _el$0 = _el$9.firstChild, _el$1 = _el$0.firstChild, _el$10 = _el$9.nextSibling, _el$11 = _el$10.firstChild, _el$12 = _el$11.firstChild, _el$13 = _el$11.nextSibling;
+      var _el$8 = _tmpl$3$1(), _el$9 = _el$8.firstChild, _el$0 = _el$9.firstChild, _el$1 = _el$0.firstChild, _el$10 = _el$9.nextSibling, _el$11 = _el$10.firstChild, _el$12 = _el$11.firstChild, _el$13 = _el$11.nextSibling;
       setAttribute(_el$1, "src", wallet);
       setAttribute(_el$12, "src", sol);
       insert(_el$13, () => tradeWidgetState.solBalanceLabel);
@@ -5867,7 +5895,6 @@
       color: BCellColor.white,
       value: tradeWidgetState.labelTokenBalance
     }]);
-    console.log("^&*^*&^*&^", statsBottom);
     return createComponent(Container, {
       get children() {
         return [createComponent(Header, {}), createComponent(Body, {
@@ -6995,6 +7022,629 @@
     });
   };
 
+  var DATA_TOP_LAYER_ATTR = "data-kb-top-layer";
+
+  var toast_exports = {};
+  __export(toast_exports, {
+    CloseButton: () => ToastCloseButton,
+    Description: () => ToastDescription,
+    List: () => ToastList,
+    ProgressFill: () => ToastProgressFill,
+    ProgressTrack: () => ToastProgressTrack,
+    Region: () => ToastRegion,
+    Root: () => ToastRoot,
+    Title: () => ToastTitle,
+    Toast: () => Toast,
+    toaster: () => toaster
+  });
+  var ToastContext = createContext();
+  function useToastContext() {
+    const context = useContext(ToastContext);
+    if (context === void 0) {
+      throw new Error("[kobalte]: `useToastContext` must be used within a `Toast.Root` component");
+    }
+    return context;
+  }
+  function ToastCloseButton(props) {
+    const context = useToastContext();
+    const [local, others] = splitProps(props, ["aria-label", "onClick"]);
+    const onClick = (e) => {
+      callHandler(e, local.onClick);
+      context.close();
+    };
+    return createComponent(ButtonRoot, mergeProps({
+      get ["aria-label"]() {
+        return local["aria-label"] || context.translations().close;
+      },
+      onClick
+    }, others));
+  }
+  function ToastDescription(props) {
+    const context = useToastContext();
+    const mergedProps = mergeDefaultProps({
+      id: context.generateId("description")
+    }, props);
+    const [local, others] = splitProps(mergedProps, ["id"]);
+    createEffect(() => onCleanup(context.registerDescriptionId(local.id)));
+    return createComponent(Polymorphic, mergeProps({
+      as: "div",
+      get id() {
+        return local.id;
+      }
+    }, others));
+  }
+  var ToastRegionContext = createContext();
+  function useToastRegionContext() {
+    const context = useContext(ToastRegionContext);
+    if (context === void 0) {
+      throw new Error("[kobalte]: `useToastRegionContext` must be used within a `Toast.Region` component");
+    }
+    return context;
+  }
+  function ToastList(props) {
+    let ref;
+    const context = useToastRegionContext();
+    const [local, others] = splitProps(props, ["ref", "onFocusIn", "onFocusOut", "onPointerMove", "onPointerLeave"]);
+    const onFocusIn = (e) => {
+      callHandler(e, local.onFocusIn);
+      if (context.pauseOnInteraction() && !context.isPaused()) {
+        context.pauseAllTimer();
+      }
+    };
+    const onFocusOut = (e) => {
+      callHandler(e, local.onFocusOut);
+      if (!contains(ref, e.relatedTarget)) {
+        context.resumeAllTimer();
+      }
+    };
+    const onPointerMove = (e) => {
+      callHandler(e, local.onPointerMove);
+      if (context.pauseOnInteraction() && !context.isPaused()) {
+        context.pauseAllTimer();
+      }
+    };
+    const onPointerLeave = (e) => {
+      callHandler(e, local.onPointerLeave);
+      if (!contains(ref, getDocument(ref).activeElement)) {
+        context.resumeAllTimer();
+      }
+    };
+    createEffect(on([() => ref, () => context.hotkey()], ([ref2, hotkey]) => {
+      if (!ref2) {
+        return;
+      }
+      const doc = getDocument(ref2);
+      const onKeyDown = (event) => {
+        const isHotkeyPressed = hotkey.every((key) => event[key] || event.code === key);
+        if (isHotkeyPressed) {
+          focusWithoutScrolling(ref2);
+        }
+      };
+      doc.addEventListener("keydown", onKeyDown);
+      onCleanup(() => doc.removeEventListener("keydown", onKeyDown));
+    }));
+    createEffect(() => {
+      if (!context.pauseOnPageIdle()) {
+        return;
+      }
+      const win = getWindow(ref);
+      win.addEventListener("blur", context.pauseAllTimer);
+      win.addEventListener("focus", context.resumeAllTimer);
+      onCleanup(() => {
+        win.removeEventListener("blur", context.pauseAllTimer);
+        win.removeEventListener("focus", context.resumeAllTimer);
+      });
+    });
+    return createComponent(Polymorphic, mergeProps({
+      as: "ol",
+      ref(r$) {
+        var _ref$ = mergeRefs((el) => ref = el, local.ref);
+        typeof _ref$ === "function" && _ref$(r$);
+      },
+      tabIndex: -1,
+      onFocusIn,
+      onFocusOut,
+      onPointerMove,
+      onPointerLeave
+    }, others, {
+      get children() {
+        return createComponent(For, {
+          get each() {
+            return context.toasts();
+          },
+          children: (toast) => toast.toastComponent({
+            get toastId() {
+              return toast.id;
+            }
+          })
+        });
+      }
+    }));
+  }
+  function ToastProgressFill(props) {
+    const rootContext = useToastRegionContext();
+    const context = useToastContext();
+    const [local, others] = splitProps(props, ["style"]);
+    const [lifeTime, setLifeTime] = createSignal(100);
+    let totalElapsedTime = 0;
+    createEffect(() => {
+      if (rootContext.isPaused() || context.isPersistent()) {
+        return;
+      }
+      const intervalId = setInterval(() => {
+        const elapsedTime = (/* @__PURE__ */ new Date()).getTime() - context.closeTimerStartTime() + totalElapsedTime;
+        const life = Math.trunc(100 - elapsedTime / context.duration() * 100);
+        setLifeTime(life < 0 ? 0 : life);
+      });
+      onCleanup(() => {
+        totalElapsedTime += (/* @__PURE__ */ new Date()).getTime() - context.closeTimerStartTime();
+        clearInterval(intervalId);
+      });
+    });
+    return createComponent(Polymorphic, mergeProps({
+      as: "div",
+      get style() {
+        return combineStyle({
+          "--kb-toast-progress-fill-width": `${lifeTime()}%`
+        }, local.style);
+      }
+    }, others));
+  }
+  function ToastProgressTrack(props) {
+    return createComponent(Polymorphic, mergeProps({
+      as: "div",
+      "aria-hidden": "true",
+      role: "presentation"
+    }, props));
+  }
+  var [state, setState] = createStore({
+    toasts: []
+  });
+  function add(toast) {
+    setState("toasts", (prev) => [...prev, toast]);
+  }
+  function get(id) {
+    return state.toasts.find((toast) => toast.id === id);
+  }
+  function update(id, toast) {
+    const index = state.toasts.findIndex((toast2) => toast2.id === id);
+    if (index !== -1) {
+      setState("toasts", (prev) => [...prev.slice(0, index), toast, ...prev.slice(index + 1)]);
+    }
+  }
+  function dismiss(id) {
+    setState("toasts", (toast) => toast.id === id, "dismiss", true);
+  }
+  function remove(id) {
+    setState("toasts", (prev) => prev.filter((toast) => toast.id !== id));
+  }
+  function clear() {
+    setState("toasts", []);
+  }
+  var toastStore = {
+    toasts: () => state.toasts,
+    add,
+    get,
+    update,
+    dismiss,
+    remove,
+    clear
+  };
+  var TOAST_HOTKEY_PLACEHOLDER = "{hotkey}";
+  var TOAST_INTL_TRANSLATIONS = {
+    // `aria-label` of Toast.CloseButton.
+    close: "Close"
+  };
+  var TOAST_REGION_INTL_TRANSLATIONS = {
+    // `aria-label` of Toast.Region with notification count.
+    notifications: (hotkeyPlaceholder) => `Notifications (${hotkeyPlaceholder})`
+  };
+  function ToastRegion(props) {
+    const mergedProps = mergeDefaultProps({
+      id: `toast-region-${createUniqueId()}`,
+      hotkey: ["altKey", "KeyT"],
+      duration: 5e3,
+      limit: 3,
+      swipeDirection: "right",
+      swipeThreshold: 50,
+      pauseOnInteraction: true,
+      pauseOnPageIdle: true,
+      topLayer: true,
+      translations: TOAST_REGION_INTL_TRANSLATIONS
+    }, props);
+    const [local, others] = splitProps(mergedProps, ["translations", "style", "hotkey", "duration", "limit", "swipeDirection", "swipeThreshold", "pauseOnInteraction", "pauseOnPageIdle", "topLayer", "aria-label", "regionId"]);
+    const toasts = createMemo(() => toastStore.toasts().filter((toast) => toast.region === local.regionId && toast.dismiss === false).slice(0, local.limit));
+    const [isPaused, setIsPaused] = createSignal(false);
+    const hasToasts = () => toasts().length > 0;
+    const hotkeyLabel = () => {
+      return local.hotkey.join("+").replace(/Key/g, "").replace(/Digit/g, "");
+    };
+    const ariaLabel = () => {
+      const label = local["aria-label"] || local.translations.notifications(TOAST_HOTKEY_PLACEHOLDER);
+      return label.replace(TOAST_HOTKEY_PLACEHOLDER, hotkeyLabel());
+    };
+    const topLayerAttr = () => ({
+      [DATA_TOP_LAYER_ATTR]: local.topLayer ? "" : void 0
+    });
+    const context = {
+      isPaused,
+      toasts,
+      hotkey: () => local.hotkey,
+      duration: () => local.duration,
+      swipeDirection: () => local.swipeDirection,
+      swipeThreshold: () => local.swipeThreshold,
+      pauseOnInteraction: () => local.pauseOnInteraction,
+      pauseOnPageIdle: () => local.pauseOnPageIdle,
+      pauseAllTimer: () => setIsPaused(true),
+      resumeAllTimer: () => setIsPaused(false),
+      generateId: createGenerateId(() => others.id)
+    };
+    return createComponent(ToastRegionContext.Provider, {
+      value: context,
+      get children() {
+        return createComponent(Polymorphic, mergeProps({
+          as: "div",
+          role: "region",
+          tabIndex: -1,
+          get ["aria-label"]() {
+            return ariaLabel();
+          },
+          get style() {
+            return combineStyle({
+              "pointer-events": hasToasts() ? local.topLayer ? "auto" : void 0 : "none"
+            }, local.style);
+          }
+        }, topLayerAttr, others));
+      }
+    });
+  }
+  var TOAST_SWIPE_START_EVENT = "toast.swipeStart";
+  var TOAST_SWIPE_MOVE_EVENT = "toast.swipeMove";
+  var TOAST_SWIPE_CANCEL_EVENT = "toast.swipeCancel";
+  var TOAST_SWIPE_END_EVENT = "toast.swipeEnd";
+  function ToastRoot(props) {
+    const rootContext = useToastRegionContext();
+    const mergedProps = mergeDefaultProps({
+      id: `toast-${createUniqueId()}`,
+      priority: "high",
+      translations: TOAST_INTL_TRANSLATIONS
+    }, props);
+    const [local, others] = splitProps(mergedProps, ["ref", "translations", "toastId", "style", "priority", "duration", "persistent", "onPause", "onResume", "onSwipeStart", "onSwipeMove", "onSwipeCancel", "onSwipeEnd", "onEscapeKeyDown", "onKeyDown", "onPointerDown", "onPointerMove", "onPointerUp"]);
+    const [isOpen, setIsOpen] = createSignal(true);
+    const [titleId, setTitleId] = createSignal();
+    const [descriptionId, setDescriptionId] = createSignal();
+    const [isAnimationEnabled, setIsAnimationEnabled] = createSignal(true);
+    const [ref, setRef] = createSignal();
+    const {
+      present
+    } = src_default({
+      show: isOpen,
+      element: () => ref() ?? null
+    });
+    const duration = createMemo(() => local.duration || rootContext.duration());
+    let closeTimerId;
+    let closeTimerStartTime = 0;
+    let closeTimerRemainingTime = duration();
+    let pointerStart = null;
+    let swipeDelta = null;
+    const close = () => {
+      setIsOpen(false);
+      setIsAnimationEnabled(true);
+    };
+    const deleteToast = () => {
+      toastStore.remove(local.toastId);
+    };
+    const startTimer = (duration2) => {
+      if (!duration2 || local.persistent) {
+        return;
+      }
+      window.clearTimeout(closeTimerId);
+      closeTimerStartTime = (/* @__PURE__ */ new Date()).getTime();
+      closeTimerId = window.setTimeout(close, duration2);
+    };
+    const resumeTimer = () => {
+      startTimer(closeTimerRemainingTime);
+      local.onResume?.();
+    };
+    const pauseTimer = () => {
+      const elapsedTime = (/* @__PURE__ */ new Date()).getTime() - closeTimerStartTime;
+      closeTimerRemainingTime = closeTimerRemainingTime - elapsedTime;
+      window.clearTimeout(closeTimerId);
+      local.onPause?.();
+    };
+    const onKeyDown = (e) => {
+      callHandler(e, local.onKeyDown);
+      if (e.key !== "Escape") {
+        return;
+      }
+      local.onEscapeKeyDown?.(e);
+      if (!e.defaultPrevented) {
+        close();
+      }
+    };
+    const onPointerDown = (e) => {
+      callHandler(e, local.onPointerDown);
+      if (e.button !== 0) {
+        return;
+      }
+      pointerStart = {
+        x: e.clientX,
+        y: e.clientY
+      };
+    };
+    const onPointerMove = (e) => {
+      callHandler(e, local.onPointerMove);
+      if (!pointerStart) {
+        return;
+      }
+      const x = e.clientX - pointerStart.x;
+      const y = e.clientY - pointerStart.y;
+      const hasSwipeMoveStarted = Boolean(swipeDelta);
+      const isHorizontalSwipe = ["left", "right"].includes(rootContext.swipeDirection());
+      const clamp = ["left", "up"].includes(rootContext.swipeDirection()) ? Math.min : Math.max;
+      const clampedX = isHorizontalSwipe ? clamp(0, x) : 0;
+      const clampedY = !isHorizontalSwipe ? clamp(0, y) : 0;
+      const moveStartBuffer = e.pointerType === "touch" ? 10 : 2;
+      const delta = {
+        x: clampedX,
+        y: clampedY
+      };
+      const eventDetail = {
+        originalEvent: e,
+        delta
+      };
+      if (hasSwipeMoveStarted) {
+        swipeDelta = delta;
+        handleAndDispatchCustomEvent(TOAST_SWIPE_MOVE_EVENT, local.onSwipeMove, eventDetail);
+        const {
+          x: x2,
+          y: y2
+        } = delta;
+        e.currentTarget.setAttribute("data-swipe", "move");
+        e.currentTarget.style.setProperty("--kb-toast-swipe-move-x", `${x2}px`);
+        e.currentTarget.style.setProperty("--kb-toast-swipe-move-y", `${y2}px`);
+      } else if (isDeltaInDirection(delta, rootContext.swipeDirection(), moveStartBuffer)) {
+        swipeDelta = delta;
+        handleAndDispatchCustomEvent(TOAST_SWIPE_START_EVENT, local.onSwipeStart, eventDetail);
+        e.currentTarget.setAttribute("data-swipe", "start");
+        e.target.setPointerCapture(e.pointerId);
+      } else if (Math.abs(x) > moveStartBuffer || Math.abs(y) > moveStartBuffer) {
+        pointerStart = null;
+      }
+    };
+    const onPointerUp = (e) => {
+      callHandler(e, local.onPointerUp);
+      const delta = swipeDelta;
+      const target = e.target;
+      if (target.hasPointerCapture(e.pointerId)) {
+        target.releasePointerCapture(e.pointerId);
+      }
+      swipeDelta = null;
+      pointerStart = null;
+      if (delta) {
+        const toast = e.currentTarget;
+        const eventDetail = {
+          originalEvent: e,
+          delta
+        };
+        if (isDeltaInDirection(delta, rootContext.swipeDirection(), rootContext.swipeThreshold())) {
+          handleAndDispatchCustomEvent(TOAST_SWIPE_END_EVENT, local.onSwipeEnd, eventDetail);
+          const {
+            x,
+            y
+          } = delta;
+          e.currentTarget.setAttribute("data-swipe", "end");
+          e.currentTarget.style.removeProperty("--kb-toast-swipe-move-x");
+          e.currentTarget.style.removeProperty("--kb-toast-swipe-move-y");
+          e.currentTarget.style.setProperty("--kb-toast-swipe-end-x", `${x}px`);
+          e.currentTarget.style.setProperty("--kb-toast-swipe-end-y", `${y}px`);
+          close();
+        } else {
+          handleAndDispatchCustomEvent(TOAST_SWIPE_CANCEL_EVENT, local.onSwipeCancel, eventDetail);
+          e.currentTarget.setAttribute("data-swipe", "cancel");
+          e.currentTarget.style.removeProperty("--kb-toast-swipe-move-x");
+          e.currentTarget.style.removeProperty("--kb-toast-swipe-move-y");
+          e.currentTarget.style.removeProperty("--kb-toast-swipe-end-x");
+          e.currentTarget.style.removeProperty("--kb-toast-swipe-end-y");
+        }
+        toast.addEventListener("click", (event) => event.preventDefault(), {
+          once: true
+        });
+      }
+    };
+    onMount(() => {
+      if (rootContext.toasts().find((toast) => toast.id === local.toastId && toast.update)) {
+        setIsAnimationEnabled(false);
+      }
+    });
+    createEffect(on(() => rootContext.isPaused(), (isPaused) => {
+      if (isPaused) {
+        pauseTimer();
+      } else {
+        resumeTimer();
+      }
+    }, {
+      defer: true
+    }));
+    createEffect(on([isOpen, duration], ([isOpen2, duration2]) => {
+      if (isOpen2 && !rootContext.isPaused()) {
+        startTimer(duration2);
+      }
+    }));
+    createEffect(on(() => toastStore.get(local.toastId)?.dismiss, (dismiss3) => dismiss3 && close()));
+    createEffect(on(() => present(), (isPresent) => !isPresent && deleteToast()));
+    const context = {
+      translations: () => local.translations,
+      close,
+      duration,
+      isPersistent: () => local.persistent ?? false,
+      closeTimerStartTime: () => closeTimerStartTime,
+      generateId: createGenerateId(() => others.id),
+      registerTitleId: createRegisterId(setTitleId),
+      registerDescriptionId: createRegisterId(setDescriptionId)
+    };
+    return createComponent(Show, {
+      get when() {
+        return present();
+      },
+      get children() {
+        return createComponent(ToastContext.Provider, {
+          value: context,
+          get children() {
+            return createComponent(Polymorphic, mergeProps({
+              as: "li",
+              ref(r$) {
+                var _ref$2 = mergeRefs(setRef, local.ref);
+                typeof _ref$2 === "function" && _ref$2(r$);
+              },
+              role: "status",
+              tabIndex: 0,
+              get style() {
+                return combineStyle({
+                  animation: isAnimationEnabled() ? void 0 : "none",
+                  "user-select": "none",
+                  "touch-action": "none"
+                }, local.style);
+              },
+              get ["aria-live"]() {
+                return local.priority === "high" ? "assertive" : "polite";
+              },
+              "aria-atomic": "true",
+              get ["aria-labelledby"]() {
+                return titleId();
+              },
+              get ["aria-describedby"]() {
+                return descriptionId();
+              },
+              get ["data-opened"]() {
+                return isOpen() ? "" : void 0;
+              },
+              get ["data-closed"]() {
+                return !isOpen() ? "" : void 0;
+              },
+              get ["data-swipe-direction"]() {
+                return rootContext.swipeDirection();
+              },
+              onKeyDown,
+              onPointerDown,
+              onPointerMove,
+              onPointerUp
+            }, others));
+          }
+        });
+      }
+    });
+  }
+  function isDeltaInDirection(delta, direction, threshold = 0) {
+    const deltaX = Math.abs(delta.x);
+    const deltaY = Math.abs(delta.y);
+    const isDeltaX = deltaX > deltaY;
+    if (direction === "left" || direction === "right") {
+      return isDeltaX && deltaX > threshold;
+    }
+    return !isDeltaX && deltaY > threshold;
+  }
+  function handleAndDispatchCustomEvent(name, handler, detail) {
+    const currentTarget = detail.originalEvent.currentTarget;
+    const event = new CustomEvent(name, {
+      bubbles: true,
+      cancelable: true,
+      detail
+    });
+    if (handler) {
+      currentTarget.addEventListener(name, handler, {
+        once: true
+      });
+    }
+    currentTarget.dispatchEvent(event);
+  }
+  function ToastTitle(props) {
+    const context = useToastContext();
+    const mergedProps = mergeDefaultProps({
+      id: context.generateId("title")
+    }, props);
+    const [local, others] = splitProps(mergedProps, ["id"]);
+    createEffect(() => onCleanup(context.registerTitleId(local.id)));
+    return createComponent(Polymorphic, mergeProps({
+      as: "div",
+      get id() {
+        return local.id;
+      }
+    }, others));
+  }
+  var toastsCounter = 0;
+  function show(toastComponent, options) {
+    const id = toastsCounter++;
+    toastStore.add({
+      id,
+      toastComponent,
+      dismiss: false,
+      update: false,
+      region: options?.region
+    });
+    return id;
+  }
+  function update2(id, toastComponent) {
+    toastStore.update(id, {
+      id,
+      toastComponent,
+      dismiss: false,
+      update: true
+    });
+  }
+  function promise(promise2, toastComponent, options) {
+    const id = show((props) => {
+      return toastComponent({
+        get toastId() {
+          return props.toastId;
+        },
+        state: "pending"
+      });
+    }, options);
+    (isFunction(promise2) ? promise2() : promise2).then((data) => update2(id, (props) => {
+      return toastComponent({
+        get toastId() {
+          return props.toastId;
+        },
+        state: "fulfilled",
+        data
+      });
+    })).catch((error) => update2(id, (props) => {
+      return toastComponent({
+        get toastId() {
+          return props.toastId;
+        },
+        state: "rejected",
+        error
+      });
+    }));
+    return id;
+  }
+  function dismiss2(id) {
+    toastStore.dismiss(id);
+    return id;
+  }
+  function clear2() {
+    toastStore.clear();
+  }
+  var toaster = {
+    show,
+    update: update2,
+    promise,
+    dismiss: dismiss2,
+    clear: clear2
+  };
+  var Toast = Object.assign(ToastRoot, {
+    CloseButton: ToastCloseButton,
+    Description: ToastDescription,
+    List: ToastList,
+    ProgressFill: ToastProgressFill,
+    ProgressTrack: ToastProgressTrack,
+    Region: ToastRegion,
+    Title: ToastTitle,
+    toaster
+  });
+
   var _tmpl$$6 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-4"><div class="ext-flex ext-items-center"><span></span><p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50"></p></div><div class="ext-flex ext-items-center"><span></span><p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50">`);
   const OnlineStatusWidged = () => {
     const [isPulsingUA, setIsPulsingUA] = createSignal(false);
@@ -7096,7 +7746,7 @@
   const ShowLogItem = ({
     logItem
   }) => {
-    const showStrinify = logItem.type === CabalCommonMessages.readyStatus || logItem.type === "tradeEvent" || logItem.type === "tokenStatus" || logItem.type === "tokenTradeStats";
+    const showStrinify = logItem.type === CabalUserActivityStreamMessages.txnCb || logItem.type === CabalCommonMessages.readyStatus || logItem.type === "tradeEvent" || logItem.type === "tokenStatus" || logItem.type === "tokenTradeStats";
     const [show, setShow] = createSignal(false);
     return (() => {
       var _el$ = _tmpl$2$1(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.firstChild;
@@ -7163,7 +7813,7 @@
     return _el$;
   })();
 
-  var _tmpl$$2 = /* @__PURE__ */ template(`<div><div class=ext-flex>url: </div><div class=ext-flex>mint: `), _tmpl$2 = /* @__PURE__ */ template(`<div class="ext-absolute ext-z-[100] ext-top-0 ext-bg-green-100 ext-rounded-md ext-p-1 ext-min-w-[312px] ext-min-h-[343px]"><div class="ext-flex ext-gap-2">`);
+  var _tmpl$$2 = /* @__PURE__ */ template(`<div class="ext-flex ext-items-start ext-w-full"><div>`), _tmpl$2 = /* @__PURE__ */ template(`<div><div class=ext-flex>url: </div><div class=ext-flex>mint: `), _tmpl$3 = /* @__PURE__ */ template(`<div class="ext-absolute ext-z-[100] ext-top-0 ext-bg-green-100 ext-rounded-md ext-p-1 ext-min-w-[312px] ext-min-h-[343px]"><div class="ext-flex ext-gap-2">`);
   const ContentContainer = ({
     children
   }) => {
@@ -7209,35 +7859,82 @@
     const logout = () => {
       sendApiKey(null);
     };
+    const showToast = (message) => {
+      toaster.show((props) => createComponent(Toast, {
+        get toastId() {
+          return props.toastId;
+        },
+        "class": "ext-flex ext-flex-col ext-items-center ext-justify-between ext-gap-2 ext-border ext-rounded-md ext-p-3 ext-bg-green-100",
+        get children() {
+          return [(() => {
+            var _el$ = _tmpl$$2(), _el$2 = _el$.firstChild;
+            insert(_el$2, createComponent(Toast.Title, {
+              "class": "toast__title",
+              children: "Event has been created"
+            }), null);
+            insert(_el$2, createComponent(Toast.Description, {
+              "class": "toast__description",
+              children: message
+            }), null);
+            insert(_el$, createComponent(Toast.CloseButton, {
+              "class": "toast__close-button",
+              children: "[X]"
+            }), null);
+            return _el$;
+          })(), createComponent(Toast.ProgressTrack, {
+            "class": "toast__progress-track",
+            get children() {
+              return createComponent(Toast.ProgressFill, {
+                "class": "toast__progress-fill"
+              });
+            }
+          })];
+        }
+      }));
+    };
+    createEffect(() => {
+      const latest = toastStore$1.items[0];
+      if (latest) {
+        showToast(JSON.stringify(latest, null, 2));
+      }
+      console.log("&&&&&&&&&&&&&&!!!", latest);
+    });
     return (() => {
-      var _el$ = _tmpl$2(), _el$2 = _el$.firstChild;
-      insert(_el$2, createComponent(OnlineStatusWidged, {}), null);
-      insert(_el$2, createComponent(Btn, {
-        onClick: () => handleSubscribe(),
-        children: "start"
-      }), null);
-      insert(_el$2, createComponent(Btn, {
+      var _el$3 = _tmpl$3(), _el$4 = _el$3.firstChild;
+      insert(_el$4, createComponent(OnlineStatusWidged, {}), null);
+      insert(_el$4, createComponent(Btn, {
         onClick: () => setShowDebug((prev) => !prev),
         children: "log"
       }), null);
-      insert(_el$2, createComponent(Btn, {
+      insert(_el$4, createComponent(Btn, {
         onClick: () => logout(),
         children: "logout"
       }), null);
-      insert(_el$, createComponent(Show, {
+      insert(_el$3, createComponent(Show, {
         get when() {
           return showDebug();
         },
         get children() {
-          var _el$3 = _tmpl$$2(), _el$4 = _el$3.firstChild; _el$4.firstChild; var _el$6 = _el$4.nextSibling; _el$6.firstChild;
-          insert(_el$4, urlValue, null);
-          insert(_el$6, () => contentAppStore.mint, null);
-          insert(_el$3, createComponent(LogWidget, {}), null);
-          return _el$3;
+          var _el$5 = _tmpl$2(), _el$6 = _el$5.firstChild; _el$6.firstChild; var _el$8 = _el$6.nextSibling; _el$8.firstChild;
+          insert(_el$6, urlValue, null);
+          insert(_el$8, () => contentAppStore.mint, null);
+          insert(_el$5, createComponent(LogWidget, {}), null);
+          return _el$5;
         }
       }), null);
-      insert(_el$, children, null);
-      return _el$;
+      insert(_el$3, children, null);
+      insert(_el$3, createComponent(Portal, {
+        get children() {
+          return createComponent(Toast.Region, {
+            get children() {
+              return createComponent(Toast.List, {
+                "class": "ext-fixed ext-bottom-0 ext-right-0 ext-flex ext-flex-col ext-p-4 ext-gap-2 ext-w-[400px] ext-max-w-full ext-m-0 ext-list-none ext-z-[9999] ext-outline-none"
+              });
+            }
+          });
+        }
+      }), null);
+      return _el$3;
     })();
   };
 
