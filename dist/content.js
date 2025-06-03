@@ -7894,10 +7894,12 @@
     };
     createEffect(() => {
       const latest = toastStore$1.items[0];
-      if (latest) {
-        showToast(JSON.stringify(latest, null, 2));
+      if (!latest) {
+        return;
       }
+      showToast(JSON.stringify(latest, null, 2));
       console.log("&&&&&&&&&&&&&&!!!", latest);
+      handleSubscribe();
     });
     return (() => {
       var _el$3 = _tmpl$3(), _el$4 = _el$3.firstChild;

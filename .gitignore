@@ -2,3 +2,4 @@
 node_modules
 backgroundConfig.ts
 tmpBackground.ts
+dist
