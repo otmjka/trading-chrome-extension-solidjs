@@ -8,6 +8,7 @@ import {
   FromBackgroundMessageTradeTokenStatus,
   FromBackgroundMessageUATradeStats,
   FromBackgroundReadyStatusMessage,
+  FromBackgroundTxMessage,
   Mint,
   SendApiKeyPayloadMessage,
   SendResponse,
@@ -26,6 +27,7 @@ import { sellMarket } from './sellMarket';
 import { sendMessage } from './sendMessage';
 import { subscribeToken } from './subscribeToken';
 import { setContentAppStore } from '../stores/contentAppStore';
+import { addToast } from '../stores/toastStore';
 
 const handleUserActivityConnected = () =>
   setCabalUserActivity('status', { isReady: true, count: '' });
@@ -90,6 +92,11 @@ const handleReadyStatus = (message: FromBackgroundReadyStatusMessage) => {
   setCabalTradeStream('status', status);
 };
 
+const handleUAtxCB = (message: FromBackgroundTxMessage) => {
+  addLogRecord(message);
+  addToast(message);
+};
+
 export const messageListener = (
   message: FromBackgroundMessage,
   sender: any,
@@ -108,6 +115,10 @@ export const messageListener = (
     case CabalCommonMessages.readyStatus:
       console.log(`%%%% %%% ${CabalCommonMessages.readyStatus}`, message);
       handleReadyStatus(message);
+      break;
+    case CabalUserActivityStreamMessages.txnCb:
+      console.log(`$$$ ${CabalCommonMessages.readyStatus}`, message);
+      handleUAtxCB(message);
       break;
     case CabalUserActivityStreamMessages.userActivityConnected:
       handleUserActivityConnected();

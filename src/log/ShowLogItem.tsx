@@ -2,9 +2,11 @@ import { Component, createSignal, Show } from 'solid-js';
 
 import { LogRecord } from '../stores/logStore';
 import { CabalCommonMessages } from '../shared/types';
+import { CabalUserActivityStreamMessages } from '../services/cabal-clinet-sdk';
 
 const ShowLogItem: Component<{ logItem: LogRecord }> = ({ logItem }) => {
   const showStrinify =
+    logItem.type === CabalUserActivityStreamMessages.txnCb ||
     logItem.type === CabalCommonMessages.readyStatus ||
     logItem.type === 'tradeEvent' ||
     logItem.type === 'tokenStatus' ||
