@@ -1,5 +1,6 @@
 import { CabalService } from '../services/cabal-clinet-sdk';
 import { Mint } from '../shared/types';
+import CabalStorage from './CabalStorage';
 
 export type CabalMessage = {
   type: string;
@@ -20,4 +21,6 @@ export type BackgroundState = {
   mint: Mint | null;
   activeTab: number | undefined;
   tabListeners: ContentListeners;
+  cabalStorage: CabalStorage;
+  apiKey: string | null;
 };

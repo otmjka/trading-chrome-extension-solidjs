@@ -233,29 +233,3 @@ export const handlers = {
 export const setTokenStatus = (tokenStatus: TokenStatus) => {
   setTradeWidgetState('tokenStatus', tokenStatus);
 };
-
-// direction: buy/sell
-
-// type: market | limit | trailing | auto limit
-
-// wallets
-//   name: // wallet 1
-//   secret key
-//   // wallet address
-//   // balance
-
-// ===
-// solBalance // tradeStats
-
-// ===
-// defaultsButtons
-// 0.001 | 1 | 2 | 5
-
-// selectedQuickAmount
-// solAmount
-
-// slippage
-// tip
-// ? auto
-// ? MEV
-// ? calc

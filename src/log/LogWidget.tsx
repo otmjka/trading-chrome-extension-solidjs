@@ -1,6 +1,6 @@
 import { Component, For } from 'solid-js';
 
-import { logStore } from '../ContentApp/logStore';
+import { logStore } from '../stores/logStore';
 
 import ShowLogItem from './ShowLogItem';
 

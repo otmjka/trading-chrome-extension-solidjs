@@ -1,14 +1,16 @@
-import { setLogStore } from '../ContentApp/logStore';
+import { addLogRecord, setLogStore } from '../stores/logStore';
 import {
+  BackgroundMessages,
+  CabalCommonMessages,
   CabalMessageType,
   FromBackgroundMessage,
   FromBackgroundMessageTradeEvent,
   FromBackgroundMessageTradeTokenStatus,
   FromBackgroundMessageUATradeStats,
+  FromBackgroundReadyStatusMessage,
   Mint,
+  SendApiKeyPayloadMessage,
   SendResponse,
-  TokenStatusParsed,
-  TradeEventParsed,
 } from '../shared/types';
 import { setCabalTradeStream } from '../stores/cabalTradeSreamStore';
 import { setCabalUserActivity } from '../stores/cabalUserActivity';
@@ -17,13 +19,13 @@ import { buyMarket } from './buyMarket';
 import {
   CabalTradeStreamMessages,
   CabalUserActivityStreamMessages,
-  PoolKind,
-  TokenStatus,
 } from './cabal-clinet-sdk';
 import { startListnenBackgroundMessages } from './chrome-extension/backgroundMessageHandler';
 import { registerTab } from './registerTab';
 import { sellMarket } from './sellMarket';
+import { sendMessage } from './sendMessage';
 import { subscribeToken } from './subscribeToken';
+import { setContentAppStore } from '../stores/contentAppStore';
 
 const handleUserActivityConnected = () =>
   setCabalUserActivity('status', { isReady: true, count: '' });
@@ -75,6 +77,20 @@ const handleTradeError = () => {
   setCabalTradeStream('status', undefined);
 };
 
+const handleReadyStatus = (message: FromBackgroundReadyStatusMessage) => {
+  addLogRecord(message);
+  const isReady = message.data.isReady;
+  setContentAppStore('isReady', isReady);
+  if (isReady) {
+    setContentAppStore('shouldSetApiKey', false);
+  }
+  const status = message.data.isReady
+    ? { isReady, count: String(Date.now()) }
+    : undefined;
+  setCabalUserActivity('status', status);
+  setCabalTradeStream('status', status);
+};
+
 export const messageListener = (
   message: FromBackgroundMessage,
   sender: any,
@@ -90,6 +106,10 @@ export const messageListener = (
   const messageEventName = message?.eventName;
 
   switch (messageEventName) {
+    case CabalCommonMessages.readyStatus:
+      console.log(`%%%% %%% ${CabalCommonMessages.readyStatus}`, message);
+      handleReadyStatus(message);
+      break;
     case CabalUserActivityStreamMessages.userActivityConnected:
       handleUserActivityConnected();
       break;
@@ -157,8 +177,22 @@ export const marketSell = async ({
   });
 };
 
+const sendApiKey = (apiKey: string | null) => {
+  const payload: SendApiKeyPayloadMessage = {
+    type: BackgroundMessages.SET_APIKEY,
+    data: { apiKey },
+  };
+
+  const cb = (response: any) => {
+    console.log('res', response);
+  };
+
+  sendMessage({ payload, cb });
+};
+
 export function useStartCabalService() {
   return {
+    sendApiKey,
     registerTab,
     subscribeToken,
     marketBuy,

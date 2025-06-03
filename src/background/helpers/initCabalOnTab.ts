@@ -1,39 +1,43 @@
 import { BgInitMessageResponse } from '../../shared/types';
 import { getTokenGMGNAI } from '../../utils/getTokenGMGNAI';
-import { ContentListeners } from '../types';
+import { BackgroundState, ContentListeners } from '../types';
 import { queryActiveTab } from './queryActiveTab';
 
 export const initCabalOnTab = async ({
   sendResponse,
   message,
   state,
+  setActiveTab,
 }: {
   sendResponse: (response?: BgInitMessageResponse) => void;
   message: any;
-  state: {
-    isReady: boolean;
-    listeners: ContentListeners;
-    setActiveTab: (newActiveTab: number) => void;
-  };
+  state: BackgroundState;
+
+  setActiveTab: (newActiveTab: number) => void;
 }) => {
-  const tabs = await queryActiveTab();
-  const tabId = tabs[0]?.id;
-  console.log('### INIT_CABAL ###', tabId);
-  if (!tabId) {
-    return;
+  try {
+    const tabs = await queryActiveTab();
+    const tabId = tabs[0]?.id;
+    console.log('### INIT_CABAL ###', tabId, message);
+    if (!tabId) {
+      return;
+    }
+    setActiveTab(tabId);
+    const mint = getTokenGMGNAI(message.data.url);
+    const { apiKey } = await state.cabalStorage.getApiKey();
+    state.tabListeners.push({
+      tabId,
+      url: message.data.url,
+      mint,
+    });
+
+    sendResponse({
+      apiKey,
+      isReady: state.isReady,
+      url: message?.data?.url,
+      mint,
+    });
+  } catch (error) {
+    console.error(`initCabalOnTab`, error);
   }
-
-  state.setActiveTab(tabId);
-
-  const mint = getTokenGMGNAI(message.data.url);
-  console.log(message.data.url);
-  console.log(mint);
-
-  state.listeners.push({
-    tabId,
-    url: message.data.url,
-    mint,
-  });
-
-  sendResponse({ isReady: state.isReady, url: message?.data?.url, mint });
 };

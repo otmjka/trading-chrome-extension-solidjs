@@ -4,12 +4,14 @@ type ContentAppStore = {
   mint: string | undefined;
   isReady: boolean;
   url: string;
+  shouldSetApiKey: boolean;
 };
 
 const initValue: ContentAppStore = {
   mint: undefined,
   isReady: false,
   url: '',
+  shouldSetApiKey: false,
 };
 
 const [contentAppStore, setContentAppStore] =

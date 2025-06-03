@@ -1,4 +1,4 @@
-import { setContentAppStore } from '../ContentApp/contentAppStore';
+import { setContentAppStore } from '../stores/contentAppStore';
 import {
   BackgroundMessages,
   BgInitMessageResponse,
@@ -16,10 +16,11 @@ export const registerTab = ({ locationHref }: { locationHref: string }) => {
   };
 
   const cb = (response: BgInitMessageResponse) => {
-    console.log('###', response);
+    console.log('### respose', response);
     setContentAppStore('url', response.url);
     setContentAppStore('mint', response.mint);
     setContentAppStore('isReady', response.isReady);
+    setContentAppStore('shouldSetApiKey', !response.apiKey);
 
     if (response.isReady) {
       setCabalUserActivity('status', {

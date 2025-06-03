@@ -75,6 +75,7 @@ class CabalStream<StreamResponse> {
       await this.onePongReceived;
       this.onMessage(CabalStreamEvents.connected);
     } catch (error) {
+      console.error(error);
       this.onErrorAndDestoy(`start error`, (error as unknown as Error).message);
       if (this._rejectedOnePong) {
         this._rejectedOnePong();
