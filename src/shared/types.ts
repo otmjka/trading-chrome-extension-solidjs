@@ -207,7 +207,67 @@ export type FromBackgroundReadyStatusMessage = {
   };
 };
 
+export type txConfirmedParsedBuyTrade = {
+  tradeType: 'buy';
+  mint: Mint; // :"7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr"
+  ticker: string; // POPCAT
+  base?: string; // 233083n bigint
+  quote: string; // 233083n bigint
+  mc?: string; // "2499770.988302420"
+  price?: string; // "0.00255094379765720694730335396417780291575"
+  qouteKind: QuoteKind;
+};
+
+export type txConfirmedParsedSellTrade = {
+  tradeType: 'sell';
+  mint: Mint; // :"7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr"
+  ticker: string; // POPCAT
+  tokenAmount?: string; // 91371280n
+  tokenDecimals?: number; // 9
+  quote: string; // 233083n bigint
+  pnl?: string; // "0.0213395286195286195286195286195286195286"
+  mc?: string; // "2499770.988302420"
+  price?: string; // "0.00255094379765720694730335396417780291575"
+};
+
+export type txConfirmedParsed = {
+  type: CabalUserActivityStreamMessages.txnCb;
+  txType: 'confirmed';
+  cu: number; // 113076
+  signature: string; // "5QhqGRhiue4aRHZdoRSUrVSebBtj2Wo64PktCwJDRuNsw3esE1LQV5NNp3WvfXsSCA9NxSKNvZjgYHJ2Cks6B6uq"
+  slotDiff: number; // 1
+  tipJito?: string;
+  tipsPriority?: string;
+  trades: Array<txConfirmedParsedBuyTrade | txConfirmedParsedSellTrade>;
+};
+
+export type txFailedParsed = {
+  type: CabalUserActivityStreamMessages.txnCb;
+  txType: 'failed';
+  cu: number; // 113076
+  signature: string; // "5QhqGRhiue4aRHZdoRSUrVSebBtj2Wo64PktCwJDRuNsw3esE1LQV5NNp3WvfXsSCA9NxSKNvZjgYHJ2Cks6B6uq"
+  slotDiff: number; // 1
+  tipJito?: string;
+  tipsPriority?: string;
+  err: string;
+  orderId?: string;
+};
+
+export type txLostParsed = {
+  type: CabalUserActivityStreamMessages.txnCb;
+  txType: 'lost';
+  signatures: Array<string>;
+  orderId?: string;
+};
+
+export type FromBackgroundTxMessage = {
+  type: CabalMessageType;
+  eventName: CabalUserActivityStreamMessages.txnCb;
+  data: txConfirmedParsed | txFailedParsed | txLostParsed;
+};
+
 export type FromBackgroundMessage =
+  | FromBackgroundTxMessage
   | FromBackgroundReadyStatusMessage
   | FromBackgroundMessageUAError
   | FromBackgroundMessageUAConnected

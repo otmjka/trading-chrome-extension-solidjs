@@ -28,6 +28,7 @@ import { sendMessageToActiveTab } from './background/helpers/sendMessageToActive
 import { BackgroundState } from './background/types';
 import CabalStorage from './background/CabalStorage';
 import * as messagesToContent from './background/helpers/messagesToContent';
+import { LandedTxnState } from './services/cabal-clinet-sdk/cabal/CabalRpc/txncb_pb';
 
 console.log('start background service 5');
 
@@ -47,7 +48,6 @@ const state: BackgroundState = {
 const getIsReady = () => state.isReady;
 const cabalInstance = () => state.cabal;
 const setCabalInstance = (value: CabalService | null) => (state.cabal = value);
-const getListeners = () => state.tabListeners;
 const setActiveTab = (newActiveTab: number) => {
   state.activeTab = newActiveTab;
 };
@@ -100,9 +100,18 @@ const handleUserActivityTradeStats = (event: { value: TokenTradeStats }) => {
   }
 };
 
-const handleUAtxnCB = (event) => {
+const handleUAtxnCB = (event: { case: string; value: LandedTxnState }) => {
   try {
     console.log('#### #### #### handleUAtxnCB', event);
+    const message = messagesToContent.txnCB(event);
+    console.log('#### #### #### handleUAtxnCB-message', message);
+    if (!message) {
+      throw new Error('message cant parsed');
+    }
+    sendMessageToActiveTab({
+      getActiveTab,
+      message,
+    });
   } catch (error) {
     console.error(`error in handleUserActivityTradeStats`, error);
   }
