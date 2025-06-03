@@ -5,7 +5,7 @@ import { tradeWidgetState } from '../widgets/TradeWidget/tradeWidgetStateStore';
 
 import { DragContainer } from './DragContainer';
 import { ContentContainer } from './ContentContainer';
-import ApiKeyWidget from '../uikit/Draggable/ApiKeyWidget';
+import { ApiKeyWidget } from '../uikit/ApiKeyWidget';
 import { useStartCabalService } from '../services/useCabalService';
 import { contentAppStore } from '../stores/contentAppStore';
 
