@@ -14,7 +14,7 @@ import {
 } from '../shared/types';
 import { setCabalTradeStream } from '../stores/cabalTradeSreamStore';
 import { setCabalUserActivity } from '../stores/cabalUserActivity';
-import { setTradeWidgetState } from '../widgets/TradeWidget/tradeWidgetStateStore';
+import { setTradeWidgetState } from '../widgets/TradeWidget/TradeWidgetStore/tradeWidgetStateStore';
 import { buyMarket } from './buyMarket';
 import {
   CabalTradeStreamMessages,

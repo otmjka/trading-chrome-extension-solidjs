@@ -17,7 +17,7 @@ import {
   handlers,
   setTradeWidgetState,
   tradeWidgetState,
-} from './tradeWidgetStateStore';
+} from './TradeWidgetStore/tradeWidgetStateStore';
 import { isBuy, isSell } from './helpers';
 import * as TW from './TradeWidget.parts';
 import { QuickItem } from './types';
