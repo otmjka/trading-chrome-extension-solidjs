@@ -89,9 +89,12 @@ export const ContentContainer: Component<{ children: JSX.Element }> = ({
 
   createEffect(() => {
     const latest = toastStore.items[0]; // Реактивно следим за первым элементом
-    if (latest) {
-      showToast(JSON.stringify(latest, null, 2));
+    if (!latest) {
+      return;
     }
+    showToast(JSON.stringify(latest, null, 2));
+    console.log('&&&&&&&&&&&&&&!!!', latest);
+    handleSubscribe();
   });
 
   return (
