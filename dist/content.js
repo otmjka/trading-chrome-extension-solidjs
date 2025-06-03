@@ -1,5 +1,5 @@
 (function () {
-  'use strict';var __vite_style__ = document.createElement('style');__vite_style__.textContent = "*, ::before, ::after {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}\n\n::backdrop {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}/*\n! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #343538; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n5. Use the user's configured `sans` font-feature-settings by default.\n6. Use the user's configured `sans` font-variation-settings by default.\n7. Disable tap highlights on iOS\n*/\n\nhtml,\n:host {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n  font-feature-settings: normal; /* 5 */\n  font-variation-settings: normal; /* 6 */\n  -webkit-tap-highlight-color: transparent; /* 7 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font-family by default.\n2. Use the user's configured `mono` font-feature-settings by default.\n3. Use the user's configured `mono` font-variation-settings by default.\n4. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-feature-settings: normal; /* 2 */\n  font-variation-settings: normal; /* 3 */\n  font-size: 1em; /* 4 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-feature-settings: inherit; /* 1 */\n  font-variation-settings: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  font-weight: inherit; /* 1 */\n  line-height: inherit; /* 1 */\n  letter-spacing: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\ninput:where([type='button']),\ninput:where([type='reset']),\ninput:where([type='submit']) {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nReset default styling for dialogs.\n*/\ndialog {\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/* Make elements with the HTML hidden attribute stay hidden by default */\n[hidden]:where(:not([hidden=\"until-found\"])) {\n  display: none;\n}\n.ext-absolute {\n  position: absolute;\n}\n.ext-relative {\n  position: relative;\n}\n.ext-bottom-\\[-2px\\] {\n  bottom: -2px;\n}\n.ext-top-0 {\n  top: 0px;\n}\n.ext-my-4 {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.ext-mb-\\[15px\\] {\n  margin-bottom: 15px;\n}\n.ext-mb-\\[4px\\] {\n  margin-bottom: 4px;\n}\n.ext-mb-\\[6px\\] {\n  margin-bottom: 6px;\n}\n.ext-ml-2 {\n  margin-left: 0.5rem;\n}\n.ext-mt-4 {\n  margin-top: 1rem;\n}\n.ext-mt-\\[10px\\] {\n  margin-top: 10px;\n}\n.ext-mt-\\[14px\\] {\n  margin-top: 14px;\n}\n.ext-mt-\\[6px\\] {\n  margin-top: 6px;\n}\n.ext-flex {\n  display: flex;\n}\n.ext-h-4 {\n  height: 1rem;\n}\n.ext-h-\\[12px\\] {\n  height: 12px;\n}\n.ext-h-\\[1px\\] {\n  height: 1px;\n}\n.ext-h-\\[351px\\] {\n  height: 351px;\n}\n.ext-w-4 {\n  width: 1rem;\n}\n.ext-w-\\[10px\\] {\n  width: 10px;\n}\n.ext-w-\\[12px\\] {\n  width: 12px;\n}\n.ext-w-\\[328px\\] {\n  width: 328px;\n}\n.ext-w-\\[56px\\] {\n  width: 56px;\n}\n.ext-w-\\[5px\\] {\n  width: 5px;\n}\n.ext-w-full {\n  width: 100%;\n}\n.ext-max-w-\\[312px\\] {\n  max-width: 312px;\n}\n.ext-flex-1 {\n  flex: 1 1 0%;\n}\n@keyframes ext-pulseOnce {\n\n  0%, 100% {\n    opacity: 1;\n  }\n\n  50% {\n    opacity: 0.1;\n  }\n}\n.ext-animate-pulse-once {\n  animation: ext-pulseOnce 1s ease-in-out;\n}\n.ext-appearance-none {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n}\n.ext-flex-col {\n  flex-direction: column;\n}\n.ext-items-start {\n  align-items: flex-start;\n}\n.ext-items-end {\n  align-items: flex-end;\n}\n.ext-items-center {\n  align-items: center;\n}\n.ext-items-baseline {\n  align-items: baseline;\n}\n.ext-justify-end {\n  justify-content: flex-end;\n}\n.ext-justify-center {\n  justify-content: center;\n}\n.ext-justify-between {\n  justify-content: space-between;\n}\n.ext-gap-1 {\n  gap: 0.25rem;\n}\n.ext-gap-2 {\n  gap: 0.5rem;\n}\n.ext-gap-4 {\n  gap: 1rem;\n}\n.ext-gap-\\[10px\\] {\n  gap: 10px;\n}\n.ext-gap-\\[7px\\] {\n  gap: 7px;\n}\n.ext-whitespace-nowrap {\n  white-space: nowrap;\n}\n.ext-rounded-\\[5px\\] {\n  border-radius: 5px;\n}\n.ext-rounded-full {\n  border-radius: 9999px;\n}\n.ext-rounded-lg {\n  border-radius: 0.5rem;\n}\n.ext-border {\n  border-width: 1px;\n}\n.ext-border-4 {\n  border-width: 4px;\n}\n.ext-border-r {\n  border-right-width: 1px;\n}\n.ext-border-dotted {\n  border-style: dotted;\n}\n.ext-border-gray-200 {\n  --tw-border-opacity: 1;\n  border-color: rgb(52 53 56 / var(--tw-border-opacity, 1));\n}\n.ext-border-gray-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(117 117 117 / var(--tw-border-opacity, 1));\n}\n.ext-border-gray-600 {\n  --tw-border-opacity: 1;\n  border-color: rgb(136 136 138 / var(--tw-border-opacity, 1));\n}\n.ext-border-green-500 {\n  --tw-border-opacity: 1;\n  border-color: rgb(99 215 189 / var(--tw-border-opacity, 1));\n}\n.ext-border-green-800 {\n  --tw-border-opacity: 1;\n  border-color: rgb(22 101 52 / var(--tw-border-opacity, 1));\n}\n.ext-border-red-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(255 92 92 / var(--tw-border-opacity, 1));\n}\n.ext-bg-blue-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(16 17 21 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-300 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(35 36 40 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-800 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(30 64 175 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(11 19 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(52 53 56 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(13 51 47 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(87 191 168 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(46 15 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 92 92 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-white {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-yellow-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(202 138 4 / var(--tw-bg-opacity, 1));\n}\n.ext-p-2 {\n  padding: 0.5rem;\n}\n.ext-px-3 {\n  padding-left: 0.75rem;\n  padding-right: 0.75rem;\n}\n.ext-px-4 {\n  padding-left: 1rem;\n  padding-right: 1rem;\n}\n.ext-px-\\[11px\\] {\n  padding-left: 11px;\n  padding-right: 11px;\n}\n.ext-px-\\[15px\\] {\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.ext-px-\\[20px\\] {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.ext-py-1 {\n  padding-top: 0.25rem;\n  padding-bottom: 0.25rem;\n}\n.ext-py-2 {\n  padding-top: 0.5rem;\n  padding-bottom: 0.5rem;\n}\n.ext-py-\\[10px\\] {\n  padding-top: 10px;\n  padding-bottom: 10px;\n}\n.ext-py-\\[6px\\] {\n  padding-top: 6px;\n  padding-bottom: 6px;\n}\n.ext-py-\\[9px\\] {\n  padding-top: 9px;\n  padding-bottom: 9px;\n}\n.ext-pr-1 {\n  padding-right: 0.25rem;\n}\n.ext-pt-1 {\n  padding-top: 0.25rem;\n}\n.ext-text-center {\n  text-align: center;\n}\n.ext-text-2xl {\n  font-size: 1.5rem;\n  line-height: 2rem;\n}\n.ext-text-\\[10px\\] {\n  font-size: 10px;\n}\n.ext-text-\\[9px\\] {\n  font-size: 9px;\n}\n.ext-text-base {\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n.ext-text-xs {\n  font-size: 0.75rem;\n  line-height: 1rem;\n}\n.ext-font-bold {\n  font-weight: 700;\n}\n.ext-font-medium {\n  font-weight: 500;\n}\n.ext-text-black {\n  --tw-text-opacity: 1;\n  color: rgb(0 0 0 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-300 {\n  --tw-text-opacity: 1;\n  color: rgb(72 72 72 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-400 {\n  --tw-text-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-700 {\n  --tw-text-opacity: 1;\n  color: rgb(55 65 81 / var(--tw-text-opacity, 1));\n}\n.ext-text-green-500 {\n  --tw-text-opacity: 1;\n  color: rgb(99 215 189 / var(--tw-text-opacity, 1));\n}\n.ext-text-purple-500 {\n  --tw-text-opacity: 1;\n  color: rgb(135 80 231 / var(--tw-text-opacity, 1));\n}\n.ext-text-red-600 {\n  --tw-text-opacity: 1;\n  color: rgb(220 38 38 / var(--tw-text-opacity, 1));\n}\n.ext-text-white {\n  --tw-text-opacity: 1;\n  color: rgb(255 255 255 / var(--tw-text-opacity, 1));\n}\n.ext-placeholder-gray-400::-moz-placeholder {\n  --tw-placeholder-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-placeholder-opacity, 1));\n}\n.ext-placeholder-gray-400::placeholder {\n  --tw-placeholder-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-placeholder-opacity, 1));\n}\n.ext-opacity-25 {\n  opacity: 0.25;\n}\n.ext-shadow-lg {\n  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-shadow-md {\n  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-shadow-sm {\n  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);\n  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-transition {\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-transition-all {\n  transition-property: all;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-duration-200 {\n  transition-duration: 200ms;\n}\n.ext-ease-in {\n  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);\n}\n.hover\\:ext-bg-green-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.hover\\:ext-bg-red-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.focus\\:ext-border-transparent:focus {\n  border-color: transparent;\n}\n.focus\\:ext-bg-black:focus {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n.focus\\:ext-text-green-400:focus {\n  --tw-text-opacity: 1;\n  color: rgb(87 191 168 / var(--tw-text-opacity, 1));\n}\n.focus\\:ext-outline-none:focus {\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.focus\\:ext-ring-2:focus {\n  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);\n  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);\n  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);\n}\n.focus\\:ext-ring-indigo-500:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity, 1));\n}\n.focus\\:ext-ring-purple-600:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity, 1));\n}\n.focus\\:ext-ring-offset-2:focus {\n  --tw-ring-offset-width: 2px;\n}\n.focus\\:ext-ring-offset-indigo-200:focus {\n  --tw-ring-offset-color: #c7d2fe;\n}\n.disabled\\:ext-cursor-not-allowed:disabled {\n  cursor: not-allowed;\n}\n.disabled\\:ext-bg-black:disabled {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n.disabled\\:ext-bg-gray-300:disabled {\n  --tw-bg-opacity: 1;\n  background-color: rgb(72 72 72 / var(--tw-bg-opacity, 1));\n}\n.disabled\\:ext-text-gray-500:disabled {\n  --tw-text-opacity: 1;\n  color: rgb(107 114 128 / var(--tw-text-opacity, 1));\n}\n@media (prefers-color-scheme: dark) {\n\n  .dark\\:ext-text-gray-50 {\n    --tw-text-opacity: 1;\n    color: rgb(249 250 251 / var(--tw-text-opacity, 1));\n  }\n}\n/*$vite$:1*/";document.head.appendChild(__vite_style__);
+  'use strict';var __vite_style__ = document.createElement('style');__vite_style__.textContent = "*, ::before, ::after {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}\n\n::backdrop {\n  --tw-border-spacing-x: 0;\n  --tw-border-spacing-y: 0;\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-gradient-from-position:  ;\n  --tw-gradient-via-position:  ;\n  --tw-gradient-to-position:  ;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n  --tw-contain-size:  ;\n  --tw-contain-layout:  ;\n  --tw-contain-paint:  ;\n  --tw-contain-style:  ;\n}/*\n! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #343538; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n5. Use the user's configured `sans` font-feature-settings by default.\n6. Use the user's configured `sans` font-variation-settings by default.\n7. Disable tap highlights on iOS\n*/\n\nhtml,\n:host {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n  font-feature-settings: normal; /* 5 */\n  font-variation-settings: normal; /* 6 */\n  -webkit-tap-highlight-color: transparent; /* 7 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font-family by default.\n2. Use the user's configured `mono` font-feature-settings by default.\n3. Use the user's configured `mono` font-variation-settings by default.\n4. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-feature-settings: normal; /* 2 */\n  font-variation-settings: normal; /* 3 */\n  font-size: 1em; /* 4 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-feature-settings: inherit; /* 1 */\n  font-variation-settings: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  font-weight: inherit; /* 1 */\n  line-height: inherit; /* 1 */\n  letter-spacing: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\ninput:where([type='button']),\ninput:where([type='reset']),\ninput:where([type='submit']) {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nReset default styling for dialogs.\n*/\ndialog {\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #757575; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/* Make elements with the HTML hidden attribute stay hidden by default */\n[hidden]:where(:not([hidden=\"until-found\"])) {\n  display: none;\n}\n.ext-absolute {\n  position: absolute;\n}\n.ext-relative {\n  position: relative;\n}\n.ext-bottom-\\[-2px\\] {\n  bottom: -2px;\n}\n.ext-top-0 {\n  top: 0px;\n}\n.ext-z-\\[100\\] {\n  z-index: 100;\n}\n.ext-my-4 {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.ext-mb-\\[15px\\] {\n  margin-bottom: 15px;\n}\n.ext-mb-\\[4px\\] {\n  margin-bottom: 4px;\n}\n.ext-mb-\\[6px\\] {\n  margin-bottom: 6px;\n}\n.ext-ml-2 {\n  margin-left: 0.5rem;\n}\n.ext-mt-4 {\n  margin-top: 1rem;\n}\n.ext-mt-\\[10px\\] {\n  margin-top: 10px;\n}\n.ext-mt-\\[14px\\] {\n  margin-top: 14px;\n}\n.ext-mt-\\[6px\\] {\n  margin-top: 6px;\n}\n.ext-flex {\n  display: flex;\n}\n.ext-h-4 {\n  height: 1rem;\n}\n.ext-h-\\[12px\\] {\n  height: 12px;\n}\n.ext-h-\\[1px\\] {\n  height: 1px;\n}\n.ext-h-\\[351px\\] {\n  height: 351px;\n}\n.ext-min-h-\\[343px\\] {\n  min-height: 343px;\n}\n.ext-w-4 {\n  width: 1rem;\n}\n.ext-w-\\[10px\\] {\n  width: 10px;\n}\n.ext-w-\\[12px\\] {\n  width: 12px;\n}\n.ext-w-\\[328px\\] {\n  width: 328px;\n}\n.ext-w-\\[56px\\] {\n  width: 56px;\n}\n.ext-w-\\[5px\\] {\n  width: 5px;\n}\n.ext-w-full {\n  width: 100%;\n}\n.ext-min-w-\\[312px\\] {\n  min-width: 312px;\n}\n.ext-max-w-\\[312px\\] {\n  max-width: 312px;\n}\n.ext-flex-1 {\n  flex: 1 1 0%;\n}\n@keyframes ext-pulseOnce {\n\n  0%, 100% {\n    opacity: 1;\n  }\n\n  50% {\n    opacity: 0.1;\n  }\n}\n.ext-animate-pulse-once {\n  animation: ext-pulseOnce 1s ease-in-out;\n}\n.ext-appearance-none {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n}\n.ext-flex-col {\n  flex-direction: column;\n}\n.ext-items-start {\n  align-items: flex-start;\n}\n.ext-items-end {\n  align-items: flex-end;\n}\n.ext-items-center {\n  align-items: center;\n}\n.ext-items-baseline {\n  align-items: baseline;\n}\n.ext-justify-end {\n  justify-content: flex-end;\n}\n.ext-justify-center {\n  justify-content: center;\n}\n.ext-justify-between {\n  justify-content: space-between;\n}\n.ext-gap-1 {\n  gap: 0.25rem;\n}\n.ext-gap-2 {\n  gap: 0.5rem;\n}\n.ext-gap-4 {\n  gap: 1rem;\n}\n.ext-gap-\\[10px\\] {\n  gap: 10px;\n}\n.ext-gap-\\[7px\\] {\n  gap: 7px;\n}\n.ext-whitespace-nowrap {\n  white-space: nowrap;\n}\n.ext-rounded-\\[5px\\] {\n  border-radius: 5px;\n}\n.ext-rounded-full {\n  border-radius: 9999px;\n}\n.ext-rounded-lg {\n  border-radius: 0.5rem;\n}\n.ext-rounded-md {\n  border-radius: 0.375rem;\n}\n.ext-border {\n  border-width: 1px;\n}\n.ext-border-4 {\n  border-width: 4px;\n}\n.ext-border-r {\n  border-right-width: 1px;\n}\n.ext-border-dotted {\n  border-style: dotted;\n}\n.ext-border-gray-200 {\n  --tw-border-opacity: 1;\n  border-color: rgb(52 53 56 / var(--tw-border-opacity, 1));\n}\n.ext-border-gray-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(117 117 117 / var(--tw-border-opacity, 1));\n}\n.ext-border-gray-600 {\n  --tw-border-opacity: 1;\n  border-color: rgb(136 136 138 / var(--tw-border-opacity, 1));\n}\n.ext-border-green-500 {\n  --tw-border-opacity: 1;\n  border-color: rgb(99 215 189 / var(--tw-border-opacity, 1));\n}\n.ext-border-green-800 {\n  --tw-border-opacity: 1;\n  border-color: rgb(22 101 52 / var(--tw-border-opacity, 1));\n}\n.ext-border-red-400 {\n  --tw-border-opacity: 1;\n  border-color: rgb(255 92 92 / var(--tw-border-opacity, 1));\n}\n.ext-bg-blue-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(16 17 21 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-300 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(35 36 40 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-blue-800 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(30 64 175 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(11 19 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-gray-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(52 53 56 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-100 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(13 51 47 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(87 191 168 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-green-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-purple-600 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(147 51 234 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-200 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(46 15 15 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-400 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 92 92 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-red-500 {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.ext-bg-white {\n  --tw-bg-opacity: 1;\n  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));\n}\n.ext-p-1 {\n  padding: 0.25rem;\n}\n.ext-p-2 {\n  padding: 0.5rem;\n}\n.ext-px-3 {\n  padding-left: 0.75rem;\n  padding-right: 0.75rem;\n}\n.ext-px-4 {\n  padding-left: 1rem;\n  padding-right: 1rem;\n}\n.ext-px-\\[11px\\] {\n  padding-left: 11px;\n  padding-right: 11px;\n}\n.ext-px-\\[15px\\] {\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.ext-px-\\[20px\\] {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.ext-py-1 {\n  padding-top: 0.25rem;\n  padding-bottom: 0.25rem;\n}\n.ext-py-2 {\n  padding-top: 0.5rem;\n  padding-bottom: 0.5rem;\n}\n.ext-py-\\[10px\\] {\n  padding-top: 10px;\n  padding-bottom: 10px;\n}\n.ext-py-\\[6px\\] {\n  padding-top: 6px;\n  padding-bottom: 6px;\n}\n.ext-py-\\[9px\\] {\n  padding-top: 9px;\n  padding-bottom: 9px;\n}\n.ext-pr-1 {\n  padding-right: 0.25rem;\n}\n.ext-pt-1 {\n  padding-top: 0.25rem;\n}\n.ext-text-center {\n  text-align: center;\n}\n.ext-text-\\[10px\\] {\n  font-size: 10px;\n}\n.ext-text-\\[9px\\] {\n  font-size: 9px;\n}\n.ext-text-base {\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n.ext-text-xl {\n  font-size: 1.25rem;\n  line-height: 1.75rem;\n}\n.ext-text-xs {\n  font-size: 0.75rem;\n  line-height: 1rem;\n}\n.ext-font-bold {\n  font-weight: 700;\n}\n.ext-font-medium {\n  font-weight: 500;\n}\n.ext-text-gray-300 {\n  --tw-text-opacity: 1;\n  color: rgb(72 72 72 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-400 {\n  --tw-text-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-text-opacity, 1));\n}\n.ext-text-gray-700 {\n  --tw-text-opacity: 1;\n  color: rgb(55 65 81 / var(--tw-text-opacity, 1));\n}\n.ext-text-green-300 {\n  --tw-text-opacity: 1;\n  color: rgb(136 136 138 / var(--tw-text-opacity, 1));\n}\n.ext-text-green-500 {\n  --tw-text-opacity: 1;\n  color: rgb(99 215 189 / var(--tw-text-opacity, 1));\n}\n.ext-text-purple-500 {\n  --tw-text-opacity: 1;\n  color: rgb(135 80 231 / var(--tw-text-opacity, 1));\n}\n.ext-text-red-600 {\n  --tw-text-opacity: 1;\n  color: rgb(220 38 38 / var(--tw-text-opacity, 1));\n}\n.ext-text-white {\n  --tw-text-opacity: 1;\n  color: rgb(255 255 255 / var(--tw-text-opacity, 1));\n}\n.ext-placeholder-gray-400::-moz-placeholder {\n  --tw-placeholder-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-placeholder-opacity, 1));\n}\n.ext-placeholder-gray-400::placeholder {\n  --tw-placeholder-opacity: 1;\n  color: rgb(117 117 117 / var(--tw-placeholder-opacity, 1));\n}\n.ext-opacity-25 {\n  opacity: 0.25;\n}\n.ext-shadow-lg {\n  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-shadow-md {\n  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);\n  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-shadow-sm {\n  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);\n  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n}\n.ext-transition {\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;\n  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-transition-all {\n  transition-property: all;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n.ext-duration-200 {\n  transition-duration: 200ms;\n}\n.ext-ease-in {\n  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);\n}\n.hover\\:ext-bg-green-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(99 215 189 / var(--tw-bg-opacity, 1));\n}\n.hover\\:ext-bg-purple-700:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(126 34 206 / var(--tw-bg-opacity, 1));\n}\n.hover\\:ext-bg-red-500:hover {\n  --tw-bg-opacity: 1;\n  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));\n}\n.focus\\:ext-border-transparent:focus {\n  border-color: transparent;\n}\n.focus\\:ext-bg-black:focus {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n.focus\\:ext-text-green-400:focus {\n  --tw-text-opacity: 1;\n  color: rgb(87 191 168 / var(--tw-text-opacity, 1));\n}\n.focus\\:ext-outline-none:focus {\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.focus\\:ext-ring-2:focus {\n  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);\n  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);\n  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);\n}\n.focus\\:ext-ring-indigo-500:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity, 1));\n}\n.focus\\:ext-ring-purple-600:focus {\n  --tw-ring-opacity: 1;\n  --tw-ring-color: rgb(147 51 234 / var(--tw-ring-opacity, 1));\n}\n.focus\\:ext-ring-offset-2:focus {\n  --tw-ring-offset-width: 2px;\n}\n.focus\\:ext-ring-offset-indigo-200:focus {\n  --tw-ring-offset-color: #c7d2fe;\n}\n.disabled\\:ext-cursor-not-allowed:disabled {\n  cursor: not-allowed;\n}\n.disabled\\:ext-bg-black:disabled {\n  --tw-bg-opacity: 1;\n  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));\n}\n.disabled\\:ext-bg-gray-300:disabled {\n  --tw-bg-opacity: 1;\n  background-color: rgb(72 72 72 / var(--tw-bg-opacity, 1));\n}\n.disabled\\:ext-text-gray-500:disabled {\n  --tw-text-opacity: 1;\n  color: rgb(107 114 128 / var(--tw-text-opacity, 1));\n}\n@media (prefers-color-scheme: dark) {\n\n  .dark\\:ext-text-gray-50 {\n    --tw-text-opacity: 1;\n    color: rgb(249 250 251 / var(--tw-text-opacity, 1));\n  }\n}\n/*$vite$:1*/";document.head.appendChild(__vite_style__);
 
   const sharedConfig = {
     context: undefined,
@@ -3909,9 +3909,9 @@
     value: "75"
   }];
 
-  var _tmpl$$h = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-1 ext-pr-1 ext-border-r ext-items-center"><div><img alt=props.icon></div><div>`);
+  var _tmpl$$i = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-1 ext-pr-1 ext-border-r ext-items-center"><div><img alt=props.icon></div><div>`);
   const StatsCell = (props) => (() => {
-    var _el$ = _tmpl$$h(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$2.nextSibling;
+    var _el$ = _tmpl$$i(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$2.nextSibling;
     insert(_el$4, () => props.value);
     createRenderEffect((_p$) => {
       var _v$ = statIcons[props.icon], _v$2 = cn("ext-text-xs", {
@@ -3928,18 +3928,18 @@
     return _el$;
   })();
 
-  var _tmpl$$g = /* @__PURE__ */ template(`<div class="ext-flex ext-justify-center ext-w-full ext-gap-1 ext-my-4">`);
+  var _tmpl$$h = /* @__PURE__ */ template(`<div class="ext-flex ext-justify-center ext-w-full ext-gap-1 ext-my-4">`);
   const StatsContainer = (props) => (() => {
-    var _el$ = _tmpl$$g();
+    var _el$ = _tmpl$$h();
     insert(_el$, () => props.children);
     return _el$;
   })();
 
-  var _tmpl$$f = /* @__PURE__ */ template(`<div><div class="ext-flex ext-flex-col"><div class="ext-text-[9px] ext-text-gray-400"></div><div class="ext-flex ext-items-baseline ext-gap-1 ext-justify-center"><div class=ext-w-[10px]><img width=10px alt=sol_icon></div><div>`);
+  var _tmpl$$g = /* @__PURE__ */ template(`<div><div class="ext-flex ext-flex-col"><div class="ext-text-[9px] ext-text-gray-400"></div><div class="ext-flex ext-items-baseline ext-gap-1 ext-justify-center"><div class=ext-w-[10px]><img width=10px alt=sol_icon></div><div>`);
   const BottomStatsCell = (props) => {
     const sol = chrome.runtime.getURL("assets2/sol.svg");
     return (() => {
-      var _el$ = _tmpl$$f(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$5.nextSibling;
+      var _el$ = _tmpl$$g(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.firstChild, _el$6 = _el$5.firstChild, _el$7 = _el$5.nextSibling;
       insert(_el$3, () => props.title);
       setAttribute(_el$6, "src", sol);
       insert(_el$7, () => props.value);
@@ -4443,239 +4443,6 @@
 
   const wallet = "data:image/svg+xml,%3csvg%20width='10'%20height='9'%20viewBox='0%200%2010%209'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M7.04609%206.82435C6.58627%206.82433%206.21217%206.45025%206.21217%205.99043V4.60552C6.21217%204.14569%206.58627%203.77161%207.04609%203.77161H9.21901C9.23218%203.77161%209.24526%203.77201%209.25828%203.7726V2.393C9.25828%202.03788%208.97039%201.75%208.61527%201.75H0.643023C0.287881%201.74998%200%202.03786%200%202.39298V8.20294C0%208.55806%200.287881%208.84597%200.643023%208.84597H8.61527C8.97039%208.84597%209.25828%208.55808%209.25828%208.20294V6.82335C9.24526%206.82396%209.23218%206.82435%209.21901%206.82435H7.04609Z'%20fill='%234F4F4F'/%3e%3cpath%20d='M9.21955%204.22646H7.04663C6.83844%204.22646%206.66966%204.39524%206.66966%204.60343V5.98834C6.66966%206.19653%206.83844%206.36531%207.04663%206.36531H9.21955C9.42774%206.36531%209.59652%206.19655%209.59652%205.98834V4.60343C9.59652%204.39522%209.42774%204.22646%209.21955%204.22646ZM7.79538%205.83996C7.49488%205.83996%207.25128%205.59636%207.25128%205.29586C7.25128%204.99536%207.49488%204.75176%207.79538%204.75176C8.09588%204.75176%208.33948%204.99536%208.33948%205.29586C8.33948%205.59636%208.09588%205.83996%207.79538%205.83996ZM7.49618%200.570061C7.35232%200.13464%206.88273%20-0.101717%206.44733%200.0421397L3.18066%201.12136H7.67831L7.49618%200.570061Z'%20fill='%234F4F4F'/%3e%3c/svg%3e";
 
-  var _tmpl$$e = /* @__PURE__ */ template(`<div>`), _tmpl$2$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-1 ext-justify-end ext-mb-[6px]"><div class="ext-bg-gray-150 ext-border ext-border-gray-200 ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center ext-items-end"><div class="ext-bg-white ext-h-[1px] ext-w-[5px] ext-mb-[4px]"></div></div><div class="ext-bg-gray-150 ext-border ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center"><img class=ext-w-[5px] alt=pin>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2"><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=wallet></div><div class="ext-text-xs ext-text-white ext-font-medium">1</div></div><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=sol></div><div class="ext-text-xs ext-text-white ext-font-medium">0`), _tmpl$4 = /* @__PURE__ */ template(`<div class=ext-flex-1>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-px-[11px] ext-items-baseline">`), _tmpl$6 = /* @__PURE__ */ template(`<div class="ext-bg-gray-200 ext-h-[1px] ext-mt-[6px] ext-mb-[15px]">`);
-  const Card = (props) => (() => {
-    var _el$ = _tmpl$$e();
-    insert(_el$, () => props.children);
-    createRenderEffect(() => className(_el$, cn("ext-px-[15px] ext-py-[9px] ext-shadow-lg ext-rounded-lg ext-border", props.cn)));
-    return _el$;
-  })();
-  const Body = (props) => (() => {
-    var _el$2 = _tmpl$$e();
-    insert(_el$2, () => props.children);
-    createRenderEffect(() => className(_el$2, cn("", props.cn)));
-    return _el$2;
-  })();
-  const CardToolbar = (props) => (() => {
-    var _el$3 = _tmpl$$e();
-    insert(_el$3, () => props.children);
-    createRenderEffect(() => className(_el$3, cn(props.cn)));
-    return _el$3;
-  })();
-  const Container = ({
-    children
-  }) => createComponent(Card, {
-    cn: "ext-max-w-[312px] ext-bg-blue-100 ext-border-gray-400",
-    children
-  });
-  const Header = () => createComponent(CardToolbar, {
-    get children() {
-      var _el$4 = _tmpl$2$5(), _el$5 = _el$4.firstChild, _el$6 = _el$5.nextSibling, _el$7 = _el$6.firstChild;
-      setAttribute(_el$7, "src", pin);
-      return _el$4;
-    }
-  });
-  const Settings = () => {
-    const sol = chrome.runtime.getURL("assets2/sol.svg");
-    return (() => {
-      var _el$8 = _tmpl$3(), _el$9 = _el$8.firstChild, _el$0 = _el$9.firstChild, _el$1 = _el$0.firstChild, _el$10 = _el$9.nextSibling, _el$11 = _el$10.firstChild, _el$12 = _el$11.firstChild;
-      setAttribute(_el$1, "src", wallet);
-      setAttribute(_el$12, "src", sol);
-      return _el$8;
-    })();
-  };
-  const TabsList = () => (() => {
-    var _el$13 = _tmpl$4();
-    insert(_el$13, createComponent(Tabs.List, {
-      "class": "ext-relative ext-flex ext-gap-[10px]",
-      get children() {
-        return [createComponent(Tabs.Trigger, {
-          "class": "ext-text-white ext-text-[10px]",
-          value: "market",
-          children: "Market"
-        }), createComponent(Tabs.Trigger, {
-          "class": "ext-text-white ext-text-[10px]",
-          value: "limit",
-          children: "Limit"
-        }), createComponent(Tabs.Trigger, {
-          "class": "ext-text-white ext-text-[10px]",
-          value: "trailing",
-          children: "Trailing"
-        }), createComponent(Tabs.Trigger, {
-          "class": "ext-text-white ext-text-[10px]",
-          value: "autolimit",
-          children: "Auto Limit"
-        }), createComponent(Tabs.Indicator, {
-          "class": "ext-h-[1px] ext-bg-white ext-absolute ext-bottom-[-2px] ext-transition-all"
-        })];
-      }
-    }));
-    return _el$13;
-  })();
-  const TabsHeader = ({
-    children
-  }) => (() => {
-    var _el$14 = _tmpl$5();
-    insert(_el$14, children);
-    return _el$14;
-  })();
-  const Hr = () => _tmpl$6();
-
-  var _tmpl$$d = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2">`), _tmpl$2$4 = /* @__PURE__ */ template(`<div class=ext-mt-[14px]>`);
-  const BuyAmoutInput = (props) => {
-    return createComponent(Card, {
-      cn: "ext-border-green-500",
-      get children() {
-        return [(() => {
-          var _el$ = _tmpl$$d();
-          insert(_el$, createComponent(For, {
-            get each() {
-              return props.getQuicks();
-            },
-            children: (amountSol, index) => createComponent(SolAmountButton, {
-              get active() {
-                return index() === props.getActiveQuick();
-              },
-              onClick: () => props.onSelectQuick(amountSol),
-              get children() {
-                return amountSol.value;
-              }
-            })
-          }));
-          return _el$;
-        })(), (() => {
-          var _el$2 = _tmpl$2$4();
-          insert(_el$2, createComponent(TradeInput, {
-            get getInputValue() {
-              return props.getInputValue;
-            },
-            get onChange() {
-              return props.onChange;
-            }
-          }));
-          return _el$2;
-        })()];
-      }
-    });
-  };
-
-  const TradeTabButton = (props) => {
-    const color = props.mode === TradeDir.Buy ? "green" : "red";
-    console.log(props.mode, color);
-    const active = `ext-bg-${color}-400 ext-border-${color}-400 hover:ext-bg-${color}-500 ext-transition ext-ease-in ext-duration-200 focus:ext-outline-none`;
-    const unActive = "ext-border-grey-200 ext-bg-blue-100";
-    return createComponent(Button$1, mergeProps({
-      get type() {
-        return props.type ?? "button";
-      },
-      get ["class"]() {
-        return cn("ext-py-1 ext-px-4 ext-w-full ext-border ext-rounded-[5px] ext-text-center ext-text-base ext-text-white ext-font-bold disabled:ext-bg-black", {
-          [`${active}`]: props.active,
-          [`${unActive}`]: !props.active
-        }, props.cn);
-      }
-    }, props));
-  };
-
-  const isBuy = (value) => value === TradeDir.Buy;
-  const isSell = (value) => value === TradeDir.Sell;
-
-  var _tmpl$$c = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-[7px] ext-mb-[15px]">`);
-  const TradeDirSelector = ({
-    getDir,
-    onSelect
-  }) => {
-    return (() => {
-      var _el$ = _tmpl$$c();
-      insert(_el$, createComponent(TradeTabButton, {
-        get mode() {
-          return TradeDir.Buy;
-        },
-        get active() {
-          return isBuy(getDir());
-        },
-        onClick: () => onSelect(TradeDir.Buy),
-        children: "Buy"
-      }), null);
-      insert(_el$, createComponent(TradeTabButton, {
-        get mode() {
-          return TradeDir.Sell;
-        },
-        get active() {
-          return isSell(getDir());
-        },
-        onClick: () => onSelect(TradeDir.Sell),
-        children: "Sell"
-      }), null);
-      return _el$;
-    })();
-  };
-
-  const PercentAmountButton = (props) => {
-    const common = "ext-w-[56px] ext-text-xs ext-whitespace-nowrap ext-py-[6px] ext-text-white ext-text-center ext-text-base ext-rounded-lg ext-font-medium";
-    const unactive = "ext-bg-red-200 ext-border ext-border-red-400 hover:ext-bg-red-500 ext-transition ext-ease-in ext-duration-200";
-    const active = "ext-bg-red-400";
-    return createComponent(Button$1, mergeProps({
-      get type() {
-        return props.type ?? "button";
-      },
-      get ["class"]() {
-        return cn(common, {
-          [`${unactive}`]: !props.active,
-          [`${active}`]: props.active
-        }, props.cn);
-      }
-    }, props));
-  };
-
-  var _tmpl$$b = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2">`), _tmpl$2$3 = /* @__PURE__ */ template(`<div class=ext-mt-[14px]>`);
-  const SellAmoutInput = (props) => {
-    return createComponent(Card, {
-      cn: "ext-bg-blue-300 ext-border-red-400",
-      get children() {
-        return [(() => {
-          var _el$ = _tmpl$$b();
-          insert(_el$, createComponent(For, {
-            get each() {
-              return props.getQuicks();
-            },
-            children: (amountSol, index) => createComponent(PercentAmountButton, {
-              get active() {
-                return index() === props.getActiveQuick();
-              },
-              onClick: () => props.onSelectQuick(amountSol),
-              get children() {
-                return [memo(() => amountSol.value), "%"];
-              }
-            })
-          }));
-          return _el$;
-        })(), (() => {
-          var _el$2 = _tmpl$2$3();
-          insert(_el$2, createComponent(TradeInput, {
-            get getInputValue() {
-              return props.getInputValue;
-            },
-            get onChange() {
-              return props.onChange;
-            }
-          }));
-          return _el$2;
-        })()];
-      }
-    });
-  };
-
-  var _tmpl$$a = /* @__PURE__ */ template(`<div class=ext-flex><div>PnL</div><div><img alt=arrows>`);
-  const PnL = (props) => {
-    const arrows = chrome.runtime.getURL("assets2/arrows.svg");
-    return (() => {
-      var _el$ = _tmpl$$a(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.firstChild;
-      setAttribute(_el$4, "src", arrows);
-      return _el$;
-    })();
-  };
-
   const $RAW = Symbol("store-raw"),
     $NODE = Symbol("store-node"),
     $HAS = Symbol("store-has"),
@@ -4890,15 +4657,57 @@
     return [wrappedStore, setStore];
   }
 
+  const initValue$4 = {
+    dir: TradeDir.Buy,
+    // buy
+    buyQuicks: defaultBuyQuicks,
+    activeBuyQuickIndex: null,
+    solCount: null,
+    buySellButtonLabel: "",
+    disablebuySellButton: true,
+    buyInputValue: null,
+    // sell
+    sellQuicks: defaultSellQuicks,
+    activeSellQuickIndex: null,
+    sellPercents: null,
+    sellButtonLabel: "",
+    disableSellButton: true,
+    sellInputValue: null,
+    // external
+    tokenStatus: null,
+    tradeStats: null,
+    lastTradeEvent: null,
+    //
+    loading: true,
+    // Trade Stats
+    solBalanceLabel: "",
+    labelBuyToken: "",
+    labelSellToken: "",
+    labelTokenBalance: ""
+  };
+
+  const selectBuyQuick = (quickItem) => {
+    const activeBuyQuickIndex = tradeWidgetState.buyQuicks.findIndex(
+      (item) => item.value === quickItem.value
+    );
+    setTradeWidgetState("activeBuyQuickIndex", activeBuyQuickIndex);
+    setTradeWidgetState(
+      "buyInputValue",
+      tradeWidgetState.buyQuicks[activeBuyQuickIndex].value
+    );
+    const solCount = tradeWidgetState.buyQuicks[activeBuyQuickIndex].value;
+    setTradeWidgetState("solCount", solCount);
+  };
+
   const stringToFloat = (input) => {
     const num = parseFloat(input);
     return isNaN(num) ? null : num;
   };
 
-  const initValue$4 = {
+  const initValue$3 = {
     logs: []
   };
-  const [logStore, setLogStore] = createStore(initValue$4);
+  const [logStore, setLogStore] = createStore(initValue$3);
   const addLogRecord = (message) => setLogStore("logs", (prev) => [
     { type: message.eventName, event: message },
     ...prev
@@ -4921,15 +4730,15 @@
     return CabalCommonMessages2;
   })(CabalCommonMessages || {});
 
-  const initValue$3 = {
-    status: void 0
-  };
-  const [cabalTradeStream, setCabalTradeStream] = createStore(initValue$3);
-
   const initValue$2 = {
     status: void 0
   };
-  const [cabalUserActivity, setCabalUserActivity] = createStore(initValue$2);
+  const [cabalTradeStream, setCabalTradeStream] = createStore(initValue$2);
+
+  const initValue$1 = {
+    status: void 0
+  };
+  const [cabalUserActivity, setCabalUserActivity] = createStore(initValue$1);
 
   const sendMessage = ({
     payload,
@@ -5443,6 +5252,7 @@
     CabalUserActivityStreamMessages2["userActivityPong"] = "userActivityPong";
     CabalUserActivityStreamMessages2["userActivityError"] = "userActivityError";
     CabalUserActivityStreamMessages2["tradeStats"] = "tradeStats";
+    CabalUserActivityStreamMessages2["txnCb"] = "txnCb";
     return CabalUserActivityStreamMessages2;
   })(CabalUserActivityStreamMessages || {});
   var CabalTradeStreamMessages = /* @__PURE__ */ ((CabalTradeStreamMessages2) => {
@@ -5459,13 +5269,13 @@
 
   const startListnenBackgroundMessages = (messageListener) => chrome.runtime.onMessage.addListener(messageListener);
 
-  const initValue$1 = {
+  const initValue = {
     mint: void 0,
     isReady: false,
     url: "",
     shouldSetApiKey: false
   };
-  const [contentAppStore, setContentAppStore] = createStore(initValue$1);
+  const [contentAppStore, setContentAppStore] = createStore(initValue);
 
   const registerTab = ({ locationHref }) => {
     const payload = {
@@ -5545,10 +5355,9 @@
   const handleReadyStatus = (message) => {
     addLogRecord(message);
     const isReady = message.data.isReady;
+    const shouldSetApiKey = message.data.shouldSetApiKey;
     setContentAppStore("isReady", isReady);
-    if (isReady) {
-      setContentAppStore("shouldSetApiKey", false);
-    }
+    setContentAppStore("shouldSetApiKey", shouldSetApiKey);
     const status = message.data.isReady ? { isReady, count: String(Date.now()) } : void 0;
     setCabalUserActivity("status", status);
     setCabalTradeStream("status", status);
@@ -5645,42 +5454,91 @@
     };
   }
 
-  const initValue = {
-    dir: TradeDir.Buy,
-    // buy
-    buyQuicks: defaultBuyQuicks,
-    activeBuyQuickIndex: null,
-    solCount: null,
-    buySellButtonLabel: "",
-    disablebuySellButton: true,
-    buyInputValue: null,
-    // sell
-    sellQuicks: defaultSellQuicks,
-    activeSellQuickIndex: null,
-    sellPercents: null,
-    sellButtonLabel: "",
-    disableSellButton: true,
-    sellInputValue: null,
-    // external
-    tokenStatus: null,
-    tradeStats: null,
-    lastTradeEvent: null,
-    //
-    loading: true
+  const buyMarket = async () => {
+    try {
+      if (!tradeWidgetState.solCount) {
+        return;
+      }
+      if (!tradeWidgetState.tokenStatus) {
+        return;
+      }
+      const amount = stringToFloat(tradeWidgetState.solCount);
+      const mintValue = tradeWidgetState.tokenStatus.mint;
+      if (!amount || !mintValue) {
+        return;
+      }
+      const result = await marketBuy({ amount, mint: mintValue });
+      console.log("$$$#", result);
+    } catch (error) {
+      console.error(error);
+    }
   };
-  const [tradeWidgetState, setTradeWidgetState] = createStore(initValue);
-  const selectBuyQuick = (quickItem) => {
-    const activeBuyQuickIndex = tradeWidgetState.buyQuicks.findIndex(
+
+  const onBuyInputChange = (value) => {
+    if (typeof value !== "string") {
+      setTradeWidgetState("buyInputValue", tradeWidgetState.buyInputValue);
+    }
+    const num = parseFloat(value);
+    if (!isNaN(num) && num.toString() === value.trim()) {
+      setTradeWidgetState("buyInputValue", value);
+      setTradeWidgetState("solCount", String(value));
+    } else {
+      setTradeWidgetState("buyInputValue", tradeWidgetState.buyInputValue);
+    }
+  };
+
+  const selectSellQuick = (quickItem) => {
+    const activeSellQuickIndex = tradeWidgetState.sellQuicks.findIndex(
       (item) => item.value === quickItem.value
     );
-    setTradeWidgetState("activeBuyQuickIndex", activeBuyQuickIndex);
+    setTradeWidgetState("activeSellQuickIndex", activeSellQuickIndex);
     setTradeWidgetState(
-      "buyInputValue",
-      tradeWidgetState.buyQuicks[activeBuyQuickIndex].value
+      "sellInputValue",
+      tradeWidgetState.sellQuicks[activeSellQuickIndex].value
     );
-    const solCount = tradeWidgetState.buyQuicks[activeBuyQuickIndex].value;
-    setTradeWidgetState("solCount", solCount);
+    const sellPercents = tradeWidgetState.sellQuicks[activeSellQuickIndex].value;
+    setTradeWidgetState("sellPercents", sellPercents);
   };
+
+  const sellMarket = () => {
+    try {
+      if (!tradeWidgetState.sellPercents) {
+        return;
+      }
+      if (!tradeWidgetState.tokenStatus) {
+        return;
+      }
+      const amount = stringToFloat(tradeWidgetState.sellPercents);
+      const mintValue = tradeWidgetState.tokenStatus.mint;
+      if (!amount || !mintValue) {
+        return;
+      }
+      const result = marketSell({ mint: mintValue, percents: amount });
+      console.log("#$$$#", result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const onSellInputChange = (value) => {
+    if (typeof value !== "string") {
+      setTradeWidgetState("sellInputValue", tradeWidgetState.sellInputValue);
+    }
+    const num = parseFloat(value);
+    if (!isNaN(num) && num.toString() === value.trim()) {
+      setTradeWidgetState("sellInputValue", value);
+      setTradeWidgetState("sellPercents", String(value));
+    } else {
+      setTradeWidgetState("sellInputValue", tradeWidgetState.sellInputValue);
+    }
+  };
+
+  const formatLamports = ({
+    solBalance,
+    tokenDecimals
+  }) => Number(Number(solBalance) / Math.pow(10, tokenDecimals)).toFixed(2);
+
+  const [tradeWidgetState, setTradeWidgetState] = createStore(initValue$4);
   createEffect(() => {
     if (!tradeWidgetState.tokenStatus) {
       return;
@@ -5695,62 +5553,6 @@
     const disablebuySellButton = false;
     setTradeWidgetState("disablebuySellButton", disablebuySellButton);
   });
-  const buyMarket = async () => {
-    debugger;
-    if (!tradeWidgetState.solCount) {
-      return;
-    }
-    if (!tradeWidgetState.tokenStatus) {
-      return;
-    }
-    const amount = stringToFloat(tradeWidgetState.solCount);
-    const mintValue = tradeWidgetState.tokenStatus.mint;
-    if (!amount || !mintValue) {
-      return;
-    }
-    try {
-      const result = await marketBuy({ amount, mint: mintValue });
-      console.log("$$$#", result);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const onBuyInputChange = (value) => {
-    if (typeof value !== "string") {
-      setTradeWidgetState("buyInputValue", tradeWidgetState.buyInputValue);
-    }
-    const num = parseFloat(value);
-    if (!isNaN(num) && num.toString() === value.trim()) {
-      setTradeWidgetState("buyInputValue", value);
-      setTradeWidgetState("solCount", String(value));
-    } else {
-      setTradeWidgetState("buyInputValue", tradeWidgetState.buyInputValue);
-    }
-  };
-  const selectSellQuick = (quickItem) => {
-    const activeSellQuickIndex = tradeWidgetState.sellQuicks.findIndex(
-      (item) => item.value === quickItem.value
-    );
-    setTradeWidgetState("activeSellQuickIndex", activeSellQuickIndex);
-    setTradeWidgetState(
-      "sellInputValue",
-      tradeWidgetState.sellQuicks[activeSellQuickIndex].value
-    );
-    const sellPercents = tradeWidgetState.sellQuicks[activeSellQuickIndex].value;
-    setTradeWidgetState("sellPercents", sellPercents);
-  };
-  const onSellInputChange = (value) => {
-    if (typeof value !== "string") {
-      setTradeWidgetState("sellInputValue", tradeWidgetState.sellInputValue);
-    }
-    const num = parseFloat(value);
-    if (!isNaN(num) && num.toString() === value.trim()) {
-      setTradeWidgetState("sellInputValue", value);
-      setTradeWidgetState("sellPercents", String(value));
-    } else {
-      setTradeWidgetState("sellInputValue", tradeWidgetState.sellInputValue);
-    }
-  };
   createEffect(() => {
     if (!tradeWidgetState.tokenStatus) {
       return;
@@ -5765,26 +5567,32 @@
     const disableSellButton = false;
     setTradeWidgetState("disableSellButton", disableSellButton);
   });
-  const sellMarket = () => {
-    debugger;
-    if (!tradeWidgetState.sellPercents) {
+  createEffect(() => {
+    if (!tradeWidgetState.tradeStats) {
       return;
     }
-    if (!tradeWidgetState.tokenStatus) {
-      return;
-    }
-    const amount = stringToFloat(tradeWidgetState.sellPercents);
-    const mintValue = tradeWidgetState.tokenStatus.mint;
-    if (!amount || !mintValue) {
-      return;
-    }
-    try {
-      const result = marketSell({ mint: mintValue, percents: amount });
-      console.log("#$$$#", result);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    const solBalanceLabel = formatLamports({
+      solBalance: tradeWidgetState.tradeStats.solBalance,
+      tokenDecimals: 9
+    });
+    const tokenDecimals = tradeWidgetState.tradeStats.tokenDecimals;
+    const labelBuyToken = formatLamports({
+      solBalance: tradeWidgetState.tradeStats.buyBase,
+      tokenDecimals
+    });
+    const labelSellToken = formatLamports({
+      solBalance: tradeWidgetState.tradeStats.sellBase,
+      tokenDecimals
+    });
+    const labelTokenBalance = formatLamports({
+      solBalance: tradeWidgetState.tradeStats.tokenBalance,
+      tokenDecimals
+    });
+    setTradeWidgetState("solBalanceLabel", solBalanceLabel);
+    setTradeWidgetState("labelBuyToken", labelBuyToken);
+    setTradeWidgetState("labelSellToken", labelSellToken);
+    setTradeWidgetState("labelTokenBalance", labelTokenBalance);
+  });
   const handlers = {
     selectBuyQuick,
     buyMarket,
@@ -5794,20 +5602,241 @@
     onSellInputChange
   };
 
-  var _tmpl$$9 = /* @__PURE__ */ template(`<div>`), _tmpl$2$2 = /* @__PURE__ */ template(`<div class="ext-flex ext-w-full ext-justify-between ext-mt-[10px]">`);
-  const statsBottom = [{
-    title: "Bought",
-    color: BCellColor.green,
-    value: "0"
-  }, {
-    title: "Sold",
-    color: BCellColor.red,
-    value: "0"
-  }, {
-    title: "Holding",
-    color: BCellColor.white,
-    value: "0"
-  }];
+  var _tmpl$$f = /* @__PURE__ */ template(`<div>`), _tmpl$2$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-1 ext-justify-end ext-mb-[6px]"><div class="ext-bg-gray-150 ext-border ext-border-gray-200 ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center ext-items-end"><div class="ext-bg-white ext-h-[1px] ext-w-[5px] ext-mb-[4px]"></div></div><div class="ext-bg-gray-150 ext-border ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center"><img class=ext-w-[5px] alt=pin>`), _tmpl$3 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2"><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=wallet></div><div class="ext-text-xs ext-text-white ext-font-medium">1</div></div><div class="ext-flex ext-gap-1 ext-items-baseline"><div><img alt=sol></div><div class="ext-text-xs ext-text-white ext-font-medium">`), _tmpl$4 = /* @__PURE__ */ template(`<div class=ext-flex-1>`), _tmpl$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-px-[11px] ext-items-baseline">`), _tmpl$6 = /* @__PURE__ */ template(`<div class="ext-bg-gray-200 ext-h-[1px] ext-mt-[6px] ext-mb-[15px]">`);
+  const Card = (props) => (() => {
+    var _el$ = _tmpl$$f();
+    insert(_el$, () => props.children);
+    createRenderEffect(() => className(_el$, cn("ext-px-[15px] ext-py-[9px] ext-shadow-lg ext-rounded-lg ext-border", props.cn)));
+    return _el$;
+  })();
+  const Body = (props) => (() => {
+    var _el$2 = _tmpl$$f();
+    insert(_el$2, () => props.children);
+    createRenderEffect(() => className(_el$2, cn("", props.cn)));
+    return _el$2;
+  })();
+  const CardToolbar = (props) => (() => {
+    var _el$3 = _tmpl$$f();
+    insert(_el$3, () => props.children);
+    createRenderEffect(() => className(_el$3, cn(props.cn)));
+    return _el$3;
+  })();
+  const Container = ({
+    children
+  }) => createComponent(Card, {
+    cn: "ext-max-w-[312px] ext-bg-blue-100 ext-border-gray-400",
+    children
+  });
+  const Header = () => createComponent(CardToolbar, {
+    get children() {
+      var _el$4 = _tmpl$2$5(), _el$5 = _el$4.firstChild, _el$6 = _el$5.nextSibling, _el$7 = _el$6.firstChild;
+      setAttribute(_el$7, "src", pin);
+      return _el$4;
+    }
+  });
+  const Settings = () => {
+    const sol = chrome.runtime.getURL("assets2/sol.svg");
+    return (() => {
+      var _el$8 = _tmpl$3(), _el$9 = _el$8.firstChild, _el$0 = _el$9.firstChild, _el$1 = _el$0.firstChild, _el$10 = _el$9.nextSibling, _el$11 = _el$10.firstChild, _el$12 = _el$11.firstChild, _el$13 = _el$11.nextSibling;
+      setAttribute(_el$1, "src", wallet);
+      setAttribute(_el$12, "src", sol);
+      insert(_el$13, () => tradeWidgetState.solBalanceLabel);
+      return _el$8;
+    })();
+  };
+  const TabsList = () => (() => {
+    var _el$14 = _tmpl$4();
+    insert(_el$14, createComponent(Tabs.List, {
+      "class": "ext-relative ext-flex ext-gap-[10px]",
+      get children() {
+        return [createComponent(Tabs.Trigger, {
+          "class": "ext-text-white ext-text-[10px]",
+          value: "market",
+          children: "Market"
+        }), createComponent(Tabs.Trigger, {
+          "class": "ext-text-white ext-text-[10px]",
+          value: "limit",
+          children: "Limit"
+        }), createComponent(Tabs.Trigger, {
+          "class": "ext-text-white ext-text-[10px]",
+          value: "trailing",
+          children: "Trailing"
+        }), createComponent(Tabs.Trigger, {
+          "class": "ext-text-white ext-text-[10px]",
+          value: "autolimit",
+          children: "Auto Limit"
+        }), createComponent(Tabs.Indicator, {
+          "class": "ext-h-[1px] ext-bg-white ext-absolute ext-bottom-[-2px] ext-transition-all"
+        })];
+      }
+    }));
+    return _el$14;
+  })();
+  const TabsHeader = ({
+    children
+  }) => (() => {
+    var _el$15 = _tmpl$5();
+    insert(_el$15, children);
+    return _el$15;
+  })();
+  const Hr = () => _tmpl$6();
+
+  var _tmpl$$e = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2">`), _tmpl$2$4 = /* @__PURE__ */ template(`<div class=ext-mt-[14px]>`);
+  const BuyAmoutInput = (props) => {
+    return createComponent(Card, {
+      cn: "ext-border-green-500",
+      get children() {
+        return [(() => {
+          var _el$ = _tmpl$$e();
+          insert(_el$, createComponent(For, {
+            get each() {
+              return props.getQuicks();
+            },
+            children: (amountSol, index) => createComponent(SolAmountButton, {
+              get active() {
+                return index() === props.getActiveQuick();
+              },
+              onClick: () => props.onSelectQuick(amountSol),
+              get children() {
+                return amountSol.value;
+              }
+            })
+          }));
+          return _el$;
+        })(), (() => {
+          var _el$2 = _tmpl$2$4();
+          insert(_el$2, createComponent(TradeInput, {
+            get getInputValue() {
+              return props.getInputValue;
+            },
+            get onChange() {
+              return props.onChange;
+            }
+          }));
+          return _el$2;
+        })()];
+      }
+    });
+  };
+
+  const TradeTabButton = (props) => {
+    const color = props.mode === TradeDir.Buy ? "green" : "red";
+    console.log(props.mode, color);
+    const active = `ext-bg-${color}-400 ext-border-${color}-400 hover:ext-bg-${color}-500 ext-transition ext-ease-in ext-duration-200 focus:ext-outline-none`;
+    const unActive = "ext-border-grey-200 ext-bg-blue-100";
+    return createComponent(Button$1, mergeProps({
+      get type() {
+        return props.type ?? "button";
+      },
+      get ["class"]() {
+        return cn("ext-py-1 ext-px-4 ext-w-full ext-border ext-rounded-[5px] ext-text-center ext-text-base ext-text-white ext-font-bold disabled:ext-bg-black", {
+          [`${active}`]: props.active,
+          [`${unActive}`]: !props.active
+        }, props.cn);
+      }
+    }, props));
+  };
+
+  const isBuy = (value) => value === TradeDir.Buy;
+  const isSell = (value) => value === TradeDir.Sell;
+
+  var _tmpl$$d = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-[7px] ext-mb-[15px]">`);
+  const TradeDirSelector = ({
+    getDir,
+    onSelect
+  }) => {
+    return (() => {
+      var _el$ = _tmpl$$d();
+      insert(_el$, createComponent(TradeTabButton, {
+        get mode() {
+          return TradeDir.Buy;
+        },
+        get active() {
+          return isBuy(getDir());
+        },
+        onClick: () => onSelect(TradeDir.Buy),
+        children: "Buy"
+      }), null);
+      insert(_el$, createComponent(TradeTabButton, {
+        get mode() {
+          return TradeDir.Sell;
+        },
+        get active() {
+          return isSell(getDir());
+        },
+        onClick: () => onSelect(TradeDir.Sell),
+        children: "Sell"
+      }), null);
+      return _el$;
+    })();
+  };
+
+  const PercentAmountButton = (props) => {
+    const common = "ext-w-[56px] ext-text-xs ext-whitespace-nowrap ext-py-[6px] ext-text-white ext-text-center ext-text-base ext-rounded-lg ext-font-medium";
+    const unactive = "ext-bg-red-200 ext-border ext-border-red-400 hover:ext-bg-red-500 ext-transition ext-ease-in ext-duration-200";
+    const active = "ext-bg-red-400";
+    return createComponent(Button$1, mergeProps({
+      get type() {
+        return props.type ?? "button";
+      },
+      get ["class"]() {
+        return cn(common, {
+          [`${unactive}`]: !props.active,
+          [`${active}`]: props.active
+        }, props.cn);
+      }
+    }, props));
+  };
+
+  var _tmpl$$c = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-2">`), _tmpl$2$3 = /* @__PURE__ */ template(`<div class=ext-mt-[14px]>`);
+  const SellAmoutInput = (props) => {
+    return createComponent(Card, {
+      cn: "ext-bg-blue-300 ext-border-red-400",
+      get children() {
+        return [(() => {
+          var _el$ = _tmpl$$c();
+          insert(_el$, createComponent(For, {
+            get each() {
+              return props.getQuicks();
+            },
+            children: (amountSol, index) => createComponent(PercentAmountButton, {
+              get active() {
+                return index() === props.getActiveQuick();
+              },
+              onClick: () => props.onSelectQuick(amountSol),
+              get children() {
+                return [memo(() => amountSol.value), "%"];
+              }
+            })
+          }));
+          return _el$;
+        })(), (() => {
+          var _el$2 = _tmpl$2$3();
+          insert(_el$2, createComponent(TradeInput, {
+            get getInputValue() {
+              return props.getInputValue;
+            },
+            get onChange() {
+              return props.onChange;
+            }
+          }));
+          return _el$2;
+        })()];
+      }
+    });
+  };
+
+  var _tmpl$$b = /* @__PURE__ */ template(`<div class=ext-flex><div>PnL</div><div><img alt=arrows>`);
+  const PnL = (props) => {
+    const arrows = chrome.runtime.getURL("assets2/arrows.svg");
+    return (() => {
+      var _el$ = _tmpl$$b(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.firstChild;
+      setAttribute(_el$4, "src", arrows);
+      return _el$;
+    })();
+  };
+
+  var _tmpl$$a = /* @__PURE__ */ template(`<div>`), _tmpl$2$2 = /* @__PURE__ */ template(`<div class="ext-flex ext-w-full ext-justify-between ext-mt-[10px]">`);
   const TradeWidget = () => {
     const [buyInputValue, setBuyInputValue] = createSignal(null);
     const [sellInputValue, setSellInputValue] = createSignal(null);
@@ -5825,6 +5854,20 @@
     createEffect(() => {
       setIsShowSellButton(isSell(tradeWidgetState.dir) && !tradeWidgetState.disableSellButton);
     });
+    const statsBottom = createMemo(() => [{
+      title: "Bought",
+      color: BCellColor.green,
+      value: tradeWidgetState.labelBuyToken
+    }, {
+      title: "Sold",
+      color: BCellColor.red,
+      value: tradeWidgetState.labelSellToken
+    }, {
+      title: "Holding",
+      color: BCellColor.white,
+      value: tradeWidgetState.labelTokenBalance
+    }]);
+    console.log("^&*^*&^*&^", statsBottom);
     return createComponent(Container, {
       get children() {
         return [createComponent(Header, {}), createComponent(Body, {
@@ -5894,7 +5937,7 @@
                         return isShowBuyButton();
                       },
                       get children() {
-                        var _el$ = _tmpl$$9();
+                        var _el$ = _tmpl$$a();
                         insert(_el$, createComponent(TradeTabButton, {
                           get mode() {
                             return TradeDir.Buy;
@@ -5912,7 +5955,7 @@
                         return isShowSellButton();
                       },
                       get children() {
-                        var _el$2 = _tmpl$$9();
+                        var _el$2 = _tmpl$$a();
                         insert(_el$2, createComponent(TradeTabButton, {
                           get mode() {
                             return TradeDir.Sell;
@@ -5928,7 +5971,9 @@
                     }), (() => {
                       var _el$3 = _tmpl$2$2();
                       insert(_el$3, createComponent(For, {
-                        each: statsBottom,
+                        get each() {
+                          return statsBottom();
+                        },
                         children: ({
                           title,
                           color,
@@ -5975,7 +6020,7 @@
     });
   };
 
-  var _tmpl$$8 = /* @__PURE__ */ template(`<div>`);
+  var _tmpl$$9 = /* @__PURE__ */ template(`<div>`);
   var Layout = class {
     x;
     y;
@@ -6875,7 +6920,7 @@
             return state.active.draggable;
           },
           get children() {
-            var _el$ = _tmpl$$8();
+            var _el$ = _tmpl$$9();
             var _ref$ = node;
             typeof _ref$ === "function" ? use(_ref$, _el$) : node = _el$;
             insert(_el$, (() => {
@@ -6898,11 +6943,11 @@
     });
   };
 
-  var _tmpl$$7 = /* @__PURE__ */ template(`<div class="ext-absolute ext-bg-blue-800">`);
+  var _tmpl$$8 = /* @__PURE__ */ template(`<div class="ext-absolute ext-bg-blue-800">`);
   const Draggable = (props) => {
     const draggable = createDraggable(props.id);
     return (() => {
-      var _el$ = _tmpl$$7();
+      var _el$ = _tmpl$$8();
       use(draggable, _el$, () => true);
       _el$.style.setProperty("top", "200px");
       _el$.style.setProperty("right", "350px");
@@ -6912,7 +6957,7 @@
     })();
   };
 
-  var _tmpl$$6 = /* @__PURE__ */ template(`<div class="ext-absolute ext-border-dotted ext-border-4 ext-border-green-800 ext-w-[328px] ext-h-[351px]">`);
+  var _tmpl$$7 = /* @__PURE__ */ template(`<div class="ext-absolute ext-border-dotted ext-border-4 ext-border-green-800 ext-w-[328px] ext-h-[351px]">`);
   const DragContainer = ({
     children
   }) => {
@@ -6944,13 +6989,13 @@
           id: 2,
           children
         }), createComponent(DragOverlay, {
-          children: () => _tmpl$$6()
+          children: () => _tmpl$$7()
         })];
       }
     });
   };
 
-  var _tmpl$$5 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-4"><div class="ext-flex ext-items-center"><span></span><p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50"></p></div><div class="ext-flex ext-items-center"><span></span><p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50">`);
+  var _tmpl$$6 = /* @__PURE__ */ template(`<div class="ext-flex ext-gap-4"><div class="ext-flex ext-items-center"><span></span><p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50"></p></div><div class="ext-flex ext-items-center"><span></span><p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50">`);
   const OnlineStatusWidged = () => {
     const [isPulsingUA, setIsPulsingUA] = createSignal(false);
     const [isPulsingTrade, setIsPulsingTrade] = createSignal(false);
@@ -6977,7 +7022,7 @@
       }
     });
     return (() => {
-      var _el$ = _tmpl$$5(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$2.nextSibling, _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling;
+      var _el$ = _tmpl$$6(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$2.nextSibling, _el$6 = _el$5.firstChild, _el$7 = _el$6.nextSibling;
       insert(_el$4, createComponent(Show, {
         get when() {
           return user();
@@ -7047,7 +7092,7 @@
     });
   }
 
-  var _tmpl$$4 = /* @__PURE__ */ template(`<div class="ext-bg-blue-600 ext-text-[9px]">`), _tmpl$2$1 = /* @__PURE__ */ template(`<div class="ext-flex ext-flex-col"><div class=ext-flex><div></div><div><button class=ext-bg-blue-500>`);
+  var _tmpl$$5 = /* @__PURE__ */ template(`<div class="ext-bg-blue-600 ext-text-[9px]">`), _tmpl$2$1 = /* @__PURE__ */ template(`<div class="ext-flex ext-flex-col"><div class=ext-flex><div></div><div><button class=ext-bg-blue-500>`);
   const ShowLogItem = ({
     logItem
   }) => {
@@ -7063,7 +7108,7 @@
           return showStrinify && show();
         },
         get children() {
-          var _el$6 = _tmpl$$4();
+          var _el$6 = _tmpl$$5();
           insert(_el$6, () => JSON.stringify(logItem.event, null, 2));
           return _el$6;
         }
@@ -7073,10 +7118,10 @@
   };
   delegateEvents(["click"]);
 
-  var _tmpl$$3 = /* @__PURE__ */ template(`<div class="ext-flex ext-flex-col">`);
+  var _tmpl$$4 = /* @__PURE__ */ template(`<div class="ext-flex ext-flex-col">`);
   const LogWidget = () => {
     return (() => {
-      var _el$ = _tmpl$$3();
+      var _el$ = _tmpl$$4();
       insert(_el$, createComponent(For, {
         get each() {
           return logStore.logs;
@@ -7089,13 +7134,13 @@
     })();
   };
 
-  var _tmpl$$2 = /* @__PURE__ */ template(`<input>`);
+  var _tmpl$$3 = /* @__PURE__ */ template(`<input>`);
   const Button = (props) => createComponent(Button$1, mergeProps({
     get type() {
       return props.type ?? "button";
     },
     get ["class"]() {
-      return cn("ext-py-2 ext-px-4 ext-bg-green-400 ext-text-black ext-transition ext-ease-in ext-duration-200 ext-text-center ext-text-base ext-shadow-md ext-rounded-lg ", "focus:ext-ring-indigo-500 focus:ext-ring-offset-indigo-200 focus:ext-outline-none focus:ext-ring-2 focus:ext-ring-offset-2", "hover:ext-bg-green-500", "disabled:ext-bg-gray-300 disabled:ext-text-gray-500 disabled:ext-cursor-not-allowed", props.className);
+      return cn("ext-py-2 ext-px-4 ext-bg-purple-600 ext-text-white ext-transition ext-ease-in ext-duration-200 ext-text-center ext-text-base ext-shadow-md ext-rounded-lg ", "focus:ext-ring-indigo-500 focus:ext-ring-offset-indigo-200 focus:ext-outline-none focus:ext-ring-2 focus:ext-ring-offset-2", "hover:ext-bg-purple-700", "disabled:ext-bg-gray-300 disabled:ext-text-gray-500 disabled:ext-cursor-not-allowed", props.className);
     }
   }, props));
   const Btn = (props) => createComponent(Button$1, mergeProps({
@@ -7107,7 +7152,7 @@
     }
   }, props));
   const Input = (props) => (() => {
-    var _el$ = _tmpl$$2();
+    var _el$ = _tmpl$$3();
     spread(_el$, mergeProps({
       get ["class"]() {
         return cn("ext-rounded-lg ext-appearance-none ext-border ext-border-gray-600 ext-py-2 ext-px-4 ext-bg-white ext-text-gray-700 ext-placeholder-gray-400 ext-shadow-sm ext-text-base focus:ext-outline-none focus:ext-ring-2 focus:ext-ring-purple-600 focus:ext-border-transparent", {
@@ -7118,7 +7163,7 @@
     return _el$;
   })();
 
-  var _tmpl$$1 = /* @__PURE__ */ template(`<div><div class=ext-flex>url: </div><div class=ext-flex>mint: `), _tmpl$2 = /* @__PURE__ */ template(`<div class="ext-absolute ext-z-100 ext-top-0 ext-bg-yellow-600 ext-p-2"><div class="ext-flex ext-gap-2">`);
+  var _tmpl$$2 = /* @__PURE__ */ template(`<div><div class=ext-flex>url: </div><div class=ext-flex>mint: `), _tmpl$2 = /* @__PURE__ */ template(`<div class="ext-absolute ext-z-[100] ext-top-0 ext-bg-green-100 ext-rounded-md ext-p-1 ext-min-w-[312px] ext-min-h-[343px]"><div class="ext-flex ext-gap-2">`);
   const ContentContainer = ({
     children
   }) => {
@@ -7184,7 +7229,7 @@
           return showDebug();
         },
         get children() {
-          var _el$3 = _tmpl$$1(), _el$4 = _el$3.firstChild; _el$4.firstChild; var _el$6 = _el$4.nextSibling; _el$6.firstChild;
+          var _el$3 = _tmpl$$2(), _el$4 = _el$3.firstChild; _el$4.firstChild; var _el$6 = _el$4.nextSibling; _el$6.firstChild;
           insert(_el$4, urlValue, null);
           insert(_el$6, () => contentAppStore.mint, null);
           insert(_el$3, createComponent(LogWidget, {}), null);
@@ -10993,10 +11038,12 @@
   ZodOptional.create;
   ZodNullable.create;
 
-  var _tmpl$ = /* @__PURE__ */ template(`<form><div class="ext-flex ext-justify-center"><div class=ext-text-2xl>To start enter an API key: </div></div><div class="ext-flex ext-justify-center ext-mt-4 ext-w-full"></div><div class="ext-flex ext-justify-center ext-mt-4 ext-w-full">`);
+  var _tmpl$$1 = /* @__PURE__ */ template(`<form><div class=ext-flex><div><img alt=cabal></div><div><img alt=cabal></div></div><div class="ext-flex ext-justify-center"><div class=ext-text-xl>To start enter an API key: </div></div><div class="ext-flex ext-justify-center ext-mt-4 ext-w-full"></div><div class="ext-flex ext-justify-center ext-mt-4 ext-w-full">`);
   const schema = objectType({
     apiKey: stringType().min(1, "required")
   });
+  const cabalImg = chrome.runtime.getURL("assets2/cabal.svg");
+  const cabalTextImg = chrome.runtime.getURL("assets2/cabal_text.svg");
   const ApiKeyWidget = ({
     onApiKey
   }) => {
@@ -11022,11 +11069,12 @@
       });
     };
     const handleOnInput = (e) => setApiKey(e.currentTarget.value);
-    console.log();
     return (() => {
-      var _el$ = _tmpl$(), _el$2 = _el$.firstChild, _el$3 = _el$2.nextSibling, _el$4 = _el$3.nextSibling;
+      var _el$ = _tmpl$$1(), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.firstChild, _el$5 = _el$3.nextSibling, _el$6 = _el$5.firstChild, _el$7 = _el$2.nextSibling, _el$8 = _el$7.nextSibling, _el$9 = _el$8.nextSibling;
       _el$.addEventListener("submit", handleSubmit);
-      insert(_el$3, createComponent(Input, {
+      setAttribute(_el$4, "src", cabalImg);
+      setAttribute(_el$6, "src", cabalTextImg);
+      insert(_el$8, createComponent(Input, {
         cn: "focus:ext-bg-black focus:ext-text-green-400",
         type: "text",
         name: "name",
@@ -11036,17 +11084,18 @@
         },
         onInput: handleOnInput
       }));
-      insert(_el$4, createComponent(Button, {
+      insert(_el$9, createComponent(Button, {
         type: "submit",
         get disabled() {
           return !apiKey();
         },
-        children: "Start Hustle!"
+        children: "Connect to Cabal"
       }));
       return _el$;
     })();
   };
 
+  var _tmpl$ = /* @__PURE__ */ template(`<div class="ext-flex ext-justify-center ext-items-center"><div class=ext-text-green-300>loading...`);
   const Content = () => {
     const [allSourcesReady, setAllSourcesReady] = createSignal(false);
     const [shouldPromptApiKey, setShouldPromptApiKey] = createSignal(false);
@@ -11083,6 +11132,13 @@
               },
               get children() {
                 return createComponent(TradeWidget, {});
+              }
+            }), createComponent(Show, {
+              get when() {
+                return memo(() => !!!shouldPromptApiKey())() && !allSourcesReady();
+              },
+              get children() {
+                return _tmpl$();
               }
             })];
           }
