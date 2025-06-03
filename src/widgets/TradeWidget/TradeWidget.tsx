@@ -1,4 +1,11 @@
-import { Component, createSignal, For, Show, createEffect } from 'solid-js';
+import {
+  Component,
+  createSignal,
+  For,
+  Show,
+  createEffect,
+  createMemo,
+} from 'solid-js';
 
 import { Tabs } from '@kobalte/core/tabs';
 
@@ -21,12 +28,6 @@ import {
 import { isBuy, isSell } from './helpers';
 import * as TW from './TradeWidget.parts';
 import { QuickItem } from './types';
-
-export const statsBottom = [
-  { title: 'Bought', color: BCellColor.green, value: '0' },
-  { title: 'Sold', color: BCellColor.red, value: '0' },
-  { title: 'Holding', color: BCellColor.white, value: '0' },
-];
 
 const TradeWidget: Component = () => {
   const [buyInputValue, setBuyInputValue] = createSignal<string | null>(null);
@@ -55,6 +56,25 @@ const TradeWidget: Component = () => {
     );
   });
 
+  const statsBottom = createMemo(() => [
+    {
+      title: 'Bought',
+      color: BCellColor.green,
+      value: tradeWidgetState.labelBuyToken,
+    },
+    {
+      title: 'Sold',
+      color: BCellColor.red,
+      value: tradeWidgetState.labelSellToken,
+    },
+    {
+      title: 'Holding',
+      color: BCellColor.white,
+      value: tradeWidgetState.labelTokenBalance,
+    },
+  ]);
+
+  console.log('^&*^*&^*&^', statsBottom);
   return (
     <TW.Container>
       <TW.Header />
@@ -147,7 +167,7 @@ const TradeWidget: Component = () => {
             </Show> */}
 
             <div class="ext-flex ext-w-full ext-justify-between ext-mt-[10px]">
-              <For each={statsBottom}>
+              <For each={statsBottom()}>
                 {({ title, color, value }) => (
                   <BottomStatsCell title={title} color={color} value={value} />
                 )}

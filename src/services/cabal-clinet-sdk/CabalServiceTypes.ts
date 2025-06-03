@@ -37,6 +37,7 @@ export enum CabalUserActivityStreamMessages {
   userActivityError = 'userActivityError',
 
   tradeStats = 'tradeStats',
+  txnCb = 'txnCb',
 }
 
 export enum CabalTradeStreamMessages {

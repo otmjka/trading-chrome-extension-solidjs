@@ -36,4 +36,7 @@ export type TradeWidgetState = {
 
   // tradeStats update
   solBalanceLabel: string;
+  labelBuyToken: string;
+  labelSellToken: string;
+  labelTokenBalance: string;
 };

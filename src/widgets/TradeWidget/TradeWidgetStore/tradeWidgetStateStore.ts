@@ -13,6 +13,7 @@ import { selectSellQuick } from './selectSellQuick';
 import { sellMarket } from './sellMarket';
 import { onSellInputChange } from './onSellInputChange';
 import { TokenStatusParsed } from '../../../shared/types';
+import { formatLamports } from '../helpers/formatLamports';
 
 const [tradeWidgetState, setTradeWidgetState] =
   createStore<TradeWidgetState>(initValue);
@@ -62,11 +63,35 @@ createEffect(() => {
 });
 
 createEffect(() => {
-  if (!tradeWidgetState.tokenStatus) {
+  if (!tradeWidgetState.tradeStats) {
     return;
   }
 
-  setTradeWidgetState('solBalanceLabel', '!!!');
+  const solBalanceLabel = formatLamports({
+    solBalance: tradeWidgetState.tradeStats.solBalance,
+    tokenDecimals: 9,
+  });
+  const tokenDecimals = tradeWidgetState.tradeStats.tokenDecimals;
+
+  const labelBuyToken = formatLamports({
+    solBalance: tradeWidgetState.tradeStats.buyBase,
+    tokenDecimals,
+  });
+
+  const labelSellToken = formatLamports({
+    solBalance: tradeWidgetState.tradeStats.sellBase,
+    tokenDecimals,
+  });
+
+  const labelTokenBalance = formatLamports({
+    solBalance: tradeWidgetState.tradeStats.tokenBalance,
+    tokenDecimals,
+  });
+
+  setTradeWidgetState('solBalanceLabel', solBalanceLabel);
+  setTradeWidgetState('labelBuyToken', labelBuyToken);
+  setTradeWidgetState('labelSellToken', labelSellToken);
+  setTradeWidgetState('labelTokenBalance', labelTokenBalance);
 });
 
 export const handlers = {

@@ -28,4 +28,7 @@ export const initValue = {
 
   // Trade Stats
   solBalanceLabel: '',
+  labelBuyToken: '',
+  labelSellToken: '',
+  labelTokenBalance: '',
 };
