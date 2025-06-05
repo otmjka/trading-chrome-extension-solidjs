@@ -139,74 +139,13 @@ export type TradeEventParsed = {
   };
 };
 
-type FromBackgroundMessageUAConnected = {
-  type: CabalMessageType;
-  eventName: CabalUserActivityStreamMessages.userActivityConnected;
-};
-
-type FromBackgroundMessageUAError = {
-  type: CabalMessageType;
-  eventName: CabalUserActivityStreamMessages.userActivityError;
-};
-
-type FromBackgroundMessageUAPong = {
-  type: CabalMessageType;
-  eventName: CabalUserActivityStreamMessages.userActivityPong;
-  data: {
-    count: string;
-    isReady: boolean;
-  };
-};
-
-export type FromBackgroundMessageUATradeStats = {
-  type: CabalMessageType;
-  eventName: CabalUserActivityStreamMessages.tradeStats;
-  data: TradeStatsParsed;
-};
-
-type FromBackgroundMessageTradeConnected = {
-  type: CabalMessageType;
-  eventName: CabalTradeStreamMessages.tradeConnected;
-};
-
-export type FromBackgroundMessageTradeEvent = {
-  type: CabalMessageType;
-  eventName: CabalTradeStreamMessages.tradeEvent;
-  data: TradeEventParsed;
-};
-
-export type FromBackgroundMessageTradePong = {
-  type: CabalMessageType;
-  eventName: CabalTradeStreamMessages.tradePong;
-  data: {
-    count: string;
-    isReady: boolean;
-  };
-};
-
-export type FromBackgroundMessageTradeTokenStatus = {
-  type: CabalMessageType;
-  eventName: CabalTradeStreamMessages.tokenStatus;
-  data: TokenStatusParsed;
-};
-
-export type FromBackgroundMessageTradeError = {
-  type: CabalMessageType;
-  eventName: CabalTradeStreamMessages.tradeError;
-};
-
 export enum CabalCommonMessages {
   readyStatus = 'readyStatus',
 }
 
-export type FromBackgroundReadyStatusMessage = {
-  type: CabalMessageType;
-  eventName: CabalCommonMessages.readyStatus;
-  data: {
-    isReady: boolean;
-    shouldSetApiKey: boolean;
-  };
-};
+/*
+  txCB
+*/
 
 export type txConfirmedParsedBuyTrade = {
   tradeType: 'buy';
@@ -261,10 +200,90 @@ export type txLostParsed = {
   orderId?: string;
 };
 
+export type CabalMeta = {
+  isReady: boolean;
+  shouldSetApiKey: boolean;
+};
+
+/*
+  Messages to Content
+*/
+export type FromBackgroundMessageUAConnected = {
+  type: CabalMessageType;
+  eventName: CabalUserActivityStreamMessages.userActivityConnected;
+  meta: CabalMeta;
+};
+
+export type FromBackgroundMessageUAError = {
+  type: CabalMessageType;
+  eventName: CabalUserActivityStreamMessages.userActivityError;
+  meta: CabalMeta;
+};
+
+export type FromBackgroundMessageUAPong = {
+  type: CabalMessageType;
+  eventName: CabalUserActivityStreamMessages.userActivityPong;
+  meta: CabalMeta;
+  data: {
+    count: string;
+  };
+};
+
+export type FromBackgroundMessageUATradeStats = {
+  type: CabalMessageType;
+  eventName: CabalUserActivityStreamMessages.tradeStats;
+  meta: CabalMeta;
+  data: TradeStatsParsed;
+};
+
+/* TRADES */
+
+export type FromBackgroundMessageTradeConnected = {
+  type: CabalMessageType;
+  eventName: CabalTradeStreamMessages.tradeConnected;
+  meta: CabalMeta;
+};
+
+export type FromBackgroundMessageTradePong = {
+  type: CabalMessageType;
+  eventName: CabalTradeStreamMessages.tradePong;
+  meta: CabalMeta;
+  data: {
+    count: string;
+  };
+};
+
+export type FromBackgroundMessageTradeEvent = {
+  type: CabalMessageType;
+  eventName: CabalTradeStreamMessages.tradeEvent;
+  meta: CabalMeta;
+  data: TradeEventParsed;
+};
+
+export type FromBackgroundMessageTradeTokenStatus = {
+  type: CabalMessageType;
+  eventName: CabalTradeStreamMessages.tokenStatus;
+  meta: CabalMeta;
+  data: TokenStatusParsed;
+};
+
+export type FromBackgroundMessageTradeError = {
+  type: CabalMessageType;
+  eventName: CabalTradeStreamMessages.tradeError;
+  meta: CabalMeta;
+};
+
+export type FromBackgroundReadyStatusMessage = {
+  type: CabalMessageType;
+  eventName: CabalCommonMessages.readyStatus;
+  meta: CabalMeta;
+};
+
 export type FromBackgroundTxMessage = {
   type: CabalMessageType;
   eventName: CabalUserActivityStreamMessages.txnCb;
   data: txConfirmedParsed | txFailedParsed | txLostParsed;
+  meta: CabalMeta;
 };
 
 export type FromBackgroundMessage =

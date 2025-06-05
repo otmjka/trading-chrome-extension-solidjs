@@ -51,26 +51,21 @@ export const parseTradeEvent = ({
 
 export const parseTradeStats = (event: {
   value: TokenTradeStats;
-}): FromBackgroundMessageUATradeStats => {
+}): TradeStatsParsed => {
   const tokenTradeStats = event.value as TokenTradeStats;
-  const mintMessage = tokenTradeStats.mint;
-  const data: FromBackgroundMessageUATradeStats = {
-    type: CabalMessageType.CabalEvent,
-    eventName: CabalUserActivityStreamMessages.tradeStats,
-    data: {
-      mint: mintMessage,
-      tokenBalance: tokenTradeStats.tokenBalance.toString(),
-      buyQoute: tokenTradeStats.buyQoute.toString(),
-      sellQoute: tokenTradeStats.sellQoute.toString(),
-      buyBase: tokenTradeStats.buyBase.toString(),
-      sellBase: tokenTradeStats.sellBase.toString(),
-      buys: tokenTradeStats.buys,
-      sells: tokenTradeStats.sells,
-      solBalance: tokenTradeStats.solBalance.toString(),
-      lastTradedSlot: tokenTradeStats.lastTradedSlot.toString(),
-      tokenDecimals: tokenTradeStats.tokenDecimals,
-      qouteKind: tokenTradeStats.qouteKind,
-    },
+  const data = {
+    mint: tokenTradeStats.mint,
+    tokenBalance: tokenTradeStats.tokenBalance.toString(),
+    buyQoute: tokenTradeStats.buyQoute.toString(),
+    sellQoute: tokenTradeStats.sellQoute.toString(),
+    buyBase: tokenTradeStats.buyBase.toString(),
+    sellBase: tokenTradeStats.sellBase.toString(),
+    buys: tokenTradeStats.buys,
+    sells: tokenTradeStats.sells,
+    solBalance: tokenTradeStats.solBalance.toString(),
+    lastTradedSlot: tokenTradeStats.lastTradedSlot.toString(),
+    tokenDecimals: tokenTradeStats.tokenDecimals,
+    qouteKind: tokenTradeStats.qouteKind,
   };
   return data;
 };

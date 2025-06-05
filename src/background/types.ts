@@ -25,6 +25,7 @@ export type BackgroundState = {
   apiKey: string | null;
 
   subscribeToken: (mint: string) => void;
+  getActiveTab: () => number | undefined;
   setActiveTab: () => Promise<{ error: null | string }>;
   setActiveTabById: (tabId: number) => void;
   getTabListener: (tabId?: number) => ContentListener | undefined;

@@ -15,10 +15,8 @@ import { contentAppStore } from '../stores/contentAppStore';
 import { LogWidget } from '../log/LogWidget';
 import { Btn } from '../uikit';
 import { Portal } from 'solid-js/web';
-import { addToast, toastStore } from '../stores/toastStore';
-import { FromBackgroundMessage } from '../shared/types';
+import { toastStore } from '../stores/toastStore';
 import { useHrefWatcher2 } from './useHrefWatcher2';
-// import { onUrlChange } from './onUrlChange';
 
 export const ContentContainer: Component<{ children: JSX.Element }> = ({
   children,

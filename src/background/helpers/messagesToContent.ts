@@ -1,5 +1,10 @@
 import {
+  CabalTradeStreamMessages,
   CabalUserActivityStreamMessages,
+  Pong,
+  TokenStatus,
+  TokenTradeStats,
+  TradeEvent,
   UserResponse,
 } from '../../services/cabal-clinet-sdk';
 import {
@@ -11,14 +16,153 @@ import {
 import {
   CabalCommonMessages,
   CabalMessageType,
+  CabalMeta,
+  FromBackgroundMessageTradeConnected,
+  FromBackgroundMessageTradeError,
+  FromBackgroundMessageTradeEvent,
+  FromBackgroundMessageTradePong,
+  FromBackgroundMessageTradeTokenStatus,
+  FromBackgroundMessageUAError,
+  FromBackgroundMessageUAPong,
+  FromBackgroundMessageUATradeStats,
   FromBackgroundReadyStatusMessage,
   FromBackgroundTxMessage,
   txConfirmedParsed,
   txFailedParsed,
   txLostParsed,
 } from '../../shared/types';
+import { config } from '../backgroundConfig';
 import { BackgroundState } from '../types';
+import {
+  parseTokenStatus,
+  parseTradeEvent,
+  parseTradeStats,
+} from './cabalEventsToContentPayload';
 import { getTxEventTrades } from './getTxEventTrades';
+
+const getMetaByState = (state: BackgroundState): CabalMeta => ({
+  isReady: state.isReady,
+  shouldSetApiKey: !state.apiKey,
+});
+
+export const tradeStatsUA = ({
+  state,
+  event,
+}: {
+  state: BackgroundState;
+  event: { value: TokenTradeStats };
+}): FromBackgroundMessageUATradeStats => {
+  const data = parseTradeStats(event);
+  return {
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalUserActivityStreamMessages.tradeStats,
+    meta: getMetaByState(state),
+    data,
+  };
+};
+
+export const pongUA = ({
+  state,
+  eventValue,
+}: {
+  state: BackgroundState;
+  eventValue: UserResponse;
+}): FromBackgroundMessageUAPong => ({
+  type: CabalMessageType.CabalEvent,
+  eventName: CabalUserActivityStreamMessages.userActivityPong,
+  meta: getMetaByState(state),
+  data: {
+    count: eventValue.count.count.toString(),
+  },
+});
+
+export const errorUA = ({
+  state,
+}: {
+  state: BackgroundState;
+}): FromBackgroundMessageUAError => ({
+  type: CabalMessageType.CabalEvent,
+  eventName: CabalUserActivityStreamMessages.userActivityError,
+  meta: getMetaByState(state),
+});
+
+export const tradesConnected = ({
+  state,
+}: {
+  state: BackgroundState;
+}): FromBackgroundMessageTradeConnected => ({
+  type: CabalMessageType.CabalEvent,
+  eventName: CabalTradeStreamMessages.tradeConnected,
+  meta: getMetaByState(state),
+});
+
+export const pongTrades = ({
+  state,
+  eventValue,
+}: {
+  state: BackgroundState;
+  eventValue: UserResponse;
+}): FromBackgroundMessageTradePong => ({
+  type: CabalMessageType.CabalEvent,
+  eventName: CabalTradeStreamMessages.tradePong,
+  meta: getMetaByState(state),
+  data: { count: eventValue.count.count.toString() },
+});
+
+export const tradeTokenStates = ({
+  state,
+  eventValue,
+}: {
+  state: BackgroundState;
+  eventValue: {
+    value: { value: TokenStatus };
+  };
+}): FromBackgroundMessageTradeTokenStatus => ({
+  type: CabalMessageType.CabalEvent,
+  eventName: CabalTradeStreamMessages.tokenStatus,
+  meta: getMetaByState(state),
+  data: parseTokenStatus(eventValue),
+});
+
+export const tradeEvent = ({
+  state,
+  eventValue,
+}: {
+  state: BackgroundState;
+  eventValue: TradeEvent;
+}): FromBackgroundMessageTradeEvent => {
+  const data = parseTradeEvent({
+    mint: state.mint || '$$$',
+    cabalTradeEvent: eventValue,
+  });
+
+  if (!data) {
+    throw new Error('cant parse trade event', data);
+  }
+
+  if (config.showTradeEventLog) {
+    console.log('handleTradeEvent', data);
+  }
+
+  return {
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalTradeStreamMessages.tradeEvent,
+    meta: getMetaByState(state),
+    data,
+  };
+};
+
+export const tradeError = ({
+  state,
+}: {
+  state: BackgroundState;
+}): FromBackgroundMessageTradeError => {
+  return {
+    type: CabalMessageType.CabalEvent,
+    eventName: CabalTradeStreamMessages.tradeError,
+    meta: getMetaByState(state),
+  };
+};
 
 export const readyStatus = ({
   state,
@@ -27,13 +171,19 @@ export const readyStatus = ({
 }): FromBackgroundReadyStatusMessage => ({
   type: CabalMessageType.CabalEvent,
   eventName: CabalCommonMessages.readyStatus,
-  data: { isReady: state.isReady, shouldSetApiKey: !state.apiKey },
+  meta: getMetaByState(state),
 });
 
 // TODO: to cabal service
-export const txnCB = (event: {
-  case: string;
-  value: LandedTxnState;
+export const txnCB = ({
+  event,
+  state,
+}: {
+  state: BackgroundState;
+  event: {
+    case: string;
+    value: LandedTxnState;
+  };
 }): undefined | FromBackgroundTxMessage => {
   try {
     console.log('#### #### #### handleUAtxnCB', event);
@@ -53,6 +203,7 @@ export const txnCB = (event: {
       return {
         type: CabalMessageType.CabalEvent,
         eventName: CabalUserActivityStreamMessages.txnCb,
+        meta: getMetaByState(state),
         data: messageData,
       };
     }
@@ -73,6 +224,7 @@ export const txnCB = (event: {
       return {
         type: CabalMessageType.CabalEvent,
         eventName: CabalUserActivityStreamMessages.txnCb,
+        meta: getMetaByState(state),
         data: messageData,
       };
     }
@@ -88,6 +240,7 @@ export const txnCB = (event: {
       return {
         type: CabalMessageType.CabalEvent,
         eventName: CabalUserActivityStreamMessages.txnCb,
+        meta: getMetaByState(state),
         data: messageData,
       };
     }
