@@ -1,41 +1,59 @@
-import { BgInitMessageResponse } from '../../shared/types';
-import { getTokenGMGNAI } from '../../utils/getTokenGMGNAI';
-import { BackgroundState, ContentListeners } from '../types';
-import { queryActiveTab } from './queryActiveTab';
+import {
+  BgInitMessageResponse,
+  InitCabalOnTabMessage,
+} from '../../shared/types';
+import { BackgroundState } from '../types';
+
+const LOG_DOMAIN = '### INIT_CABAL ###';
 
 export const initCabalOnTab = async ({
   sendResponse,
   message,
   state,
-  setActiveTab,
 }: {
   sendResponse: (response?: BgInitMessageResponse) => void;
-  message: any;
+  message: InitCabalOnTabMessage;
   state: BackgroundState;
-
-  setActiveTab: (newActiveTab: number) => void;
 }) => {
   try {
-    const tabs = await queryActiveTab();
-    const tabId = tabs[0]?.id;
-    console.log('### INIT_CABAL ###', tabId, message);
-    if (!tabId) {
+    console.log(LOG_DOMAIN, message);
+    const messageMint = message.data.mint;
+    if (!messageMint) {
+      console.log(`${LOG_DOMAIN} no mint`);
       return;
     }
-    setActiveTab(tabId);
-    const mint = getTokenGMGNAI(message.data.url);
-    const { apiKey } = await state.cabalStorage.getApiKey();
-    state.tabListeners.push({
-      tabId,
-      url: message.data.url,
-      mint,
-    });
+    await state.setActiveTab();
+
+    if (!state.activeTab) {
+      console.log(`${LOG_DOMAIN} no active tab`);
+      return;
+    }
+
+    console.log(LOG_DOMAIN, state.activeTab);
+    // TODO: state.updateListener()
+    let listener = state.getTabListener(state.activeTab);
+
+    if (listener) {
+      listener.mint = messageMint;
+      listener.url = message.data.url;
+    } else {
+      listener = {
+        tabId: state.activeTab,
+        url: message.data.url,
+        mint: messageMint,
+      };
+      state.tabListeners.push(listener);
+    }
+
+    if (state.isReady && listener.mint) {
+      state.subscribeToken(listener.mint);
+    }
 
     sendResponse({
-      apiKey,
+      apiKey: state.apiKey,
       isReady: state.isReady,
-      url: message?.data?.url,
-      mint,
+      url: listener.url,
+      mint: listener.mint,
     });
   } catch (error) {
     console.error(`initCabalOnTab`, error);

@@ -1,11 +1,17 @@
-import { addLogRecord, setLogStore } from '../stores/logStore';
+import {
+  CabalTradeStreamMessages,
+  CabalUserActivityStreamMessages,
+} from './cabal-clinet-sdk';
 import {
   BackgroundMessages,
   CabalCommonMessages,
   CabalMessageType,
   FromBackgroundMessage,
   FromBackgroundMessageTradeEvent,
+  FromBackgroundMessageTradePong,
   FromBackgroundMessageTradeTokenStatus,
+  FromBackgroundMessageUAConnected,
+  FromBackgroundMessageUAPong,
   FromBackgroundMessageUATradeStats,
   FromBackgroundReadyStatusMessage,
   FromBackgroundTxMessage,
@@ -13,31 +19,40 @@ import {
   SendApiKeyPayloadMessage,
   SendResponse,
 } from '../shared/types';
+
+/* STORES */
+
+import { addLogRecord, setLogStore } from '../stores/logStore';
 import { setCabalTradeStream } from '../stores/cabalTradeSreamStore';
 import { setCabalUserActivity } from '../stores/cabalUserActivity';
 import { setTradeWidgetState } from '../widgets/TradeWidget/TradeWidgetStore/tradeWidgetStateStore';
+import { setContentAppStore } from '../stores/contentAppStore';
+import { addToast } from '../stores/toastStore';
+
+/* Handlers */
+
 import { buyMarket } from './buyMarket';
-import {
-  CabalTradeStreamMessages,
-  CabalUserActivityStreamMessages,
-} from './cabal-clinet-sdk';
+
 import { startListnenBackgroundMessages } from './chrome-extension/backgroundMessageHandler';
-import { registerTab } from './registerTab';
 import { sellMarket } from './sellMarket';
 import { sendMessage } from './sendMessage';
 import { subscribeToken } from './subscribeToken';
-import { setContentAppStore } from '../stores/contentAppStore';
-import { addToast } from '../stores/toastStore';
+import * as handlers from './CabalStoreHandlers';
+
+const metaToStatus = (message: FromBackgroundMessage) => {
+  const { isReady, shouldSetApiKey } = message.meta;
+  setContentAppStore('isReady', isReady);
+  setContentAppStore('shouldSetApiKey', shouldSetApiKey);
+};
 
 const handleUserActivityConnected = () =>
   setCabalUserActivity('status', { isReady: true, count: '' });
 
-const handleUserActivityPong = (eventValue: {
-  count: string;
-  isReady: boolean;
-}) => {
-  setCabalUserActivity('status', eventValue);
-};
+const handleUserActivityPong = (eventValue: FromBackgroundMessageUAPong) =>
+  setCabalUserActivity('status', {
+    isReady: eventValue.meta.isReady,
+    count: eventValue.data.count,
+  });
 
 const handleUserActivityTradeStats = (
   event: FromBackgroundMessageUATradeStats,
@@ -47,21 +62,18 @@ const handleUserActivityTradeStats = (
   setTradeWidgetState('tradeStats', event.data);
 };
 
-const handleUserActivityError = () => {
-  setCabalUserActivity('status', undefined);
-};
+const handleUserActivityError = () => setCabalUserActivity('status', undefined);
 
 // Trades
 
 const handleTradeStreamConnected = () =>
   setCabalTradeStream('status', { isReady: true, count: '' });
 
-const handleTradeStreamPong = (eventValue: {
-  count: string;
-  isReady: boolean;
-}) => {
-  setCabalTradeStream('status', eventValue);
-};
+const handleTradeStreamPong = (eventValue: FromBackgroundMessageTradePong) =>
+  setCabalTradeStream('status', {
+    isReady: eventValue.meta.isReady,
+    count: eventValue.data.count,
+  });
 
 const handleTradeEvent = (event: FromBackgroundMessageTradeEvent) => {
   setLogStore('logs', (prev) => [...prev, { type: 'tradeEvent', event }]);
@@ -75,17 +87,12 @@ const handleTradeTokenStatus = (
   setTradeWidgetState('tokenStatus', event.data);
 };
 
-const handleTradeError = () => {
-  setCabalTradeStream('status', undefined);
-};
+const handleTradeError = () => setCabalTradeStream('status', undefined);
 
 const handleReadyStatus = (message: FromBackgroundReadyStatusMessage) => {
   addLogRecord(message);
-  const isReady = message.data.isReady;
-  const shouldSetApiKey = message.data.shouldSetApiKey;
-  setContentAppStore('isReady', isReady);
-  setContentAppStore('shouldSetApiKey', shouldSetApiKey);
-  const status = message.data.isReady
+  const isReady = message.meta.isReady;
+  const status = message.meta.isReady
     ? { isReady, count: String(Date.now()) }
     : undefined;
   setCabalUserActivity('status', status);
@@ -110,7 +117,7 @@ export const messageListener = (
     return;
   }
   const messageEventName = message?.eventName;
-
+  metaToStatus(message);
   switch (messageEventName) {
     case CabalCommonMessages.readyStatus:
       console.log(`%%%% %%% ${CabalCommonMessages.readyStatus}`, message);
@@ -124,7 +131,7 @@ export const messageListener = (
       handleUserActivityConnected();
       break;
     case CabalUserActivityStreamMessages.userActivityPong:
-      handleUserActivityPong(message.data);
+      handleUserActivityPong(message);
       break;
     case CabalUserActivityStreamMessages.tradeStats:
       handleUserActivityTradeStats(message);
@@ -137,7 +144,7 @@ export const messageListener = (
       handleTradeStreamConnected();
       break;
     case CabalTradeStreamMessages.tradePong:
-      handleTradeStreamPong(message.data);
+      handleTradeStreamPong(message);
       break;
     case CabalTradeStreamMessages.tradeEvent:
       handleTradeEvent(message);
@@ -203,11 +210,12 @@ const sendApiKey = (apiKey: string | null) => {
 export function useStartCabalService() {
   return {
     sendApiKey,
-    registerTab,
+    registerTab: handlers.registerTab,
     subscribeToken,
     marketBuy,
     marketSell,
     startListen: () => startListnenBackgroundMessages(messageListener),
     clean: () => chrome.runtime.onMessage.removeListener(messageListener),
+    cleanWidget: handlers.cleanWidget,
   };
 }

@@ -1,14 +1,16 @@
 import { FromBackgroundMessage } from '../../shared/types';
 import { config } from '../backgroundConfig';
+import { BackgroundState } from '../types';
 
 export const sendMessageToActiveTab = ({
   message,
-  getActiveTab,
+  state,
 }: {
   message: FromBackgroundMessage;
-  getActiveTab: () => number | undefined;
+  state: BackgroundState;
 }) => {
-  const activeTab = getActiveTab();
+  const activeTab = state.getActiveTab();
+  console.log('#-# sendMessageToActiveTab', activeTab);
   if (!activeTab) {
     return;
   }

@@ -45,15 +45,11 @@ const TradeWidget: Component = () => {
   });
 
   createEffect(() => {
-    setIsShowBuyButton(
-      isBuy(tradeWidgetState.dir) && !tradeWidgetState.disablebuySellButton,
-    );
+    setIsShowBuyButton(isBuy(tradeWidgetState.dir));
   });
 
   createEffect(() => {
-    setIsShowSellButton(
-      isSell(tradeWidgetState.dir) && !tradeWidgetState.disableSellButton,
-    );
+    setIsShowSellButton(isSell(tradeWidgetState.dir));
   });
 
   const statsBottom = createMemo(() => [

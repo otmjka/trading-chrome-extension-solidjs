@@ -8,20 +8,7 @@ import {
   UserResponse,
 } from './services/cabal-clinet-sdk';
 import { config } from './background/backgroundConfig';
-import { BackgroundAppConfig } from './background/enums';
-import {
-  CabalCommonMessages,
-  CabalMessageType,
-  FromBackgroundMessageTradeError,
-  FromBackgroundMessageTradeEvent,
-  FromBackgroundMessageTradeTokenStatus,
-  Mint,
-} from './shared/types';
-import {
-  parseTokenStatus,
-  parseTradeEvent,
-  parseTradeStats,
-} from './background/helpers/cabalEventsToContentPayload';
+
 import { handleMessagesToBackground } from './background/helpers/handleMessagesToBackground';
 import { changeTab } from './background/helpers/changeTab';
 import { sendMessageToActiveTab } from './background/helpers/sendMessageToActiveTab';
@@ -29,6 +16,10 @@ import { BackgroundState } from './background/types';
 import CabalStorage from './background/CabalStorage';
 import * as messagesToContent from './background/helpers/messagesToContent';
 import { LandedTxnState } from './services/cabal-clinet-sdk/cabal/CabalRpc/txncb_pb';
+import { subscribeTokenState } from './background/helpers/stateHandlers/subscribeTokenState';
+import { setActiveTabState } from './background/helpers/stateHandlers/setActiveTabState';
+import { getTabListenerState } from './background/helpers/stateHandlers/getTabListenerState';
+import { setActiveTabByIdState } from './background/helpers/stateHandlers/setActiveTabByIdState';
 
 console.log('start background service 5');
 
@@ -43,7 +34,20 @@ const state: BackgroundState = {
   tabListeners: [],
   cabalStorage: new CabalStorage(),
   apiKey: null,
+  subscribeToken: subscribeTokenState,
+  getActiveTab: function () {
+    return this.activeTab;
+  },
+  setActiveTab: setActiveTabState,
+  setActiveTabById: setActiveTabByIdState,
+  getTabListener: getTabListenerState,
 };
+
+state.subscribeToken = state.subscribeToken.bind(state);
+state.getActiveTab = state.getActiveTab.bind(state);
+state.setActiveTab = state.setActiveTab.bind(state);
+state.getTabListener = state.getTabListener.bind(state);
+state.setActiveTabById = state.setActiveTabById.bind(state);
 
 const getIsReady = () => state.isReady;
 const cabalInstance = () => state.cabal;
@@ -51,9 +55,6 @@ const setCabalInstance = (value: CabalService | null) => (state.cabal = value);
 const setActiveTab = (newActiveTab: number) => {
   state.activeTab = newActiveTab;
 };
-const setMint = (mint: string) => (state.mint = mint);
-const getCurrentMint = () => state.mint;
-const getActiveTab = () => state.activeTab;
 const getListener = (tabId?: number) =>
   tabId ? state.tabListeners.find((item) => item.tabId === tabId) : undefined;
 const setIsReady = (value: boolean) => (state.isReady = value);
@@ -68,16 +69,10 @@ const handleUserActivityConnected = () => {
 
 const handleUserActivityPong = (eventValue: UserResponse) => {
   try {
+    console.log('------handleUserActivityPong', eventValue);
     sendMessageToActiveTab({
-      getActiveTab,
-      message: {
-        type: CabalMessageType.CabalEvent,
-        eventName: CabalUserActivityStreamMessages.userActivityPong,
-        data: {
-          count: eventValue.count.count.toString(),
-          isReady: getIsReady(),
-        },
-      },
+      state,
+      message: messagesToContent.pongUA({ state, eventValue }),
     });
   } catch (error) {
     console.error('error in handleUserActivityPong', error);
@@ -90,11 +85,10 @@ const handleUserActivityTradeStats = (event: { value: TokenTradeStats }) => {
       console.log('handleUserActivityTradeStats', event);
     }
 
-    const message = parseTradeStats(event);
-    const mintMessage = message.data.mint;
-    setMint(mintMessage);
-
-    sendMessageToActiveTab({ getActiveTab, message });
+    sendMessageToActiveTab({
+      state,
+      message: messagesToContent.tradeStatsUA({ event, state }),
+    });
   } catch (error) {
     console.error(`error in handleUserActivityTradeStats`, error);
   }
@@ -103,13 +97,13 @@ const handleUserActivityTradeStats = (event: { value: TokenTradeStats }) => {
 const handleUAtxnCB = (event: { case: string; value: LandedTxnState }) => {
   try {
     console.log('#### #### #### handleUAtxnCB', event);
-    const message = messagesToContent.txnCB(event);
+    const message = messagesToContent.txnCB({ event, state });
     console.log('#### #### #### handleUAtxnCB-message', message);
     if (!message) {
       throw new Error('message cant parsed');
     }
     sendMessageToActiveTab({
-      getActiveTab,
+      state,
       message,
     });
   } catch (error) {
@@ -121,11 +115,8 @@ const handleUAError = () => {
   console.error('User Activity Stream Error');
   scheduleReconnect();
   sendMessageToActiveTab({
-    getActiveTab,
-    message: {
-      type: CabalMessageType.CabalEvent,
-      eventName: CabalUserActivityStreamMessages.userActivityError,
-    },
+    state,
+    message: messagesToContent.errorUA({ state }),
   });
 };
 
@@ -138,23 +129,14 @@ const handleTradeStreamConnected = () => {
   state.isTradeConnected = true;
   checkConnectionStatus();
   sendMessageToActiveTab({
-    getActiveTab,
-    message: {
-      type: CabalMessageType.CabalEvent,
-      eventName: CabalTradeStreamMessages.tradeConnected,
-    },
+    state,
+    message: messagesToContent.tradesConnected({ state }),
   });
 };
 
 const handleTradeStreamPong = (eventValue: UserResponse) => {
-  sendMessageToActiveTab({
-    getActiveTab,
-    message: {
-      type: CabalMessageType.CabalEvent,
-      eventName: CabalTradeStreamMessages.tradePong,
-      data: { count: eventValue.count.count.toString(), isReady: getIsReady() },
-    },
-  });
+  const message = messagesToContent.pongTrades({ state, eventValue });
+  sendMessageToActiveTab({ state, message });
 };
 
 const handleTradeTokenStatus = (eventValue: {
@@ -164,15 +146,8 @@ const handleTradeTokenStatus = (eventValue: {
     if (config.showTokenStatus) {
       console.log('handleTradeTokenStatus', eventValue);
     }
-    const messagePayload = parseTokenStatus(eventValue);
-    setMint(messagePayload.mint);
-    const message: FromBackgroundMessageTradeTokenStatus = {
-      type: CabalMessageType.CabalEvent,
-      eventName: CabalTradeStreamMessages.tokenStatus,
-      data: messagePayload,
-    };
-
-    sendMessageToActiveTab({ getActiveTab, message });
+    const message = messagesToContent.tradeTokenStates({ state, eventValue });
+    sendMessageToActiveTab({ state, message });
   } catch (error) {
     console.error(`error in handleTradeTokenStatus`, error);
   }
@@ -180,23 +155,8 @@ const handleTradeTokenStatus = (eventValue: {
 
 const handleTradeEvent = (eventValue: TradeEvent) => {
   try {
-    const eventDataValue = parseTradeEvent({
-      mint: getCurrentMint() || '!no mint!',
-      cabalTradeEvent: eventValue,
-    });
-    if (!eventDataValue) {
-      throw new Error('cant parse trade event', eventDataValue);
-    }
-    if (config.showTradeEventLog) {
-      console.log('handleTradeEvent', eventDataValue);
-    }
-    const message: FromBackgroundMessageTradeEvent = {
-      type: CabalMessageType.CabalEvent,
-      eventName: CabalTradeStreamMessages.tradeEvent,
-      data: eventDataValue,
-    };
-
-    sendMessageToActiveTab({ getActiveTab, message });
+    const message = messagesToContent.tradeEvent({ state, eventValue });
+    sendMessageToActiveTab({ state, message });
   } catch (error) {
     console.error(`error in handleTradeEvent`, error);
   }
@@ -205,11 +165,8 @@ const handleTradeEvent = (eventValue: TradeEvent) => {
 const handleTradeError = () => {
   console.error('Trade Stream Error');
   scheduleReconnect();
-  const message: FromBackgroundMessageTradeError = {
-    type: CabalMessageType.CabalEvent,
-    eventName: CabalTradeStreamMessages.tradeError,
-  };
-  sendMessageToActiveTab({ getActiveTab, message });
+  const message = messagesToContent.tradeError({ state });
+  sendMessageToActiveTab({ state, message });
 };
 
 const eventDict = {
@@ -249,7 +206,7 @@ function checkConnectionStatus() {
       console.log('Both streams connected successfully');
     }
     sendMessageToActiveTab({
-      getActiveTab,
+      state,
       message: messagesToContent.readyStatus({ state }),
     });
     // Additional logic for successful connection if needed
@@ -276,7 +233,7 @@ const cleanCabalService = () => {
     }
     // TODO: replace
     sendMessageToActiveTab({
-      getActiveTab,
+      state,
       message: messagesToContent.readyStatus({ state }),
     });
   } catch (error) {
@@ -308,7 +265,7 @@ function scheduleReconnect() {
   state.reconnectTimeout = setTimeout(() => {
     console.log('Attempting to reconnect...');
     initializeCabalService();
-  }, BackgroundAppConfig.reconnectTimeout);
+  }, config.reconnectTimeout);
 }
 
 // Start the auto connector
@@ -326,8 +283,7 @@ const startApp = async () => {
   });
 
   const tabsOnActivatedHandler = changeTab({
-    getListener,
-    setActiveTab,
+    state,
   });
 
   chrome.runtime.onMessage.addListener(messagesToBackgroundHandler);

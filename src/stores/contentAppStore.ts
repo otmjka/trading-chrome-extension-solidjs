@@ -17,4 +17,6 @@ const initValue: ContentAppStore = {
 const [contentAppStore, setContentAppStore] =
   createStore<ContentAppStore>(initValue);
 
-export { contentAppStore, setContentAppStore };
+const cleanContentAppStore = () => setContentAppStore({ ...initValue });
+
+export { contentAppStore, setContentAppStore, cleanContentAppStore };

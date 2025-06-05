@@ -18,7 +18,6 @@ export const handleMessagesToBackground =
     getIsReady,
     getListener,
     getCabalInstance,
-    setActiveTab,
     state,
   }: {
     getListener: (tabId?: number) => ContentListener | undefined;
@@ -44,7 +43,6 @@ export const handleMessagesToBackground =
           sendResponse,
           message,
           state,
-          setActiveTab,
         });
         return true;
       case BackgroundMessages.SUBSCRIBE_TOKEN:

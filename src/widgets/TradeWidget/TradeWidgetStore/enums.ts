@@ -5,7 +5,7 @@ export const initValue = {
 
   // buy
   buyQuicks: defaultBuyQuicks,
-  activeBuyQuickIndex: null,
+  activeBuyQuickIndex: 0,
   solCount: null,
   buySellButtonLabel: '',
   disablebuySellButton: true,

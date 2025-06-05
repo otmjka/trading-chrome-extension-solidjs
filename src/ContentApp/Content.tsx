@@ -24,6 +24,8 @@ const Content = () => {
       '### ###',
       tradeWidgetState.tokenStatus,
       tradeWidgetState.tradeStats,
+      contentAppStore.isReady,
+      contentAppStore.shouldSetApiKey,
     );
     const value = !!(
       tradeWidgetState.tokenStatus &&
