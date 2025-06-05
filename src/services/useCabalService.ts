@@ -1,4 +1,7 @@
-import { addLogRecord, setLogStore } from '../stores/logStore';
+import {
+  CabalTradeStreamMessages,
+  CabalUserActivityStreamMessages,
+} from './cabal-clinet-sdk';
 import {
   BackgroundMessages,
   CabalCommonMessages,
@@ -13,21 +16,25 @@ import {
   SendApiKeyPayloadMessage,
   SendResponse,
 } from '../shared/types';
+
+/* STORES */
+
+import { addLogRecord, setLogStore } from '../stores/logStore';
 import { setCabalTradeStream } from '../stores/cabalTradeSreamStore';
 import { setCabalUserActivity } from '../stores/cabalUserActivity';
 import { setTradeWidgetState } from '../widgets/TradeWidget/TradeWidgetStore/tradeWidgetStateStore';
+import { setContentAppStore } from '../stores/contentAppStore';
+import { addToast } from '../stores/toastStore';
+
+/* Handlers */
+
 import { buyMarket } from './buyMarket';
-import {
-  CabalTradeStreamMessages,
-  CabalUserActivityStreamMessages,
-} from './cabal-clinet-sdk';
+
 import { startListnenBackgroundMessages } from './chrome-extension/backgroundMessageHandler';
-import { registerTab } from './registerTab';
 import { sellMarket } from './sellMarket';
 import { sendMessage } from './sendMessage';
 import { subscribeToken } from './subscribeToken';
-import { setContentAppStore } from '../stores/contentAppStore';
-import { addToast } from '../stores/toastStore';
+import * as handlers from './CabalStoreHandlers';
 
 const handleUserActivityConnected = () =>
   setCabalUserActivity('status', { isReady: true, count: '' });
@@ -203,11 +210,12 @@ const sendApiKey = (apiKey: string | null) => {
 export function useStartCabalService() {
   return {
     sendApiKey,
-    registerTab,
+    registerTab: handlers.registerTab,
     subscribeToken,
     marketBuy,
     marketSell,
     startListen: () => startListnenBackgroundMessages(messageListener),
     clean: () => chrome.runtime.onMessage.removeListener(messageListener),
+    cleanWidget: handlers.cleanWidget,
   };
 }

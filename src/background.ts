@@ -8,14 +8,12 @@ import {
   UserResponse,
 } from './services/cabal-clinet-sdk';
 import { config } from './background/backgroundConfig';
-import { BackgroundAppConfig } from './background/enums';
+
 import {
-  CabalCommonMessages,
   CabalMessageType,
   FromBackgroundMessageTradeError,
   FromBackgroundMessageTradeEvent,
   FromBackgroundMessageTradeTokenStatus,
-  Mint,
 } from './shared/types';
 import {
   parseTokenStatus,
@@ -29,6 +27,10 @@ import { BackgroundState } from './background/types';
 import CabalStorage from './background/CabalStorage';
 import * as messagesToContent from './background/helpers/messagesToContent';
 import { LandedTxnState } from './services/cabal-clinet-sdk/cabal/CabalRpc/txncb_pb';
+import { subscribeTokenState } from './background/helpers/stateHandlers/subscribeTokenState';
+import { setActiveTabState } from './background/helpers/stateHandlers/setActiveTabState';
+import { getTabListenerState } from './background/helpers/stateHandlers/getTabListenerState';
+import { setActiveTabByIdState } from './background/helpers/stateHandlers/setActiveTabByIdState';
 
 console.log('start background service 5');
 
@@ -43,7 +45,16 @@ const state: BackgroundState = {
   tabListeners: [],
   cabalStorage: new CabalStorage(),
   apiKey: null,
+  subscribeToken: subscribeTokenState,
+  setActiveTab: setActiveTabState,
+  setActiveTabById: setActiveTabByIdState,
+  getTabListener: getTabListenerState,
 };
+
+state.subscribeToken = state.subscribeToken.bind(state);
+state.setActiveTab = state.setActiveTab.bind(state);
+state.getTabListener = state.getTabListener.bind(state);
+state.setActiveTabById = state.setActiveTabById.bind(this);
 
 const getIsReady = () => state.isReady;
 const cabalInstance = () => state.cabal;
@@ -308,7 +319,7 @@ function scheduleReconnect() {
   state.reconnectTimeout = setTimeout(() => {
     console.log('Attempting to reconnect...');
     initializeCabalService();
-  }, BackgroundAppConfig.reconnectTimeout);
+  }, config.reconnectTimeout);
 }
 
 // Start the auto connector
@@ -326,8 +337,7 @@ const startApp = async () => {
   });
 
   const tabsOnActivatedHandler = changeTab({
-    getListener,
-    setActiveTab,
+    state,
   });
 
   chrome.runtime.onMessage.addListener(messagesToBackgroundHandler);

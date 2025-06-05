@@ -1,25 +1,21 @@
-import { ContentListener } from '../types';
+import { BackgroundState } from '../types';
 
 export const changeTab =
-  ({
-    getListener,
-    setActiveTab,
-  }: {
-    getListener: (tabId?: number) => ContentListener | undefined;
-    setActiveTab: (newActiveTab: number) => void;
-  }) =>
+  ({ state }: { state: BackgroundState }) =>
   (activeInfo: chrome.tabs.TabActiveInfo) => {
     console.log('Активная вкладка сменилась. ID вкладки:', activeInfo.tabId);
 
-    const listener = getListener(activeInfo.tabId);
+    const listener = state.getTabListener(activeInfo.tabId);
     if (!listener) {
+      console.log('Не зарегестрировал слушатель', activeInfo.tabId);
       return;
     }
-    setActiveTab(listener.tabId);
 
+    state.setActiveTabById(listener.tabId);
+    state.subscribeToken(listener.mint);
     chrome.tabs.get(activeInfo.tabId, function (tab) {
       console.log('URL новой активной вкладки:', tab.url);
-      console.log('URL listener', listener.url);
-      console.log('mint', listener.mint);
+      // console.log('URL listener', listener.url);
+      // console.log('mint', listener.mint);
     });
   };

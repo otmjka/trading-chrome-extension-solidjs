@@ -31,6 +31,7 @@ export type InitCabalOnTabMessage = {
   type: BackgroundMessages.INIT_CABAL;
   data: {
     url: string;
+    mint: string;
   };
 };
 

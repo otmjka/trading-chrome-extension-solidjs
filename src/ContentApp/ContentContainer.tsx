@@ -11,33 +11,49 @@ import { Toast, toaster } from '@kobalte/core/toast';
 import { useStartCabalService } from '../services/useCabalService';
 
 import { OnlineStatusWidged } from '../widgets/OnlineStatusWidged/OnlineStatusWidged';
-import { onUrlChange } from './onUrlChange';
 import { contentAppStore } from '../stores/contentAppStore';
 import { LogWidget } from '../log/LogWidget';
 import { Btn } from '../uikit';
 import { Portal } from 'solid-js/web';
 import { addToast, toastStore } from '../stores/toastStore';
 import { FromBackgroundMessage } from '../shared/types';
+import { useHrefWatcher2 } from './useHrefWatcher2';
+// import { onUrlChange } from './onUrlChange';
 
 export const ContentContainer: Component<{ children: JSX.Element }> = ({
   children,
 }) => {
-  const { startListen, registerTab, subscribeToken, clean, sendApiKey } =
-    useStartCabalService();
-  const [urlValue, setUrlValue] = createSignal<string>('');
+  const {
+    startListen,
+    registerTab,
+    subscribeToken,
+    clean,
+    sendApiKey,
+    cleanWidget,
+  } = useStartCabalService();
+
+  const href = useHrefWatcher2();
+  let isInitial = true;
+  createEffect(() => {
+    console.log('href:', href(), isInitial);
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+    console.log('Текущий href:', href());
+    registerTab({ locationHref: location.href });
+    cleanWidget();
+  });
+
   const [showDebug, setShowDebug] = createSignal<boolean>(false);
+
   const handleStart = () => {
     startListen();
     registerTab({ locationHref: location.href });
   };
 
-  const handleOnUrlChange = (url: string) => {
-    setUrlValue(url);
-  };
-
   onMount(() => {
     setTimeout(() => handleStart(), 100);
-    onUrlChange(handleOnUrlChange);
   });
 
   const handleSubscribe = () => {
@@ -49,6 +65,7 @@ export const ContentContainer: Component<{ children: JSX.Element }> = ({
       cb: (res) => {},
     });
   };
+
   createEffect(() => {
     if (!contentAppStore.isReady || !contentAppStore.mint) {
       return;
@@ -62,7 +79,9 @@ export const ContentContainer: Component<{ children: JSX.Element }> = ({
   const logout = () => {
     sendApiKey(null);
   };
+
   let id: number;
+
   const showToast = (message: string) => {
     id = toaster.show((props) => (
       <Toast
@@ -106,7 +125,7 @@ export const ContentContainer: Component<{ children: JSX.Element }> = ({
       </div>
       <Show when={showDebug()}>
         <div>
-          <div class="ext-flex">url: {urlValue()}</div>
+          {/* <div class="ext-flex">url: {urlValue()}</div> */}
           <div class="ext-flex">mint: {contentAppStore.mint}</div>
           <LogWidget />
         </div>

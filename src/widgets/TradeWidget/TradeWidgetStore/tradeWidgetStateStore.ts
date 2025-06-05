@@ -10,6 +10,7 @@ import { sellMarket } from './sellMarket';
 import { onSellInputChange } from './onSellInputChange';
 import { TokenStatusParsed } from '../../../shared/types';
 import { formatLamports } from '../helpers/formatLamports';
+import { setToInit } from './setToInit';
 
 const [tradeWidgetState, setTradeWidgetState] =
   createStore<TradeWidgetState>(initValue);
@@ -110,6 +111,8 @@ export const handlers = {
   selectSellQuick,
   sellMarket,
   onSellInputChange,
+
+  setToInit,
 };
 
 // external connectors
