@@ -1,9 +1,5 @@
 import { createStore } from 'solid-js/store';
-import { QuickItem } from '../types';
 import { createEffect } from 'solid-js';
-import { TokenStatus } from '../../../services/cabal-clinet-sdk';
-import { stringToFloat } from '../helpers/stringToFloat';
-import { marketBuy, marketSell } from '../../../services/useCabalService';
 import { TradeWidgetState } from './types';
 import { initValue } from './enums';
 import { selectBuyQuick } from './selectBuyQuick';
@@ -30,7 +26,6 @@ createEffect(() => {
     return;
   }
 
-  // {tradeWidgetState.dir} {amountSol()} SOL *{ticker()}*
   setTradeWidgetState(
     'buySellButtonLabel',
     `${tradeWidgetState.dir} ${tradeWidgetState.solCount} SOL | ${tradeWidgetState.tokenStatus.ticker}`,
@@ -38,6 +33,19 @@ createEffect(() => {
 
   const disablebuySellButton = false;
   setTradeWidgetState('disablebuySellButton', disablebuySellButton);
+});
+
+createEffect(() => {
+  const activeBuyQuickIndex = tradeWidgetState.activeBuyQuickIndex;
+  if (activeBuyQuickIndex === null) {
+    return;
+  }
+  setTradeWidgetState(
+    'buyInputValue',
+    tradeWidgetState.buyQuicks[activeBuyQuickIndex].value,
+  );
+  const solCount = tradeWidgetState.buyQuicks[activeBuyQuickIndex].value;
+  setTradeWidgetState('solCount', solCount);
 });
 
 // sell
