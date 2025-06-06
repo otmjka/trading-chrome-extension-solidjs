@@ -14,18 +14,7 @@ import { initCabalOnTab } from './initCabalOnTab';
 import { setApiKey } from './setApiKey';
 
 export const handleMessagesToBackground =
-  ({
-    getIsReady,
-    getListener,
-    getCabalInstance,
-    state,
-  }: {
-    getListener: (tabId?: number) => ContentListener | undefined;
-    getCabalInstance: () => CabalService | null;
-    getIsReady: () => boolean;
-    setActiveTab: (newActiveTab: number) => void;
-    state: BackgroundState;
-  }) =>
+  ({ state }: { state: BackgroundState }) =>
   (
     message: MessageToBgPayload,
     sender: chrome.runtime.MessageSender,
@@ -48,27 +37,21 @@ export const handleMessagesToBackground =
       case BackgroundMessages.SUBSCRIBE_TOKEN:
         handleSubscribeTokenMessage({
           sendResponse,
-          getListener,
-          getCabalInstance,
-          getIsReady: getIsReady,
+          state,
           message: message as SubscribeTokenPayloadMessage,
         });
         return true;
       case BackgroundMessages.BUY_MARKET:
         handleBuyMarketMessage({
           sendResponse,
-          getListener,
-          getCabalInstance,
-          getIsReady,
+          state,
           message: message as BuyMarketPayloadMessage,
         });
         return true;
       case BackgroundMessages.SELL_MARKET:
         handleSellMarketMessage({
           sendResponse,
-          getListener: getListener,
-          getCabalInstance,
-          getIsReady: getIsReady,
+          state,
           message: message as SellMarketPayloadMessage,
         });
         return true;

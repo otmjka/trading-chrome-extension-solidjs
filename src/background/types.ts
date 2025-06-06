@@ -23,10 +23,14 @@ export type BackgroundState = {
   tabListeners: ContentListeners;
   cabalStorage: CabalStorage;
   apiKey: string | null;
+  getCabalInstance: () => CabalService | null;
 
   subscribeToken: (mint: string) => void;
   getActiveTab: () => number | undefined;
   setActiveTab: () => Promise<{ error: null | string }>;
   setActiveTabById: (tabId: number) => void;
   getTabListener: (tabId?: number) => ContentListener | undefined;
+
+  setIsReady: (value: boolean) => void;
+  getIsReady: () => boolean;
 };

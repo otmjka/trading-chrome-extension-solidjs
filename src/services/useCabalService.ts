@@ -10,7 +10,6 @@ import {
   FromBackgroundMessageTradeEvent,
   FromBackgroundMessageTradePong,
   FromBackgroundMessageTradeTokenStatus,
-  FromBackgroundMessageUAConnected,
   FromBackgroundMessageUAPong,
   FromBackgroundMessageUATradeStats,
   FromBackgroundReadyStatusMessage,
@@ -109,7 +108,7 @@ export const messageListener = (
   sender: any,
   sendResponse: SendResponse,
 ) => {
-  console.log(`received message: ${message?.type} name: ${message?.eventName}`);
+  console.log(`received message: name: ${message?.eventName}`, message);
 
   const messageType = message?.type;
   if (messageType !== CabalMessageType.CabalEvent) {

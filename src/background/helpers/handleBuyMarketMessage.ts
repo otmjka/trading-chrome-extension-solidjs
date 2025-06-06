@@ -1,27 +1,22 @@
-import { CabalService } from '../../services/cabal-clinet-sdk';
 import { BuyMarketPayloadMessage } from '../../shared/types';
-import { ContentListener } from '../types';
+import { BackgroundState } from '../types';
 import { queryActiveTab } from './queryActiveTab';
 
 export const handleBuyMarketMessage = async ({
   sendResponse,
-  getListener,
-  getCabalInstance,
-  getIsReady,
+  state,
   message,
 }: {
   sendResponse: (response?: any) => void;
-  getListener: (tabId?: number) => ContentListener | undefined;
-  getCabalInstance: () => CabalService | null;
-  getIsReady: () => boolean;
+  state: BackgroundState;
   message: BuyMarketPayloadMessage;
 }) => {
   const tabs = await queryActiveTab();
   const tabId = tabs[0]?.id;
-  const listener = getListener(tabId);
+  const listener = state.getTabListener(tabId);
 
   console.log('### Buy Market ###', tabId, listener?.mint);
-  const cabalValue = getCabalInstance();
+  const cabalValue = state.getCabalInstance();
   const { mint: messageMint, amountSol } = message.data;
   if (cabalValue && messageMint && amountSol) {
     cabalValue.marketBuy({
@@ -29,5 +24,5 @@ export const handleBuyMarketMessage = async ({
       mint: messageMint,
     });
   }
-  sendResponse({ isReady: getIsReady() });
+  sendResponse({ isReady: state.getIsReady() });
 };
