@@ -5,52 +5,18 @@ import {
   UserResponse,
 } from '../services/cabal-clinet-sdk';
 import { config } from './backgroundConfig';
-import CabalStorage from './CabalStorage';
 import { sendMessageToActiveTab } from './helpers/sendMessageToActiveTab';
-import { getTabListenerState } from './helpers/stateHandlers/getTabListenerState';
-import { setActiveTabByIdState } from './helpers/stateHandlers/setActiveTabByIdState';
-import { setActiveTabState } from './helpers/stateHandlers/setActiveTabState';
-import { setIsReadyState } from './helpers/stateHandlers/setIsReadyState';
-import { subscribeTokenState } from './helpers/stateHandlers/subscribeTokenState';
-import { BackgroundState } from './types';
+
 import * as messagesToContent from './helpers/messagesToContent';
 import { ConnectError } from '@connectrpc/connect';
 import { CabalStreamErrors } from '../services/cabal-clinet-sdk/CabalStream';
-
-const state: BackgroundState = {
-  cabal: null,
-  isUserActivityConnected: false,
-  isTradeConnected: false,
-  isReady: false,
-  reconnectTimeout: undefined,
-  mint: null,
-  activeTab: undefined,
-  tabListeners: [],
-  cabalStorage: new CabalStorage(),
-  apiKey: null,
-  subscribeToken: subscribeTokenState,
-  getActiveTab: function () {
-    return this.activeTab;
-  },
-  setActiveTab: setActiveTabState,
-  setActiveTabById: setActiveTabByIdState,
-  getTabListener: getTabListenerState,
-
-  setIsReady: setIsReadyState,
-};
-
-state.subscribeToken = state.subscribeToken.bind(state);
-state.getActiveTab = state.getActiveTab.bind(state);
-state.setActiveTab = state.setActiveTab.bind(state);
-state.getTabListener = state.getTabListener.bind(state);
-state.setActiveTabById = state.setActiveTabById.bind(state);
-
-state.setIsReady = state.setIsReady.bind(state);
+import { BackgroundState } from './types';
 
 class CabalConnector {
   cabal: CabalService | null = null;
-
-  constructor() {
+  state: BackgroundState;
+  constructor({ state }: { state: BackgroundState }) {
+    this.state = state;
     this.scheduleReconnect = this.scheduleReconnect.bind(this);
     this.initializeCabalService = this.initializeCabalService.bind(this);
     this.cleanCabalService = this.cleanCabalService.bind(this);
@@ -73,7 +39,7 @@ class CabalConnector {
     this.cleanCabalService();
 
     // Schedule reconnect
-    state.reconnectTimeout = setTimeout(() => {
+    this.state.reconnectTimeout = setTimeout(() => {
       console.log('Attempting to reconnect...');
       this.initializeCabalService();
     }, config.reconnectTimeout);
@@ -81,21 +47,20 @@ class CabalConnector {
 
   async initializeCabalService() {
     try {
-      state.apiKey = '2jaUfUpLFJorLTgMLbGKPz88KEeJstYucei3RuxM5h4V';
-      console.log('initializeCabalService', state.apiKey);
+      console.log('initializeCabalService', this.state.apiKey);
 
       this.cleanCabalService();
 
       // const apiKey = await state.cabalStorage.getApiKey();
       // state.apiKey = apiKey.apiKey;
-      console.log('###', state.apiKey);
+      console.log('###', this.state.apiKey);
 
-      if (!state.apiKey) {
+      if (!this.state.apiKey) {
         console.log('no api key');
         return;
       }
       this.cabal = new CabalService({
-        apiKey: state.apiKey,
+        apiKey: this.state.apiKey,
         apiUrl: config.apiUrl,
       });
 
@@ -108,15 +73,15 @@ class CabalConnector {
 
   cleanCabalService() {
     try {
-      state.isReady = false;
+      this.state.isReady = false;
       // Clear any existing reconnect timeout
-      if (state.reconnectTimeout) {
-        clearTimeout(state.reconnectTimeout);
+      if (this.state.reconnectTimeout) {
+        clearTimeout(this.state.reconnectTimeout);
       }
 
       // Reset connection flags
-      state.isUserActivityConnected = false;
-      state.isTradeConnected = false;
+      this.state.isUserActivityConnected = false;
+      this.state.isTradeConnected = false;
 
       if (this.cabal) {
         this.unsubscribe();
@@ -125,8 +90,8 @@ class CabalConnector {
       }
       // TODO: replace
       sendMessageToActiveTab({
-        state,
-        message: messagesToContent.readyStatus({ state }),
+        state: this.state,
+        message: messagesToContent.readyStatus({ state: this.state }),
       });
     } catch (error) {
       console.error(`cleanCabalService`, error);
@@ -154,14 +119,14 @@ class CabalConnector {
   }
 
   checkConnectionStatus() {
-    if (state.isUserActivityConnected && state.isTradeConnected) {
-      state.setIsReady(true);
+    if (this.state.isUserActivityConnected && this.state.isTradeConnected) {
+      this.state.setIsReady(true);
       if (config.showStreamConnected) {
         console.log('Both streams connected successfully');
       }
       sendMessageToActiveTab({
-        state,
-        message: messagesToContent.readyStatus({ state }),
+        state: this.state,
+        message: messagesToContent.readyStatus({ state: this.state }),
       });
       // Additional logic for successful connection if needed
     }
@@ -188,7 +153,7 @@ class CabalConnector {
     if (config.showUAConnected) {
       console.log('UA CONNECTED');
     }
-    state.isUserActivityConnected = true;
+    this.state.isUserActivityConnected = true;
     this.checkConnectionStatus();
   }
 
@@ -196,8 +161,8 @@ class CabalConnector {
     try {
       console.log('------handleUserActivityPong', eventValue);
       sendMessageToActiveTab({
-        state,
-        message: messagesToContent.pongUA({ state, eventValue }),
+        state: this.state,
+        message: messagesToContent.pongUA({ state: this.state, eventValue }),
       });
     } catch (error) {
       console.error('error in handleUserActivityPong', error);
@@ -210,14 +175,14 @@ class CabalConnector {
       error instanceof ConnectError &&
       error.rawMessage === CabalStreamErrors.BadAuth
     ) {
-      await state.cabalStorage.setApiKey({ apiKey: null });
+      await this.state.cabalStorage.setApiKey({ apiKey: null });
     } else {
       this.scheduleReconnect();
     }
-    console.log('state::::', state);
+    console.log('state::::', this.state);
     sendMessageToActiveTab({
-      state,
-      message: messagesToContent.errorUA({ state }),
+      state: this.state,
+      message: messagesToContent.errorUA({ state: this.state }),
     });
   }
 
@@ -225,24 +190,27 @@ class CabalConnector {
     if (config.showTradesConnected) {
       console.log('Trades CONNECTED');
     }
-    state.isTradeConnected = true;
+    this.state.isTradeConnected = true;
     this.checkConnectionStatus();
     sendMessageToActiveTab({
-      state,
-      message: messagesToContent.tradesConnected({ state }),
+      state: this.state,
+      message: messagesToContent.tradesConnected({ state: this.state }),
     });
   }
 
   handleTradeStreamPong(eventValue: UserResponse) {
-    const message = messagesToContent.pongTrades({ state, eventValue });
-    sendMessageToActiveTab({ state, message });
+    const message = messagesToContent.pongTrades({
+      state: this.state,
+      eventValue,
+    });
+    sendMessageToActiveTab({ state: this.state, message });
   }
 
   handleTradeError = () => {
     console.error('Trade Stream Error');
     this.scheduleReconnect();
-    const message = messagesToContent.tradeError({ state });
-    sendMessageToActiveTab({ state, message });
+    const message = messagesToContent.tradeError({ state: this.state });
+    sendMessageToActiveTab({ state: this.state, message });
   };
 }
 
