@@ -20,6 +20,8 @@ import { subscribeTokenState } from './background/helpers/stateHandlers/subscrib
 import { setActiveTabState } from './background/helpers/stateHandlers/setActiveTabState';
 import { getTabListenerState } from './background/helpers/stateHandlers/getTabListenerState';
 import { setActiveTabByIdState } from './background/helpers/stateHandlers/setActiveTabByIdState';
+import { CabalStreamErrors } from './services/cabal-clinet-sdk/CabalStream';
+import { ConnectError } from '@connectrpc/connect';
 
 console.log('start background service 5');
 
@@ -111,9 +113,17 @@ const handleUAtxnCB = (event: { case: string; value: LandedTxnState }) => {
   }
 };
 
-const handleUAError = () => {
-  console.error('User Activity Stream Error');
-  scheduleReconnect();
+const handleUAError = async (error: Error) => {
+  console.error('User Activity Stream Error', error);
+  if (
+    error instanceof ConnectError &&
+    error.rawMessage === CabalStreamErrors.BadAuth
+  ) {
+    await state.cabalStorage.setApiKey({ apiKey: null });
+  } else {
+    scheduleReconnect();
+  }
+  console.log('state::::', state);
   sendMessageToActiveTab({
     state,
     message: messagesToContent.errorUA({ state }),
@@ -242,19 +252,23 @@ const cleanCabalService = () => {
 };
 
 const initializeCabalService = () => {
-  console.log('initializeCabalService', state.apiKey);
+  try {
+    console.log('initializeCabalService', state.apiKey);
 
-  cleanCabalService();
+    cleanCabalService();
 
-  if (state.apiKey) {
-    const newCabal = new CabalService({
-      apiKey: state.apiKey,
-      apiUrl: config.apiUrl,
-    });
+    if (state.apiKey) {
+      const newCabal = new CabalService({
+        apiKey: state.apiKey,
+        apiUrl: config.apiUrl,
+      });
 
-    subscribe(newCabal);
-    newCabal.start();
-    setCabalInstance(newCabal);
+      subscribe(newCabal);
+      newCabal.start();
+      setCabalInstance(newCabal);
+    }
+  } catch (error) {
+    console.error(`initializeCabalService`, error);
   }
 };
 
