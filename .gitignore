@@ -3,3 +3,4 @@ node_modules
 backgroundConfig.ts
 tmpBackground.ts
 dist
+.DS_Store

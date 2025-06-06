@@ -29,4 +29,6 @@ export type BackgroundState = {
   setActiveTab: () => Promise<{ error: null | string }>;
   setActiveTabById: (tabId: number) => void;
   getTabListener: (tabId?: number) => ContentListener | undefined;
+
+  setIsReady: (value: boolean) => void;
 };
