@@ -223,7 +223,7 @@ class CabalService extends EventEmitter {
       case CabalStreamEvents.error:
         console.error('[[CabalService]]: trade stream error');
         this.stop();
-        this.emit(CabalTradeStreamMessages.tradeError);
+        this.emit(CabalTradeStreamMessages.tradeError, messagePayload);
         break;
       case CabalStreamEvents.message:
         this.processTradeMessage(messagePayload as TradeEventResponse);
@@ -249,7 +249,10 @@ class CabalService extends EventEmitter {
       case CabalStreamEvents.error:
         console.error('[[CabalService]]: UA stream error');
         this.stop();
-        this.emit(CabalUserActivityStreamMessages.userActivityError);
+        this.emit(
+          CabalUserActivityStreamMessages.userActivityError,
+          messagePayload,
+        );
         break;
       case CabalStreamEvents.message:
         this.processUserActivityMessage(messagePayload as UserResponse);

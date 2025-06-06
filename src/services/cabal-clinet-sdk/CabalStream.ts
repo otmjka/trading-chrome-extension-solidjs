@@ -19,6 +19,10 @@ export enum CabalStreamEvents {
   error = 'error',
 }
 
+export enum CabalStreamErrors {
+  BadAuth = 'Bad auth',
+}
+
 class CabalStream<StreamResponse> {
   nameStream: string;
   streamInstance: AsyncIterable<StreamResponse> | undefined;
@@ -116,8 +120,13 @@ class CabalStream<StreamResponse> {
         this.onMessage(CabalStreamEvents.message, response);
       }
     } catch (error) {
-      console.error(error);
-      // this.onErrorAndDestoy(`[${this.nameStream}]: listen error `, error);
+      console.error(`listen error`, error);
+      if (
+        error instanceof ConnectError &&
+        error.rawMessage === CabalStreamErrors.BadAuth
+      ) {
+        this.onErrorAndDestoy(`[${this.nameStream}]: listen error `, error);
+      }
     }
   }
 
@@ -186,8 +195,8 @@ class CabalStream<StreamResponse> {
   }
 
   onErrorAndDestoy(errorMessage: string, error: unknown | Error) {
-    console.error(errorMessage);
-    this.onMessage(CabalStreamEvents.error, (error as Error).message);
+    console.error(error);
+    this.onMessage(CabalStreamEvents.error, error);
     this.destroy();
   }
 }
