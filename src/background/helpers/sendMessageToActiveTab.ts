@@ -1,3 +1,7 @@
+import {
+  CabalTradeStreamMessages,
+  CabalUserActivityStreamMessages,
+} from '../../services/cabal-clinet-sdk';
 import { FromBackgroundMessage } from '../../shared/types';
 import { config } from '../backgroundConfig';
 import { BackgroundState } from '../types';
@@ -10,7 +14,15 @@ export const sendMessageToActiveTab = ({
   state: BackgroundState;
 }) => {
   const activeTab = state.getActiveTab();
-  console.log('#-# sendMessageToActiveTab', activeTab);
+  if (
+    ![
+      CabalUserActivityStreamMessages.userActivityPong,
+      CabalTradeStreamMessages.tradePong,
+    ].includes(message.eventName)
+  ) {
+    console.log('#-# sendMessageToActiveTab', activeTab, message);
+  }
+
   if (!activeTab) {
     return;
   }

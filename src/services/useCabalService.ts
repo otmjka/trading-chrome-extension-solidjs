@@ -108,7 +108,14 @@ export const messageListener = (
   sender: any,
   sendResponse: SendResponse,
 ) => {
-  console.log(`received message: name: ${message?.eventName}`, message);
+  if (
+    ![
+      CabalUserActivityStreamMessages.userActivityPong,
+      CabalTradeStreamMessages.tradePong,
+    ].includes(message?.eventName)
+  ) {
+    console.log(`received message: name: ${message?.eventName}`, message);
+  }
 
   const messageType = message?.type;
   if (messageType !== CabalMessageType.CabalEvent) {

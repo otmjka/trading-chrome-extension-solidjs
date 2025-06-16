@@ -18,11 +18,21 @@ export const handleSubscribeTokenMessage = async ({
     const tabId = tabs[0]?.id;
     const listener = state.getTabListener(tabId);
 
-    if (config.showSubscribeTokenReceiveMsg)
+    if (config.showSubscribeTokenReceiveMsg) {
       console.log('### SUBSCRIBE_TOKEN ###', tabId, message);
+    }
     const cabalValue = state.getCabalInstance();
     const messageMint = message.data.mint;
+    console.log(
+      '### SUBSCRIBE_TOKEN ### ====>',
+      state,
+      cabalValue,
+      listener,
+      messageMint,
+    );
+
     if (cabalValue && listener && messageMint) {
+      console.log('### SUBSCRIBE_TOKEN ### ====><====');
       cabalValue.subscribeToken(messageMint);
     }
     sendResponse({ isReady: state.getIsReady() });

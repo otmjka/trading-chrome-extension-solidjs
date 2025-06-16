@@ -1,13 +1,9 @@
 import {
-  CabalUserActivityStreamMessages,
   TokenStatus,
   TokenTradeStats,
   TradeEvent,
 } from '../../services/cabal-clinet-sdk';
 import {
-  CabalMessageType,
-  FromBackgroundMessageTradeTokenStatus,
-  FromBackgroundMessageUATradeStats,
   Mint,
   TokenStatusParsed,
   TradeEventParsed,

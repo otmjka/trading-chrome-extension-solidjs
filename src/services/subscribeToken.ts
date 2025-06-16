@@ -13,6 +13,7 @@ export const subscribeToken = ({
   mint: Mint;
   cb: (response: SubscribeTokenResponse) => void;
 }) => {
+  console.log('######### subscribeToken ############');
   const payload: SubscribeTokenPayloadMessage = {
     type: BackgroundMessages.SUBSCRIBE_TOKEN,
     data: { mint },

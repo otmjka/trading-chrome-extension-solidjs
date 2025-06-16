@@ -114,3 +114,8 @@ registerTab
     mint: "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr"
     url: "https://gmgn.ai/sol/token/7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr"
 ```
+
+### settings
+
+register tab
+<-

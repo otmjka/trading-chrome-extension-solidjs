@@ -68,7 +68,7 @@ export const ContentContainer: Component<{ children: JSX.Element }> = ({
     if (!contentAppStore.isReady || !contentAppStore.mint) {
       return;
     }
-
+    console.log('######## isReady ########');
     handleSubscribe();
   });
 
