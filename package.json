@@ -8,10 +8,14 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "build:scripts": "vite build --config vite.scripts.config.js"
+    "build:scripts": "vite build --config vite.scripts.config.js",
+    "build:home": "vite build --config vite.home.config.js",
+    "build:popup": "vite build --config vite.popup.config.js",
+    "all": "npm run build && npm run build:scripts && npm run build:popup && npm run build:home"
   },
   "license": "MIT",
   "devDependencies": {
+    "@kobalte/tailwindcss": "^0.9.0",
     "@types/chrome": "^0.0.323",
     "@types/events": "^3.0.3",
     "autoprefixer": "^10.4.21",

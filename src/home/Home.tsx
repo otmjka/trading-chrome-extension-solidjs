@@ -1,13 +1,11 @@
-import { createSignal, onMount } from 'solid-js';
+import { onMount } from 'solid-js';
+import { useStartCabalService } from '../services/useCabalService';
+import { Settings } from './Settings';
 
 export default function Home() {
-  const [status, setStatus] = createSignal('offline');
-
-  return (
-    <div class="p-6 text-xl">
-      <div>
-        Service Status:: <b>{status()}</b>
-      </div>
-    </div>
-  );
+  const cabalService = useStartCabalService();
+  onMount(() => {
+    cabalService.getConfig();
+  });
+  return <Settings handlers={{ onReset: cabalService.resetConfig }} />;
 }
