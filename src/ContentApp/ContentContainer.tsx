@@ -21,15 +21,6 @@ import { useHrefWatcher2 } from './useHrefWatcher2';
 export const ContentContainer: Component<{ children: JSX.Element }> = ({
   children,
 }) => {
-  const {
-    startListen,
-    registerTab,
-    subscribeToken,
-    clean,
-    sendApiKey,
-    cleanWidget,
-  } = useStartCabalService();
-
   const href = useHrefWatcher2();
   let isInitial = true;
   createEffect(() => {
@@ -44,15 +35,6 @@ export const ContentContainer: Component<{ children: JSX.Element }> = ({
   });
 
   const [showDebug, setShowDebug] = createSignal<boolean>(false);
-
-  const handleStart = () => {
-    startListen();
-    registerTab({ locationHref: location.href });
-  };
-
-  onMount(() => {
-    setTimeout(() => handleStart(), 100);
-  });
 
   const handleSubscribe = () => {
     if (!contentAppStore.mint) {
