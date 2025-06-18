@@ -6,6 +6,7 @@ import {
   BackgroundMessages,
   CabalCommonMessages,
   CabalMessageType,
+  CabalMeta,
   FromBackgroundMessage,
   FromBackgroundMessageTradeEvent,
   FromBackgroundMessageTradePong,
@@ -14,9 +15,15 @@ import {
   FromBackgroundMessageUATradeStats,
   FromBackgroundReadyStatusMessage,
   FromBackgroundTxMessage,
+  GetConfigPromisePayloadMessage,
+  GetConfigPromiseResponse,
   Mint,
   SendApiKeyPayloadMessage,
+  SendApiKeyPromisePayloadMessage,
   SendResponse,
+  SetApiKeyPromiseResponse,
+  SetConfigToDefaultPayloadMessage,
+  SetConfigToDefaultResponse,
 } from '../shared/types';
 
 /* STORES */
@@ -27,7 +34,7 @@ import { setCabalUserActivity } from '../stores/cabalUserActivity';
 import { setTradeWidgetState } from '../widgets/TradeWidget/TradeWidgetStore/tradeWidgetStateStore';
 import { setContentAppStore } from '../stores/contentAppStore';
 import { addToast } from '../stores/toastStore';
-
+import { setConfigStore } from '../stores/configStore';
 /* Handlers */
 
 import { buyMarket } from './buyMarket';
@@ -38,10 +45,13 @@ import { sendMessage } from './sendMessage';
 import { subscribeToken } from './subscribeToken';
 import * as handlers from './CabalStoreHandlers';
 
+const metaToStores = (meta: CabalMeta) => {
+  setContentAppStore('isReady', meta.isReady);
+  setContentAppStore('shouldSetApiKey', meta.shouldSetApiKey);
+};
+
 const metaToStatus = (message: FromBackgroundMessage) => {
-  const { isReady, shouldSetApiKey } = message.meta;
-  setContentAppStore('isReady', isReady);
-  setContentAppStore('shouldSetApiKey', shouldSetApiKey);
+  metaToStores(message.meta);
 };
 
 const handleUserActivityConnected = () =>
@@ -205,6 +215,9 @@ const sendApiKey = (apiKey: string | null) => {
     type: BackgroundMessages.SET_APIKEY,
     data: { apiKey },
   };
+  if (!apiKey) {
+    metaToStores({ isReady: false, shouldSetApiKey: true });
+  }
 
   const cb = (response: any) => {
     console.log('res', response);
@@ -213,9 +226,56 @@ const sendApiKey = (apiKey: string | null) => {
   sendMessage({ payload, cb });
 };
 
+const sendApiKeyPromise = (apiKey: string | null) => {
+  const payload: SendApiKeyPromisePayloadMessage = {
+    type: BackgroundMessages.SET_APIKEY_PROMISE,
+    data: { apiKey },
+  };
+
+  const cb = (response: SetApiKeyPromiseResponse) => {
+    console.log('res PROMISE', response);
+    if (response?.meta) {
+      metaToStores(response?.meta);
+
+      if (response?.meta.error) {
+        setContentAppStore('apiKeyError', response?.meta.error);
+      }
+    }
+  };
+
+  sendMessage({ payload, cb });
+};
+
+const getConfig = () => {
+  const payload: GetConfigPromisePayloadMessage = {
+    type: BackgroundMessages.GET_CONFIG_PROMISE,
+  };
+  const cb = (response: GetConfigPromiseResponse) => {
+    console.log('config', response);
+    setConfigStore('config', response.config);
+  };
+
+  sendMessage({ payload, cb });
+};
+
+const resetConfig = () => {
+  const payload: SetConfigToDefaultPayloadMessage = {
+    type: BackgroundMessages.SET_STORAGE_TO_DEFAULT,
+  };
+  const cb = (response: SetConfigToDefaultResponse) => {
+    console.log('resetConfig response', response);
+  };
+
+  sendMessage({ payload, cb });
+};
+
 export function useStartCabalService() {
   return {
+    resetConfig,
+    getConfig,
     sendApiKey,
+    sendApiKeyPromise,
+    popupOpen: handlers.popupOpen,
     registerTab: handlers.registerTab,
     subscribeToken,
     marketBuy,

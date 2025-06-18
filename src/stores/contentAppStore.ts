@@ -5,6 +5,7 @@ type ContentAppStore = {
   isReady: boolean;
   url: string;
   shouldSetApiKey: boolean;
+  apiKeyError?: string;
 };
 
 const initValue: ContentAppStore = {
@@ -12,6 +13,7 @@ const initValue: ContentAppStore = {
   isReady: false,
   url: '',
   shouldSetApiKey: false,
+  apiKeyError: undefined,
 };
 
 const [contentAppStore, setContentAppStore] =

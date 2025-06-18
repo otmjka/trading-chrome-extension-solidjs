@@ -43,6 +43,7 @@ import { getTxEventTrades } from './getTxEventTrades';
 const getMetaByState = (state: BackgroundState): CabalMeta => ({
   isReady: state.isReady,
   shouldSetApiKey: !state.apiKey,
+  config: state.config,
 });
 
 export const tradeStatsUA = ({

@@ -5,17 +5,22 @@ import {
   PoolKind,
 } from '../services/cabal-clinet-sdk';
 import { QuoteKind } from '../services/cabal-clinet-sdk/cabal/CabalRpc/common_pb';
+import { CabalConfig } from '../services/CabalStorage/types';
 
 export enum CabalMessageType {
   CabalEvent = 'CABAL_EVENT',
 }
 
 export enum BackgroundMessages {
+  SET_STORAGE_TO_DEFAULT = 'SET_STORAGE_TO_DEFAULT',
+  GET_CONFIG_PROMISE = 'GET_CONFIG_PROMISE',
+  POPUP_OPEN = 'POPUP_OPEN',
   INIT_CABAL = 'INIT_CABAL',
   SUBSCRIBE_TOKEN = 'SUBSCRIBE_TOKEN',
   BUY_MARKET = 'BUY_MARKET',
   SELL_MARKET = 'SELL_MARKET',
   SET_APIKEY = 'SET_APIKEY',
+  SET_APIKEY_PROMISE = 'SET_APIKEY_PROMISE',
 }
 
 export type BgInitMessageResponse = {
@@ -26,6 +31,10 @@ export type BgInitMessageResponse = {
 };
 
 // Messages to Background
+
+export type PopupOpenMessage = {
+  type: BackgroundMessages.POPUP_OPEN;
+};
 
 export type InitCabalOnTabMessage = {
   type: BackgroundMessages.INIT_CABAL;
@@ -65,11 +74,30 @@ export type SendApiKeyPayloadMessage = {
   };
 };
 
+export type SendApiKeyPromisePayloadMessage = {
+  type: BackgroundMessages.SET_APIKEY_PROMISE;
+  data: {
+    apiKey: string | null;
+  };
+};
+
+export type GetConfigPromisePayloadMessage = {
+  type: BackgroundMessages.GET_CONFIG_PROMISE;
+};
+
+export type SetConfigToDefaultPayloadMessage = {
+  type: BackgroundMessages.SET_STORAGE_TO_DEFAULT;
+};
+
 export type MessageToBgPayload =
+  | PopupOpenMessage
   | InitCabalOnTabMessage
   | SubscribeTokenPayloadMessage
   | BuyMarketPayloadMessage
   | SellMarketPayloadMessage
+  | SendApiKeyPromisePayloadMessage
+  | GetConfigPromisePayloadMessage
+  | SetConfigToDefaultPayloadMessage
   | SendApiKeyPayloadMessage;
 
 export type SubscribeTokenResponse = {
@@ -84,7 +112,26 @@ export type SellMarketResponse = {
   isReady: boolean;
 };
 
+export type PopupOpenResponse = {
+  shouldSetApiKey: boolean;
+  isReady: boolean;
+};
+
+export type SetApiKeyPromiseResponse = {
+  meta: CabalMeta;
+};
+
+export type GetConfigPromiseResponse = {
+  config: CabalConfig;
+};
+
+export type SetConfigToDefaultResponse = {};
+
 export type BgMessageResponse =
+  | PopupOpenResponse
+  | SetApiKeyPromiseResponse
+  | GetConfigPromiseResponse
+  | SetConfigToDefaultResponse
   | BgInitMessageResponse
   | SubscribeTokenResponse
   | BuyMarketResponse
@@ -203,6 +250,8 @@ export type txLostParsed = {
 export type CabalMeta = {
   isReady: boolean;
   shouldSetApiKey: boolean;
+  config: CabalConfig | null;
+  error?: string;
 };
 
 /*

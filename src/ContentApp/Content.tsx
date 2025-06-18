@@ -1,4 +1,4 @@
-import { createEffect, createSignal, Show } from 'solid-js';
+import { Component, createEffect, createSignal, Show } from 'solid-js';
 
 import { TradeWidget } from '../widgets/TradeWidget';
 import { tradeWidgetState } from '../widgets/TradeWidget/TradeWidgetStore/tradeWidgetStateStore';
@@ -8,13 +8,14 @@ import { ContentContainer } from './ContentContainer';
 import { ApiKeyWidget } from '../uikit/ApiKeyWidget';
 import { useStartCabalService } from '../services/useCabalService';
 import { contentAppStore } from '../stores/contentAppStore';
+import { Mint } from '../shared/types';
+import { useContentManager } from './useContentManager';
 
-const Content = () => {
+const Content: Component<{ mint: Mint }> = ({ mint }) => {
+  const contentState = useContentManager({ mint });
   const [allSourcesReady, setAllSourcesReady] = createSignal<boolean>(false);
   const [shouldPromptApiKey, setShouldPromptApiKey] =
     createSignal<boolean>(false);
-
-  const { sendApiKey } = useStartCabalService();
 
   createEffect(() => {
     setShouldPromptApiKey(contentAppStore.shouldSetApiKey);
