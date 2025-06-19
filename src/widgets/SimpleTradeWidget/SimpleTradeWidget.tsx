@@ -1,12 +1,14 @@
 import { Component } from 'solid-js';
 import { MovingContainer } from './MovingContainer/MovingContainer';
 import { TradingWidgetView } from './TradingWidgetView';
-import { useSimpleTradeWidget } from './useSimpleTradeWidget';
 
 export const SimpleTradeWidget: Component = () => {
+  const openFull = () => {
+    chrome.tabs.create({ url: chrome.runtime.getURL('home.html') });
+  };
   return (
     <MovingContainer>
-      <TradingWidgetView />
+      <TradingWidgetView state={{ openFull }} />
     </MovingContainer>
   );
 };

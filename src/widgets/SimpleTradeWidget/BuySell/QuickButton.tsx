@@ -15,6 +15,7 @@ export const QuickButton: Component<{
   amount: string;
   icon: 'sol' | 'perc';
   w?: string;
+  onClick: () => void;
 }> = (props) => {
   const w = {
     'ext-w-16': !props.w,
@@ -23,6 +24,7 @@ export const QuickButton: Component<{
   return (
     <div class={cn(w)}>
       <Button
+        onClick={props.onClick}
         full
         color={props.color}
         icon={

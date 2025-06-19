@@ -6,9 +6,7 @@ import { Tabs } from '@kobalte/core/tabs';
 import { TWHeader } from './TWHeader/TWHeader';
 import { BuySell } from './BuySell/BuySell';
 
-type TradingWidgetViewProps = {
-  // store: SimpleTradeWidgetStore;
-};
+type TradingWidgetViewProps = { state: { openFull: () => void } };
 
 export const TradingWidgetView: Component<TradingWidgetViewProps> = (props) => {
   const [currentTab, setCurrentTab] = createSignal<string>(tabItems[0].value);
@@ -23,7 +21,7 @@ export const TradingWidgetView: Component<TradingWidgetViewProps> = (props) => {
     <Paper p="2" cn="ext-w-[320px] ext-h-[386px]">
       <Show when={isReady}>
         <Tabs value={currentTab()} onChange={setCurrentTab}>
-          <TWHeader />
+          <TWHeader openFull={props.state.openFull} />
           <Tabs.Content value={TWTabValue.buysell}>
             <BuySell />
           </Tabs.Content>
