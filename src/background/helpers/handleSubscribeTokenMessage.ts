@@ -1,8 +1,7 @@
-import { CabalService } from '../../services/cabal-clinet-sdk';
 import { SubscribeTokenPayloadMessage } from '../../shared/types';
 import { config } from '../backgroundConfig';
-import { BackgroundState, ContentListener } from '../types';
-import { queryActiveTab } from './queryActiveTab';
+import { BackgroundState } from '../types';
+import { getMetaByState } from './messagesToContent';
 
 export const handleSubscribeTokenMessage = async ({
   sendResponse,
@@ -14,19 +13,26 @@ export const handleSubscribeTokenMessage = async ({
   message: SubscribeTokenPayloadMessage;
 }) => {
   try {
-    const tabs = await queryActiveTab();
-    const tabId = tabs[0]?.id;
-    const listener = state.getTabListener(tabId);
-
-    if (config.showSubscribeTokenReceiveMsg)
-      console.log('### SUBSCRIBE_TOKEN ###', tabId, message);
-    const cabalValue = state.getCabalInstance();
     const messageMint = message.data.mint;
-    if (cabalValue && listener && messageMint) {
-      cabalValue.subscribeToken(messageMint);
+    const { error, result } = await state.subscribeToken(messageMint);
+
+    if (error) {
+      throw error;
     }
-    sendResponse({ isReady: state.getIsReady() });
+
+    if (config.showSubscribeTokenReceiveMsg) {
+      console.log(`[handleSubscribeTokenMessage][result]`, result);
+    }
+
+    sendResponse({
+      meta: getMetaByState(state),
+    });
   } catch (error) {
-    console.error('handleSubscribeTokenMessage error', error);
+    sendResponse({
+      meta: {
+        ...getMetaByState(state),
+        error: `subscribe token error: ${(error as Error).message}`,
+      },
+    });
   }
 };

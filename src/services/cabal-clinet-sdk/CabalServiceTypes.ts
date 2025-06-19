@@ -1,4 +1,5 @@
 import { Pong } from '.';
+import { TradeResponse } from './cabal/CabalRpc/cabal_pb';
 import { CabalStreamEvents } from './CabalStream';
 
 export enum streamNames {
@@ -53,3 +54,8 @@ export enum CabalTradeStreamMessages {
   tradeEvent = 'tradeEvent',
   tokenStatus = 'tokenStatus',
 }
+
+export type SubscribeTokenReturn = Promise<{
+  result?: TradeResponse;
+  error?: null | Error;
+}>;

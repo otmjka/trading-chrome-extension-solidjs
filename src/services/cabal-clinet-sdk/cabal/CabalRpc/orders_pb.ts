@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file orders.proto.
  */
 export const file_orders: GenFile = /*@__PURE__*/
-  fileDesc("CgxvcmRlcnMucHJvdG8SBm9yZGVycyILCglQb3NpdGlvbnMiKQoMRGVsZXRlT3JkZXJzEgwKBG1pbnQYASABKAkSCwoDaWRzGAIgAygDIkEKGFBsYWNlTGltaXRPcmRlcnNSZXNwb25jZRIYChB0b2tlbl9vcmRlcnNfbnVtGAEgASgNEgsKA2lkcxgCIAMoAyJCChBUb2tlbkxpbWl0T3JkZXJzEgwKBG1pbnQYASABKAkSIAoGb3JkZXJzGAIgAygLMhAub3JkZXJzLkFwaU9yZGVyIsMBCghBcGlPcmRlchIPCgJpZBgBIAEoA0gAiAEBEhQKDHNsaXBwYWdlX2JwcxgCIAEoDRILCgN0aXAYAyABKAQSHgoGdGFyZ2V0GAQgASgLMg4ub3JkZXJzLlRhcmdldBIaCgRzaWRlGAUgASgOMgwub3JkZXJzLlNpZGUSHgoGYW1vdW50GAYgASgLMg4ub3JkZXJzLkFtb3VudBIgCgd0cmlnZ2VyGAcgASgOMg8ub3JkZXJzLlRyaWdnZXJCBQoDX2lkIrgBCgZUYXJnZXQSJAoFcHJpY2UYASABKAsyEy5vcmRlcnMuVGFyZ2V0UHJpY2VIABImCgZwcm9maXQYAiABKAsyFC5vcmRlcnMuVGFyZ2V0UHJvZml0SAASLwoLbW92aW5nX3BlcmMYAyABKAsyGC5vcmRlcnMuVGFyZ2V0TW92aW5nUGVyY0gAEiAKBm1hcmtldBgEIAEoCzIOLm9yZGVycy5NYXJrZXRIAEINCgt0YXJnZXRfdHlwZSJCCgtUYXJnZXRQcmljZRINCgVwcmljZRgBIAEoAhIkCglkaXJlY3Rpb24YAiABKA4yES5vcmRlcnMuRGlyZWN0aW9uIkkKDFRhcmdldFByb2ZpdBITCgtwcm9maXRfcGVyYxgBIAEoAhIkCglkaXJlY3Rpb24YAiABKA4yES5vcmRlcnMuRGlyZWN0aW9uInIKEFRhcmdldE1vdmluZ1BlcmMSEgoKcHJpY2VfcGVyYxgBIAEoAhIWCglsb2NhbF9hdGgYAiABKAJIAIgBARIkCglkaXJlY3Rpb24YAyABKA4yES5vcmRlcnMuRGlyZWN0aW9uQgwKCl9sb2NhbF9hdGgiCAoGTWFya2V0IjwKBkFtb3VudBISCghwZXJjX2JwcxgBIAEoDUgAEg8KBWZpeGVkGAIgASgESABCDQoLYW1vdW50X3R5cGUqJwoHVHJpZ2dlchINCglJTU1FRElBVEUQABINCglNSUdSQVRJT04QASoZCgRTaWRlEgcKA0JVWRAAEggKBFNFTEwQASohCglEaXJlY3Rpb24SCQoFQUJPVkUQABIJCgVCRUxPVxABYgZwcm90bzM");
+  fileDesc("CgxvcmRlcnMucHJvdG8SBm9yZGVycyILCglQb3NpdGlvbnMiKQoMRGVsZXRlT3JkZXJzEgwKBG1pbnQYASABKAkSCwoDaWRzGAIgAygDIkEKGFBsYWNlTGltaXRPcmRlcnNSZXNwb25zZRIYChB0b2tlbl9vcmRlcnNfbnVtGAEgASgNEgsKA2lkcxgCIAMoAyJCChBUb2tlbkxpbWl0T3JkZXJzEgwKBG1pbnQYASABKAkSIAoGb3JkZXJzGAIgAygLMhAub3JkZXJzLkFwaU9yZGVyIrECCghBcGlPcmRlchIPCgJpZBgBIAEoA0gAiAEBEhQKDHNsaXBwYWdlX2JwcxgCIAEoDRILCgN0aXAYAyABKAQSHgoGdGFyZ2V0GAQgASgLMg4ub3JkZXJzLlRhcmdldBIaCgRzaWRlGAUgASgOMgwub3JkZXJzLlNpZGUSHgoGYW1vdW50GAYgASgLMg4ub3JkZXJzLkFtb3VudBIgCgd0cmlnZ2VyGAcgASgOMg8ub3JkZXJzLlRyaWdnZXISJAoXZXhwaXJlX2F0X3RpbWVzdGFtcF91dGMYCCABKANIAYgBARIZCgxwcmlvcml0eV9mZWUYCSABKARIAogBAUIFCgNfaWRCGgoYX2V4cGlyZV9hdF90aW1lc3RhbXBfdXRjQg8KDV9wcmlvcml0eV9mZWUiuAEKBlRhcmdldBIkCgVwcmljZRgBIAEoCzITLm9yZGVycy5UYXJnZXRQcmljZUgAEiYKBnByb2ZpdBgCIAEoCzIULm9yZGVycy5UYXJnZXRQcm9maXRIABIvCgttb3ZpbmdfcGVyYxgDIAEoCzIYLm9yZGVycy5UYXJnZXRNb3ZpbmdQZXJjSAASIAoGbWFya2V0GAQgASgLMg4ub3JkZXJzLk1hcmtldEgAQg0KC3RhcmdldF90eXBlIkIKC1RhcmdldFByaWNlEg0KBXByaWNlGAEgASgCEiQKCWRpcmVjdGlvbhgCIAEoDjIRLm9yZGVycy5EaXJlY3Rpb24iSQoMVGFyZ2V0UHJvZml0EhMKC3Byb2ZpdF9wZXJjGAEgASgCEiQKCWRpcmVjdGlvbhgCIAEoDjIRLm9yZGVycy5EaXJlY3Rpb24icgoQVGFyZ2V0TW92aW5nUGVyYxISCgpwcmljZV9wZXJjGAEgASgCEhYKCWxvY2FsX2F0aBgCIAEoAkgAiAEBEiQKCWRpcmVjdGlvbhgDIAEoDjIRLm9yZGVycy5EaXJlY3Rpb25CDAoKX2xvY2FsX2F0aCIICgZNYXJrZXQiPAoGQW1vdW50EhIKCHBlcmNfYnBzGAEgASgNSAASDwoFZml4ZWQYAiABKARIAEINCgthbW91bnRfdHlwZSonCgdUcmlnZ2VyEg0KCUlNTUVESUFURRAAEg0KCU1JR1JBVElPThABKhkKBFNpZGUSBwoDQlVZEAASCAoEU0VMTBABKiEKCURpcmVjdGlvbhIJCgVBQk9WRRAAEgkKBUJFTE9XEAFiBnByb3RvMw");
 
 /**
  * @generated from message orders.Positions
@@ -48,9 +48,9 @@ export const DeleteOrdersSchema: GenMessage<DeleteOrders> = /*@__PURE__*/
   messageDesc(file_orders, 1);
 
 /**
- * @generated from message orders.PlaceLimitOrdersResponce
+ * @generated from message orders.PlaceLimitOrdersResponse
  */
-export type PlaceLimitOrdersResponce = Message<"orders.PlaceLimitOrdersResponce"> & {
+export type PlaceLimitOrdersResponse = Message<"orders.PlaceLimitOrdersResponse"> & {
   /**
    * @generated from field: uint32 token_orders_num = 1;
    */
@@ -63,10 +63,10 @@ export type PlaceLimitOrdersResponce = Message<"orders.PlaceLimitOrdersResponce"
 };
 
 /**
- * Describes the message orders.PlaceLimitOrdersResponce.
- * Use `create(PlaceLimitOrdersResponceSchema)` to create a new message.
+ * Describes the message orders.PlaceLimitOrdersResponse.
+ * Use `create(PlaceLimitOrdersResponseSchema)` to create a new message.
  */
-export const PlaceLimitOrdersResponceSchema: GenMessage<PlaceLimitOrdersResponce> = /*@__PURE__*/
+export const PlaceLimitOrdersResponseSchema: GenMessage<PlaceLimitOrdersResponse> = /*@__PURE__*/
   messageDesc(file_orders, 2);
 
 /**
@@ -129,6 +129,20 @@ export type ApiOrder = Message<"orders.ApiOrder"> & {
    * @generated from field: orders.Trigger trigger = 7;
    */
   trigger: Trigger;
+
+  /**
+   * default is 7 days, but this is subject to change
+   *
+   * @generated from field: optional int64 expire_at_timestamp_utc = 8;
+   */
+  expireAtTimestampUtc?: bigint;
+
+  /**
+   * lamports per 1M CU (CU PRICE)
+   *
+   * @generated from field: optional uint64 priority_fee = 9;
+   */
+  priorityFee?: bigint;
 };
 
 /**

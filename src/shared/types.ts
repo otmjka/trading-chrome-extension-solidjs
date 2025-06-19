@@ -5,27 +5,42 @@ import {
   PoolKind,
 } from '../services/cabal-clinet-sdk';
 import { QuoteKind } from '../services/cabal-clinet-sdk/cabal/CabalRpc/common_pb';
+import { BuySellConfig, CabalConfig } from '../services/CabalStorage/types';
 
 export enum CabalMessageType {
   CabalEvent = 'CABAL_EVENT',
 }
 
 export enum BackgroundMessages {
+  SET_STORAGE_TO_DEFAULT = 'SET_STORAGE_TO_DEFAULT',
+  GET_CONFIG_PROMISE = 'GET_CONFIG_PROMISE',
+  POPUP_OPEN = 'POPUP_OPEN',
   INIT_CABAL = 'INIT_CABAL',
   SUBSCRIBE_TOKEN = 'SUBSCRIBE_TOKEN',
+  SUBSCRIBE_TOKEN_PROMISE = 'SUBSCRIBE_TOKEN_PROMISE',
+
   BUY_MARKET = 'BUY_MARKET',
   SELL_MARKET = 'SELL_MARKET',
   SET_APIKEY = 'SET_APIKEY',
+  SET_APIKEY_PROMISE = 'SET_APIKEY_PROMISE',
+
+  BUY_SELL_SETTINGS_CHANGE = 'BUY_SELL_SETTINGS_CHANGE',
 }
 
 export type BgInitMessageResponse = {
-  url: string;
-  mint: string;
-  isReady: boolean;
-  apiKey: string | null;
+  meta: CabalMeta;
 };
 
 // Messages to Background
+
+export type PopupOpenMessage = {
+  type: BackgroundMessages.POPUP_OPEN;
+};
+
+export type SaveBuySellSettingsMessage = {
+  type: BackgroundMessages.BUY_SELL_SETTINGS_CHANGE;
+  data: BuySellConfig;
+};
 
 export type InitCabalOnTabMessage = {
   type: BackgroundMessages.INIT_CABAL;
@@ -37,6 +52,13 @@ export type InitCabalOnTabMessage = {
 
 export type SubscribeTokenPayloadMessage = {
   type: BackgroundMessages.SUBSCRIBE_TOKEN;
+  data: {
+    mint: Mint;
+  };
+};
+
+export type SubscribeTokenPromisePayloadMessage = {
+  type: BackgroundMessages.SUBSCRIBE_TOKEN_PROMISE;
   data: {
     mint: Mint;
   };
@@ -65,15 +87,42 @@ export type SendApiKeyPayloadMessage = {
   };
 };
 
+export type SendApiKeyPromisePayloadMessage = {
+  type: BackgroundMessages.SET_APIKEY_PROMISE;
+  data: {
+    apiKey: string | null;
+  };
+};
+
+export type GetConfigPromisePayloadMessage = {
+  type: BackgroundMessages.GET_CONFIG_PROMISE;
+};
+
+export type SetConfigToDefaultPayloadMessage = {
+  type: BackgroundMessages.SET_STORAGE_TO_DEFAULT;
+};
+
 export type MessageToBgPayload =
+  | PopupOpenMessage
   | InitCabalOnTabMessage
   | SubscribeTokenPayloadMessage
+  | SubscribeTokenPromisePayloadMessage
   | BuyMarketPayloadMessage
   | SellMarketPayloadMessage
-  | SendApiKeyPayloadMessage;
+  | SendApiKeyPromisePayloadMessage
+  | GetConfigPromisePayloadMessage
+  | SetConfigToDefaultPayloadMessage
+  | SendApiKeyPayloadMessage
+  | SaveBuySellSettingsMessage;
 
 export type SubscribeTokenResponse = {
-  isReady: boolean;
+  meta: CabalMeta;
+};
+
+export type SubscribeTokenPromiseResponse = {
+  tokenStatus: TokenStatusParsed;
+  tradeStats: TradeStatsParsed;
+  meta: CabalMeta;
 };
 
 export type BuyMarketResponse = {
@@ -84,7 +133,26 @@ export type SellMarketResponse = {
   isReady: boolean;
 };
 
+export type PopupOpenResponse = {
+  shouldSetApiKey: boolean;
+  isReady: boolean;
+};
+
+export type SetApiKeyPromiseResponse = {
+  meta: CabalMeta;
+};
+
+export type GetConfigPromiseResponse = {
+  config: CabalConfig;
+};
+
+export type SetConfigToDefaultResponse = {};
+
 export type BgMessageResponse =
+  | PopupOpenResponse
+  | SetApiKeyPromiseResponse
+  | GetConfigPromiseResponse
+  | SetConfigToDefaultResponse
   | BgInitMessageResponse
   | SubscribeTokenResponse
   | BuyMarketResponse
@@ -130,7 +198,7 @@ export type TradeStatsParsed = {
 export type TradeEventParsed = {
   type: TradeType;
   value: {
-    mint: Mint;
+    mint: Mint | null;
     timestamp: number;
     amountSol: string;
     baseLiq: string;
@@ -141,6 +209,7 @@ export type TradeEventParsed = {
 
 export enum CabalCommonMessages {
   readyStatus = 'readyStatus',
+  configChanged = 'configChanged',
 }
 
 /*
@@ -201,8 +270,11 @@ export type txLostParsed = {
 };
 
 export type CabalMeta = {
+  mint: string | null;
   isReady: boolean;
   shouldSetApiKey: boolean;
+  config: CabalConfig | null;
+  error?: string;
 };
 
 /*
@@ -286,7 +358,14 @@ export type FromBackgroundTxMessage = {
   meta: CabalMeta;
 };
 
+export type FromBackgroundConfigChanged = {
+  type: CabalMessageType;
+  eventName: CabalCommonMessages.configChanged;
+  meta: CabalMeta;
+};
+
 export type FromBackgroundMessage =
+  | FromBackgroundConfigChanged
   | FromBackgroundTxMessage
   | FromBackgroundReadyStatusMessage
   | FromBackgroundMessageUAError

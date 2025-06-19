@@ -1,13 +1,9 @@
 import {
-  CabalUserActivityStreamMessages,
   TokenStatus,
   TokenTradeStats,
   TradeEvent,
 } from '../../services/cabal-clinet-sdk';
 import {
-  CabalMessageType,
-  FromBackgroundMessageTradeTokenStatus,
-  FromBackgroundMessageUATradeStats,
   Mint,
   TokenStatusParsed,
   TradeEventParsed,
@@ -19,7 +15,7 @@ export const parseTradeEvent = ({
   cabalTradeEvent,
   mint,
 }: {
-  mint: Mint;
+  mint: Mint | null;
   cabalTradeEvent: TradeEvent;
 }): TradeEventParsed | undefined => {
   try {

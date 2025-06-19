@@ -3,18 +3,24 @@ import {
   BackgroundMessages,
   BgInitMessageResponse,
   InitCabalOnTabMessage,
+  Mint,
 } from '../../shared/types';
 import { setCabalTradeStream } from '../../stores/cabalTradeSreamStore';
 import { setCabalUserActivity } from '../../stores/cabalUserActivity';
 import { sendMessage } from '../sendMessage';
-import { getTokenGMGNAI } from '../../utils/getTokenGMGNAI';
 
-export const registerTab = ({ locationHref }: { locationHref: string }) => {
+export const registerTab = ({
+  mint,
+  locationHref,
+}: {
+  mint: Mint;
+  locationHref: string;
+}) => {
   const payload: InitCabalOnTabMessage = {
     type: BackgroundMessages.INIT_CABAL,
     data: {
       url: locationHref,
-      mint: getTokenGMGNAI(locationHref),
+      mint,
     },
   };
 

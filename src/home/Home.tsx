@@ -1,13 +1,16 @@
-import { createSignal, onMount } from 'solid-js';
+import { onMount, Show } from 'solid-js';
+import { useStartCabalService } from '../services/useCabalService';
+import { Settings } from './Settings';
+import { configStore } from '../stores/configStore';
 
 export default function Home() {
-  const [status, setStatus] = createSignal('offline');
-
+  const cabalService = useStartCabalService();
+  onMount(() => {
+    cabalService.getConfig();
+  });
   return (
-    <div class="p-6 text-xl">
-      <div>
-        Service Status:: <b>{status()}</b>
-      </div>
-    </div>
+    <Show when={!!configStore.config} fallback={<div>loading...</div>}>
+      <Settings handlers={{ onReset: cabalService.resetConfig }} />
+    </Show>
   );
 }

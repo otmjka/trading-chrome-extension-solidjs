@@ -1,0 +1,243 @@
+import { CabalConfig } from './types';
+
+export const defaultCabalConfig: CabalConfig = {
+  quickBuyAmount: 5,
+  autoLimit: {
+    setAutoLimitIfTrade: false,
+    presets: [
+      {
+        name: 'preset 1',
+        sellLimits: [
+          {
+            type: 'TakeProfit Trailing',
+            color: 'red',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            position: 50,
+            profit: 100,
+          },
+          {
+            type: 'StopLoss',
+            color: 'green',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            position: 50,
+            profit: 100,
+          },
+          {
+            type: 'new',
+            color: 'grey',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            position: 50,
+            profit: 100,
+          },
+        ],
+        buyLimits: [
+          {
+            type: 'TakeProfit Trailing',
+            color: 'red',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            amount: 50,
+            target: 100,
+          },
+          {
+            type: 'StopLoss',
+            color: 'green',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            amount: 50,
+            target: 100,
+          },
+          {
+            type: 'new',
+            color: 'grey',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            amount: 50,
+            target: 100,
+          },
+        ],
+      },
+      {
+        name: 'preset 2',
+        sellLimits: [
+          {
+            type: 'TakeProfit Trailing',
+            color: 'red',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            position: 50,
+            profit: 100,
+          },
+          {
+            type: 'StopLoss',
+            color: 'green',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            position: 50,
+            profit: 100,
+          },
+          {
+            type: 'new',
+            color: 'grey',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            position: 50,
+            profit: 100,
+          },
+        ],
+        buyLimits: [
+          {
+            type: 'TakeProfit Trailing',
+            color: 'red',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            amount: 50,
+            target: 100,
+          },
+          {
+            type: 'StopLoss',
+            color: 'green',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            amount: 50,
+            target: 100,
+          },
+          {
+            type: 'new',
+            color: 'grey',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            amount: 50,
+            target: 100,
+          },
+        ],
+      },
+      {
+        name: 'preset 3',
+        sellLimits: [
+          {
+            type: 'TakeProfit Trailing',
+            color: 'red',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            position: 50,
+            profit: 100,
+          },
+          {
+            type: 'StopLoss',
+            color: 'green',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            position: 50,
+            profit: 100,
+          },
+          {
+            type: 'new',
+            color: 'grey',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            position: 50,
+            profit: 100,
+          },
+        ],
+        buyLimits: [
+          {
+            type: 'TakeProfit Trailing',
+            color: 'red',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            amount: 50,
+            target: 100,
+          },
+          {
+            type: 'StopLoss',
+            color: 'green',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            amount: 50,
+            target: 100,
+          },
+          {
+            type: 'new',
+            color: 'grey',
+            priorityFee: 0.0005,
+            tip: 0.005,
+            slippage: 25,
+            amount: 50,
+            target: 100,
+          },
+        ],
+      },
+    ],
+  },
+  buySell: {
+    buyPresetsSol: [0.5, 1, 2, 5],
+    sellPresetsSol: [0.5, 1, 2, 5],
+
+    buyPresetsPerc: [1, 10, 15, 20],
+    sellPresetsPerc: [1, 10, 15, 20],
+
+    buyTip: 0.001,
+    sellTip: 0.001,
+
+    buyPriorityFee: 0.01,
+    sellPriorityFee: 0.01,
+
+    buySlippage: 25,
+    sellSlippage: 20,
+  },
+  migrationSnipe: {
+    buyAmount: 0.005,
+    sellAmountPerc: 10,
+
+    buyTip: 0.001,
+    sellTip: 0.001,
+
+    buyPriorityFee: 0.01,
+    sellPriorityFee: 0.01,
+
+    buySlippage: 25,
+    sellSlippage: 20,
+  },
+  limit: {
+    buyTip: 0.001,
+    sellTip: 0.001,
+
+    buyPriorityFee: 0.01,
+    sellPriorityFee: 0.01,
+
+    buySlippage: 25,
+    sellSlippage: 20,
+
+    mcPerc: [-100, -50, 50, 100],
+  },
+  txProcessors: {
+    cabal: true,
+    nozomi: false,
+    astra_iris: false,
+    jito_validators: false,
+    blox_route: false,
+    next_block: false,
+    '0slot_trade': false,
+  },
+};

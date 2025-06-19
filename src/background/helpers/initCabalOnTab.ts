@@ -3,6 +3,7 @@ import {
   InitCabalOnTabMessage,
 } from '../../shared/types';
 import { BackgroundState } from '../types';
+import { getMetaByState } from './messagesToContent';
 
 const LOG_DOMAIN = '### INIT_CABAL ###';
 
@@ -37,12 +38,15 @@ export const initCabalOnTab = async ({
       listener.mint = messageMint;
       listener.url = message.data.url;
     } else {
-      listener = {
+      listener = state.addListener({
         tabId: state.activeTab,
         url: message.data.url,
         mint: messageMint,
-      };
-      state.tabListeners.push(listener);
+      });
+    }
+
+    if (!listener) {
+      throw new Error('cant create listener');
     }
 
     if (state.isReady && listener.mint) {
@@ -50,10 +54,7 @@ export const initCabalOnTab = async ({
     }
 
     sendResponse({
-      apiKey: state.apiKey,
-      isReady: state.isReady,
-      url: listener.url,
-      mint: listener.mint,
+      meta: getMetaByState(state),
     });
   } catch (error) {
     console.error(`initCabalOnTab`, error);

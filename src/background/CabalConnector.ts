@@ -8,17 +8,29 @@ import {
   UserResponse,
 } from '../services/cabal-clinet-sdk';
 import { config } from './backgroundConfig';
-import { sendMessageToActiveTab } from './helpers/sendMessageToActiveTab';
 
 import * as messagesToContent from './helpers/messagesToContent';
 import { ConnectError } from '@connectrpc/connect';
 import { CabalStreamErrors } from '../services/cabal-clinet-sdk/CabalStream';
 import { BackgroundState } from './types';
 import { LandedTxnState } from '../services/cabal-clinet-sdk/cabal/CabalRpc/txncb_pb';
+import { FromBackgroundMessage } from '../shared/types';
+
+export type OnMessageParams = {
+  message: FromBackgroundMessage;
+  state: BackgroundState;
+};
 
 class CabalConnector {
   state: BackgroundState;
-  constructor({ state }: { state: BackgroundState }) {
+  onSendMessage: (params: OnMessageParams) => void;
+  constructor({
+    state,
+    onSendMessage,
+  }: {
+    state: BackgroundState;
+    onSendMessage: (params: OnMessageParams) => void;
+  }) {
     this.state = state;
     this.scheduleReconnect = this.scheduleReconnect.bind(this);
     this.initializeCabalService = this.initializeCabalService.bind(this);
@@ -43,6 +55,12 @@ class CabalConnector {
     this.handleTradeTokenStatus = this.handleTradeTokenStatus.bind(this);
     this.handleTradeEvent = this.handleTradeEvent.bind(this);
     this.handleTradeError = this.handleTradeError.bind(this);
+
+    this.onSendMessage = onSendMessage;
+  }
+
+  sendMessageToActiveTab(params: OnMessageParams) {
+    this.onSendMessage(params);
   }
 
   scheduleReconnect() {
@@ -57,13 +75,15 @@ class CabalConnector {
 
   async initializeCabalService() {
     try {
-      console.log('initializeCabalService', this.state.apiKey);
+      console.log(
+        `initializeCabalService api key exists: ${String(!!this.state.apiKey)}`,
+      );
 
       this.cleanCabalService();
 
       // const apiKey = await state.cabalStorage.getApiKey();
       // state.apiKey = apiKey.apiKey;
-      console.log('###', this.state.apiKey);
+      console.log('### api key exists:', String(!!this.state.apiKey));
 
       if (!this.state.apiKey) {
         console.log('no api key');
@@ -99,7 +119,7 @@ class CabalConnector {
         this.state.cabal = null;
       }
       // TODO: replace
-      sendMessageToActiveTab({
+      this.sendMessageToActiveTab({
         state: this.state,
         message: messagesToContent.readyStatus({ state: this.state }),
       });
@@ -129,16 +149,29 @@ class CabalConnector {
   }
 
   checkConnectionStatus() {
-    if (this.state.isUserActivityConnected && this.state.isTradeConnected) {
-      this.state.setIsReady(true);
-      if (config.showStreamConnected) {
-        console.log('Both streams connected successfully');
-      }
-      sendMessageToActiveTab({
-        state: this.state,
-        message: messagesToContent.readyStatus({ state: this.state }),
-      });
-      // Additional logic for successful connection if needed
+    if (!this.state.isUserActivityConnected || this.state.isTradeConnected) {
+      return;
+    }
+
+    this.state.setIsReady(true);
+
+    if (this.state._resolveSetApiKey) {
+      this.state._resolveSetApiKey({});
+    }
+
+    if (config.showStreamConnected) {
+      console.log('Both streams connected successfully');
+    }
+
+    this.sendMessageToActiveTab({
+      state: this.state,
+      message: messagesToContent.readyStatus({ state: this.state }),
+    });
+
+    const listener = this.state.getTabListener(this.state.activeTab);
+
+    if (listener) {
+      this.state.subscribeToken(listener.mint);
     }
   }
 
@@ -176,8 +209,10 @@ class CabalConnector {
 
   handleUserActivityPong(eventValue: UserResponse) {
     try {
-      console.log('------handleUserActivityPong', eventValue);
-      sendMessageToActiveTab({
+      if (config.showHandleUserActivityPong) {
+        console.log('handleUserActivityPong', eventValue);
+      }
+      this.sendMessageToActiveTab({
         state: this.state,
         message: messagesToContent.pongUA({ state: this.state, eventValue }),
       });
@@ -192,7 +227,7 @@ class CabalConnector {
         console.log('handleUserActivityTradeStats', event);
       }
 
-      sendMessageToActiveTab({
+      this.sendMessageToActiveTab({
         state: this.state,
         message: messagesToContent.tradeStatsUA({ event, state: this.state }),
       });
@@ -209,7 +244,7 @@ class CabalConnector {
       if (!message) {
         throw new Error('message cant parsed');
       }
-      sendMessageToActiveTab({
+      this.sendMessageToActiveTab({
         state: this.state,
         message,
       });
@@ -225,11 +260,14 @@ class CabalConnector {
       error.rawMessage === CabalStreamErrors.BadAuth
     ) {
       await this.state.cabalStorage.setApiKey({ apiKey: null });
+      if (this.state._rejectedSetApiKey) {
+        this.state._rejectedSetApiKey({ message: 'bad auth' });
+      }
     } else {
       this.scheduleReconnect();
     }
     console.log('state::::', this.state);
-    sendMessageToActiveTab({
+    this.sendMessageToActiveTab({
       state: this.state,
       message: messagesToContent.errorUA({ state: this.state }),
     });
@@ -245,7 +283,7 @@ class CabalConnector {
     }
     this.state.isTradeConnected = true;
     this.checkConnectionStatus();
-    sendMessageToActiveTab({
+    this.sendMessageToActiveTab({
       state: this.state,
       message: messagesToContent.tradesConnected({ state: this.state }),
     });
@@ -256,7 +294,7 @@ class CabalConnector {
       state: this.state,
       eventValue,
     });
-    sendMessageToActiveTab({ state: this.state, message });
+    this.sendMessageToActiveTab({ state: this.state, message });
   }
 
   handleTradeTokenStatus(eventValue: { value: { value: TokenStatus } }) {
@@ -268,7 +306,7 @@ class CabalConnector {
         state: this.state,
         eventValue,
       });
-      sendMessageToActiveTab({ state: this.state, message });
+      this.sendMessageToActiveTab({ state: this.state, message });
     } catch (error) {
       console.error(`error in handleTradeTokenStatus`, error);
     }
@@ -280,7 +318,7 @@ class CabalConnector {
         state: this.state,
         eventValue,
       });
-      sendMessageToActiveTab({ state: this.state, message });
+      this.sendMessageToActiveTab({ state: this.state, message });
     } catch (error) {
       console.error(`error in handleTradeEvent`, error);
     }
@@ -290,7 +328,7 @@ class CabalConnector {
     console.error('Trade Stream Error');
     this.scheduleReconnect();
     const message = messagesToContent.tradeError({ state: this.state });
-    sendMessageToActiveTab({ state: this.state, message });
+    this.sendMessageToActiveTab({ state: this.state, message });
   };
 }
 

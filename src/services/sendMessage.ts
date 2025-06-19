@@ -11,5 +11,6 @@ export const sendMessage = <Response = BgMessageResponse>({
   payload: MessageToBgPayload;
   cb: (response: Response) => void;
 }) => {
+  console.log('[send message]', payload);
   chrome.runtime.sendMessage(payload, cb);
 };
