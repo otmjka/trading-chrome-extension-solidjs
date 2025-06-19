@@ -15,7 +15,7 @@ export const parseTradeEvent = ({
   cabalTradeEvent,
   mint,
 }: {
-  mint: Mint;
+  mint: Mint | null;
   cabalTradeEvent: TradeEvent;
 }): TradeEventParsed | undefined => {
   try {

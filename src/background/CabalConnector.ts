@@ -75,13 +75,15 @@ class CabalConnector {
 
   async initializeCabalService() {
     try {
-      console.log('initializeCabalService', this.state.apiKey);
+      console.log(
+        `initializeCabalService api key exists: ${String(!!this.state.apiKey)}`,
+      );
 
       this.cleanCabalService();
 
       // const apiKey = await state.cabalStorage.getApiKey();
       // state.apiKey = apiKey.apiKey;
-      console.log('###', this.state.apiKey);
+      console.log('### api key exists:', String(!!this.state.apiKey));
 
       if (!this.state.apiKey) {
         console.log('no api key');

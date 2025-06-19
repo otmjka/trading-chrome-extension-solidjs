@@ -1,4 +1,4 @@
-import { Component, createEffect, createSignal, JSX, Show } from 'solid-js';
+import { Component, JSX, Show } from 'solid-js';
 import cn from 'classnames';
 
 import { NumberField } from '@kobalte/core/number-field';
@@ -22,10 +22,11 @@ export const NumberInput: Component<{
   label?: JSX.Element;
   value?: string;
   size?: InputSize;
+  placeholder?: string;
   onChange: (value: string) => void;
 }> = (props) => {
   const commonInputCN =
-    'ext-w-full ext-text-white ext-text-xs ext-leading-none ext-outline-none';
+    'ext-font-chakra ext-text-sm ext-w-full ext-text-white ext-leading-none ext-outline-none';
   const inputColor = {
     'ext-bg-green-100': props.color === IColor.green,
     'ext-bg-red-100': props.color === IColor.red,
@@ -62,7 +63,10 @@ export const NumberInput: Component<{
         </NumberField.Label>
       </Show>
       <div class={cn(fieldContainer, size, containerColor)}>
-        <NumberField.Input class={cn(commonInputCN, inputColor, props.cn)} />
+        <NumberField.Input
+          placeholder={props.placeholder}
+          class={cn(commonInputCN, inputColor, props.cn)}
+        />
         <Show when={props.icon === IIcon.sol}>
           <SolIcon />
         </Show>

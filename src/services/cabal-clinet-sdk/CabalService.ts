@@ -11,6 +11,7 @@ import {
   CabalStreamEventsHandler,
   streamNames,
   CabalTradeStreamMessages,
+  SubscribeTokenReturn,
 } from './CabalServiceTypes';
 
 import { CabalUserActivityStreamMessages, Direction, Side, Trigger } from '.';
@@ -104,15 +105,16 @@ class CabalService extends EventEmitter {
 
   // TODO: https://stackoverflow.com/questions/71200948/how-can-i-validate-a-solana-wallet-address-with-web3js
   // CabalRpc -> SubscribeToken(TokenTradeEventSub) returns (TradeResponse) {}
-  async subscribeToken(mint: string): Promise<TradeResponse | undefined> {
+  async subscribeToken(mint: string): SubscribeTokenReturn {
     try {
       const result = await this.client.subscribeToken({
         mint,
       });
-      console.log('subscribeToken', result);
-      return result;
+      console.log(`[subscribeToken][${mint}]`, result);
+      return { result };
     } catch (error) {
-      console.error('subscribeToken', error);
+      console.error(`[subscribeToken][${mint}]`, error);
+      return { error: error as Error };
     }
   }
   // CabalRpc -> PlaceLimitOrders

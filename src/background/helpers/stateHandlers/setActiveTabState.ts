@@ -1,11 +1,12 @@
 import { BackgroundState } from '../../types';
-import { getActiveTab } from '../getActiveTab';
+import { getActiveTabId } from '../getActiveTabId';
 
 export const setActiveTabState = async function (
   this: BackgroundState,
-): Promise<{ error: null | string }> {
+): Promise<{ tabId?: number; error: null | string }> {
   try {
-    const tabId = await getActiveTab();
+    const tabId = await getActiveTabId();
+
     if (!tabId) {
       this.activeTab = undefined;
       throw new Error('no active tab');
@@ -13,7 +14,7 @@ export const setActiveTabState = async function (
 
     this.activeTab = tabId;
 
-    return { error: null };
+    return { tabId, error: null };
   } catch (error) {
     console.error(error);
     return { error: (error as unknown as Error).message };

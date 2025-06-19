@@ -28,8 +28,8 @@ type AutoLimitConfig = {
   setAutoLimitIfTrade: boolean;
   presets: Array<AutoLimitPreset>;
 };
-type Presets = [number, number, number, number];
-type BuySellConfig = {
+type Presets = number[];
+export type BuySellConfig = {
   buyPresetsSol: Presets; // [0.5, 1, 2, 5];
   sellPresetsSol: Presets; // [0.5, 1, 2, 5];
 

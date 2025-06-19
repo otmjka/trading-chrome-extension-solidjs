@@ -7,6 +7,7 @@ export { MinIcon } from './MinIcon';
 export { PinIcon } from './PinIcon';
 export { PreferencesIcon } from './PreferencesIcon';
 
+export { ShareIcon } from './ShareIcon';
 export { SolCutIcon } from './SolCutIcon';
 export { SolIcon } from './SolIcon';
 export { TooltipIcon } from './TooltipIcon';

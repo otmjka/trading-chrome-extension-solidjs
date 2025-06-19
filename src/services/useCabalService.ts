@@ -4,9 +4,11 @@ import {
 } from './cabal-clinet-sdk';
 import {
   BackgroundMessages,
+  BgInitMessageResponse,
   CabalCommonMessages,
   CabalMessageType,
   CabalMeta,
+  FromBackgroundConfigChanged,
   FromBackgroundMessage,
   FromBackgroundMessageTradeEvent,
   FromBackgroundMessageTradePong,
@@ -17,6 +19,7 @@ import {
   FromBackgroundTxMessage,
   GetConfigPromisePayloadMessage,
   GetConfigPromiseResponse,
+  InitCabalOnTabMessage,
   Mint,
   SendApiKeyPayloadMessage,
   SendApiKeyPromisePayloadMessage,
@@ -24,6 +27,10 @@ import {
   SetApiKeyPromiseResponse,
   SetConfigToDefaultPayloadMessage,
   SetConfigToDefaultResponse,
+  SubscribeTokenPayloadMessage,
+  SubscribeTokenPromisePayloadMessage,
+  SubscribeTokenPromiseResponse,
+  SubscribeTokenResponse,
 } from '../shared/types';
 
 /* STORES */
@@ -42,12 +49,14 @@ import { buyMarket } from './buyMarket';
 import { startListnenBackgroundMessages } from './chrome-extension/backgroundMessageHandler';
 import { sellMarket } from './sellMarket';
 import { sendMessage } from './sendMessage';
-import { subscribeToken } from './subscribeToken';
 import * as handlers from './CabalStoreHandlers';
+import { BuySellConfig } from './CabalStorage/types';
 
 const metaToStores = (meta: CabalMeta) => {
   setContentAppStore('isReady', meta.isReady);
   setContentAppStore('shouldSetApiKey', meta.shouldSetApiKey);
+  setContentAppStore('config', meta.config);
+  setConfigStore('config', meta.config);
 };
 
 const metaToStatus = (message: FromBackgroundMessage) => {
@@ -69,6 +78,7 @@ const handleUserActivityTradeStats = (
   console.log('!!!!!!!handleUserActivityTradeStats', event);
   setLogStore('logs', (prev) => [...prev, { type: 'tokenTradeStats', event }]);
   setTradeWidgetState('tradeStats', event.data);
+  setContentAppStore('tradeStats', event.data);
 };
 
 const handleUserActivityError = () => setCabalUserActivity('status', undefined);
@@ -87,6 +97,7 @@ const handleTradeStreamPong = (eventValue: FromBackgroundMessageTradePong) =>
 const handleTradeEvent = (event: FromBackgroundMessageTradeEvent) => {
   setLogStore('logs', (prev) => [...prev, { type: 'tradeEvent', event }]);
   setTradeWidgetState('lastTradeEvent', event.data);
+  setContentAppStore('lastTradeEvent', event.data);
 };
 
 const handleTradeTokenStatus = (
@@ -94,6 +105,7 @@ const handleTradeTokenStatus = (
 ) => {
   setLogStore('logs', (prev) => [...prev, { type: 'tokenStatus', event }]);
   setTradeWidgetState('tokenStatus', event.data);
+  setContentAppStore('tokenStatus', event.data);
 };
 
 const handleTradeError = () => setCabalTradeStream('status', undefined);
@@ -111,6 +123,12 @@ const handleReadyStatus = (message: FromBackgroundReadyStatusMessage) => {
 const handleUAtxCB = (message: FromBackgroundTxMessage) => {
   addLogRecord(message);
   addToast(message);
+};
+
+const handleConfigChangedMessageFromBg = (
+  message: FromBackgroundConfigChanged,
+) => {
+  metaToStores(message.meta);
 };
 
 export const messageListener = (
@@ -171,7 +189,9 @@ export const messageListener = (
     case CabalTradeStreamMessages.tradeError:
       handleTradeError();
       break;
-
+    case CabalCommonMessages.configChanged:
+      handleConfigChangedMessageFromBg(message);
+      break;
     default:
       console.log(`unknown message: ${messageType}`);
   }
@@ -269,14 +289,94 @@ const resetConfig = () => {
   sendMessage({ payload, cb });
 };
 
+const subscribeTokenPromise = ({ mint }: { mint: string }) => {
+  const payload: SubscribeTokenPromisePayloadMessage = {
+    type: BackgroundMessages.SUBSCRIBE_TOKEN_PROMISE,
+    data: {
+      mint,
+    },
+  };
+  const cb = (response: SubscribeTokenPromiseResponse) => {
+    console.log('subscribeTokenPromise response', response);
+  };
+
+  sendMessage({ payload, cb });
+};
+
+export const subscribeToken = ({ mint }: { mint: Mint }) => {
+  const payload: SubscribeTokenPayloadMessage = {
+    type: BackgroundMessages.SUBSCRIBE_TOKEN,
+    data: { mint },
+  };
+
+  const cb = (response: SubscribeTokenResponse) => {
+    console.log(`[cabal-content]: response subscribe token`, response);
+  };
+
+  sendMessage({ payload, cb });
+};
+export const registerTab = ({
+  mint,
+  locationHref,
+}: {
+  mint: Mint;
+  locationHref: string;
+}) => {
+  const payload: InitCabalOnTabMessage = {
+    type: BackgroundMessages.INIT_CABAL,
+    data: {
+      url: locationHref,
+      mint,
+    },
+  };
+
+  const cb = (response: BgInitMessageResponse) => {
+    console.log('[cabal-content][registerTab response]:', response);
+
+    // setContentAppStore('url', response.url);
+    // setContentAppStore('mint', response.mint);
+    setContentAppStore('isReady', response.meta.isReady);
+    setContentAppStore('config', response.meta.config);
+    // setContentAppStore('shouldSetApiKey', !response.apiKey);
+
+    // if (response.isReady) {
+    //   setCabalUserActivity('status', {
+    //     isReady: true,
+    //     count: String(Date.now()),
+    //   });
+    //   setCabalTradeStream('status', {
+    //     isReady: true,
+    //     count: String(Date.now()),
+    //   });
+    // }
+  };
+
+  sendMessage({ payload, cb });
+};
+
+const saveBuySellSettings = (value: BuySellConfig) => {
+  const payload: SaveBuySellSettingsMessage = {
+    type: BackgroundMessages.BUY_SELL_SETTINGS_CHANGE,
+    data: value,
+  };
+  sendMessage({
+    payload,
+    cb: (response) => {
+      console.log(`saveBuySellSettings response`, response);
+    },
+  });
+};
+
 export function useStartCabalService() {
   return {
+    saveBuySellSettings,
+    subscribeTokenPromise,
     resetConfig,
     getConfig,
     sendApiKey,
     sendApiKeyPromise,
     popupOpen: handlers.popupOpen,
-    registerTab: handlers.registerTab,
+    registerTab,
     subscribeToken,
     marketBuy,
     marketSell,

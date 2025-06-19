@@ -12,12 +12,15 @@ import { TopSettingsNav } from './TopSettingsNav/TopSettingsNav';
 import * as S from './Settings.parts';
 import { SettingsOthers } from './SettingsOthers/SettingsOthers';
 import { SettingsHandlers } from './types';
+import { useStartCabalService } from '../../services/useCabalService';
+import { BuySellConfig } from '../../services/CabalStorage/types';
 
 const Settings: Component<{ handlers: SettingsHandlers }> = (props) => {
+  const { saveBuySellSettings } = useStartCabalService();
   const { others, selectedTab, setSelectedTab, bsState } = useSettingsStore({
     handlers: props.handlers,
-    saveBSConfig: () => {
-      console.log('SAVE BS');
+    saveBSConfig: (value: BuySellConfig) => {
+      saveBuySellSettings(value);
     },
   });
 

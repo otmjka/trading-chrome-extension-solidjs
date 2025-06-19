@@ -1,5 +1,5 @@
 import { defaultCabalConfig } from './defaultCabalStorageValue';
-import { CabalConfig } from './types';
+import { BuySellConfig, CabalConfig } from './types';
 
 class CabalStorage {
   async init() {
@@ -50,6 +50,15 @@ class CabalStorage {
 
   async setApiKey({ apiKey }: { apiKey: string | null }) {
     return chrome.storage.local.set({ apiKey });
+  }
+
+  async setBuySellSettings(value: BuySellConfig) {
+    const { config } = await chrome.storage.local.get<{ config: CabalConfig }>([
+      'config',
+    ]);
+    const newBuySellValue = { ...config.buySell, ...value };
+    const newConfig = { ...config, buySell: newBuySellValue };
+    await chrome.storage.local.set({ config: newConfig });
   }
 }
 

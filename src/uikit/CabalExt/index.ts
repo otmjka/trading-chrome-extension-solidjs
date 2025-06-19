@@ -1,9 +1,10 @@
-export { Button, BColor, IconButton } from './Button';
+export { Button, BColor, IconButton, BV } from './Button';
 export { SaveButton } from './SaveButton';
 
 export { BtnGroup } from './BtnGroup';
 
 export { Paper } from './Paper';
+export { PaperColor } from './enums';
 
 export { Typography, ColorText, TextColor, FontSize, FW } from './Typography';
 
@@ -11,7 +12,7 @@ export { Typography, ColorText, TextColor, FontSize, FW } from './Typography';
 //   Form/Inputs
 // */
 
-export { NumberInput, IIcon } from './NumberInput';
+export { NumberInput, IIcon, InputSize } from './NumberInput';
 export { IColor } from './enums';
 export { TextInput } from './TextInput';
 export { SwitchInput } from './SwitchInput';

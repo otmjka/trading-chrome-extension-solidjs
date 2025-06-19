@@ -17,6 +17,7 @@ import {
   CabalCommonMessages,
   CabalMessageType,
   CabalMeta,
+  FromBackgroundConfigChanged,
   FromBackgroundMessageTradeConnected,
   FromBackgroundMessageTradeError,
   FromBackgroundMessageTradeEvent,
@@ -40,10 +41,21 @@ import {
 } from './cabalEventsToContentPayload';
 import { getTxEventTrades } from './getTxEventTrades';
 
-const getMetaByState = (state: BackgroundState): CabalMeta => ({
+export const getMetaByState = (state: BackgroundState): CabalMeta => ({
+  mint: state.mint,
   isReady: state.isReady,
   shouldSetApiKey: !state.apiKey,
   config: state.config,
+});
+
+export const configChanged = ({
+  state,
+}: {
+  state: BackgroundState;
+}): FromBackgroundConfigChanged => ({
+  type: CabalMessageType.CabalEvent,
+  eventName: CabalCommonMessages.configChanged,
+  meta: getMetaByState(state),
 });
 
 export const tradeStatsUA = ({
@@ -133,7 +145,7 @@ export const tradeEvent = ({
   eventValue: TradeEvent;
 }): FromBackgroundMessageTradeEvent => {
   const data = parseTradeEvent({
-    mint: state.mint || '$$$',
+    mint: state.mint,
     cabalTradeEvent: eventValue,
   });
 

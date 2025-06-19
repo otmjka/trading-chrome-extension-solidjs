@@ -3,3 +3,9 @@ export enum IColor {
   red = 'red',
   grey = 'grey',
 }
+
+export enum PaperColor {
+  black = 'black',
+  green = 'green',
+  red = 'red',
+}

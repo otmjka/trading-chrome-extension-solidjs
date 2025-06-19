@@ -1,4 +1,5 @@
 import CabalStorage from '../services/CabalStorage/CabalStorage';
+import { addListenerState } from './helpers/stateHandlers/addListenerState';
 import { getIsReadyState } from './helpers/stateHandlers/getIsReadyState';
 import { getTabListenerState } from './helpers/stateHandlers/getTabListenerState';
 import { setActiveTabByIdState } from './helpers/stateHandlers/setActiveTabByIdState';
@@ -31,6 +32,8 @@ export const state: BackgroundState = {
   },
   setActiveTab: setActiveTabState,
   setActiveTabById: setActiveTabByIdState,
+
+  addListener: addListenerState,
   getTabListener: getTabListenerState,
 
   setIsReady: setIsReadyState,
@@ -40,6 +43,8 @@ export const state: BackgroundState = {
 state.subscribeToken = state.subscribeToken.bind(state);
 state.getActiveTab = state.getActiveTab.bind(state);
 state.setActiveTab = state.setActiveTab.bind(state);
+
+state.addListener = state.addListener.bind(state);
 state.getTabListener = state.getTabListener.bind(state);
 state.setActiveTab = state.setActiveTab.bind(state);
 state.setActiveTabById = state.setActiveTabById.bind(state);

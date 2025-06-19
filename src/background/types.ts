@@ -1,7 +1,9 @@
 import { CabalService } from '../services/cabal-clinet-sdk';
+import { SubscribeTokenReturn } from '../services/cabal-clinet-sdk/CabalServiceTypes';
 import CabalStorage from '../services/CabalStorage/CabalStorage';
 import { CabalConfig } from '../services/CabalStorage/types';
 import { Mint } from '../shared/types';
+import { setActiveTabState } from './helpers/stateHandlers/setActiveTabState';
 
 export type CabalMessage = {
   type: string;
@@ -19,6 +21,7 @@ export type BackgroundState = {
   isUserActivityConnected: boolean;
   isTradeConnected: boolean;
   isReady: boolean;
+  readyPromise: Promise<undefined> | undefined;
   reconnectTimeout: number | undefined;
   mint: Mint | null;
   activeTab: number | undefined;
@@ -32,10 +35,12 @@ export type BackgroundState = {
 
   getCabalInstance: () => CabalService | null;
 
-  subscribeToken: (mint: string) => void;
+  subscribeToken: (mint: string) => SubscribeTokenReturn;
   getActiveTab: () => number | undefined;
-  setActiveTab: () => Promise<{ error: null | string }>;
+  setActiveTab: () => ReturnType<typeof setActiveTabState>;
   setActiveTabById: (tabId: number) => void;
+
+  addListener: (listenerData: ContentListener) => ContentListener | undefined;
   getTabListener: (tabId?: number) => ContentListener | undefined;
 
   setIsReady: (value: boolean) => void;

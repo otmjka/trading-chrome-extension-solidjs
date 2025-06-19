@@ -14,6 +14,7 @@ export const BuyPresets: Component<{
   createEffect(() => {
     props.onChange(store.values);
   });
+
   return (
     <div>
       <div class="ext-flex ext-gap-3">

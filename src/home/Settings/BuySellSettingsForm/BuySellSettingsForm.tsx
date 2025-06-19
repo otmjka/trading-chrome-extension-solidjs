@@ -22,6 +22,7 @@ import {
   SellPresetsPercValues,
   SellPresetsSolValues,
 } from '../../../shared/cabalConfigTypes';
+import { configStore } from '../../../stores/configStore';
 
 export const BuySellSettingsForm: Component<{
   state: BuySellSettingsFormState;
