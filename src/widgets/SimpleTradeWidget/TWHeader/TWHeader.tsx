@@ -9,7 +9,7 @@ import {
 
 import { Tabs } from '@kobalte/core/tabs';
 
-export const TWHeader: Component = (props) => {
+export const TWHeader: Component<{ openFull: () => void }> = (props) => {
   return (
     <div class="ext-flex">
       <div>
@@ -31,7 +31,7 @@ export const TWHeader: Component = (props) => {
       <div class="ext-flex ext-flex-1 ext-items-center">
         <div class="ext-flex ext-flex-1 ext-justify-end ext-gap-2">
           <div class="ext-size-7.5">
-            <IconButton cn="ext-bg-black-100">
+            <IconButton cn="ext-bg-black-100" onClick={props.openFull}>
               <PreferencesIcon size="7.5" />
             </IconButton>
           </div>

@@ -82,10 +82,15 @@ export const BuySell: Component = () => {
           </div>
         </div>
         <div class="ext-flex ext-gap-[10px]">
-          <QuickButton icon={'sol'} amount="0.5" color={BColor.red} />
-          <QuickButton icon={'sol'} amount="0.5" color={BColor.red} />
-          <QuickButton icon={'sol'} amount="0.5" color={BColor.red} />
-          <QuickButton icon={'sol'} amount="0.5" color={BColor.red} />
+          <For each={contentAppStore.config?.buySell.sellPresetsSol}>
+            {(presetItem) => (
+              <QuickButton
+                icon={'sol'}
+                amount={String(presetItem)}
+                color={BColor.red}
+              />
+            )}
+          </For>
         </div>
         <div class="ext-flex ext-items-end ext-gap-2 ext-mt-3">
           <div>
