@@ -18,7 +18,7 @@ export const TradingWidgetView: Component<TradingWidgetViewProps> = (props) => {
       !!contentAppStore.tradeStats,
   );
   return (
-    <Paper p="2" cn="ext-w-[320px] ext-h-[386px]">
+    <Paper p="2" cn="e:w-[320px] e:h-[386px]">
       <Show when={isReady}>
         <Tabs value={currentTab()} onChange={setCurrentTab}>
           <TWHeader openFull={props.state.openFull} />

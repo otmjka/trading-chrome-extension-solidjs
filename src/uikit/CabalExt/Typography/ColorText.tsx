@@ -1,6 +1,5 @@
 import { Component, JSX } from 'solid-js';
 
-import cn from 'classnames';
 import { Typography } from './Typography';
 
 type ColorTextProps = {

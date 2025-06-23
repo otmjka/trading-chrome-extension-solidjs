@@ -7,22 +7,22 @@ export const PopupToolBar: Component<{
   onSettings: () => void;
 }> = (props) => {
   return (
-    <div class="ext-flex ext-mb-4">
+    <div class="e:flex e:mb-4">
       <div></div>
-      <div class="ext-flex ext-flex-1 ext-items-center">
-        <div class="ext-flex ext-flex-1 ext-justify-end ext-gap-2">
-          <div class="ext-size-7.5">
-            <IconButton cn="ext-bg-black-100" onClick={props.onLogout}>
+      <div class="e:flex e:flex-1 e:items-center">
+        <div class="e:flex e:flex-1 e:justify-end e:gap-2">
+          <div class="e:size-7.5">
+            <IconButton cn="e:bg-black-100" onClick={props.onLogout}>
               <LogoutIcon size="7.5" />
             </IconButton>
           </div>
-          <div class="ext-size-7.5">
-            <IconButton cn="ext-bg-black-100" onClick={props.onSettings}>
+          <div class="e:size-7.5">
+            <IconButton cn="e:bg-black-100" onClick={props.onSettings}>
               <PreferencesIcon size="7.5" />
             </IconButton>
           </div>
-          <div class="ext-size-7.5">
-            <IconButton cn="ext-bg-black-100">
+          <div class="e:size-7.5">
+            <IconButton cn="e:bg-black-100">
               <MinIcon size="7.5" />
             </IconButton>
           </div>

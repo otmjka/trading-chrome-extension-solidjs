@@ -22,7 +22,6 @@ import {
   SellPresetsPercValues,
   SellPresetsSolValues,
 } from '../../../shared/cabalConfigTypes';
-import { configStore } from '../../../stores/configStore';
 
 export const BuySellSettingsForm: Component<{
   state: BuySellSettingsFormState;
@@ -66,7 +65,7 @@ export const BuySellSettingsForm: Component<{
   };
 
   return (
-    <Paper cn="ext-bg-black ext-w-[422px]">
+    <Paper cn="e:bg-black e:w-[422px]">
       <S.Header label={'Buy/Sell Settings'} />
 
       <S.Content>
@@ -75,7 +74,7 @@ export const BuySellSettingsForm: Component<{
 
           <S.Left>
             <S.Box>
-              <div class="ext-mb-3">
+              <div class="e:mb-3">
                 <S.CHeading dir={S.Dir.buy} left="Buy" right="Presets" />
               </div>
               <BuyPresets
@@ -88,8 +87,8 @@ export const BuySellSettingsForm: Component<{
           {/* Sell Presets */}
 
           <S.Right>
-            <S.Box cn="ext-flex ext-mb-3 ext-items-center">
-              <S.Left cn="ext-flex-1">
+            <S.Box cn="e:flex e:mb-3 e:items-center">
+              <S.Left cn="e:flex-1">
                 <S.CHeading left="Sell" right="Presets" />
               </S.Left>
               <S.Right>
@@ -117,7 +116,7 @@ export const BuySellSettingsForm: Component<{
           {/* Buy Tip */}
 
           <S.Left>
-            <S.Box cn="ext-mb-3">
+            <S.Box cn="e:mb-3">
               <S.CHeading dir={S.Dir.buy} left="Buy" right="Tip" />
             </S.Box>
             <S.Box>
@@ -132,7 +131,7 @@ export const BuySellSettingsForm: Component<{
 
           {/* Sell Tip */}
           <S.Right>
-            <div class="ext-mb-3">
+            <div class="e:mb-3">
               <S.CHeading left="Sell" right="Tip" />
             </div>
             <div>

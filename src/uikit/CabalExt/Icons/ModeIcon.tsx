@@ -4,7 +4,7 @@ import { Component } from 'solid-js';
 const mode = chrome.runtime.getURL('assets2/mode.svg');
 
 export const ModeIcon: Component = () => (
-  <div class="ext-size-5">
+  <div class="e:size-5">
     <img src={mode} alt="mode" />
   </div>
 );

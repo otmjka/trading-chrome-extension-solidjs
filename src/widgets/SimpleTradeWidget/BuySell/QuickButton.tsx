@@ -18,8 +18,8 @@ export const QuickButton: Component<{
   onClick: () => void;
 }> = (props) => {
   const w = {
-    'ext-w-16': !props.w,
-    [`ext-w-${props.w}`]: props.w,
+    'e:w-16': !props.w,
+    [`e:w-${props.w}`]: props.w,
   };
   return (
     <div class={cn(w)}>
@@ -29,7 +29,7 @@ export const QuickButton: Component<{
         color={props.color}
         icon={
           props.icon === 'sol' ? (
-            <SolIcon noStyles cn="ext-w-[16px] ext-h-[16px]" />
+            <SolIcon noStyles cn="e:w-[16px] e:h-[16px]" />
           ) : (
             <div>
               <Typography
@@ -41,11 +41,7 @@ export const QuickButton: Component<{
           )
         }
       >
-        <Typography
-          cn={'ext-flex'}
-          size={FontSize.sm}
-          children={props.amount}
-        />
+        <Typography cn={'e:flex'} size={FontSize.sm} children={props.amount} />
       </Button>
     </div>
   );

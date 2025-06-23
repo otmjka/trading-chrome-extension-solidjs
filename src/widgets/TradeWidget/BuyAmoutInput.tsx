@@ -13,8 +13,8 @@ const BuyAmoutInput: Component<{
   onChange: (value: string) => void;
 }> = (props) => {
   return (
-    <Card cn="ext-border-green-500">
-      <div class="ext-flex ext-gap-2">
+    <Card cn="e:border-green-500">
+      <div class="e:flex e:gap-2">
         <For each={props.getQuicks()}>
           {(amountSol, index) => (
             <SolAmountButton
@@ -26,7 +26,7 @@ const BuyAmoutInput: Component<{
           )}
         </For>
       </div>
-      <div class="ext-mt-[14px]">
+      <div class="e:mt-[14px]">
         <TradeInput
           getInputValue={props.getInputValue}
           onChange={props.onChange}

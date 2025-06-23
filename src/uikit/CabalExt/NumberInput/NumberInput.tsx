@@ -26,22 +26,23 @@ export const NumberInput: Component<{
   onChange: (value: string) => void;
 }> = (props) => {
   const commonInputCN =
-    'ext-font-chakra ext-text-sm ext-w-full ext-text-white ext-leading-none ext-outline-none';
+    'e:font-chakra e:text-sm e:w-full e:text-white e:leading-none e:outline-none';
   const inputColor = {
-    'ext-bg-green-100': props.color === IColor.green,
-    'ext-bg-red-100': props.color === IColor.red,
-    'ext-bg-black-100': props.color === IColor.grey,
+    'e:bg-green-100': props.color === IColor.green,
+    'e:bg-red-100': props.color === IColor.red,
+    'e:bg-black-100': props.color === IColor.grey,
   };
   const size = {
-    'ext-py-[11px]': !props.size,
-    'ext-py-[7px]': props.size === InputSize.sm,
+    'e:py-[11px]': !props.size,
+    'e:py-[7px]': props.size === InputSize.sm,
   };
-  const fieldContainer =
-    'ext-flex  ext-items-center ext-pr-3 ext-border  ext-pl-4';
+  const fieldContainer = 'e:flex  e:items-center e:pr-3 e:border  e:pl-4';
   const containerColor = {
-    'ext-bg-green-100 ext-border-green-500': props.color === IColor.green,
-    'ext-bg-red-100 ext-border-red-500': props.color === IColor.red,
-    'ext-bg-black-100 ext-border-black-200': props.color === IColor.grey,
+    'e:bg-green-100 e:border-green-500 ebrd-green-500':
+      props.color === IColor.green,
+    'e:bg-red-100 e:border-red-500 ebrd-red-500': props.color === IColor.red,
+    'e:bg-black-100 e:border-black-200 ebrd-black-200':
+      props.color === IColor.grey,
   };
   return (
     <NumberField
@@ -53,9 +54,9 @@ export const NumberInput: Component<{
       onChange={props.onChange}
     >
       <Show when={!!props.label}>
-        <NumberField.Label class="ext-text-white ext-text-[8px]">
+        <NumberField.Label class="e:text-white e:text-[8px]">
           <Typography
-            cn={'ext-mb-2'}
+            cn={'e:mb-2'}
             size={FontSize.sm}
             nowrap
             children={props.label}
@@ -71,7 +72,7 @@ export const NumberInput: Component<{
           <SolIcon />
         </Show>
         <Show when={props.icon === IIcon.perc}>
-          <div class="ext-w-6 ext-h-4">
+          <div class="e:w-6 e:h-4">
             <Typography color={TextColor.b300} weight={FW.md} children="%" />
           </div>
         </Show>

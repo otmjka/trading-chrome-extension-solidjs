@@ -6,7 +6,7 @@ import {
   NumberInput,
   TrashIcon,
   Typography,
-} from '../../../uiKit/CabalExt';
+} from '../../../uikit/CabalExt';
 import { For } from 'solid-js';
 
 const cols = [
@@ -48,13 +48,13 @@ const rows = [
 
 export const AutoLimitTableInput: Component = () => {
   return (
-    <table class="ext-w-full">
+    <table class="e:w-full">
       <thead>
         <tr>
           <For each={cols}>
             {(col) => {
               return (
-                <th class="ext-text-left">
+                <th class="e:text-left">
                   <Typography children={col.label} />
                 </th>
               );

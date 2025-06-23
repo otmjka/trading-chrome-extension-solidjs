@@ -1,6 +1,158 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
-@config "../tailwind.config.ts";
+@import 'tailwindcss' prefix(e);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.ebrdwhite {
+  @apply e:border-white e:border-[1px];
+}
+
+.ebrd-black-100 {
+  @apply e:border-black-100 e:border-[1px];
+}
+
+.ebrd-black-200 {
+  @apply e:border-black-200 e:border-[1px];
+}
+
+.ebrd-green-200 {
+  @apply e:border-green-200 e:border-[1px];
+}
+
+.ebrd-red-200 {
+  @apply e:border-red-200 e:border-[1px];
+}
+
+.ebrd-red-500 {
+  @apply e:border-red-500 e:border-[1px];
+}
+
+.ebrd-green-400 {
+  @apply e:border-green-400 e:border-[1px];
+}
+
+.ebrd-green-500 {
+  @apply e:border-green-500 e:border-[1px];
+}
+
+.ebggreen100 {
+  @apply e:bg-green-100;
+}
+
+.ebggreen400 {
+  @apply e:bg-green-400;
+}
+
+.ebggreen500 {
+  @apply e:bg-green-500;
+}
+
+.ebgred100 {
+  @apply e:bg-red-100;
+}
+
+.ebgred500 {
+  @apply e:bg-red-500;
+}
+
+.epx2 {
+  @apply e:px-2;
+}
+
+.epx4 {
+  @apply e:px-4;
+}
+
+.epy1-5 {
+  @apply e:py-1.5;
+}
+
+.epy2px {
+  @apply e:py-[2px];
+}
+
+.epy4 {
+  @apply e:py-4;
+}
+
+@theme {
+  --font-chakra: 'Chakra Petch', 'sans-serif';
+  --color-white: #fff;
+
+  --color-black: #04070c;
+  --color-black-100: #36383c;
+  --color-black-200: #686a6d;
+  --color-black-300: #9b9c9e;
+  --color-black-400: #cdcdce;
+
+  --color-green: #75bc81;
+  --color-green-50: #0d1310;
+  --color-green-100: #152519;
+  --color-green-200: #2d4b33;
+  --color-green-300: #45714d;
+  --color-green-400: #75bc81;
+  --color-green-500: #5bbe7b;
+  --color-green-600: #87c999;
+  --color-green-700: #9fd5b2;
+  --color-green-800: #bde3cb;
+
+  --color-red-50: #170f13;
+  --color-red-100: #2b161a;
+  --color-red-200: #562d34;
+  --color-red-300: #82444f;
+  --color-red-400: #ad5b69;
+  --color-red-500: #e96b82;
+  --color-red-600: #de8c9c;
+  --color-red-700: #ecc4cc;
+  --color-red-800: #f5e1e6;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-lg: 18px;
+  --text-2xl: 24px;
+
+  --spacing: 4px;
+  --spacing-4.5: 18px;
+  --spacing-7.5: 30px;
+}
+
+@layer base {
+  :theme {
+    --font-chakra: 'Chakra Petch', 'sans-serif';
+    --color-white: #fff;
+
+    --color-black: #04070c;
+    --color-black-100: #36383c;
+    --color-black-200: #686a6d;
+    --color-black-300: #9b9c9e;
+    --color-black-400: #cdcdce;
+
+    --color-green: #75bc81;
+    --color-green-50: #0d1310;
+    --color-green-100: #152519;
+    --color-green-200: #2d4b33;
+    --color-green-300: #45714d;
+    --color-green-400: #75bc81;
+    --color-green-500: #5bbe7b;
+    --color-green-600: #87c999;
+    --color-green-700: #9fd5b2;
+    --color-green-800: #bde3cb;
+
+    --color-red-50: #170f13;
+    --color-red-100: #2b161a;
+    --color-red-200: #562d34;
+    --color-red-300: #82444f;
+    --color-red-400: #ad5b69;
+    --color-red-500: #e96b82;
+    --color-red-600: #de8c9c;
+    --color-red-700: #ecc4cc;
+    --color-red-800: #f5e1e6;
+
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-lg: 18px;
+    --text-2xl: 24px;
+
+    --spacing: 4px;
+    --spacing-4.5: 18px;
+    --spacing-7.5: 30px;
+  }
+}

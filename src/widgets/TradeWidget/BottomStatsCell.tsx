@@ -15,21 +15,21 @@ const BottomStatsCell: Component<BottomStatsCellProps> = (props) => {
   return (
     <div
       class={cn(
-        'ext-flex ext-gap-1 ext-px-3 ext-border-r ext-items-start ext-flex-1 ext-justify-center',
+        'e:flex e:gap-1 e:px-3 e:border-r e:items-start e:flex-1 e:justify-center',
         props.cn,
       )}
     >
-      <div class="ext-flex ext-flex-col">
-        <div class="ext-text-[9px] ext-text-gray-400">{props.title}</div>
-        <div class="ext-flex ext-items-baseline ext-gap-1 ext-justify-center">
-          <div class="ext-w-[10px]">
+      <div class="e:flex e:flex-col">
+        <div class="e:text-[9px] e:text-gray-400">{props.title}</div>
+        <div class="e:flex e:items-baseline e:gap-1 e:justify-center">
+          <div class="e:w-[10px]">
             <img width="10px" src={sol} alt="sol_icon" />
           </div>
           <div
-            class={cn('ext-pt-1 ext-whitespace-nowrap', {
-              [`ext-text-green-500`]: props.color === BCellColor.green,
-              [`ext-text-red-600`]: props.color === BCellColor.red,
-              [`ext-text-white`]:
+            class={cn('e:pt-1 e:whitespace-nowrap', {
+              [`e:text-green-500`]: props.color === BCellColor.green,
+              [`e:text-red-600`]: props.color === BCellColor.red,
+              [`e:text-white`]:
                 props.color === BCellColor.white || !props.color,
             })}
           >

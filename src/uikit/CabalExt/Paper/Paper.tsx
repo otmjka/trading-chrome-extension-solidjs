@@ -11,16 +11,18 @@ type PaperProps = {
 };
 
 export const Paper: Component<PaperProps> = (props) => {
-  const commonClasses = 'ext-border';
+  const commonClasses = 'e:border';
   const color = {
-    ['ext-bg-black ext-border-black-100']:
+    ['e:bg-black ebrd-black-100 e:border-black-100']:
       props.color === PaperColor.black || !props.color,
-    ['ext-bg-green-50 ext-border-green-200']: props.color === PaperColor.green,
-    ['ext-bg-red-50 ext-border-red-200']: props.color === PaperColor.red,
+    ['e:bg-green-50 e:border-green-200 ebrd-green-200']:
+      props.color === PaperColor.green,
+    ['e:bg-red-50 e:border-red-200 ebrd-red-200']:
+      props.color === PaperColor.red,
   };
   const p = {
-    'ext-p-8': !props.p,
-    [`ext-p-${props.p}`]: props.p,
+    'e:px-8 e:py-8': !props.p,
+    [`e:px-${props.p} e:py-${props.p} epx${props.p} epy${props.p}`]: props.p,
   };
   return (
     <div class={cn(commonClasses, p, color, props.cn)}>{props.children}</div>

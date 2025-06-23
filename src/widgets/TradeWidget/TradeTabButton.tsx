@@ -12,13 +12,13 @@ type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
 const TradeTabButton: Component<ButtonProps> = (props) => {
   const color = props.mode === TradeDir.Buy ? 'green' : 'red';
   console.log(props.mode, color);
-  const active = `ext-bg-${color}-400 ext-border-${color}-400 hover:ext-bg-${color}-500 ext-transition ext-ease-in ext-duration-200 focus:ext-outline-none`;
-  const unActive = 'ext-border-grey-200 ext-bg-blue-100';
+  const active = `e:bg-${color}-400 e:border-${color}-400 hover:e:bg-${color}-500 e:transition e:ease-in e:duration-200 focus:e:outline-none`;
+  const unActive = 'e:border-grey-200 e:bg-blue-100';
   return (
     <KobalteButton
       type={props.type ?? 'button'}
       class={cn(
-        'ext-py-1 ext-px-4 ext-w-full ext-border ext-rounded-[5px] ext-text-center ext-text-base ext-text-white ext-font-bold disabled:ext-bg-black',
+        'e:py-1 e:px-4 e:w-full e:border e:rounded-[5px] e:text-center e:text-base e:text-white e:font-bold disabled:e:bg-black',
         { [`${active}`]: props.active, [`${unActive}`]: !props.active },
         props.cn,
       )}

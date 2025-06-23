@@ -7,7 +7,7 @@ type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export const IconButton: Component<ButtonProps> = (props) => {
-  const commonCN = 'ext-text-white';
+  const commonCN = 'e:text-white';
   return (
     <KobalteButton
       type={props.type ?? 'button'}

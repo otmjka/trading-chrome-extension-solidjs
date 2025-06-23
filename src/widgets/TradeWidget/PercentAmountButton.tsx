@@ -9,10 +9,10 @@ type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const PercentAmountButton: Component<ButtonProps> = (props) => {
   const common =
-    'ext-w-[56px] ext-text-xs ext-whitespace-nowrap ext-py-[6px] ext-text-white ext-text-center ext-text-base ext-rounded-lg ext-font-medium';
+    'e:w-[56px] e:text-xs e:whitespace-nowrap e:py-[6px] e:text-white e:text-center e:text-base e:rounded-lg e:font-medium';
   const unactive =
-    'ext-bg-red-200 ext-border ext-border-red-400 hover:ext-bg-red-500 ext-transition ext-ease-in ext-duration-200';
-  const active = 'ext-bg-red-400';
+    'e:bg-red-200 e:border e:border-red-400 hover:ext-bg-red-500 e:transition e:ease-in e:duration-200';
+  const active = 'e:bg-red-400';
   return (
     <KobalteButton
       type={props.type ?? 'button'}

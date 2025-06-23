@@ -20,10 +20,10 @@ export const SaveButton: Component<SaveButtonProps> = (props) => {
     console.log('SaveButton ,', props.color);
   });
 
-  const common = 'ext-px-5';
+  const common = 'e:px-5';
   const size = {
-    'ext-py-1': !props.size,
-    'ext-py-1.5': props.size === FontSize.sm,
+    'e:py-1': !props.size,
+    'e:py-1.5': props.size === FontSize.sm,
   };
   return (
     <Button
