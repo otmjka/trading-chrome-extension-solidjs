@@ -13,7 +13,7 @@ export const Card: Component<{
 }> = (props) => (
   <div
     class={cn(
-      'ext-px-[15px] ext-py-[9px] ext-shadow-lg ext-rounded-lg ext-border',
+      'e:px-[15px] e:py-[9px] e:shadow-lg e:rounded-lg e:border',
       props.cn,
     )}
   >
@@ -34,19 +34,17 @@ const CardToolbar: Component<{
 export const Container: Component<{ children: JSX.Element }> = ({
   children,
 }) => (
-  <Card cn="ext-max-w-[312px] ext-bg-blue-100 ext-border-gray-400">
-    {children}
-  </Card>
+  <Card cn="e:max-w-[312px] e:bg-blue-100 e:border-gray-400">{children}</Card>
 );
 
 export const Header: Component = () => (
   <CardToolbar>
-    <div class="ext-flex ext-gap-1 ext-justify-end ext-mb-[6px]">
-      <div class="ext-bg-gray-150 ext-border ext-border-gray-200 ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center ext-items-end">
-        <div class="ext-bg-white ext-h-[1px] ext-w-[5px] ext-mb-[4px]"></div>
+    <div class="e:flex e:gap-1 e:justify-end e:mb-[6px]">
+      <div class="e:bg-gray-150 e:border e:border-gray-200 e:w-[12px] e:h-[12px] e:flex e:justify-center e:items-end">
+        <div class="e:bg-white e:h-[1px] e:w-[5px] e:mb-[4px]"></div>
       </div>
-      <div class="ext-bg-gray-150 ext-border ext-w-[12px] ext-h-[12px] ext-flex ext-justify-center">
-        <img class="ext-w-[5px]" src={pin} alt="pin" />
+      <div class="e:bg-gray-150 e:border e:w-[12px] e:h-[12px] e:flex e:justify-center">
+        <img class="e:w-[5px]" src={pin} alt="pin" />
       </div>
     </div>
   </CardToolbar>
@@ -55,18 +53,18 @@ export const Header: Component = () => (
 export const Settings: Component = () => {
   const sol = chrome.runtime.getURL('assets2/sol.svg');
   return (
-    <div class="ext-flex ext-gap-2">
-      <div class="ext-flex ext-gap-1 ext-items-baseline">
+    <div class="e:flex e:gap-2">
+      <div class="e:flex e:gap-1 e:items-baseline">
         <div>
           <img src={wallet} alt="wallet" />
         </div>
-        <div class="ext-text-xs ext-text-white ext-font-medium">1</div>
+        <div class="e:text-xs e:text-white e:font-medium">1</div>
       </div>
-      <div class="ext-flex ext-gap-1 ext-items-baseline">
+      <div class="e:flex e:gap-1 e:items-baseline">
         <div>
           <img src={sol} alt="sol" />
         </div>
-        <div class="ext-text-xs ext-text-white ext-font-medium">
+        <div class="e:text-xs e:text-white e:-font-medium">
           {tradeWidgetState.solBalanceLabel}
         </div>
       </div>
@@ -75,29 +73,29 @@ export const Settings: Component = () => {
 };
 
 export const TabsList = () => (
-  <div class="ext-flex-1">
-    <Tabs.List class="ext-relative ext-flex ext-gap-[10px]">
-      <Tabs.Trigger class="ext-text-white ext-text-[10px]" value="market">
+  <div class="e:flex-1">
+    <Tabs.List class="e:relative e:flex e:gap-[10px]">
+      <Tabs.Trigger class="e:text-white e:text-[10px]" value="market">
         Market
       </Tabs.Trigger>
-      <Tabs.Trigger class="ext-text-white ext-text-[10px]" value="limit">
+      <Tabs.Trigger class="e:text-white e:text-[10px]" value="limit">
         Limit
       </Tabs.Trigger>
-      <Tabs.Trigger class="ext-text-white ext-text-[10px]" value="trailing">
+      <Tabs.Trigger class="e:text-white e:text-[10px]" value="trailing">
         Trailing
       </Tabs.Trigger>
-      <Tabs.Trigger class="ext-text-white ext-text-[10px]" value="autolimit">
+      <Tabs.Trigger class="e:text-white e:text-[10px]" value="autolimit">
         Auto Limit
       </Tabs.Trigger>
-      <Tabs.Indicator class="ext-h-[1px] ext-bg-white ext-absolute ext-bottom-[-2px] ext-transition-all" />
+      <Tabs.Indicator class="e:h-[1px] e:bg-white e:absolute e:bottom-[-2px] e:transition-all" />
     </Tabs.List>
   </div>
 );
 
 export const TabsHeader: Component<{ children: JSX.Element }> = ({
   children,
-}) => <div class="ext-flex ext-px-[11px] ext-items-baseline">{children}</div>;
+}) => <div class="e:flex e:px-[11px] e:items-baseline">{children}</div>;
 
 export const Hr: Component = () => (
-  <div class="ext-bg-gray-200 ext-h-[1px] ext-mt-[6px] ext-mb-[15px]" />
+  <div class="e:bg-gray-200 e:h-[1px] e:mt-[6px] e:mb-[15px]" />
 );

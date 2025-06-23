@@ -5,7 +5,7 @@ import {
   IColor,
   NumberInput,
   Typography,
-} from '../../../uiKit/CabalExt';
+} from '../../../uikit/CabalExt';
 import { createStore } from 'solid-js/store';
 import { McParamsValues } from '../BuySellSettingsForm/types';
 
@@ -21,13 +21,13 @@ export const McParamsInput: Component<{
   });
 
   return (
-    <div class="ext-flex ext-flex-col ext-flex-1">
-      <div class="ext-mb-3 ext-flex-1">
-        <Typography size={FontSize.lg} weight={FW.bold} cn="ext-text-lg">
+    <div class="e:flex e:flex-col e:flex-1">
+      <div class="e:mb-3 e:flex-1">
+        <Typography size={FontSize.lg} weight={FW.bold} cn="e:text-lg">
           MC % parameters
         </Typography>
       </div>
-      <div class="ext-flex ext-w-full ext-gap-3">
+      <div class="e:flex e:w-full e:gap-3">
         <div>
           <NumberInput
             value={store.values[0]}

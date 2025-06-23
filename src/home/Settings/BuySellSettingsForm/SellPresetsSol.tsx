@@ -1,7 +1,7 @@
 import { Component, createEffect } from 'solid-js';
-import { IColor, IIcon, NumberInput } from '../../../uiKit/CabalExt';
+import { IColor, IIcon, NumberInput } from '../../../uikit/CabalExt';
 import { createStore } from 'solid-js/store';
-import { SellPresetsSolValues } from '../types';
+import { SellPresetsSolValues } from './types';
 
 export const SellPresetsSol: Component<{
   value: SellPresetsSolValues;
@@ -16,7 +16,7 @@ export const SellPresetsSol: Component<{
   });
   return (
     <div>
-      <div class="ext-flex ext-gap-3">
+      <div class="e:flex e:gap-3">
         <div>
           <NumberInput
             value={store.values[0]}
@@ -42,7 +42,7 @@ export const SellPresetsSol: Component<{
           />
         </div>
       </div>
-      <div class="ext-flex ext-gap-3 ext-mt-2">
+      <div class="e:flex e:gap-3 e:mt-2">
         <div>
           <NumberInput
             value={store.values[2]}

@@ -13,22 +13,21 @@ type TextInputProps = JSX.InputHTMLAttributes<HTMLInputElement> & {
 };
 
 export const TextInput: Component<TextInputProps> = (props) => {
-  const commonInputCN =
-    'ext-w-full ext-text-xs ext-leading-none ext-outline-none';
+  const commonInputCN = 'e:w-full e:text-xs e:leading-none e:outline-none';
   const inputColor = {
-    'ext-bg-green-100': props.color === IColor.green,
-    'ext-bg-red-100': props.color === IColor.red,
-    'ext-bg-black-100 ext-text-white': props.color === IColor.grey,
+    'e:bg-green-100': props.color === IColor.green,
+    'e:bg-red-100': props.color === IColor.red,
+    'e:bg-black-100 e:text-white': props.color === IColor.grey,
   };
   const fieldContainer =
-    'ext-flex ext-items-center ext-pr-3 ext-border ext-py-[11px] ext-pl-4';
+    'e:flex e:items-center e:pr-3 e:border e:py-[11px] e:pl-4';
   const containerColor = {
-    'ext-bg-green-100 ext-border-green-500': props.color === IColor.green,
-    'ext-bg-red-100 ext-border-red-500': props.color === IColor.red,
-    'ext-bg-black-100 ext-border-black-200': props.color === IColor.grey,
+    'e:bg-green-100 e:border-green-500': props.color === IColor.green,
+    'e:bg-red-100 e:border-red-500': props.color === IColor.red,
+    'e:bg-black-100 e:border-black-200': props.color === IColor.grey,
   };
   return (
-    <TextField class="ext-w-full" value={props.value} onChange={props.onChange}>
+    <TextField class="e:w-full" value={props.value} onChange={props.onChange}>
       <div class={cn(fieldContainer, containerColor)}>
         <TextField.Input
           placeholder={props.placeholder}

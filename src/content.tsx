@@ -1,6 +1,6 @@
 import { render } from 'solid-js/web';
 import { Content } from './ContentApp';
-import './styles.css';
+
 import { getTokenGMGNAI } from './utils/getTokenGMGNAI';
 
 // const linkElement = document.querySelector(

@@ -14,7 +14,7 @@ const TradeDirSelector: Component<TradeDirSelectorProps> = ({
   onSelect,
 }) => {
   return (
-    <div class="ext-flex ext-gap-[7px] ext-mb-[15px]">
+    <div class="e:flex e:gap-[7px] e:mb-[15px]">
       <TradeTabButton
         mode={TradeDir.Buy}
         active={isBuy(getDir())}

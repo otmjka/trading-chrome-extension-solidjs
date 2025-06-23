@@ -10,14 +10,14 @@ type StatsCellProps = {
 };
 
 const StatsCell: Component<StatsCellProps> = (props) => (
-  <div class="ext-flex ext-gap-1 ext-pr-1 ext-border-r ext-items-center">
+  <div class="e:flex e:gap-1 e:pr-1 e:border-r e:items-center">
     <div>
       <img src={statIcons[props.icon]} alt="props.icon" />
     </div>
     <div
-      class={cn('ext-text-xs', {
-        [`ext-text-gray-300`]: props.color === 'gray',
-        [`ext-text-purple-500`]: props.color === 'purple',
+      class={cn('e:text-xs', {
+        [`e:text-gray-300`]: props.color === 'gray',
+        [`e:text-purple-500`]: props.color === 'purple',
       })}
     >
       {props.value}

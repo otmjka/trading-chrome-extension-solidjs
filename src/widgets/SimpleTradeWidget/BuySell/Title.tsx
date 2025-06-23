@@ -8,8 +8,8 @@ export const Title: Component<{
   right: string;
 }> = (props) => {
   const common = {
-    ['ext-flex ext-gap-2']: !!props.left && !!props.right,
-    ['ext-flex']: !props.left || !props.right,
+    ['e:flex e:gap-2']: !!props.left && !!props.right,
+    ['e:flex']: !props.left || !props.right,
   };
   return (
     <div class={cn(common)}>

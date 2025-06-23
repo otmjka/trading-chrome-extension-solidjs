@@ -24,13 +24,13 @@ export const TxProcessorsForm: Component = () => {
     console.log(value());
   });
   return (
-    <Paper cn="ext-bg-black ext-w-[422px]">
-      <div class="ext-flex ext-mb-5">
+    <Paper cn="e:bg-black e:w-[422px]">
+      <div class="e:flex e:mb-5">
         <div>
           <Typography size={FontSize.xl2}>AutoLimits Settings</Typography>
         </div>
       </div>
-      <div class="ext-flex ext-flex-col ext-gap-5 ext-mb-5">
+      <div class="e:flex e:flex-col e:gap-5 e:mb-5">
         <For each={items}>
           {(item) => {
             return <SwitchInput item={item} />;

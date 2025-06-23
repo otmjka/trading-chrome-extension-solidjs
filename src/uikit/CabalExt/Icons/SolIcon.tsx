@@ -7,7 +7,7 @@ const sol = chrome.runtime.getURL('assets2/sol.svg');
 export const SolIcon: Component<{ cn?: string; noStyles?: boolean }> = (
   props,
 ) => {
-  const common = props.noStyles ? '' : 'ext-w-6 ext-h-4';
+  const common = props.noStyles ? '' : 'e:w-6 e:h-4';
   return (
     <div class={cn(common, props.cn)}>
       <img src={sol} alt="sol" />

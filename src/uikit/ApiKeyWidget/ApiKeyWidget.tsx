@@ -44,7 +44,7 @@ const ApiKeyWidget: Component<{ onApiKey: (apiKey: string) => void }> = ({
 
   return (
     <form>
-      <div class="ext-flex ext-justify-center ext-mt-4 ext-w-full">
+      <div class="e:flex e:justify-center e:mt-4 e:w-full">
         <TextInput
           color={IColor.grey}
           placeholder="Paste API secret key from Telegram Bot"
@@ -56,7 +56,7 @@ const ApiKeyWidget: Component<{ onApiKey: (apiKey: string) => void }> = ({
           }}
         />
       </div>
-      <div class="ext-flex ext-justify-center ext-mt-4 ext-w-full">
+      <div class="e:flex e:justify-center e:mt-4 e:w-full">
         <SaveButton
           color={color()}
           type="button"

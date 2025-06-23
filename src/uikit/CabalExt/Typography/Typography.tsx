@@ -3,27 +3,27 @@ import { Component, JSX } from 'solid-js';
 import cn from 'classnames';
 
 export enum TextColor {
-  white = 'ext-text-white',
-  green = 'ext-text-green-500',
-  red = 'ext-text-red-500',
-  black = 'ext-text-black',
-  b200 = 'ext-text-black-200',
-  b300 = 'ext-text-black-300',
+  white = 'e:text-white',
+  green = 'e:text-green-500',
+  red = 'e:text-red-500',
+  black = 'e:text-black',
+  b200 = 'e:text-black-200',
+  b300 = 'e:text-black-300',
   inherit = '',
 }
 
 export enum FontSize {
-  xl2 = 'ext-text-2xl',
-  lg = 'ext-text-lg',
-  sm = 'ext-text-sm',
-  xs = 'ext-text-xs',
+  xl2 = 'e:text-2xl',
+  lg = 'e:text-lg',
+  sm = 'e:text-sm',
+  xs = 'e:text-xs',
 }
 
 export enum FW {
-  semi = 'ext-font-semibold',
-  bold = 'ext-font-bold',
-  normal = 'ext-font-normal',
-  md = 'ext-font-medium',
+  semi = 'e:font-semibold',
+  bold = 'e:font-bold',
+  normal = 'e:font-normal',
+  md = 'e:font-medium',
 }
 
 type TypographyProps = {
@@ -42,9 +42,9 @@ export const Typography: Component<TypographyProps> = (props) => {
     color = TextColor.white,
     weight = FW.normal,
   } = props;
-  const upper = props.upper ? 'ext-uppercase' : '';
-  const commonClasses = 'ext-font-chakra';
-  const nowrap = props.nowrap ? 'ext-whitespace-nowrap' : '';
+  const upper = props.upper ? 'e:uppercase' : '';
+  const commonClasses = 'e:font-chakra';
+  const nowrap = props.nowrap ? 'e:whitespace-nowrap' : '';
   return (
     <div
       class={cn(commonClasses, color, size, weight, upper, nowrap, props.cn)}

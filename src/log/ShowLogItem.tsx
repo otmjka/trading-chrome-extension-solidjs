@@ -13,18 +13,18 @@ const ShowLogItem: Component<{ logItem: LogRecord }> = ({ logItem }) => {
     logItem.type === 'tokenTradeStats';
   const [show, setShow] = createSignal<boolean>(false);
   return (
-    <div class="ext-flex ext-flex-col">
-      <div class="ext-flex">
+    <div class="e:flex e:flex-col">
+      <div class="e:flex">
         <div>{logItem.type}</div>
         <div>
           <button
-            class="ext-bg-blue-500"
+            class="e:bg-blue-500"
             onClick={() => setShow((prev) => !prev)}
           >{`${show() ? '[[X]]' : '^^^'}`}</button>
         </div>
       </div>
       <Show when={showStrinify && show()}>
-        <div class="ext-bg-blue-600 ext-text-[9px]">
+        <div class="e:bg-blue-600 e:text-[9px]">
           {JSON.stringify(logItem.event, null, 2)}
         </div>
       </Show>

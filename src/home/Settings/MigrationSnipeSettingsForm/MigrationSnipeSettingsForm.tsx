@@ -59,14 +59,14 @@ export const MigrationSnipeSettingsForm: Component = () => {
   const handleSellSlippageChange = (newValue: string) =>
     setbSettingsBSStore('sellSlippage', newValue);
   return (
-    <Paper cn="ext-bg-black ext-w-[422px]">
-      <div class="ext-mb-8">
+    <Paper cn="e:bg-black e:w-[422px]">
+      <div class="e:mb-8">
         <Typography size={FontSize.xl2}>Migration Snipe Settings</Typography>
       </div>
       <div>
-        <div class="ext-flex ext-gap-5 ext-mb-8">
+        <div class="e:flex e:gap-5 e:mb-8">
           <div>
-            <div class="ext-mb-3">
+            <div class="e:mb-3">
               <S.CHeading dir={S.Dir.buy} left="Buy" right="Amount" />
             </div>
             <div>
@@ -79,7 +79,7 @@ export const MigrationSnipeSettingsForm: Component = () => {
             </div>
           </div>
           <div>
-            <div class="ext-mb-3">
+            <div class="e:mb-3">
               <S.CHeading left="Sell" right="Amount" />
             </div>
             <div>
@@ -92,9 +92,9 @@ export const MigrationSnipeSettingsForm: Component = () => {
             </div>
           </div>
         </div>
-        <div class="ext-flex ext-gap-5 ext-mb-8">
+        <div class="e:flex e:gap-5 e:mb-8">
           <div>
-            <div class="ext-mb-3">
+            <div class="e:mb-3">
               <S.CHeading dir={S.Dir.buy} left="Buy" right="Tip" />
             </div>
             <div>
@@ -107,7 +107,7 @@ export const MigrationSnipeSettingsForm: Component = () => {
             </div>
           </div>
           <div>
-            <div class="ext-mb-3">
+            <div class="e:mb-3">
               <S.CHeading left="Sell" right="Tip" />
             </div>
             <div>
@@ -120,9 +120,9 @@ export const MigrationSnipeSettingsForm: Component = () => {
             </div>
           </div>
         </div>
-        <div class="ext-flex ext-gap-5 ext-mb-8">
+        <div class="e:flex e:gap-5 e:mb-8">
           <div>
-            <div class="ext-mb-3">
+            <div class="e:mb-3">
               <S.CHeading dir={S.Dir.buy} left="Buy" right="Priority Fee" />
             </div>
             <div>
@@ -135,7 +135,7 @@ export const MigrationSnipeSettingsForm: Component = () => {
             </div>
           </div>
           <div>
-            <div class="ext-mb-3">
+            <div class="e:mb-3">
               <S.CHeading left="Sell" right="Priority Fee" />
             </div>
             <div>
@@ -148,9 +148,9 @@ export const MigrationSnipeSettingsForm: Component = () => {
             </div>
           </div>
         </div>
-        <div class="ext-flex ext-gap-5 ext-mb-8">
+        <div class="e:flex e:gap-5 e:mb-8">
           <div>
-            <div class="ext-mb-3">
+            <div class="e:mb-3">
               <S.CHeading dir={S.Dir.buy} left="Buy" right="Slippage" />
             </div>
             <div>
@@ -163,7 +163,7 @@ export const MigrationSnipeSettingsForm: Component = () => {
             </div>
           </div>
           <div>
-            <div class="ext-mb-3">
+            <div class="e:mb-3">
               <S.CHeading left="Sell" right="Slippage" />
             </div>
             <div>

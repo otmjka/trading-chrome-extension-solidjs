@@ -9,10 +9,10 @@ type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const SolAmountButton: Component<ButtonProps> = (props) => {
   const common =
-    'ext-w-[56px] ext-text-xs ext-whitespace-nowrap ext-py-[6px] ext-text-white ext-text-center ext-text-base ext-rounded-lg ext-font-medium';
+    'e:w-[56px] e:text-xs e:whitespace-nowrap e:py-[6px] e:text-white e:text-center e:text-base e:rounded-lg e:font-medium';
   const unactive =
-    'ext-bg-green-100 ext-border ext-border-green-500 hover:ext-bg-green-500 ext-transition ext-ease-in ext-duration-200';
-  const active = 'ext-bg-green-400';
+    'e:bg-green-100 e:border e:border-green-500 hover:e:bg-green-500 e:transition e:ease-in e:duration-200';
+  const active = 'e:bg-green-400';
   return (
     <KobalteButton
       type={props.type ?? 'button'}

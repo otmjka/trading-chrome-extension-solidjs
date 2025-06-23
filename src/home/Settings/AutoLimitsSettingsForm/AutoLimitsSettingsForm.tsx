@@ -24,26 +24,26 @@ export const AutoLimitsSettingsForm: Component = () => {
     console.log(value());
   });
   return (
-    <Paper cn="ext-bg-black ext-w-[764px]">
+    <Paper cn="e:bg-black e:w-[764px]">
       <S.Header label={'AutoLimits Settings'} />
 
       <S.Row>
-        <S.Left cn="ext-flex-1">
-          <div class="ext-flex">
+        <S.Left cn="e:flex-1">
+          <div class="e:flex">
             <BtnGroup
-              itemCN={'ext-px-3 ext-py-2'}
+              itemCN={'e:px-3 e:py-2'}
               items={items}
               value={value()}
               onChange={setValue}
             />
           </div>
         </S.Left>
-        <S.Right cn="ext-flex ext-gap-1">
+        <S.Right cn="e:flex e:gap-1">
           <div>
             <TooltipIcon />
           </div>
           <div>
-            <Switch class="ext-flex ext-items-center ext-gap-2">
+            <Switch class="e:flex e:items-center e:gap-2">
               <Switch.Label>
                 <Typography weight={FW.semi} upper>
                   Set AutoLimits if I trade
@@ -51,10 +51,10 @@ export const AutoLimitsSettingsForm: Component = () => {
               </Switch.Label>
               <Switch.Description />
               <Switch.ErrorMessage />
-              <div class="ext-relative">
+              <div class="e:relative">
                 <Switch.Input />
-                <Switch.Control class="ext-py-0.5 ext-px-0.5 ext-w-11 ext-h-5 ext-rounded-full ext-bg-black-100 ext-transition-colors ext-duration-200 ext-relative ext-outline-none ui-checked:ext-bg-green-800 ui-disabled:ext-opacity-50 ext-cursor-pointer ext-block">
-                  <Switch.Thumb class="ext-size-4 ext-bg-black-400 ext-rounded-[10px] ext-transition-transform ext-duration-200 ext-transform ui-checked:ext-translate-x-6 ui-checked:ext-bg-green-500" />
+                <Switch.Control class="e:py-0.5 e:px-0.5 e:w-11 e:h-5 e:rounded-full e:bg-black-100 e:transition-colors e:duration-200 e:relative e:outline-none ui-checked:e:bg-green-800 ui-disabled:e:opacity-50 e:cursor-pointer e:block">
+                  <Switch.Thumb class="e:size-4 e:bg-black-400 e:rounded-[10px] e:transition-transform e:duration-200 e:transform ui-checked:e:translate-x-6 ui-checked:e:bg-green-500" />
                 </Switch.Control>
               </div>
             </Switch>
@@ -64,7 +64,7 @@ export const AutoLimitsSettingsForm: Component = () => {
       </S.Row>
 
       <S.Row>
-        <div class="ext-flex ext-gap-1">
+        <div class="e:flex e:gap-1">
           <div>
             <S.CHeading left="Sell" right="Limits Orders" />
           </div>
@@ -80,7 +80,7 @@ export const AutoLimitsSettingsForm: Component = () => {
       </S.Row>
 
       <S.Row>
-        <div class="ext-flex ext-gap-1">
+        <div class="e:flex e:gap-1">
           <div>
             <S.CHeading dir={S.Dir.buy} left="Buy" right="Limits Orders" />
           </div>

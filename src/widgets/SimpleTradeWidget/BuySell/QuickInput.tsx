@@ -13,8 +13,8 @@ import {
 
 export const QuickInput = () => {
   return (
-    <div class="ext-flex ext-items-end ext-gap-2 ext-mt-3">
-      <div class="ext-flex-1">
+    <div class="e:flex e:items-end e:gap-2 e:mt-3">
+      <div class="e:flex-1">
         <NumberInput
           placeholder="Enter SOL amount"
           size={InputSize.sm}
@@ -26,7 +26,7 @@ export const QuickInput = () => {
       <div>
         <div>
           <Button color={BColor.green} full clipped={true}>
-            <div class="ext-px-4 ext-py-1.5">
+            <div class="e:px-4 e:py-1.5">
               <Typography
                 weight={FW.semi}
                 nowrap

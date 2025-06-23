@@ -127,7 +127,7 @@ const TradeWidget: Component = () => {
               )}
             </For>
           </StatsContainer>
-          <Tabs.Content class="ext-tabs__content" value="market">
+          <Tabs.Content class="e:tabs__content" value="market">
             <Show when={isShowBuyButton()}>
               <div>
                 <TradeTabButton
@@ -155,13 +155,13 @@ const TradeWidget: Component = () => {
             </Show>
 
             {/* <Show when={oneTokenPriceInSol() > 0}>
-              <div class="ext-text-[9px] ext-text-white">
+              <div class="e:te:[9px] e:te:white">
                 {amountSol()} SOL ≈{' '}
                 {(amountSol() / oneTokenPriceInSol()).toFixed(2)} {ticker()}
               </div>
             </Show> */}
 
-            <div class="ext-flex ext-w-full ext-justify-between ext-mt-[10px]">
+            <div class="e:flex e:w-full e:justify-between e:mt-[10px]">
               <For each={statsBottom()}>
                 {({ title, color, value }) => (
                   <BottomStatsCell title={title} color={color} value={value} />
@@ -175,13 +175,13 @@ const TradeWidget: Component = () => {
               />
             </div>
           </Tabs.Content>
-          <Tabs.Content class="ext-tabs__content" value="limit">
+          <Tabs.Content class="e:tabs__content" value="limit">
             Dashboard details
           </Tabs.Content>
-          <Tabs.Content class="ext-tabs__content" value="trailing">
+          <Tabs.Content class="e:tabs__content" value="trailing">
             Settings details
           </Tabs.Content>
-          <Tabs.Content class="ext-tabs__content" value="autolimit">
+          <Tabs.Content class="e:tabs__content" value="autolimit">
             Contact details
           </Tabs.Content>
         </Tabs>

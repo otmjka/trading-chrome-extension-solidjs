@@ -21,7 +21,7 @@ const TradeInput: Component<{
         value={value()}
         onInput={handleOnInput}
         onChange={props.onChange}
-        class="ext-bg-gray-100 ext-border-green-500 ext-border ext-px-[20px] ext-py-[10px] ext-text-white ext-text-xs ext-w-full ext-rounded-[5px]"
+        class="e:bg-gray-100 e:border-green-500 e:border e:px-[20px] e:py-[10px] e:text-white e:text-xs e:w-full e:rounded-[5px]"
         placeholder="Enter SOL amount"
       />
     </TextField>

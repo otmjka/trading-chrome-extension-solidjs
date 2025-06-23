@@ -44,7 +44,7 @@ export default function Popup() {
   });
 
   return (
-    <Paper p="4" cn="ext-min-w-[288px]">
+    <Paper p="4" cn="e:min-w-[288px]">
       <Show when={contentAppStore.isReady}>
         <PopupToolBar onLogout={logout} onSettings={openFull} />
       </Show>
@@ -52,7 +52,7 @@ export default function Popup() {
         <CabalLogoIcon />
       </div>
       <Show when={!contentAppStore.isReady && !contentAppStore.shouldSetApiKey}>
-        <div class="ext-flex ext-flex-1 ext-items-center ext-justify-center">
+        <div class="e:flex e:flex-1 e:items-center e:justify-center">
           <Typography children="loading..." />
         </div>
       </Show>

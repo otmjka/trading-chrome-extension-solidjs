@@ -11,9 +11,9 @@ import { ShareIcon } from '../../../uikit/CabalExt/Icons';
 
 export const ShareButton: Component<{ color?: BColor }> = (props) => {
   return (
-    <div class="ext-w-[103px]">
+    <div class="e:w-[103px]">
       <Button full variant={BV.outline}>
-        <span class="ext-flex ext-gap-2 ext-px-2 ext-py-[5px] ext-items-center">
+        <span class="e:flex e:gap-2 e:px-2 e:py-[5px] e:items-center">
           <ShareIcon />
           <Typography weight={FW.md} size={FontSize.sm} children={'Share'} />
         </span>

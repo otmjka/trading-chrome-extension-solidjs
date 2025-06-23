@@ -13,9 +13,9 @@ export const BtnGroup: Component<{
   onChange: (item: string | null) => void;
 }> = (props) => {
   const groupClass =
-    'ext-flex ext-bg-black ext-border ext-border-black-300 ext-divide-x ext-divide-black-300 ext-overflow-hidden';
+    'e:flex e:bg-black e:border e:border-black-300 e:divide-x e:divide-black-300 e:overflow-hidden';
   const commonClass =
-    'ext-text-white ext-outline-none ext-flex ext-justify-center ext-items-center ui-pressed:ext-bg-black-300 ui-pressed:ext-text-black ';
+    'e:text-white e:outline-none e:flex e:justify-center e:items-center ui-pressed:e:bg-black-300 ui-pressed:e:text-black ';
   return (
     <ToggleGroup
       value={props.value}

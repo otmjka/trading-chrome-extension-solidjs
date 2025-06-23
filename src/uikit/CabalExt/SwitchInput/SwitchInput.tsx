@@ -2,22 +2,22 @@ import { Component } from 'solid-js';
 
 import { Switch } from '@kobalte/core/switch';
 
-import { FontSize, FW, Typography } from '../../../uiKit/CabalExt';
+import { FontSize, FW, Typography } from '../../../uikit/CabalExt';
 
 export const SwitchInput: Component<{ item: { label: string } }> = (props) => {
   return (
-    <Switch class="ext-flex ext-items-center ext-gap-2">
-      <Switch.Label class="ext-flex-1">
+    <Switch class="e:flex e:items-center e:gap-2">
+      <Switch.Label class="e:flex-1">
         <Typography size={FontSize.lg} weight={FW.semi}>
           {props.item.label}
         </Typography>
       </Switch.Label>
       <Switch.Description />
       <Switch.ErrorMessage />
-      <div class="ext-relative">
+      <div class="e:relative">
         <Switch.Input />
-        <Switch.Control class="ext-py-0.5 ext-px-0.5 ext-w-11 ext-h-5 ext-rounded-full ext-bg-black-100 ext-transition-colors ext-duration-200 ext-relative ext-outline-none ui-checked:ext-bg-green-800 ui-disabled:ext-opacity-50 ext-cursor-pointer ext-block">
-          <Switch.Thumb class="ext-size-4 ext-bg-black-400 ext-rounded-[10px] ext-transition-transform ext-duration-200 ext-transform ui-checked:ext-translate-x-6 ui-checked:ext-bg-green-500" />
+        <Switch.Control class="e:py-0.5 e:px-0.5 e:w-11 e:h-5 e:rounded-full e:bg-black-100 e:transition-colors e:duration-200 e:relative e:outline-none ui-checked:e:bg-green-800 ui-disabled:e:opacity-50 e:cursor-pointer e:block">
+          <Switch.Thumb class="e:size-4 e:bg-black-400 e:rounded-[10px] e:transition-transform e:duration-200 e:transform ui-checked:e:translate-x-6 ui-checked:e:bg-green-500" />
         </Switch.Control>
       </div>
     </Switch>

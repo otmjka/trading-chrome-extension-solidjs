@@ -6,7 +6,7 @@ type StatsContainerProps = {
 };
 
 const StatsContainer: Component<StatsContainerProps> = (props) => (
-  <div class="ext-flex ext-justify-center ext-w-full ext-gap-1 ext-my-4">
+  <div class="e:flex e:justify-center e:w-full e:gap-1 e:my-4">
     {props.children}
   </div>
 );

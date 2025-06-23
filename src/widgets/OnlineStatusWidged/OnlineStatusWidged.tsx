@@ -34,16 +34,16 @@ export const OnlineStatusWidged = () => {
   });
 
   return (
-    <div class="ext-flex ext-gap-4">
-      <div class="ext-flex ext-items-center">
+    <div class="e:flex e:gap-4">
+      <div class="e:flex e:items-center">
         <span
-          class={cn('ext-relative ext-w-4 ext-h-4 ext-p-2 ext-rounded-full', {
-            'ext-bg-green-500': !!cabalUserActivity.status,
-            'ext-bg-red-500': !cabalUserActivity.status,
-            'ext-animate-pulse-once': isPulsingUA(),
+          class={cn('e:relative e:w-4 e:h-4 e:p-2 e:rounded-full', {
+            'e:bg-green-500': !!cabalUserActivity.status,
+            'e:bg-red-500': !cabalUserActivity.status,
+            'e:animate-pulse-once': isPulsingUA(),
           })}
         />
-        <p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50">
+        <p class="e:ml-2 e:text-gray-700 e:text-md dark:e:text-gray-50">
           <Show when={user()} fallback={'offline'}>
             {' '}
             user
@@ -51,15 +51,15 @@ export const OnlineStatusWidged = () => {
         </p>
       </div>
 
-      <div class="ext-flex ext-items-center">
+      <div class="e:flex e:items-center">
         <span
-          class={cn('ext-relative ext-w-4 ext-h-4 ext-p-2 ext-rounded-full', {
-            'ext-bg-green-500': !!cabalTradeStream.status,
-            'ext-bg-red-500': !cabalTradeStream.status,
-            'ext-animate-pulse-once': isPulsingTrade(),
+          class={cn('e:relative e:w-4 e:h-4 e:p-2 e:rounded-full', {
+            'e:bg-green-500': !!cabalTradeStream.status,
+            'e:bg-red-500': !cabalTradeStream.status,
+            'e:animate-pulse-once': isPulsingTrade(),
           })}
         />
-        <p class="ext-ml-2 ext-text-gray-700 ext-text-md dark:ext-text-gray-50">
+        <p class="e:ml-2 e:text-gray-700 e:text-md dark:e:text-gray-50">
           <Show when={trades()} fallback={'offline'}>
             {' '}
             trades

@@ -14,20 +14,20 @@ export const TopSettingsNav: Component<{
     props.setSelectedTab(value as TabNames);
   };
   return (
-    <div class="ext-pt-6 ext-pb-7 ext-bg-black ext-flex-1">
+    <div class="e:pt-6 e:pb-7 e:bg-black e:flex-1">
       {' '}
       {/* offset */}
-      <div class="ext-flex ext-justify-center">
+      <div class="e:flex e:justify-center">
         <Tabs value={props.selectedTab} onChange={handleSelectTab}>
-          <div class="ext-flex">
-            <div class="ext-ext-bg-red-300">
-              <div class="ext-relative">
+          <div class="e:flex">
+            <div class="e:bg-red-300">
+              <div class="e:relative">
                 <Tabs.List>
                   <For each={navItems}>
                     {(nav) => {
                       return (
                         <Tabs.Trigger
-                          class="ext-px-2 ext-py-[11px]"
+                          class="e:px-2 e:py-[11px]"
                           value={nav.value}
                         >
                           <Typography
@@ -40,7 +40,7 @@ export const TopSettingsNav: Component<{
                     }}
                   </For>
 
-                  <Tabs.Indicator class="ext-h-[1px] ext-bg-white ext-absolute ext-bottom-[-2px] ext-transition-all" />
+                  <Tabs.Indicator class="e:h-[1px] e:bg-white e:absolute e:bottom-[-2px] e:transition-all" />
                 </Tabs.List>
               </div>
             </div>

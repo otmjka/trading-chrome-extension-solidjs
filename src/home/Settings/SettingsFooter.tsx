@@ -33,17 +33,17 @@ const footerItems = [
 
 export const SettingsFooter = () => {
   return (
-    <div class="ext-flex ext-justify-center ext-items-center ext-gap-7 ext-pt-7">
-      <div class="ext-flex">
+    <div class="e:flex e:justify-center e:items-center e:gap-7 e:pt-7">
+      <div class="e:flex">
         <CabalLogoIcon />
       </div>
-      <div class="ext-flex ext-gap-4">
+      <div class="e:flex e:gap-4">
         <For each={footerItems}>
           {(footerItem) => {
             return (
               <div>
                 <a href={footerItem.href}>
-                  <div class="ext-flex ext-gap-1">
+                  <div class="e:flex e:gap-1">
                     <div>{footerItem.icon}</div>
                     <div>
                       <Typography children={footerItem.label} />

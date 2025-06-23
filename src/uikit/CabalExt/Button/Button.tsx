@@ -32,31 +32,31 @@ export const Button: Component<ButtonProps> = (props) => {
     variant,
     ...restProps
   } = props;
-  const commonCN = 'ext-flex';
+  const commonCN = 'e:flex';
 
   const variantCN = {
-    'ext-border ext-border-white': variant === BV.outline,
+    'e:border e:border-white ebrdwhite': variant === BV.outline,
   };
 
   const colorCN = {
-    'ext-bg-green-100 ext-border ext-border-green-400':
+    'e:bg-green-100 e:border e:border-green-400 ebrd-green-400':
       props.color === BColor.green &&
       !props.clipped &&
       props.variant !== BV.contained,
-    'ext-bg-green-400': props.color === BColor.green && props.clipped,
-    'ext-bg-red-100 ext-border ext-border-red-500':
+    'e:bg-green-400 ebggreen400': props.color === BColor.green && props.clipped,
+    'e:bg-red-100 ebgred100 e:border e:border-red-500 ebrd-red-500':
       props.color === BColor.red && !props.clipped,
-    'ext-bg-red-500': props.color === BColor.red && props.clipped,
-    'ext-bg-green-500':
+    'e:bg-red-500 ebgred500': props.color === BColor.red && props.clipped,
+    'e:bg-green-500 ebggreen500':
       props.color === BColor.green && props.variant === BV.contained,
   };
 
   const hsizeCN = {
-    'ext-w-full': props.full,
+    'e:w-full': props.full,
   };
 
   const clippedCN = {
-    'ext-clip-path-[polygon(0%_0%,100%_0%,100%_70%,80%_100%,0%_100%)]':
+    'e:clip-path-[polygon(0%_0%,100%_0%,100%_70%,80%_100%,0%_100%)]':
       props.clipped,
   };
   const style = props.clipped
@@ -76,11 +76,11 @@ export const Button: Component<ButtonProps> = (props) => {
       <Show when={!icon}>{children}</Show>
 
       <Show when={!!icon}>
-        <span class="ext-w-full ext-flex ext-px-2 ext-py-1.5 ext-items-center">
-          <span class="ext-flex-1 ext-justify-start">
+        <span class="e:w-full e:flex e:px-2 epx2 e:py-1.5 epy1-5 e:items-center">
+          <span class="e:flex-1 e:justify-start">
             <span>{children}</span>
           </span>
-          <span class="ext-justify-end">
+          <span class="e:justify-end">
             <span>{icon}</span>
           </span>
         </span>

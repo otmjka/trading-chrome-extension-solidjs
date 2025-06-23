@@ -1,10 +1,11 @@
+import { BColor } from '../Button';
 import { IColor, IIcon, InputSize, NumberInput } from '../NumberInput';
 import { SaveButton } from '../SaveButton';
 import { FontSize } from '../Typography';
 
 export const QuickBuyAmount = () => {
   return (
-    <div class="ext-flex ext-items-end ext-gap-2 ext-mt-6">
+    <div class="e:flex e:items-end e:gap-2 e:mt-6">
       <div>
         <NumberInput
           label={'Quick Buy Amount'}
@@ -18,6 +19,7 @@ export const QuickBuyAmount = () => {
       <div>
         <div>
           <SaveButton
+            color={BColor.green}
             nowrap
             size={FontSize.sm}
             onClick={() => {
